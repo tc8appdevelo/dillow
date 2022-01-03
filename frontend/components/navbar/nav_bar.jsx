@@ -21,7 +21,7 @@ class NavBar extends React.Component {
         return (
             <div>
                 <button onClick={this.handleLogout}>logout</button>
-
+                
                 <ProfileButton />        
             </div>
 
