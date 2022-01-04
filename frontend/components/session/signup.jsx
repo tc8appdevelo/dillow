@@ -11,6 +11,7 @@ class Signup extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.loginDemoUser = this.loginDemoUser.bind(this);
+        this.loginDemoUserTestPage = this.loginDemoUserTestPage.bind(this);
     }
 
     handleInput(type) {
@@ -22,16 +23,20 @@ class Signup extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.formAction(this.state)
-            .then(this.props.history.push('/'))
     }
 
     loginDemoUser() {
         this.props.loginAction({
             email: "demo_user",
             password: "password"
-        }).then(this.props.history.push('/'))
+        })
     }
-
+    loginDemoUserTestPage() {
+        this.props.loginAction({
+            email: "demo_user",
+            password: "password"
+        }).then(this.props.history.push('/test'))
+    }
 
 
     render() {
@@ -65,6 +70,7 @@ class Signup extends React.Component {
                 </form>
                 <Link to={this.props.buttonRoute}>{`${buttonText}`}</Link>
                 <button onClick={this.loginDemoUser}>Login as demo user</button>
+                <button onClick={this.loginDemoUserTestPage}>Login and go to test nav page</button>
             </div>
         );
     }

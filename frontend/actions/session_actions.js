@@ -12,9 +12,12 @@ const receiveCurrentUser = user => ({
     user,
 })
 
-const logoutCurrentUser = () => ({
-    type: LOGOUT_CURRENT_USER
-})
+const logoutCurrentUser = () => {
+
+    return {
+        type: LOGOUT_CURRENT_USER
+    }
+}
 
 export const signup = user => dispatch => postUser(user)
     .then(user => dispatch(receiveCurrentUser(user)));
