@@ -6,7 +6,9 @@ import Signup from './signup';
 
 const mapDispatchToProps = dispatch => ({
     formAction: user => dispatch(login(user)),
-    formType: "Login"
+    loginAction: user => dispatch(login(user)),
+    formType: "Login",
+    buttonRoute: "/signup"
 })
 
 

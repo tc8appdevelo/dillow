@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class Signup extends React.Component {
     constructor(props) {
@@ -9,6 +10,7 @@ class Signup extends React.Component {
             password: '',
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.loginDemoUser = this.loginDemoUser.bind(this);
     }
 
     handleInput(type) {
@@ -23,7 +25,22 @@ class Signup extends React.Component {
             .then(this.props.history.push('/'))
     }
 
+    loginDemoUser() {
+        this.props.loginAction({
+            email: "demo_user",
+            password: "password"
+        }).then(this.props.history.push('/'))
+    }
+
+
+
     render() {
+        let buttonText;
+        if (this.props.formType === 'Create Account') {
+            buttonText = 'Go to Login';
+        } else {
+            buttonText = 'Create Account';
+        }
         return (
             <div className="session-form">
                 <h2>{this.props.formType}</h2>
@@ -46,6 +63,8 @@ class Signup extends React.Component {
 
                     <button onClick={this.handleSubmit}>Sign Up</button>
                 </form>
+                <Link to={this.props.buttonRoute}>{`${buttonText}`}</Link>
+                <button onClick={this.loginDemoUser}>Login as demo user</button>
             </div>
         );
     }

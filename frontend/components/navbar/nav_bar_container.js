@@ -9,13 +9,6 @@ const mSTP = state => ({
     currentUser: state.session.currentUser,
 });
 
-// const mSTP = state => {
-//     console.log("this ran mstp nav bar")
-//     return {
-//         currentUser: state.session.currentUser,
-//     }
-// }
-
 const mDTP = dispatch => ({
     logout: () => dispatch(logout()),
 })

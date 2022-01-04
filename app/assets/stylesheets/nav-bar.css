@@ -1,0 +1,28 @@
+
+a {
+    color: black;
+}
+.nav-bar {
+    display: flex;
+    background-color: rgb(118, 72, 227);
+    justify-content: space-evenly;
+    border-style: inset;
+    border-color: black;
+
+}
+/* .nav-bar :last-child {
+    margin-left: auto;
+} */
+.profile-button {
+    display: flex;
+    background-color: grey;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-login-box {
+    display: flex;
+    background-color: grey;
+    flex-direction: column;
+    align-items: center;
+}
