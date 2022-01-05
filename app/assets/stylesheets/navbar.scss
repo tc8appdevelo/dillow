@@ -1,7 +1,7 @@
-$font-color: darkslateblue;
+$font-color: black;
 $search-img-height: 480px;
 $search-img-width: 1611px;
-$font-size: 22px;
+$font-size: 18px;
 $margin: 10px;
 
 @mixin flex-row-center {
@@ -15,18 +15,56 @@ $margin: 10px;
     font-size: $font-size;
     margin: $margin;
     cursor: pointer;
+
+}
+// #bb {
+//     z-index: 10;
+//     width: 22px;
+//     height: 22px;
+//     padding-top: 33px;
+//     padding-left: 222px;
+//     position: fixed;
+    
+// }
+
+
+.spacer {
+    height: 22px;
+    background-color: white;
+    color: white;
+}
+
+#buy {
+    @include li-nav-button;
+}
+
+#dpd {
+    display: none;
+}
+
+#buy:hover ~ #dpd {
+    display: block;
 }
 
 a {
     color: black;
 }
 .nav-bar {
+    z-index: 2;
+    width: 100vw;
+    position: fixed;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+
     .nav-list {
+        padding-bottom: 10px;
+        z-index: 2;
         background-color: white;
         display: flex;
         align-items: center;
         justify-content: space-around;
+        border-bottom: .4px solid lightgrey;
         .right-buttons {
             .right-buttons-list {
                 @include flex-row-center;
@@ -59,8 +97,6 @@ a {
 
     width: 100%;
     border-radius: 1px;
-    border-style: dashed;
-    border-color: green;
     display: flex;
     justify-content: center;
     .search-picture {

@@ -1,0 +1,114 @@
+$is_displayed: none;
+$drop_border: 0.4px solid lightgrey;
+@mixin b_dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    background-color: white;
+    z-index: 2;
+}
+@mixin h_flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+#blk {
+    color: black
+}
+.text-black {
+    color: black;
+}
+.buy-wrapper {
+    position: relative;
+    display: inline-block;
+    border: 1px solid black;
+}
+
+.buy-button {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.buy-dropdown:hover {
+    display: flex;
+}
+#dropdown {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: flex-start;
+
+    padding-left: 155px;
+}
+
+#blk {
+    font: black;
+}
+
+.buy-dropdown {
+    @include b_dropdown;
+
+    div {
+        font-size: 18px;
+        padding: 12px;
+        color: blue;
+        min-width: 150px;
+        min-height: 22px;
+        text-align: left;
+    }
+    .blk {
+        color: black;
+    }
+
+}
+
+.homes-flex {
+    @include h_flex;
+    border-right: $drop_border;
+}
+.mid-flex {
+    @include h_flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-right: $drop_border;
+}
+.last-flex {
+    @include h_flex;
+    padding-left: 10px;
+}
+
+#dillow-title {
+    font-size: 55;
+}
+
+
+// .buy-dropdown {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     border: 2px solid black;
+//     background-color: white;
+//     width: 100vw;
+//     min-height: 333px;
+//     z-index: 2;
+
+// }
+
+
+
+// .hover-div:hover \ .buy-dropdown {
+//     display: block;
+// }
+
+// .buy-dropdown link:hover {
+//     background-color: rgb(181, 178, 178);
+//     color: darkblue;
+// }
+
+// .buy-button:hover .buy-dropdown {
+//     display: flex;
+// }

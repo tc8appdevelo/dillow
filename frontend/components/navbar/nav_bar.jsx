@@ -1,7 +1,7 @@
 import React from 'react';
 import CreateLoginBox from '../navbar/create_login_box';
 import { Link } from 'react-router-dom';
-
+import BuyDropdown from './buy_dropdown';
 
 
 
@@ -20,24 +20,24 @@ class NavBar extends React.Component {
 
     render() {
 
-        console.log(`props ${this.props}`)
-        console.log(`state ${this.state}`)
+        
         return (
+
+
             <nav className="nav-bar">
+                <div id="buy">Buy</div>
                 <ul className="nav-list">
 
                     <li className="left-buttons">
                         <ul className="left-buttons-list">
-                            <li className="buy-div">Buy
-
-                            </li>
+                            <div id="buy">Buy</div>
                             <li>Rent</li>
                             <li>Sell</li>
                             <li>Home Loans</li>
                             <li>Agent Finder</li>
                         </ul>
                     </li>
-                    <li><h1 className="title">dillow</h1></li>
+                    <div id="dillow-title">dillow</div>
                     <li className="right-buttons">
                         <ul className="right-buttons-list">
                             <li>Manage Rentals</li>
@@ -49,8 +49,13 @@ class NavBar extends React.Component {
                     </li>
 
                 </ul>
-
+                <div id="dpd">
+                <div className="spacer"></div>
+                    <BuyDropdown />
+                <div className="spacer"></div>
+                </div>
             </nav>
+
         )
     }
 }
