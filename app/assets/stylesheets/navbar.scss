@@ -1,0 +1,85 @@
+$font-color: darkslateblue;
+$search-img-height: 480px;
+$search-img-width: 1611px;
+$font-size: 22px;
+$margin: 10px;
+
+@mixin flex-row-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin li-nav-button {
+    color: $font-color;
+    font-size: $font-size;
+    margin: $margin;
+    cursor: pointer;
+}
+
+a {
+    color: black;
+}
+.nav-bar {
+    background-color: white;
+    .nav-list {
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .right-buttons {
+            .right-buttons-list {
+                @include flex-row-center;
+                li {
+                    @include li-nav-button;
+                }
+            }
+        }
+        .left-buttons {
+            .left-buttons-list {
+                @include flex-row-center;
+                li {
+                    @include li-nav-button;
+                }
+            }
+        }
+    }
+}
+.profile-link {
+    margin-left: $margin;
+}
+
+.create-login-box {
+    display: flex;
+    align-items: center;
+}
+
+
+.search-banner {
+
+    width: 100%;
+    border-radius: 1px;
+    border-style: dashed;
+    border-color: green;
+    display: flex;
+    justify-content: center;
+    .search-picture {
+        // position: fixed;
+        // left: 50%;
+        // top: auto;
+        width: $search-img-width;
+        background-image: url("alpine.png");
+        background-repeat: no-repeat;
+        height: $search-img-height;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .search-bar {
+            z-index: 1;
+            // display: block;
+            // margin-left: auto;
+            // margin-right: auto;
+        }
+    }
+
+}

@@ -1,7 +1,7 @@
 import React from 'react';
-import TestNavContainer from './oldbar/test_nav_container';
-
+import NavBarContainer from './navbar/nav_bar_container';
 import SearchBar from './search_bar/search_bar';
+
 class Splash extends React.Component {
     constructor(props) {
         super(props);
@@ -11,7 +11,7 @@ class Splash extends React.Component {
     render() {
         return (
             <div>
-                <TestNavContainer />
+                <NavBarContainer />
                 <SearchBar />
             </div>
         )

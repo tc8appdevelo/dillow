@@ -1,5 +1,5 @@
 
-a {
+/* a {
     color: black;
 }
 
@@ -65,16 +65,8 @@ ul {
     cursor: pointer;
     font-size: 22;
 }
-
-/* .profile-button {
-    display: flex;
-    size: flex-grow;
-    justify-content: space-between;
-    align-items: center;
-} */
 .profile-link {
     margin-left: 10px;
-
 }
 
 
@@ -85,3 +77,5 @@ ul {
     flex-direction: column;
     align-items: center;
 }
+
+*/
