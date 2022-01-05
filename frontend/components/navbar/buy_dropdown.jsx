@@ -1,10 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+
 class BuyDropdown extends React.Component {
     constructor(props) {
         super(props);
+        
     }
+
+    // state = { buyDropDownVisible: false, }
+    // toggleBuyDropDown = () => this.setState(state => ({
+    //     buyDropDownVisible: !buyDropDownVisible,
+    // }));
 
     render() {
         return (

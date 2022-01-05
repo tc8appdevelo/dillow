@@ -6,9 +6,8 @@ const mapDispatchToProps = dispatch => ({
     formAction: user => dispatch(signup(user)),
     loginAction: user => dispatch(login(user)),
     formType: "Create Account",
-    buttonRoute: "/login"
+    buttonRoute: "/"
 })
-
 
 export default connect(null, mapDispatchToProps)(Signup);
 

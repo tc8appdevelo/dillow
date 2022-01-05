@@ -15,7 +15,6 @@ $margin: 10px;
     font-size: $font-size;
     margin: $margin;
     cursor: pointer;
-
 }
 // #bb {
 //     z-index: 10;
@@ -38,12 +37,18 @@ $margin: 10px;
     @include li-nav-button;
 }
 
-#dpd {
+#popup {
     display: none;
 }
 
-#buy:hover ~ #dpd {
-    display: block;
+#popup.visible {
+    display: flex;
+    
+}
+
+
+#buy-hover:hover ~ #popup {
+    display: flex;
 }
 
 a {
@@ -59,7 +64,7 @@ a {
 
     .nav-list {
         padding-bottom: 10px;
-        z-index: 2;
+        z-index: 1;
         background-color: white;
         display: flex;
         align-items: center;
@@ -83,6 +88,11 @@ a {
         }
     }
 }
+
+#hov {
+    cursor: pointer;
+}
+
 .profile-link {
     margin-left: $margin;
 }

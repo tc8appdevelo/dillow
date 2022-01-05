@@ -1,10 +1,11 @@
 import React from 'react';
-import NavBarContainer from '../navbar/nav_bar_container'
+import NavBarContainer from '../navbar/nav_bar_container';
 import SearchBar from '../search_bar/search_bar';
 
-class Page extends React.Component {
+class Splash extends React.Component {
     constructor(props) {
         super(props);
+        this.state = this.props.currentUser
     }
 
     render() {
@@ -17,4 +18,4 @@ class Page extends React.Component {
     }
 }
 
-export default Page;
+export default Splash;

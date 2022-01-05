@@ -1,0 +1,32 @@
+#session-form-container {
+    width: 200px;
+    border-radius: 4px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    background-color: white;
+    position: absolute;
+}
+
+#session-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding:10px;
+}
+
+// position: sticky?, box sizing
+#loginPopup {
+    display: none;
+}
+
+#loginPopup.visible {
+    z-index: 1000;
+    display: flex;
+
+}

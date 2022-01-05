@@ -8,7 +8,7 @@ $drop_border: 0.4px solid lightgrey;
     margin-top: 20px;
     padding-top: 10px;
     background-color: white;
-    z-index: 2;
+    z-index: 1;
 }
 @mixin h_flex {
     display: flex;
@@ -50,7 +50,6 @@ $drop_border: 0.4px solid lightgrey;
 
 .buy-dropdown {
     @include b_dropdown;
-
     div {
         font-size: 18px;
         padding: 12px;
