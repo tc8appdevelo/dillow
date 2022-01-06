@@ -1,4 +1,4 @@
-$font-color: black;
+$font-color: blue;
 $search-img-height: 480px;
 $search-img-width: 1611px;
 $font-size: 18px;
@@ -6,25 +6,18 @@ $margin: 10px;
 
 @mixin flex-row-center {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 @mixin li-nav-button {
     color: $font-color;
     font-size: $font-size;
-    margin: $margin;
+    padding-left: 10px;
+    padding-right: 10px;
+
     cursor: pointer;
 }
-// #bb {
-//     z-index: 10;
-//     width: 22px;
-//     height: 22px;
-//     padding-top: 33px;
-//     padding-left: 222px;
-//     position: fixed;
-    
-// }
 
 
 .spacer {
@@ -43,12 +36,42 @@ $margin: 10px;
 
 #popup.visible {
     display: flex;
-    
+    cursor: pointer;
 }
 
+#toggleLoginPage {
+    color: $font-color;
+    font-size: $font-size;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#toggleProfileDropdown {
+    color: $font-color;
+    font-size: $font-size;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#profile-button {
+    display: none;
+
+}
+
+#profile-button.visible {
+    display: flex;
+    color: $font-color;
+    font-size: $font-size;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
 
 #buy-hover:hover ~ #popup {
     display: flex;
+
 }
 
 a {
@@ -57,13 +80,15 @@ a {
 .nav-bar {
     z-index: 2;
     width: 100vw;
+    height: 88px;
     position: fixed;
     background-color: white;
     display: flex;
     flex-direction: column;
 
     .nav-list {
-        padding-bottom: 10px;
+        height: 88px;
+        width: 100%;
         z-index: 1;
         background-color: white;
         display: flex;
@@ -71,18 +96,38 @@ a {
         justify-content: space-around;
         border-bottom: .4px solid lightgrey;
         .right-buttons {
+            height: 88px;
             .right-buttons-list {
+                height: 88px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 @include flex-row-center;
                 li {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     @include li-nav-button;
+                    height: 88px;
                 }
             }
         }
         .left-buttons {
+            height: 88px;
+
             .left-buttons-list {
+                height: 88px;
+                display: flex;
+                justify-content: space-between;
                 @include flex-row-center;
                 li {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     @include li-nav-button;
+
+                    height: 100%;
+                    vertical-align: middle;
                 }
             }
         }

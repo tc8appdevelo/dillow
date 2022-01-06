@@ -6,25 +6,20 @@ import { Link } from 'react-router-dom';
 class BuyDropdown extends React.Component {
     constructor(props) {
         super(props);
-        
-    }
 
-    // state = { buyDropDownVisible: false, }
-    // toggleBuyDropDown = () => this.setState(state => ({
-    //     buyDropDownVisible: !buyDropDownVisible,
-    // }));
+    }
 
     render() {
         return (
             <div id="dropdown">
                 <div className="homes-flex">
-                    <div className="buy-dropdown">
+                    <ul className="buy-dropdown">
                         <div className="blk">Homes for sale</div>
                         <div>Homes for sale</div>
                         <div>Foreclosures</div>
                         <div>For sale by owner</div>
                         <div>Open houses</div>
-                    </div>
+                    </ul>
                     <div className="buy-dropdown">
                         <div>  </div>
                         <div>New construction</div>

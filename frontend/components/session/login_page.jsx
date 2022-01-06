@@ -5,8 +5,8 @@ class LoginPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            
-            isCreate: false
+            exitPage: props.exitPage,
+            isCreate: false,
         }
         this.toggleLoginCreate = this.toggleLoginCreate.bind(this);
     }
@@ -17,11 +17,20 @@ class LoginPage extends React.Component {
 
     render() {
         let create = this.state.isCreate;
+        let handleExitPage = this.state.exitPage;
         return (
-            <div>
-                <button onClick={this.toggleLoginCreate} disabled={!create} id="createbtn">Sign in</button>
-                <button onClick={this.toggleLoginCreate}  disabled={create} id="loginbtn">New account</button>
-                 {create ? <SignupContainer /> : <LoginContainer />}
+            <div id="login-col-outer">
+                <div id="login-row-topbar">
+                    <div>
+                        <button onClick={this.toggleLoginCreate} 
+                                disabled={!create} id="createbtn">Sign in</button>
+                        <button onClick={this.toggleLoginCreate} 
+                                disabled={create} id="loginbtn">New account</button>
+                    </div>
+                    <button onClick={handleExitPage} className="exit-button">X</button>
+                </div>
+                {create ? <SignupContainer handleExitPage={handleExitPage} /> : 
+                          <LoginContainer handleExitPage={handleExitPage} />}
             </div>
         )
     }

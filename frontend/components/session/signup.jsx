@@ -12,8 +12,9 @@ class Signup extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.loginDemoUser = this.loginDemoUser.bind(this);
-        this.loginDemoUserTestPage = this.loginDemoUserTestPage.bind(this);
     }
+
+
 
     handleInput(type) {
         return (e) => {
@@ -29,22 +30,14 @@ class Signup extends React.Component {
     loginDemoUser() {
         this.props.loginAction({
             email: "demo_user",
-            password: "password"
-        })
-    }
-    loginDemoUserTestPage() {
-        this.props.loginAction({
-            email: "demo_user",
-            password: "password"
-        }).then(this.props.history.push('/test'))
-    }
+            password: "password",
+        }).then(this.props.handleExitPage)
 
-
+    }
 
     render() {
         let buttonText;
-
-
+        const handleExitPage = this.props.handleExitPage;
         if (this.props.formType === 'Create Account') {
             buttonText = 'Go to Login';
         } else {
@@ -70,7 +63,8 @@ class Signup extends React.Component {
                     />
                    
 
-                    <button className="form-button" onClick={this.handleSubmit}>Sign Up</button>
+                    <button className="form-button" 
+                            onClick={this.handleSubmit}>Sign In</button>
                 </form>
                 <div>Or connect with:</div>
                 <div>
