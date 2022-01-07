@@ -14,3 +14,12 @@ users = User.create([
     }
 ])
 
+listings = Listing.create([
+    {
+        user_id: 1, price: 1000000, state: "TX", city: "Dallas", 
+        zip_code: 78728, address: "2222 Road Drive", 
+        property_type: "House", bedrooms: 4, bathrooms: 3, 
+        year_built: 1994, description: "Test listing description."
+    }
+])
+
