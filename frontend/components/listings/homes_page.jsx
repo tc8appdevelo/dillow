@@ -1,4 +1,5 @@
 import React from 'react';
+import HomesList from './homes_list';
 
 class Listings extends React.Component {
     constructor(props) {
@@ -14,9 +15,7 @@ class Listings extends React.Component {
                     <div id="map">
                          Map
                     </div>
-                    <div id="listings-homes">
-                        Homes
-                    </div>
+                    <HomesList />
                 </div>
             </div>
         )

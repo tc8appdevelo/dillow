@@ -4,26 +4,35 @@
     background-color: salmon;
     width: 100vw;
     height: 100vh;
-    #listings-top {
-        background-color: wheat;
-        display: flex;
-        height: 222px;
-    }
-    #listings-nav {
-        background-color: lightseagreen;
-        display: flex;
-        height: 111px;
-    }
-    #listings-map-homes {
+}
 
-        display: flex;
-        #map {
-            background-color: lightskyblue;
-            display: flex;
+#listings-top {
+    background-color: lightskyblue;
+    display: flex;
+    height: 222px;
+}
 
-        }
-        #listings-homes {
-            background-color: lightsalmon;
-        }
-    }
+#listings-nav {
+    background-color: wheat;
+    display: flex;
+    height: 111px;
+}
+
+
+#listings-map-homes {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+#map {
+    background-color: lightseagreen;
+    display: flex;
+    flex-grow: 6;
+}
+
+#homes-list {
+    background-color: lightsalmon;
+    display: flex;
+    flex-grow: 4;
 }
