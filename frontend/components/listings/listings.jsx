@@ -1,10 +1,13 @@
 import React from 'react';
+import { fetchListings } from '../../actions/listing_actions';
 import ListingsContainer from './listings_container'
 
-class HomesPage extends React.Component {
+class Listings extends React.Component {
     constructor(props) {
         super(props);
     }
+
+
 
     render() {
         return (
@@ -13,13 +16,13 @@ class HomesPage extends React.Component {
                 <div id="listings-nav">nav</div>
                 <div id="listings-map-homes">
                     <div id="map">
-                         Map
+                        Hello World!
                     </div>
-                    <ListingsContainer />
+                    <div id="homes-list">homes</div>
                 </div>
             </div>
         )
     }
 }
 
-export default HomesPage;
+export default Listings;

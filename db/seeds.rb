@@ -7,19 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-users = User.create([
-    {
-        email: "demo_user",
-        password: "password"
-    }
-])
+# users = User.create([
+#     {
+#         email: "demo_user",
+#         password: "password"
+#     }
+# ])
 
-listings = Listing.create([
-    {
-        user_id: 1, price: 1000000, state: "TX", city: "Dallas", 
+user1 = User.create(
+    email: "demo_user",
+    password: "password"
+)
+
+listing1 = Listing.create(
+        user_id: user1.id, price: 1000000, state: "TX", city: "Dallas", 
         zip_code: 78728, address: "2222 Road Drive", 
         property_type: "House", bedrooms: 4, bathrooms: 3, 
         year_built: 1994, description: "Test listing description."
-    }
-])
+)
 

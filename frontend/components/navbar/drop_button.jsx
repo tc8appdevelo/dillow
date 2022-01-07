@@ -2,7 +2,6 @@ import React from 'react'
 import BuyDropdown from './buy_dropdown'
 
 const DropWrapper = ({show}) =>  {
-    debugger
     return (<div style={{ visibility: show ? "visible" : "hidden" }}>
             <BuyDropdown />
             </div>)
