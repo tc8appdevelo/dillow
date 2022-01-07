@@ -1,0 +1,29 @@
+#listings {
+    display: flex;
+    flex-direction: column;
+    background-color: salmon;
+    width: 100vw;
+    height: 100vh;
+    #listings-top {
+        background-color: wheat;
+        display: flex;
+        height: 222px;
+    }
+    #listings-nav {
+        background-color: lightseagreen;
+        display: flex;
+        height: 111px;
+    }
+    #listings-map-homes {
+
+        display: flex;
+        #map {
+            background-color: lightskyblue;
+            display: flex;
+
+        }
+        #listings-homes {
+            background-color: lightsalmon;
+        }
+    }
+}

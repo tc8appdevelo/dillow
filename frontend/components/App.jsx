@@ -5,12 +5,13 @@ import SignupContainer from "./session/signup_container";
 import LoginContainer from "./session/login_container";
 import Splash from "./splash/splash";
 import Profile from "./profile/proflile";
-
+import Listings from "./listings/listings";
 
 
 
 const App = () => (
     <Switch>
+        <Route path="/homes" component={Listings} />
         <AuthRoute path="/signup" component={SignupContainer} />
         <AuthRoute path="/login" component={LoginContainer} />
         <Route path="/profile" component={Profile} />

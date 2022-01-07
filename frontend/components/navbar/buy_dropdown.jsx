@@ -11,7 +11,7 @@ class BuyDropdown extends React.Component {
 
     render() {
         return (
-            <div id="dropdown">
+            <div id="buydropdown">
                 <div className="homes-flex">
                     <ul className="buy-dropdown">
                         <div className="blk">Homes for sale</div>

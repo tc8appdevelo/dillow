@@ -2,6 +2,7 @@ import React from 'react';
 import CreateLoginBox from '../session/create_login_box';
 import { Link } from 'react-router-dom';
 import BuyDropdown from './buy_dropdown';
+import RentDropdown from '../dropdowns/rent_dropdown';
 import LoginPage from "../session/login_page"
 
 class NavBar extends React.Component {
@@ -11,21 +12,23 @@ class NavBar extends React.Component {
         this.state = { 
             currentUser: this.props.currentUser,
             showDropdown: false,
-            showLogin: false
+            showLogin: false,
+            showRentDropdown: false,
         };
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
         this.toggleLoginPage = this.toggleLoginPage.bind(this);
+        this.toggleRentDropdown = this.toggleRentDropdown.bind(this);
         this.loginDemoUser = this.loginDemoUser.bind(this);
-
+        
     }
 
     loginDemoUser() {
         this.props.loginAction({
             email: "demo_user",
             password: "password"
-        }).then(this.setState(this.props.currentUser))
+        })
     }
 
     handleLogout() {
@@ -45,10 +48,15 @@ class NavBar extends React.Component {
         showDropdown: !state.showDropdown
     }))
 
+    toggleRentDropdown() {
+            this.setState({ showRentDropdown: !this.state.showRentDropdown });
+    }
+
     render() {
         let isVisible = this.state.showDropdown ? "visible" : ""
         let isLogin = this.state.showLogin ? "visible" : ""
-        let showProfile = this.state.currentUser ? "visible" : ""
+        // let isRentVisible = this.state.showRentDropdown ? "visible" : ""
+        
         return (
             <nav className="nav-bar">
 
@@ -60,21 +68,19 @@ class NavBar extends React.Component {
                             <li id="buy-hover" className="buy-hover-class"
                                 onMouseEnter={this.toggleDropdown}
                                 onMouseLeave={this.toggleDropdown}>Buy</li>
+                            {/* <li id="rent-hover" className="rent-hover-class"
+                                onMouseEnter={this.toggleRentDropdown}
+                                onMouseLeave={this.toggleRentDropdown}>Rent</li> */}
 
-                            <li>Rent</li>
                             <li>Sell</li>
                         </ul>
                     </li>
                     <div id="dillow-title">dillow</div>
                     <li className="right-buttons">
                         <ul className="right-buttons-list">
-                            {/* <li>Manage Rentals</li>
-                            <li>Advertise</li>
-                            <li>Help</li> */}
                             <li>{this.props.currentUser ? <button id="toggleProfileDropdown" onClick={this.handleLogout}>Log out</button>
                                 : <button id="toggleLoginPage" onClick={this.toggleLoginPage}>Sign in</button>} </li>
 
-                            <button id="profile-button" className={showProfile} onClick={this.toggleLoginPage}>Profile</button>
                         </ul>
                     </li>
 
@@ -90,9 +96,18 @@ class NavBar extends React.Component {
                         onMouseLeave={this.toggleDropdown}>
                         <BuyDropdown />
                    </div>
-
-                    
                 </div>
+
+                
+                {/* <div id="rent-pop" className={isRentVisible}>
+                    <div id="rent-hover" className="rent-hover-class"
+                        onMouseEnter={this.toggleRentDropdown}
+                        onMouseLeave={this.toggleRentDropdown}>
+                        <RentDropdown />
+                    </div>
+                </div> */}
+        
+
             </nav>
         )
     }

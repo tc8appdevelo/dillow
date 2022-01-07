@@ -39,6 +39,23 @@ $margin: 10px;
     cursor: pointer;
 }
 
+#rent-pop {
+    display: none;
+}
+
+#rent-pop.visible {
+    display: flex;
+    cursor: pointer;
+}
+
+#rent-hover:hover ~ #rent-pop {
+    display: flex;
+}
+
+#buy-hover:hover ~ #popup {
+    display: flex;
+}
+
 #toggleLoginPage {
     color: $font-color;
     font-size: $font-size;
@@ -60,6 +77,7 @@ $margin: 10px;
 
 }
 
+
 #profile-button.visible {
     display: flex;
     color: $font-color;
@@ -69,10 +87,9 @@ $margin: 10px;
     cursor: pointer;
 }
 
-#buy-hover:hover ~ #popup {
-    display: flex;
 
-}
+
+
 
 a {
     color: black;
@@ -155,9 +172,6 @@ a {
     display: flex;
     justify-content: center;
     .search-picture {
-        // position: fixed;
-        // left: 50%;
-        // top: auto;
         width: $search-img-width;
         background-image: url("alpine.png");
         background-repeat: no-repeat;
@@ -167,10 +181,6 @@ a {
         align-items: center;
         .search-bar {
             z-index: 1;
-            // display: block;
-            // margin-left: auto;
-            // margin-right: auto;
         }
     }
-
 }

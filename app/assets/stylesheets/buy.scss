@@ -15,6 +15,8 @@ $drop_border: 0.4px solid lightgrey;
     flex-direction: row;
     justify-content: start;
 }
+
+
 #blk {
     color: black
 }
@@ -35,7 +37,22 @@ $drop_border: 0.4px solid lightgrey;
 .buy-dropdown:hover {
     display: flex;
 }
-#dropdown {
+
+.rent-dropdown:hover {
+    display: flex;
+}
+
+#rentdropdown {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: flex-start;
+    background-color: white;
+    padding-left: 155px;
+    width: 100vw;
+}
+
+#buydropdown {
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -50,6 +67,23 @@ $drop_border: 0.4px solid lightgrey;
 }
 
 .buy-dropdown {
+    @include b_dropdown;
+    div {
+        font-size: 18px;
+        padding: 12px;
+        color: blue;
+        min-width: 150px;
+        min-height: 22px;
+        text-align: left;
+        
+    }
+    .blk {
+        color: black;
+    }
+
+}
+
+.rent-dropdown {
     @include b_dropdown;
     div {
         font-size: 18px;
@@ -82,7 +116,10 @@ $drop_border: 0.4px solid lightgrey;
 }
 
 #dillow-title {
-    font-size: 55;
+    font-size: 55px;
+    display: flex;
+    justify-self: center;
+    position: absolute;
 }
 
 
