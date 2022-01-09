@@ -1,3 +1,22 @@
+
+
+
+#listing-box {
+    height: 150px;
+    min-width: 200px;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+    
+}
+
+#homes-list-wrapper {
+    background-color: lightsalmon;
+    width: 100%;
+    max-width: 444px;
+    display: flex;
+    flex-direction: row;
+
+}
+
 #listings {
     display: flex;
     flex-direction: column;
@@ -22,17 +41,18 @@
 #listings-map-homes {
     height: 100%;
     width: 100%;
-    display: flex;
+    display: flex; 
 }
-
 #map {
     background-color: lightseagreen;
     display: flex;
     flex-grow: 6;
 }
-
-#homes-list {
-    background-color: lightsalmon;
+#homes-wrap {
     display: flex;
-    flex-grow: 4;
+    flex-wrap: wrap;
+    background-color: lightsalmon;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
 }

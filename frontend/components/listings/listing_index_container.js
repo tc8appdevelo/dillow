@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
 import { fetchListings } from '../../actions/listing_actions';
-import Listings from './listings'
+import ListingIndex from './listing_index'
 
 
 
 function mSTP(state) {
-    debugger
     return ({
         listings: Object.values(state.entities.listings)
     });
@@ -17,4 +16,4 @@ function mDTP(dispatch) {
     });
 }
 
-export default connect(mSTP, mDTP)(Listings);
+export default connect(mSTP, mDTP)(ListingIndex);

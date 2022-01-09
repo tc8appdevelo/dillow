@@ -4,17 +4,18 @@ import { AuthRoute, ProtectedRoute } from "../utils/route_util";
 import SignupContainer from "./session/signup_container";
 import LoginContainer from "./session/login_container";
 import Splash from "./splash/splash";
-import Profile from "./profile/proflile";
-import ListingsContainer from "./listings/listings_container";
+import ProfileContainer from "./profile/profile_container";
+
+import ListingIndexContainer from "./listings/listing_index_container";
 
 
 
 const App = () => (
     <Switch>
-        <Route path="/homes" component={ListingsContainer} />
+        <Route path="/homes" component={ListingIndexContainer} />
         <AuthRoute path="/signup" component={SignupContainer} />
         <AuthRoute path="/login" component={LoginContainer} />
-        <Route path="/profile" component={Profile} />
+        <Route path="/profile" component={ProfileContainer} />
         <Route path="/" component={Splash} />
     </Switch>
 );

@@ -1,5 +1,6 @@
 $is_displayed: none;
 $drop_border: 0.4px solid lightgrey;
+
 @mixin b_dropdown {
     display: flex;
     flex-direction: column;
@@ -9,11 +10,6 @@ $drop_border: 0.4px solid lightgrey;
     padding-top: 10px;
     background-color: #ffffff;
     z-index: 1;
-}
-@mixin h_flex {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
 }
 
 
@@ -67,7 +63,14 @@ $drop_border: 0.4px solid lightgrey;
 }
 
 .buy-dropdown {
-    @include b_dropdown;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    background-color: #ffffff;
+    z-index: 1;
     div {
         font-size: 18px;
         padding: 12px;
@@ -84,7 +87,14 @@ $drop_border: 0.4px solid lightgrey;
 }
 
 .rent-dropdown {
-    @include b_dropdown;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    background-color: #ffffff;
+    z-index: 1;
     div {
         font-size: 18px;
         padding: 12px;
@@ -92,27 +102,29 @@ $drop_border: 0.4px solid lightgrey;
         min-width: 150px;
         min-height: 22px;
         text-align: left;
-        
     }
     .blk {
         color: black;
     }
-
 }
 
 .homes-flex {
-    @include h_flex;
-    border-right: $drop_border;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    border-right: 0.4px solid lightgrey;;
 }
 .mid-flex {
-    @include h_flex;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-right: $drop_border;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    border-right: 0.4px solid lightgrey;
 }
 .last-flex {
-    @include h_flex;
-    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    padding-left: 0.4px solid lightgrey;
 }
 
 #dillow-title {
@@ -121,32 +133,3 @@ $drop_border: 0.4px solid lightgrey;
     justify-self: center;
     position: absolute;
 }
-
-
-// .buy-dropdown {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     border: 2px solid black;
-//     background-color: white;
-//     width: 100vw;
-//     min-height: 333px;
-//     z-index: 2;
-
-// }
-
-
-
-// .hover-div:hover \ .buy-dropdown {
-//     display: block;
-// }
-
-// .buy-dropdown link:hover {
-//     background-color: rgb(181, 178, 178);
-//     color: darkblue;
-// }
-
-// .buy-button:hover .buy-dropdown {
-//     display: flex;
-// }

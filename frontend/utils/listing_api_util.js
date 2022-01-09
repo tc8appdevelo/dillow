@@ -12,6 +12,8 @@ export const getListing = id => (
     })
 );
 
+
+
 // export const postListing = () => (
 //     $.ajax({
 //         method: 'POST',

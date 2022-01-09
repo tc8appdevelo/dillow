@@ -24,6 +24,10 @@ class NavBar extends React.Component {
         
     }
 
+    componentDidMount() {
+
+    }
+
     loginDemoUser() {
         this.props.loginAction({
             email: "demo_user",
@@ -34,6 +38,10 @@ class NavBar extends React.Component {
     handleLogout() {
         this.setState({ currentUser: null });
         this.props.logout();
+    }
+    handleProfile(e) {
+        e.preventDefault();
+        console.log(e);
     }
 
     toggleLoginPage = () => this.setState(state => ({
@@ -78,8 +86,11 @@ class NavBar extends React.Component {
                     <div id="dillow-title">dillow</div>
                     <li className="right-buttons">
                         <ul className="right-buttons-list">
-                            <li>{this.props.currentUser ? <button id="toggleProfileDropdown" onClick={this.handleLogout}>Log out</button>
-                                : <button id="toggleLoginPage" onClick={this.toggleLoginPage}>Sign in</button>} </li>
+                            <li>{this.props.currentUser ? 
+                                <div>
+                                    <button id="toggleProfileDropdown" onClick={this.handleLogout}>Log out</button>
+                                    <Link className="profile-link" to={'/profile'}>Profile</Link>
+                                </div> : <button id="toggleLoginPage" onClick={this.toggleLoginPage}>Sign in</button>} </li>
 
                         </ul>
                     </li>

@@ -57,10 +57,15 @@
     justify-content:space-around;
     
     .big-box {
-        @include big-box;
-        @include shadow;
+        height: 333px;
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
         background-color: lightsalmon;
         box-shadow: 0 0 .25 ;
 
     }
 }
+
