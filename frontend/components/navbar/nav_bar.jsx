@@ -3,8 +3,10 @@ import CreateLoginBox from '../session/create_login_box';
 import { Link } from 'react-router-dom';
 import BuyDropdown from './buy_dropdown';
 import RentDropdown from '../dropdowns/rent_dropdown';
-import LoginPage from "../session/login_page"
-
+import LoginPage from "../session/login_page";
+import Model from "../modals/modal";
+import { openModal } from '../../actions/modal_actions';
+import HomePage from '../listings/home_page';
 class NavBar extends React.Component {
     constructor(props) {
         super(props);
@@ -21,10 +23,10 @@ class NavBar extends React.Component {
         this.toggleLoginPage = this.toggleLoginPage.bind(this);
         this.toggleRentDropdown = this.toggleRentDropdown.bind(this);
         this.loginDemoUser = this.loginDemoUser.bind(this);
-        
     }
 
     componentDidMount() {
+ 
 
     }
 
@@ -41,7 +43,7 @@ class NavBar extends React.Component {
     }
     handleProfile(e) {
         e.preventDefault();
-        console.log(e);
+
     }
 
     toggleLoginPage = () => this.setState(state => ({
@@ -60,14 +62,16 @@ class NavBar extends React.Component {
             this.setState({ showRentDropdown: !this.state.showRentDropdown });
     }
 
+
+
     render() {
         let isVisible = this.state.showDropdown ? "visible" : ""
         let isLogin = this.state.showLogin ? "visible" : ""
-        // let isRentVisible = this.state.showRentDropdown ? "visible" : ""
-        
-        return (
-            <nav className="nav-bar">
 
+        return (
+            <div>
+            <nav className="nav-bar">
+                
                 <ul className="nav-list">
 
                     <li className="left-buttons">
@@ -81,6 +85,7 @@ class NavBar extends React.Component {
                                 onMouseLeave={this.toggleRentDropdown}>Rent</li> */}
 
                             <li>Sell</li>
+
                         </ul>
                     </li>
                     <div id="dillow-title">dillow</div>
@@ -110,16 +115,9 @@ class NavBar extends React.Component {
                 </div>
 
                 
-                {/* <div id="rent-pop" className={isRentVisible}>
-                    <div id="rent-hover" className="rent-hover-class"
-                        onMouseEnter={this.toggleRentDropdown}
-                        onMouseLeave={this.toggleRentDropdown}>
-                        <RentDropdown />
-                    </div>
-                </div> */}
         
-
             </nav>
+    </div>
         )
     }
 }

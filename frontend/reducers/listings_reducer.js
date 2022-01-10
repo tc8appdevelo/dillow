@@ -10,7 +10,6 @@ const listingsReducer = (state = {}, action) => {
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_LISTINGS:
-
             newState = Object.assign({}, action.listings)
             return newState;
         default:

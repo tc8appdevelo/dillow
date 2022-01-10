@@ -8,7 +8,7 @@ class ProfileButton extends React.Component {
     }
     
     render() {
-        console.log(this.props.logout)
+        
         return (
             <div className="profile-button">
                 <Link to="/login" onClick={this.props.logout}>Logout</Link>

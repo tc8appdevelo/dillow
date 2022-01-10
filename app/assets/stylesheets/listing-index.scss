@@ -1,40 +1,90 @@
 
+.l-wrap {
+    display: flex;
+    flex-direction: column;
+    
 
+}
 
-#listing-box {
+.listing-box {
     height: 150px;
-    min-width: 200px;
+    width: 222px;
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    background-repeat: no-repeat;
     
 }
 
-#homes-list-wrapper {
-    background-color: lightsalmon;
-    width: 100%;
-    max-width: 444px;
+.listing-box--bottom-bar{
+
+    height: 44px;
+    width: 222px;
     display: flex;
     flex-direction: row;
+    background: white;
 
+}
+
+.price-text {
+    font-size: 22px;
+    color: black;
+}
+
+#listing-box {
+
+    
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    background-repeat: no-repeat;
+
+    
+}
+
+#listing-box--bottom-bar {
+    display: flex;
+    flex-direction: row;
+    background: white;
+    flex: 1;
+}
+
+#price-text {
+    font-size: 22px;
+    color: black;
+
+}
+
+
+#homes-list-wrapper {
+    background-color: lightsalmon;
+    max-width: 600px;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 4;
 }
 
 #listings {
     display: flex;
     flex-direction: column;
-    background-color: salmon;
+    background-color: lightcoral;
     width: 100vw;
     height: 100vh;
+    color:lightcoral;
 }
 
 #listings-top {
     background-color: lightskyblue;
     display: flex;
     height: 222px;
+    color:lightskyblue
 }
 
 #listings-nav {
     background-color: wheat;
     display: flex;
     height: 111px;
+    color:wheat
 }
 
 
@@ -45,14 +95,50 @@
 }
 #map {
     background-color: lightseagreen;
+    color:lightseagreen;
+    width: 555px;
     display: flex;
+    flex-direction: row;
     flex-grow: 6;
 }
 #homes-wrap {
     display: flex;
     flex-wrap: wrap;
     background-color: lightsalmon;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    align-content: space-around;
+    align-content: center;
+    max-width: 600px;
+    min-width: 222px;
+    gap: 0.6rem;
 }
+
+.listing-modal-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 22;
+}
+
+.listing-modal {
+    display: flex;
+    
+    flex-direction: column;
+
+    background: white;
+    gap: 1rem;
+    
+
+}
+
+#modal-on-off {
+    display: false;
+}
+
+#modal-on-off.show {
+    display: flex;
+}
+
+

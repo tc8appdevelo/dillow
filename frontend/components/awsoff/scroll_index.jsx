@@ -1,25 +1,35 @@
 import React from 'react';
-import ListingsContainer from './listings_container'
+import IndexItem from "./index_item"
 
-class HomesPage extends React.Component {
+class ScrollIndex extends React.Component {
     constructor(props) {
         super(props);
     }
 
+    componentDidMount() {
+
+    }
+
     render() {
+
         return (
             <div id="listings">Listings
+
                 <div id="listings-top">dillow</div>
                 <div id="listings-nav">nav</div>
                 <div id="listings-map-homes">
                     <div id="map">
-                         Map
+                        Hello World!
                     </div>
-                    <ListingsContainer />
+                    <div id="homes-list-wrapper">
+           
+                            <IndexItem />
+
+                    </div>
                 </div>
             </div>
         )
     }
 }
 
-export default HomesPage;
+export default ScrollIndex;
