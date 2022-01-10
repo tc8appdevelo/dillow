@@ -10,14 +10,22 @@ import ListingIndexContainer from "./listings/listing_index_container";
 
 
 
+
+
 const App = () => (
-    <Switch>
-        <Route path="/homes" component={ListingIndexContainer} />
-        <AuthRoute path="/signup" component={SignupContainer} />
-        <AuthRoute path="/login" component={LoginContainer} />
-        <Route path="/profile" component={ProfileContainer} />
-        <Route path="/" component={Splash} />
-    </Switch>
+    <div>
+        <header>
+            
+        </header>
+        <Switch>
+            <Route path="/homes" component={ListingIndexContainer} />
+            <AuthRoute path="/signup" component={SignupContainer} />
+            <AuthRoute path="/login" component={LoginContainer} />
+            <Route path="/profile" component={ProfileContainer} />
+            <Route path="/" component={Splash} />
+        </Switch>
+    </div>
+
 );
 
 export default App;

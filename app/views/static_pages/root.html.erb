@@ -2,10 +2,11 @@
     <script>
         window.currentUser = <%= render("api/users/user.json.jbuilder",
             user: current_user).html_safe %>
-        
+        window
     </script>
 <% end %>
-
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
 
 <div id="root"></div>
+
 
