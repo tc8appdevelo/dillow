@@ -5,7 +5,7 @@ import SignupContainer from "./session/signup_container";
 import LoginContainer from "./session/login_container";
 import Splash from "./splash/splash";
 import ProfileContainer from "./profile/profile_container";
-
+import DillowMap from "./map/dillow_map";
 import ListingIndexContainer from "./listings/listing_index_container";
 
 
@@ -14,10 +14,9 @@ import ListingIndexContainer from "./listings/listing_index_container";
 
 const App = () => (
     <div>
-        <header>
-            
-        </header>
+        
         <Switch>
+
             <Route path="/homes" component={ListingIndexContainer} />
             <AuthRoute path="/signup" component={SignupContainer} />
             <AuthRoute path="/login" component={LoginContainer} />

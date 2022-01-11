@@ -1,7 +1,7 @@
 import React from 'react';
-import ListingIndexItem from './listing_index_item';
+import ListingIndexItem from "./listing_index_item";
 import HomePage from "./home_page"
-
+import DillowMap from "../map/dillow_map"
 class ListingIndex extends React.Component {
     constructor(props) {
         super(props);
@@ -36,7 +36,7 @@ class ListingIndex extends React.Component {
     
 
     render() {
-        const currentListing = this.state.currentListing;
+        // const currentListing = this.state.currentListing;
 
         return (
             <div id="listings">Listings
@@ -44,19 +44,20 @@ class ListingIndex extends React.Component {
                 <div id="listings-top">dillow</div>
                 <div id="listings-nav">nav</div>
                 <div id="listings-map-homes">
-                    <div id="map">
-                        Hello World!
-                    </div>
+
+                    <DillowMap />
+
                     <div id="homes-list-wrapper">
                         <div id="homes-wrap">
                             {this.props.listings[0] ?
                                 this.props.listings.map(listing => (<ListingIndexItem key={listing.id} listing={listing} handleClick={this.showModal} />)) : ""}
                         </div>
                     </div>
+
                 </div>
                 <div>
                 </div>                    
-                <HomePage showListing={currentListing} exitModal={() => this.exitModal()}/>
+                {/* <HomePage showListing={currentListing} exitModal={() => this.exitModal()}/> */}
 
             </div>
         )

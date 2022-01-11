@@ -89,29 +89,44 @@
 
 
 #listings-map-homes {
-    height: 100%;
+    height: 80%;
     width: 100%;
     display: flex; 
+    justify-content: end;
 }
-#map {
-    background-color: lightseagreen;
-    color:lightseagreen;
+#map-wrap {
     width: 555px;
     display: flex;
     flex-direction: row;
     flex-grow: 6;
 }
+
 #homes-wrap {
     display: flex;
     flex-wrap: wrap;
-    background-color: lightsalmon;
+    background-color: lightseagreen;
     justify-content: center;
-    align-items: center;
-    align-content: center;
+    align-content: start;
     max-width: 600px;
-    min-width: 222px;
+    min-width: 224px;
     gap: 0.6rem;
+    flex-grow: revert;
+    overflow: scroll;
 }
+
+// #homes-wrap {
+// display: flex;
+//     display: flex;
+//     flex-wrap: wrap;
+//     background-color: lightsalmon;
+//     justify-content: center;
+//     align-content: start;
+//     max-width: 600px;
+//     min-width: 224px;
+//     gap: 0.6rem;
+//     flex-grow: revert;
+//     overflow: scroll;
+// }
 
 .listing-modal-background {
     position: fixed;

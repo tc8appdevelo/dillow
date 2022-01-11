@@ -7,9 +7,8 @@
     <%= csp_meta_tag %>
 
     
-
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_api_key}" %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-
     <%= javascript_include_tag 'application' %>
     
   </head>

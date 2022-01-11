@@ -19,7 +19,6 @@ class Splash extends React.Component {
                 <NavBarContainer />
                 <SearchBar />
                 <BuyRentSellButton />
-                <DillowMap />
             </div>
         )
     }
