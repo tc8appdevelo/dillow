@@ -16,6 +16,8 @@
 
 
  #map {
-   min-width: 500px;
-   height: 700px;
+    min-width: 500px;
+    height: 100vh;
+    justify-content: center;
+    flex-grow: 5;
  }

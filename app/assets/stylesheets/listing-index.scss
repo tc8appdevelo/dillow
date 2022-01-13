@@ -91,14 +91,21 @@
 #listings-map-homes {
     height: 80%;
     width: 100%;
-    display: flex; 
-    justify-content: end;
+    display: flex;
+    justify-content: start;
 }
 #map-wrap {
     width: 555px;
     display: flex;
     flex-direction: row;
     flex-grow: 6;
+}
+
+#map {
+    min-width: 500px;
+    height: 100vh;
+    justify-content: center;
+    flex-grow: 5;
 }
 
 #homes-wrap {

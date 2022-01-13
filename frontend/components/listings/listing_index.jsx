@@ -57,8 +57,9 @@ class ListingIndex extends React.Component {
                     <div id="listings-top">dillow</div>
                     <div id="listings-nav">nav</div>
                     <div id="listings-map-homes">
-
-                        <DillowMap />
+                        
+                            <DillowMap />
+                       
 
                         <div id="homes-list-wrapper">
                             <div id="homes-wrap">
