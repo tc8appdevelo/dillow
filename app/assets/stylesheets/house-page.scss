@@ -31,32 +31,38 @@
 // }
 
 #dd {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1111;
-  width: 70vw;
-  height: 100vh;
-  display: flex;
-  align-items: flex-start;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1111;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
 }
+
+
 
 .flexbox-container-container {
     display: flex;
-    border: 3px solid palegreen;
+    
     background: lightgray;
     flex-direction: row;
-    height: 100vh;
-    width: 70vw;
+    height: 60vh;
+    width: 80vw;
+    max-width: 1000px;
  
 }
 
 .pictures {
-  display: flex;
-  background: gray;
-  flex-grow: 1.5;
-  flex-direction: column;
+    display: flex;
+    background: gray;
+    flex-grow: 2;
+    flex-direction: column;
+    max-width: 500px;
 }
 
 .large-picture {
@@ -73,6 +79,7 @@
 
 .home-info {
   display: flex;
+  flex-direction: column;
   background: white;
   flex-grow: 1;
 }
@@ -82,3 +89,89 @@
   justify-self: end;
 }
 
+.home-info-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  height: 44px;
+  div {
+    color: blue;
+    padding-right: 10px;
+  }
+}
+
+.title-text {
+  font-size: 33px;
+  color: blue;
+}
+
+.right-info-top-bar {
+  display: flex;
+}
+
+.info-price-box {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.price-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 66px;
+  div {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+.text-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 33px;
+  div {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+.price {
+  font-size: 44px;
+}
+
+
+
+.mid-border-div {
+  border-left: 2px solid lightgray;
+  border-right: 2px solid lightgray;
+}
+
+.map-buttons-div {
+  border-bottom: 1px solid lightgray;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-white {
+    width: 100px;
+    height: 25px;
+    color: blue;
+    border: 1px solid blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 22px;
+    background: white;
+    cursor: pointer;
+}
+
+.map-flex {
+    display: flex;
+    flex-direction: row;
+    height: 33vh;
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+}

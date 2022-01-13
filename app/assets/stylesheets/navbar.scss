@@ -94,6 +94,12 @@ $margin: 10px;
 a {
     color: black;
 }
+
+.buy-link {
+    text-decoration: none;
+    color: blue;
+}
+
 .nav-bar {
     z-index: 2;
     width: 100vw;
@@ -157,6 +163,8 @@ a {
 
 .profile-link {
     margin-left: $margin;
+    text-decoration: none;
+    color: blue;
 }
 
 .create-login-box {
