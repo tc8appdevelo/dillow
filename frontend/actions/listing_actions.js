@@ -1,6 +1,7 @@
 import {
     getListings,
     getListing,
+    postSavedListing,
 } from '../utils/listing_api_util';
 
 export const RECEIVE_LISTINGS = 'RECEIVE_LISTINGS';
@@ -29,3 +30,6 @@ export const fetchListings = () => dispatch => {
 export const fetchListing = listing => dispatch => (
     getListing(listing).then(listing => dispatch(receiveListing(listing)))
 )
+
+export const saveListing = id => dispatch => postSavedListing(id)
+    .then(listing => dispatch(receiveListing(listing)));

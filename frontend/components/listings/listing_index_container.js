@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchListings } from '../../actions/listing_actions';
+import { fetchListings, saveListing } from '../../actions/listing_actions';
 import ListingIndex from './listing_index'
 
 
@@ -12,7 +12,9 @@ function mSTP(state) {
 
 function mDTP(dispatch) {
     return ({
-        fetchListings: () => dispatch(fetchListings())
+        fetchListings: () => dispatch(fetchListings()),
+        saveListing: id => dispatch(saveListing(id)),
+
     });
 }
 

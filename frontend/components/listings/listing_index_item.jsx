@@ -10,9 +10,9 @@ class ListingIndexItem extends React.Component {
         const purl = this.props.listing.photoUrl
         const idx = this.props.listing.id
         return (
-
+        
             <div className="l-wrap" onClick={idx => this.props.handleClick(idx)}>
-
+                <button onClick={idx => this.props.saveListing(idx)}>Save</button>
                 <div className="listing-box" style={{ backgroundImage: `url(${purl})` }}>
                     {/* <div>Who</div>
                     <div>Heart</div>

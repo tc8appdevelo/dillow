@@ -12,8 +12,6 @@ export const getListing = id => (
     })
 );
 
-
-
 // export const postListing = () => (
 //     $.ajax({
 //         method: 'POST',
@@ -22,3 +20,9 @@ export const getListing = id => (
 //     })
 // )
 
+export const postSavedListing = id => 
+    $.ajax({
+        method: 'POST',
+        url: `/api/saved_houses`,
+        data: { id },
+    });

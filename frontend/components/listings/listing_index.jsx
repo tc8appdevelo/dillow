@@ -16,7 +16,8 @@ class ListingIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchListings();
-
+        console.log(this.props.listings);
+        this.props.saveListing(11)
     }
 
     showModal(idx) {
@@ -26,7 +27,16 @@ class ListingIndex extends React.Component {
         this.setState({
             currentListing: listing,
         })
+
+        this.props.saveListing(idx)
     }
+
+    saveHouse(idx) {
+        this.props.saveListing(idx)
+    }
+
+
+
     exitModal() {
         this.setState({
             currentListing: null,
@@ -37,20 +47,21 @@ class ListingIndex extends React.Component {
 
     render() {
         // const currentListing = this.state.currentListing;
-
+     
         return (
+
             <div id="listings">Listings
 
                 <div id="listings-top">dillow</div>
                 <div id="listings-nav">nav</div>
                 <div id="listings-map-homes">
 
-                    <DillowMap />
+                    <DillowMap  />
 
                     <div id="homes-list-wrapper">
                         <div id="homes-wrap">
                             {this.props.listings[0] ?
-                                this.props.listings.map(listing => (<ListingIndexItem key={listing.id} listing={listing} handleClick={this.showModal} />)) : ""}
+                                this.props.listings.map(listing => (<ListingIndexItem key={listing.id} listing={listing} saveListing = {this.props.saveListing}  handleClick={this.showModal} />)) : ""}
                         </div>
                     </div>
 

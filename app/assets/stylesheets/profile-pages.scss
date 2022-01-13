@@ -1,0 +1,31 @@
+#profile-toggle-button {
+  background-color: white;
+  color: slateblue;
+  position: absolute;
+  height: 44px;
+}
+
+.profile-dropdown {
+    background-color: white;
+    color: black;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    top: 88px;
+    align-items: flex-start;
+}
+
+#profile-toggle-button:hover + .profile-dropdown {
+  display: flex;
+
+  
+}
+
+.profile-dropdown:hover {
+  display: flex;
+  li:hover {
+    background: lightgray;
+    display: flex;
+  }
+}
+

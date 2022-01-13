@@ -7,6 +7,7 @@ import LoginPage from "../session/login_page";
 import Model from "../modals/modal";
 import { openModal } from '../../actions/modal_actions';
 import HomePage from '../listings/home_page';
+import ProfileDropdown from '../profile/proflie_dropdown';
 class NavBar extends React.Component {
     constructor(props) {
         super(props);
@@ -95,6 +96,7 @@ class NavBar extends React.Component {
                                 <div>
                                     <button id="toggleProfileDropdown" onClick={this.handleLogout}>Log out</button>
                                     <Link className="profile-link" to={'/profile'}>Profile</Link>
+                                    <ProfileDropdown />
                                 </div> : <button id="toggleLoginPage" onClick={this.toggleLoginPage}>Sign in</button>} </li>
 
                         </ul>
