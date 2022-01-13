@@ -4,12 +4,12 @@ import React from 'react';
 class DillowMap extends React.Component {
   constructor(props) {
     super(props)
-    console.log(this.props)
+    
   }
   
   componentDidMount() {
     // set the map to show SF
-    console.log(this.props)
+    
     const mapOptions = {
       center: { lat: 32.7767, lng: -96.7970 }, // this is SF
       zoom: 13

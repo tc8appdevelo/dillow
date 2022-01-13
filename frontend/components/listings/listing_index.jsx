@@ -19,20 +19,18 @@ class ListingIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchListings();
-        console.log(this.props.listings);
+        
     }
 
     showModal(idx) {
         const listing = this.props.listings.find(x => x.id === idx);
-        console.log(listing);
-        console.log(this.props.listings)
-        //const listing = idx;
+        
 
         this.setState({
             currentListing: listing,
         })
 
-        console.log(listing);
+        
     }
 
     saveHouse(id) {

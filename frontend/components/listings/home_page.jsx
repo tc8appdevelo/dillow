@@ -12,7 +12,7 @@ function HomePage(props) {
     )
   } else {
     
-    console.log(props.showListing.photoUrl);
+    
     
     return (
 

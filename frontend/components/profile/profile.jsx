@@ -33,7 +33,7 @@ class Profile extends React.Component {
     }
 
     componentDidMount() {
-        console.log("component did mount ran")
+        
         if(this.state.user_id === null) {
             this.setState({ user_id: this.props.currentUser.id })
         }
@@ -47,7 +47,7 @@ class Profile extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log("handle submit ran");
+        
 
         const formData = new FormData();
 
@@ -63,7 +63,7 @@ class Profile extends React.Component {
             data: formData,
             contentType: false,
             processData: false
-        }).then((response) => console.log(response.message), (response) => console.log(response.responseJSON))
+        })
     }
 
     handleFile(e) {
@@ -73,7 +73,6 @@ class Profile extends React.Component {
             this.setState({photoFile: file, photoUrl: fileReader.result})
         }
         if (file) {
-            debugger
             fileReader.readAsDataURL(file);
         }
         // this.setState({photoFile: e.currentTarget.files[0]});
@@ -82,7 +81,6 @@ class Profile extends React.Component {
 
 
     render() {
-        console.log(this.state)
         const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null
         return (
 
