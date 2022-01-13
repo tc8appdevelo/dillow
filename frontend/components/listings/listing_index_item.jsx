@@ -11,8 +11,8 @@ class ListingIndexItem extends React.Component {
         const idx = this.props.listing.id
         return (
         
-            <div className="l-wrap" onClick={idx => this.props.handleClick(idx)}>
-                <button onClick={idx => this.props.saveListing(idx)}>Save</button>
+            <div className="l-wrap" onClick={() => this.props.handleClick(idx)}>
+                <button onClick={() => this.props.saveListing(idx)}>Save</button>
                 <div className="listing-box" style={{ backgroundImage: `url(${purl})` }}>
                     {/* <div>Who</div>
                     <div>Heart</div>

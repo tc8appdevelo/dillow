@@ -12,12 +12,12 @@ class ListingIndex extends React.Component {
 
         this.showModal = this.showModal.bind(this);
         //this.exitModal = this.exitModal.bind(this);
+        this.saveHouse = this.saveHouse.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchListings();
         console.log(this.props.listings);
-        this.props.saveListing(11)
     }
 
     showModal(idx) {
@@ -28,12 +28,13 @@ class ListingIndex extends React.Component {
             currentListing: listing,
         })
 
-        this.props.saveListing(idx)
+        console.log(listing);
     }
 
-    saveHouse(idx) {
-        this.props.saveListing(idx)
+    saveHouse(id) {
+        this.props.saveListing(id)
     }
+
 
 
 
@@ -46,32 +47,39 @@ class ListingIndex extends React.Component {
     
 
     render() {
-        // const currentListing = this.state.currentListing;
-     
-        return (
 
-            <div id="listings">Listings
+        if (this.props.listings[0]) {
+            const currentListing = this.state.currentListing;
+            return (
 
-                <div id="listings-top">dillow</div>
-                <div id="listings-nav">nav</div>
-                <div id="listings-map-homes">
+                <div id="listings">Listings
 
-                    <DillowMap  />
+                    <div id="listings-top">dillow</div>
+                    <div id="listings-nav">nav</div>
+                    <div id="listings-map-homes">
 
-                    <div id="homes-list-wrapper">
-                        <div id="homes-wrap">
-                            {this.props.listings[0] ?
-                                this.props.listings.map(listing => (<ListingIndexItem key={listing.id} listing={listing} saveListing = {this.props.saveListing}  handleClick={this.showModal} />)) : ""}
+                        <DillowMap />
+
+                        <div id="homes-list-wrapper">
+                            <div id="homes-wrap">
+                                {this.props.listings[0] ?
+                                    this.props.listings.map(listing => (<ListingIndexItem key={listing.id} listing={listing} saveListing={this.saveHouse} handleClick={this.showModal} />)) : ""}
+                            </div>
                         </div>
+
                     </div>
+                    <div>
+                    </div>
+                    <HomePage showListing={currentListing} exitModal={() => this.exitModal()} />
 
                 </div>
-                <div>
-                </div>                    
-                {/* <HomePage showListing={currentListing} exitModal={() => this.exitModal()}/> */}
-
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div></div>
+            )
+        }
+        
     }
 }
 
