@@ -1,65 +1,105 @@
+#listings-nav {
+    background-color: white;
+    display: flex;
+    height: 50px;
+    color: blue;
+    align-items: center;
+    padding-left: 22px;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
+#fix-nav {
+    display: flex;
+    
+}
+
+.map-search {
+    width: 222px;
+    height: 25px;
+    resize: none;
+    color: gray;
+    
+}
+.map-button {
+    width: 100px;
+    height: 25px;
+    color: blue;
+    border: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 22px;
+}
+
+.save-search-button {
+    width: 100px;
+    height: 25px;
+    color: white;
+    border: 1px solid blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 22px;
+    background: blue;
+}
 
 .l-wrap {
     display: flex;
     flex-direction: column;
-    
-
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    border-bottom: 2px solid lightskyblue;
 }
 
 .listing-box {
     height: 150px;
-    width: 222px;
+    width: 270px;
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     background-repeat: no-repeat;
-    
+    background-size: cover;
 }
 
 .listing-box--bottom-bar{
 
-    height: 44px;
-    width: 222px;
+    height: 70px;
+    width: 270px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background: white;
 
 }
 
 .price-text {
-    font-size: 22px;
+    font-size: 20px;
     color: black;
 }
 
-#listing-box {
+.small-txt {
+    font-size: 15px;
+    color: grey;
+}
 
-    
+
+
+#listing-box {
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     background-repeat: no-repeat;
-
-    
+    background-size: cover;
 }
 
-#listing-box--bottom-bar {
-    display: flex;
-    flex-direction: row;
-    background: white;
-    flex: 1;
-}
-
-#price-text {
-    font-size: 22px;
-    color: black;
-
-}
 
 
 #homes-list-wrapper {
     background-color: lightsalmon;
     max-width: 600px;
+    height: 100vh;
     display: flex;
+    border-left: 2en solid lightgray;
     flex-direction: row;
     flex-grow: 4;
 }
@@ -70,22 +110,16 @@
     background-color: lightcoral;
     width: 100vw;
     height: 100vh;
-    color:lightcoral;
+    color: black;
 }
 
 #listings-top {
-    background-color: lightskyblue;
+    background-color: white;
     display: flex;
-    height: 222px;
-    color:lightskyblue
+    height: 88px;
+    color:white;
 }
 
-#listings-nav {
-    background-color: wheat;
-    display: flex;
-    height: 111px;
-    color:wheat
-}
 
 
 #listings-map-homes {
@@ -101,17 +135,10 @@
     flex-grow: 6;
 }
 
-#map {
-    min-width: 500px;
-    height: 100vh;
-    justify-content: center;
-    flex-grow: 5;
-}
-
 #homes-wrap {
     display: flex;
     flex-wrap: wrap;
-    background-color: lightseagreen;
+    background-color: white;
     justify-content: center;
     align-content: start;
     max-width: 600px;
@@ -121,19 +148,7 @@
     overflow: scroll;
 }
 
-// #homes-wrap {
-// display: flex;
-//     display: flex;
-//     flex-wrap: wrap;
-//     background-color: lightsalmon;
-//     justify-content: center;
-//     align-content: start;
-//     max-width: 600px;
-//     min-width: 224px;
-//     gap: 0.6rem;
-//     flex-grow: revert;
-//     overflow: scroll;
-// }
+
 
 .listing-modal-background {
     position: fixed;
@@ -162,5 +177,6 @@
 #modal-on-off.show {
     display: flex;
 }
+
 
 

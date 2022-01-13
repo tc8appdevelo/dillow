@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBarContainer from '../navbar/nav_bar_container';
 
 class Profile extends React.Component {
     constructor(props) {
@@ -28,7 +29,7 @@ class Profile extends React.Component {
             photoFile: null
         }
 
-
+        this.handleInput = this.handleInput.bind(this)
     }
 
     componentDidMount() {
@@ -85,18 +86,81 @@ class Profile extends React.Component {
         const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null
         return (
 
-                <form onSubmit={this.handleSubmit.bind(this)}>
-                    <div>Title</div>
-                    <input
-                        type="text"
-                        value={this.state.description}
-                        onChange={this.handleInput.bind(this)}
-                    />
-                    <input type="file" onChange={this.handleFile.bind(this)} />
-                    <h3>Image preview</h3>
-                    {preview}
-                    <button>List your house!</button>
-                </form>
+            <div>
+                {/* <div>
+                    <NavBarContainer />
+                </div> */}
+                <div className="all-form">
+                    <NavBarContainer />
+                    <div className="sell-form-banner">
+                        <div className="sell-form-picture">
+                            <form className="new-listing-form" onSubmit={this.handleSubmit.bind(this)}>
+
+                                <div className="input-label-wrapper">
+                                    <div className="input-label-div">
+                                        <label>Street address</label>
+                                        <input
+                                            type="text"
+                                            value={this.state.address}
+                                            onChange={this.handleInput}
+                                        />
+                                    </div>
+
+                                    <div className="input-label-div">
+                                        <label>City</label>
+                                        <input
+                                            type="text"
+                                            value={this.state.city}
+                                            onChange={this.handleInput}
+                                        />
+                                    </div>
+
+                                    <div className="input-label-div">
+                                        <label>State</label>
+                                        <input
+                                            type="text"
+                                            value={this.state.state}
+                                            onChange={this.handleInput}
+                                        />
+                                    </div>
+
+                                    <div className="input-label-div">
+                                        <label>Zip code</label>
+                                        <input
+                                            type="text"
+                                            value={this.state.zipcode}
+                                            onChange={this.handleInput}
+                                        />
+                                    </div>
+
+                                    <div className="input-label-div">
+                                        <label>Description</label>
+                                        <input
+                                            type="text"
+                                            value={this.state.description}
+                                            onChange={this.handleInput}
+                                        />
+                                    </div>
+                                </div>
+
+
+                                <div className="img-upload">
+                                    <input type="file" onChange={this.handleFile.bind(this)} />
+
+                                    {preview}
+
+                                </div>
+
+                                <button>List your house!</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+
 
         );
     }

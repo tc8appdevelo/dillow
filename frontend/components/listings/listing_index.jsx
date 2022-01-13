@@ -2,6 +2,8 @@ import React from 'react';
 import ListingIndexItem from "./listing_index_item";
 import HomePage from "./home_page"
 import DillowMap from "../map/dillow_map"
+import NavBarContainer from '../navbar/nav_bar_container';
+
 class ListingIndex extends React.Component {
     constructor(props) {
         super(props);
@@ -21,8 +23,10 @@ class ListingIndex extends React.Component {
     }
 
     showModal(idx) {
-        //const listing = this.props.listings[idx]
-        const listing = idx;
+        const listing = this.props.listings.find(x => x.id === idx);
+        console.log(listing);
+        console.log(this.props.listings)
+        //const listing = idx;
 
         this.setState({
             currentListing: listing,
@@ -51,29 +55,44 @@ class ListingIndex extends React.Component {
         if (this.props.listings[0]) {
             const currentListing = this.state.currentListing;
             return (
+                <div>
+                    <div id="fix-nav">
+                        <NavBarContainer />
+                    </div>
+                    
+                    <div className="map-bar">
 
-                <div id="listings">Listings
+                    </div>
 
-                    <div id="listings-top">dillow</div>
-                    <div id="listings-nav">nav</div>
-                    <div id="listings-map-homes">
+                    <div id="listings">
+
                         
-                            <DillowMap />
-                       
-
-                        <div id="homes-list-wrapper">
-                            <div id="homes-wrap">
-                                {this.props.listings[0] ?
-                                    this.props.listings.map(listing => (<ListingIndexItem key={listing.id} listing={listing} saveListing={this.saveHouse} handleClick={this.showModal} />)) : ""}
-                            </div>
+                        <div id="listings-nav">
+                            <textarea  className="map-search"></textarea>
+                            <div className="map-button">For sale</div>
+                            <div className="map-button">Price</div>
+                            <div className="save-search-button">Save search</div>
                         </div>
+                        <div id="listings-map-homes">
+
+                            <DillowMap />
+
+
+                            <div id="homes-list-wrapper">
+                                <div id="homes-wrap">
+                                    {this.props.listings[0] ?
+                                        this.props.listings.map(listing => (<ListingIndexItem key={listing.id} listing={listing} saveListing={this.saveHouse} handleClick={this.showModal} />)) : ""}
+                                </div>
+                            </div>
+
+                        </div>
+                        <div>
+                        </div>
+                        <HomePage showListing={currentListing} exitModal={() => this.exitModal()} />
 
                     </div>
-                    <div>
-                    </div>
-                    <HomePage showListing={currentListing} exitModal={() => this.exitModal()} />
-
                 </div>
+
             )
         } else {
             return (

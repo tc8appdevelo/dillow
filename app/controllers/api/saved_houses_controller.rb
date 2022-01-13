@@ -1,4 +1,7 @@
 class Api::SavedHousesController < ApplicationController
+
+  
+
   def create
     puts params
     @saved_house = SavedHouse.new

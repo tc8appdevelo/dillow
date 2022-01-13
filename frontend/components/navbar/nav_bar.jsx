@@ -96,7 +96,7 @@ class NavBar extends React.Component {
                                 <div>
                                     <button id="toggleProfileDropdown" onClick={this.handleLogout}>Log out</button>
                                     <Link className="profile-link" to={'/profile'}>Profile</Link>
-                                    <ProfileDropdown />
+                                    {/* <ProfileDropdown /> */}
                                 </div> : <button id="toggleLoginPage" onClick={this.toggleLoginPage}>Sign in</button>} </li>
 
                         </ul>

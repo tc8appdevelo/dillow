@@ -62,6 +62,8 @@
 .large-picture {
   background: lightseagreen;
   flex-grow: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .small-pictures {
