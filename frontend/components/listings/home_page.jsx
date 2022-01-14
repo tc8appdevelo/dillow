@@ -27,7 +27,7 @@ function HomePage(props) {
             </div>
             <div className="home-info">
               <div className="home-info-top-bar">
-                  <div className="title-text">Dillow</div>
+                  <div className="title-text">dillow</div>
                   <div className="right-info-top-bar">
                     <div>Save</div>
                     <div>Share</div>
@@ -37,15 +37,15 @@ function HomePage(props) {
               <div className="info-price-box">
                 <div className="price-row">
                   <div className="price">${props.showListing.price}</div>
-                  <div>{props.showListing.bedrooms}</div>
-                <div className="mid-border-div">{props.showListing.bathrooms}</div>
-                <div>{props.showListing.lot_size}</div>
+                  <div>3 bd</div>
+                  <div className="mid-border-div">2 ba</div>
+                  <div>1123 sqft</div>
                 </div>
                 <div className="text-row">
-                  <div>{props.showListing.address}</div>
-                  <div>{props.showListing.city}</div>
-                  <div>{props.showListing.state}</div>
-                  <div>{props.showListing.zipcode}</div>
+                  <div>3432 road drive</div>
+                  <div>Austin</div>
+                  <div>TX</div>
+                  <div>43322</div>
                 </div>
 
                 <div className="map-buttons-div">

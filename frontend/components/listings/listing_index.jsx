@@ -50,7 +50,7 @@ class ListingIndex extends React.Component {
 
     render() {
 
-        if (this.props.listings[0]) {
+        if (this.props.listings) {
             const currentListing = this.state.currentListing;
             return (
                 <div>

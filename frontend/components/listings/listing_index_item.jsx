@@ -30,7 +30,7 @@ class ListingIndexItem extends React.Component {
                     <div>4444 triple street Charlston, SC 3323</div> */}
                 </div>
                 <div className="listing-box--bottom-bar">
-                    <div className="price-text">${this.props.listing.price}</div>
+                    <div className="price-text">$222,345</div>
                     <div className="small-txt">3 bds 3 bath 1111 sqft - House for sale</div> 
                     <div className="small-txt">4444 triple street Charlston, SC 3323</div>
                     
