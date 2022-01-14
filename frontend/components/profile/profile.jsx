@@ -90,9 +90,7 @@ class Profile extends React.Component {
         return (
 
             <div>
-                {/* <div>
-                    <NavBarContainer />
-                </div> */}
+                
                 <div className="all-form">
                     <NavBarContainer />
                     <div className="sell-form-banner">
