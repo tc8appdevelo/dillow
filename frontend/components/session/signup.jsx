@@ -61,13 +61,13 @@ class Signup extends React.Component {
                     />
                    
 
-                    <button className="form-button" 
+                    <button className="sign-button"
                             onClick={this.handleSubmit}>Sign In</button>
                 </form>
                 <div>Or connect with:</div>
-                <div>
-                    <button onClick={this.loginDemoUser}>Login as demo user</button>
-                </div>
+                
+                <button className='demo-button' onClick={this.loginDemoUser}>demo user</button>
+               
             </div>
         );
     }

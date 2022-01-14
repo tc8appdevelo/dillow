@@ -18,7 +18,7 @@ class BuyRentSellButton extends React.Component {
                         <div className="big-box">
                             <Link className="big-box" to="/homes">Buy</Link>
                         </div>
-                        <div className="big-box">Sell</div>
+                        <Link className="big-box" to="/profile">Sell</Link>
                         <div className="big-box">Rent</div>
                     </div>
 

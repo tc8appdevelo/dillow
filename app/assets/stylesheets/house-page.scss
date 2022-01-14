@@ -43,7 +43,19 @@
     align-items: center;
     background-color: rgba(0, 0, 0, 0.7);
 }
-
+#cc {
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1111;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
 
 
 .flexbox-container-container {
@@ -104,6 +116,7 @@
 .title-text {
   font-size: 33px;
   color: blue;
+  padding-left: 10px;
 }
 
 .right-info-top-bar {
