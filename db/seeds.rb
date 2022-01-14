@@ -19,14 +19,14 @@ user1 = User.create(
     password: "password"
 )
 
-listing1 = Listing.create(
-        user_id: user1.id, price: 1111111, state: "TX", city: "Dallas", 
+listing1 = Listing.create!(
+        user_id: 1, price: 1111111, state: "TX", city: "Dallas", 
         zip_code: 78728, address: "1111 Road Drive", 
         property_type: "House", bedrooms: 4, bathrooms: 3, 
         year_built: 1994, description: "Test listing description."
 )
 
-listing2 = Listing.create(
+listing1 = Listing.create!(
         user_id: user1.id, price: 2222222, state: "TX", city: "Austin", 
         zip_code: 78728, address: "2222 Road Drive", 
         property_type: "House", bedrooms: 4, bathrooms: 3, 
