@@ -1,13 +1,8 @@
 import React from 'react';
-import CreateLoginBox from '../session/create_login_box';
 import { Link } from 'react-router-dom';
 import BuyDropdown from './buy_dropdown';
-import RentDropdown from '../dropdowns/rent_dropdown';
 import LoginPage from "../session/login_page";
-import Model from "../modals/modal";
-import { openModal } from '../../actions/modal_actions';
-import HomePage from '../listings/home_page';
-import ProfileDropdown from '../profile/proflie_dropdown';
+
 class NavBar extends React.Component {
     constructor(props) {
         super(props);
