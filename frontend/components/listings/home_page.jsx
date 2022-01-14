@@ -21,7 +21,7 @@ function HomePage(props) {
         <div className="flexbox-container-container">
             <div className="pictures">
             <div className="large-picture" style={{ backgroundImage: `url(${props.showListing.photoUrl})` }}>
-                large-picture
+                
               </div>
               
             </div>
