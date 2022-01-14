@@ -1,16 +1,5 @@
-$is_displayed: none;
-$drop_border: 0.4px solid lightgrey;
 
-@mixin b_dropdown {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    padding-top: 10px;
-    background-color: #ffffff;
-    z-index: 1;
-}
+
 
 
 #blk {

@@ -1,23 +1,6 @@
 
 
-@mixin container--wide {
-    width: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-@mixin big-box {
-    height: 333px;
-    width: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@mixin shadow {
-    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
-}
 
 .container--col {
     height: 200px;
