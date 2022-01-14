@@ -12,13 +12,13 @@ export const getListing = id => (
     })
 );
 
-// export const postListing = () => (
-//     $.ajax({
-//         method: 'POST',
-//         url: `/api/listings`,
-//         data: { listing }
-//     })
-// )
+export const postListing = () => (
+    $.ajax({
+        method: 'POST',
+        url: `/api/listings`,
+        data: { listing }
+    })
+)
 
 export const postSavedListing = id => 
     $.ajax({
