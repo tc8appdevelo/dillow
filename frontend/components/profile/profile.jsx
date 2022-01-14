@@ -40,6 +40,7 @@ class Profile extends React.Component {
     }
 
     handleInput(type) {
+        
         return (e) => {
             this.setState({ [type]: e.target.value })
         }
@@ -56,7 +57,8 @@ class Profile extends React.Component {
         if (this.state.photoFile) {
             formData.append('listing[photo]', this.state.photoFile);
         }
-        
+        console.log(formData.keys);
+        console.log(formData.values);
         $.ajax({
             url: '/api/listings',
             method: 'POST',
