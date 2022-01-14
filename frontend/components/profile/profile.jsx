@@ -52,15 +52,14 @@ class Profile extends React.Component {
 
         const formData = new FormData();
 
-        formData.append('listing[user_id]', 1);
-        formData.append('listing[price]', 999999);
-        formData.append('listing[description]', "Regular house");
+        formData.append('listing[user_id]', this.state.user_id);
+        formData.append('listing[description]', this.state.description);
         if (this.state.photoFile) {
             formData.append('listing[photo]', this.state.photoFile);
         }
         
 
-
+        
 
 
         $.ajax({
