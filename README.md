@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Features
 
-Things you may want to cover:
+* Listings:
 
-* Ruby version
+The listings are displayed in a scrolling view with their pictures and their price, city, state, zip code, lot size, and amount of bedrooms and bathrooms.  When a logged in user creates a new listing, it is added to the listings shown.  Clicking on a listing brings up a modal that shows more details about that listing along with its expanded pictures.
 
-* System dependencies
+* Map:
 
-* Configuration
+Google maps renders on the page next to the listings scrolling view. The map should render pins representing the locations of the listings in the scrolling view.
 
-* Database creation
+* Profile:
 
-* Database initialization
+If you are signed in, you can navigate to your profile page.  Signed in users also have the option to create new listings.  If you are signed in, you can save a listing and that listing will appear in your saved listings page.  
 
-* How to run the test suite
+* Search:
 
-* Services (job queues, cache servers, search engines, etc.)
+Users should be able to search for homes based on a city or zip code entered into the map search bar.
 
-* Deployment instructions
-
-* ...

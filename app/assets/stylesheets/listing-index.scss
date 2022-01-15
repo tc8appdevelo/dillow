@@ -51,6 +51,7 @@
     border-left: 1px solid lightgray;
     border-right: 1px solid lightgray;
     border-bottom: 2px solid lightskyblue;
+    cursor: pointer;
 }
 
 .listing-box {
@@ -108,7 +109,7 @@
 #listings {
     display: flex;
     flex-direction: column;
-    background-color: lightcoral;
+    background-color: white;
     width: 100vw;
     height: 100vh;
     color: black;

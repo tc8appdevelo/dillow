@@ -21,10 +21,7 @@ class NavBar extends React.Component {
         this.loginDemoUser = this.loginDemoUser.bind(this);
     }
 
-    componentDidMount() {
- 
 
-    }
 
     loginDemoUser() {
         this.props.loginAction({
@@ -50,12 +47,19 @@ class NavBar extends React.Component {
         showProfile: !state.showProfile
     }))
     
-    toggleDropdown = () => this.setState(state => ({
-        showDropdown: !state.showDropdown
-    }))
+    toggleDropdown = () => { this.setState(state => ({
+            showDropdown: !state.showDropdown
+        }))
+    }
+
+    fixToggleDropdown = () => {
+        this.setState({
+            showDropdown: false
+        })
+    }
 
     toggleRentDropdown() {
-            this.setState({ showRentDropdown: !this.state.showRentDropdown });
+        this.setState({ showRentDropdown: !this.state.showRentDropdown });
     }
 
 
@@ -75,14 +79,14 @@ class NavBar extends React.Component {
 
                             <li id="buy-hover" className="buy-hover-class"
                                 onMouseEnter={this.toggleDropdown}
-                                onMouseLeave={this.toggleDropdown}>
+                                onMouseLeave={this.fixToggleDropdown}>
                                     <Link className="buy-link" to={'/homes'}>Buy</Link>
                                 </li>
                             {/* <li id="rent-hover" className="rent-hover-class"
                                 onMouseEnter={this.toggleRentDropdown}
                                 onMouseLeave={this.toggleRentDropdown}>Rent</li> */}
 
-                            <li>Sell</li>
+                                <li><Link className="buy-link" to={'/profile'}>Sell</Link></li>
 
                         </ul>
                     </li>

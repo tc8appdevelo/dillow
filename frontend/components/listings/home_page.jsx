@@ -1,5 +1,6 @@
 import React from "react";
 import DillowMap from "../map/dillow_map";
+import formatPrice from "../../utils/format_price";
 
 
 function HomePage(props) {
@@ -12,8 +13,8 @@ function HomePage(props) {
     )
   } else {
     
-    
-    
+    const priceStr = formatPrice(props.showListing.price);
+    const lotSizeStr = formatPrice(props.showListing.lot_size);
     return (
 
       <div id="dd">
@@ -27,7 +28,7 @@ function HomePage(props) {
             </div>
             <div className="home-info">
               <div className="home-info-top-bar">
-                  <div className="title-text">dillow</div>
+                  <div className="title-text">Dillow</div>
                   <div className="right-info-top-bar">
                     <div>Save</div>
                     <div>Share</div>
@@ -36,16 +37,16 @@ function HomePage(props) {
               </div>
               <div className="info-price-box">
                 <div className="price-row">
-                  <div className="price">${props.showListing.price}</div>
-                  <div>3 bd</div>
-                  <div className="mid-border-div">2 ba</div>
-                  <div>1123 sqft</div>
+                  <div className="price">{priceStr}</div>
+                  <div>{props.showListing.bedrooms} bd</div>
+                  <div className="mid-border-div">{props.showListing.bathrooms} ba</div>
+                  <div>{lotSizeStr} sqft</div>
                 </div>
                 <div className="text-row">
-                  <div>3432 road drive</div>
-                  <div>Austin</div>
-                  <div>TX</div>
-                  <div>43322</div>
+                  <div>{props.showListing.address},</div>
+                  <div>{props.showListing.city},</div>
+                  <div>{props.showListing.state}</div>
+                  <div>{props.showListing.zip_code}</div>
                 </div>
 
                 <div className="map-buttons-div">
@@ -57,11 +58,27 @@ function HomePage(props) {
             <div className="map-flex">
               <DillowMap />
             </div>
-            </div>
 
+            <div className="overview">
+              <div className="ovt">Overview</div>
+                <div className="overview-top-row">
+              
+                    <div className="bld">Time on Dillow 1 day</div>
+                    <div className="mid">Views {props.showListing.views}</div>
+                    <div className="bld">Saves {props.showListing.saves}</div>
+               </div>
+              
+
+                <div className="description">
+                  {props.showListing.description}
+                </div>
+            </div>
+          </div>
         </div>
-        
-        <button className="exit-button" onClick={props.exitModal}>X</button>
+        <div className="exit-mover">
+          <button className="other-exit-button" onClick={props.exitModal}>X</button>
+        </div>
+
       
       </div>
     )

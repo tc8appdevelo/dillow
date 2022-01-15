@@ -4,29 +4,24 @@ import NavBarContainer from '../navbar/nav_bar_container';
 class Profile extends React.Component {
     constructor(props) {
         super(props);
-        // instead of getting rid of all null: false
-        // in the database, just use this and only have
-        // a required user_id, photo.  actually one
-        // string and one int so make sure you get those
-        // correctly at this point.
-        // this.state = {
-        //     user_id: null,
-        //     price: 999999,
-        //     state: "AA",
-        //     city: "aa",
-        //     zip_code: 99999,
-        //     address: "9999 Rode Lane Drive",
-        //     bedrooms: 9,
-        //     bathrooms: 9,
-        //     year_buit: 9999,
-        //     description: "Test description.",
-        //     photoFile: null
-        // }
 
         this.state = {
             user_id: null,
-            price: 999999,
-            photoFile: null
+            price: "",
+            description: "",
+            city: "",
+            state: "",
+            zip_code: "",
+            address: "",
+            bedrooms: "",
+            bathrooms: "",
+            lot_size: "",
+            saves: 0,
+            views: 0,
+            property_type: "",
+
+
+            photoFile: null,
         }
 
         this.handleInput = this.handleInput.bind(this)
@@ -34,33 +29,40 @@ class Profile extends React.Component {
 
     componentDidMount() {
         
-        if(this.state.user_id === null) {
+
             this.setState({ user_id: this.props.currentUser.id })
-        }
+        
     }
 
-    handleInput(type) {
-        
-        return (e) => {
-            this.setState({ [type]: e.target.value })
-        }
+    handleInput(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        
 
         const formData = new FormData();
 
         formData.append('listing[user_id]', this.state.user_id);
+        formData.append('listing[price]', this.state.price);
+        formData.append('listing[address]', this.state.address);
+        formData.append('listing[city]', this.state.city);
+        formData.append('listing[state]', this.state.state);
+        formData.append('listing[zip_code]', this.state.zip_code);
+        formData.append('listing[bedrooms]', this.state.bedrooms);
+        formData.append('listing[bathrooms]', this.state.bathrooms);
+        formData.append('listing[lot_size]', this.state.lot_size);
+        formData.append('listing[property_type]', this.state.property_type);
+        formData.append('listing[year_built]', this.state.year_built);
         formData.append('listing[description]', this.state.description);
+        formData.append('listing[saves]', this.state.saves);
+        formData.append('listing[views]', this.state.views);
+
         if (this.state.photoFile) {
             formData.append('listing[photo]', this.state.photoFile);
         }
-        
-
-        
-
 
         $.ajax({
             url: '/api/listings',
@@ -72,21 +74,23 @@ class Profile extends React.Component {
     }
 
     handleFile(e) {
-        const file = e.currentTarget.files[0]
-        const fileReader = new FileReader();
-        fileReader.onloadend = () => {
-            this.setState({photoFile: file, photoUrl: fileReader.result})
-        }
-        if (file) {
-            fileReader.readAsDataURL(file);
-        }
-        // this.setState({photoFile: e.currentTarget.files[0]});
+        // debugger
+        // const file = e.currentTarget.files[0]
+        // const fileReader = new FileReader();
+        // fileReader.onloadend = () => {
+        //     this.setState({photoFile: file, photoUrl: fileReader.result})
+        // }
+        // if (file) {
+        //     fileReader.readAsDataURL(file);
+        // }
+        this.setState({photoFile: e.currentTarget.files[0]});
     }
 
 
 
     render() {
         const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null
+
         return (
 
             <div>
@@ -98,9 +102,21 @@ class Profile extends React.Component {
                             <form className="new-listing-form" onSubmit={this.handleSubmit.bind(this)}>
 
                                 <div className="input-label-wrapper">
+
+                                    <div className="input-label-div">
+                                        <label>Price</label>
+                                        <input
+                                            name="price"
+                                            type="number"
+                                            value={this.state.price}
+                                            onChange={this.handleInput}
+                                        />
+                                    </div>
+
                                     <div className="input-label-div">
                                         <label>Street address</label>
                                         <input
+                                            name="address"
                                             type="text"
                                             value={this.state.address}
                                             onChange={this.handleInput}
@@ -110,6 +126,7 @@ class Profile extends React.Component {
                                     <div className="input-label-div">
                                         <label>City</label>
                                         <input
+                                            name="city"
                                             type="text"
                                             value={this.state.city}
                                             onChange={this.handleInput}
@@ -119,6 +136,7 @@ class Profile extends React.Component {
                                     <div className="input-label-div">
                                         <label>State</label>
                                         <input
+                                            name="state"
                                             type="text"
                                             value={this.state.state}
                                             onChange={this.handleInput}
@@ -128,22 +146,78 @@ class Profile extends React.Component {
                                     <div className="input-label-div">
                                         <label>Zip code</label>
                                         <input
-                                            type="text"
-                                            value={this.state.zipcode}
+                                            name="zip_code"
+                                            type="number"
+                                            value={this.state.zip_code}
                                             onChange={this.handleInput}
                                         />
                                     </div>
 
-                                    <div className="input-label-div">
-                                        <label>Description</label>
-                                        <input
-                                            type="text"
-                                            value={this.state.description}
-                                            onChange={this.handleInput}
-                                        />
-                                    </div>
                                 </div>
 
+
+
+                                <div className="input-label-div">
+                                    <label>Bedrooms</label>
+                                    <input
+                                        name="bedrooms"
+                                        type="number"
+                                        value={this.state.bedrooms}
+                                        onChange={this.handleInput}
+                                    />
+                                </div>
+
+                                <div className="input-label-div">
+                                    <label>Bathrooms</label>
+                                    <input
+                                        name="bathrooms"
+                                        type="number"
+                                        value={this.state.bathrooms}
+                                        onChange={this.handleInput}
+                                    />
+                                </div>
+
+                                <div className="input-label-div">
+                                    <label>Property type</label>
+                                    <input
+                                        name="property_type"
+                                        type="text"
+                                        value={this.state.property_type}
+                                        onChange={this.handleInput}
+                                    />
+                                </div>
+
+                                <div className="input-label-div">
+                                    <label>Year built</label>
+                                    <input
+                                        name="year_built"
+                                        type="number"
+                                        value={this.state.year_built}
+                                        onChange={this.handleInput}
+                                    />
+                                </div>
+
+                                <div className="input-label-div">
+                                    <label>Lot size</label>
+                                    <input
+                                        name="lot_size"
+                                        type="text"
+                                        value={this.state.lot_size}
+                                        onChange={this.handleInput}
+                                    />
+                                </div>
+
+
+                                <div className="input-label-div">
+                                    <label>Description</label>
+                                    <input
+                                        name="description"
+                                        type="text"
+                                        value={this.state.description}
+                                        onChange={this.handleInput}
+                                    />
+                                </div>
+                       
 
                                 <div className="img-upload">
                                     <input type="file" onChange={this.handleFile.bind(this)} />

@@ -9,6 +9,7 @@ class Api::ListingsController < ApplicationController
 
     def create
         @listing = Listing.new(listing_params)
+
         if @listing.save
             render json: {message: "you are selling a house!"}
         else
@@ -22,6 +23,7 @@ class Api::ListingsController < ApplicationController
         params.require(:listing).permit(:user_id, :price, :state, :city, 
                                         :zip_code, :address, :bedrooms,
                                         :bathrooms, :year_built, :description,
-                                        :photo, :long, :lat)
+                                        :lot_size, :property_type, :photo, 
+                                        :saves, :views, :long, :lat)
     end
 end
