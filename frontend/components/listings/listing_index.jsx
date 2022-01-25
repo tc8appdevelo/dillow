@@ -2,6 +2,7 @@ import React from 'react';
 import ListingIndexItem from "./listing_index_item";
 import HomePage from "./home_page"
 import DillowMap from "../map/dillow_map"
+import DillowMapContainer from "../map/dillow_map_container"
 import NavBarContainer from '../navbar/nav_bar_container';
 
 class ListingIndex extends React.Component {
@@ -73,7 +74,7 @@ class ListingIndex extends React.Component {
                         </div>
                         <div id="listings-map-homes">
 
-                            <DillowMap />
+                            <DillowMapContainer />
 
 
                             <div id="homes-list-wrapper">

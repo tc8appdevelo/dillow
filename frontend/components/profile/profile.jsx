@@ -147,7 +147,7 @@ class Profile extends React.Component {
                                         <label>Zip code</label>
                                         <input
                                             name="zip_code"
-                                            type="number"
+                                            type="text"
                                             value={this.state.zip_code}
                                             onChange={this.handleInput}
                                         />
