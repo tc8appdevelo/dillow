@@ -4,7 +4,7 @@ import DillowMap from './dillow_map';
 
 function mSTP(state) {
   return ({
-    listings: Object.assign({}, state.entities.listings)
+    listings: Object.values(state.entities.listings)
   });
 }
 

@@ -36,23 +36,26 @@ class DillowMap extends React.Component {
     const geocoder = new google.maps.Geocoder();
     // let address = "7818 Caruth Ct, Dallas, TX 75225"
     // let address = this.formatAddress("7818 Caruth Ct", "Dallas", "TX", "75225")
-    let testListing = this.props.listings[9];
-    let address = this.formatAddress(testListing);
-    geocoder.geocode({'address': address}, function(results, status) {
-      if (status == 'OK') {
-        var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-        });
-      } else {
-        console.log('Geocode was not successful for the following reason: ' + status);
-      }
+
+
+    this.props.listings.forEach((ele) => {
+      let address = this.formatAddress(ele);
+      geocoder.geocode({'address': address}, function(results, status) {
+        if (status == 'OK') {
+          let marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+          });
+        } else {
+          console.log("Geocode was unsuccessful for the following reason: " + status);
+        }
+      })
     })
   }
 
   componentDidMount() {
     this.createMap();
-    console.log(this.props.listings[9])
+    console.log(this.props.listings);
   }
 
   render() {
