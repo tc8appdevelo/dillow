@@ -1,11 +1,11 @@
 import React from "react";
-import DillowMap from "../map/dillow_map";
+import DillowMapContainer from "../map/dillow_map_container"
 import formatPrice from "../../utils/format_price";
+import { saveListing } from "../../actions/listing_actions";
 
 
 function HomePage(props) {
 
-  
 
   if (props.showListing === null) {
     return (
@@ -30,7 +30,7 @@ function HomePage(props) {
               <div className="home-info-top-bar">
                   <div className="title-text">Dillow</div>
                   <div className="right-info-top-bar">
-                    <div>Save</div>
+                    <div className="save">Save</div>
                     <div>Share</div>
                     <div>More</div>
                   </div>
@@ -56,7 +56,7 @@ function HomePage(props) {
               </div>
 
             <div className="map-flex">
-              <DillowMap />
+              <DillowMapContainer />
             </div>
 
             <div className="overview">

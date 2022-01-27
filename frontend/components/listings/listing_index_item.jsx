@@ -40,7 +40,7 @@ class ListingIndexItem extends React.Component {
         
             <div className="l-wrap" onClick={() => this.props.handleClick(listing.id)}>
                 <div className="listing-box" style={{ backgroundImage: `url(${listing.photoUrl})` }}>
-                    
+                    <div className="save">+</div>
 
                 </div>
                 <div className="listing-box--bottom-bar">

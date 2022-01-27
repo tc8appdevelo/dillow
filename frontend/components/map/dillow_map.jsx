@@ -37,7 +37,6 @@ class DillowMap extends React.Component {
     // let address = "7818 Caruth Ct, Dallas, TX 75225"
     // let address = this.formatAddress("7818 Caruth Ct", "Dallas", "TX", "75225")
 
-
     this.props.listings.forEach((ele) => {
       let address = this.formatAddress(ele);
       geocoder.geocode({'address': address}, function(results, status) {
