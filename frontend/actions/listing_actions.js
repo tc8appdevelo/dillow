@@ -1,11 +1,13 @@
 import {
     getListings,
     getListing,
+    getSavedListings,
     postSavedListing,
 } from '../utils/listing_api_util';
 
 export const RECEIVE_LISTINGS = 'RECEIVE_LISTINGS';
 export const RECEIVE_LISTING = 'RECEIVE_LISTING';
+export const RECEIVE_SAVED_LISTINGS = 'RECEIVE_SAVED_LISTINGS';
 
 export const receiveListings = listings => ({
     type: RECEIVE_LISTINGS,
@@ -15,6 +17,11 @@ export const receiveListings = listings => ({
 export const receiveListing = listing => ({
     type: RECEIVE_LISTING,
     listing,
+});
+
+export const receiveSavedListings = savedListings => ({
+    type: RECEIVE_SAVED_LISTINGS,
+    savedListings,
 });
 
 // export const listings = () => dispatch => (
@@ -33,3 +40,9 @@ export const fetchListing = listing => dispatch => (
 
 export const saveListing = id => dispatch => postSavedListing(id)
     .then(listing => dispatch(receiveListing(listing)));
+
+export const fetchSavedListings = () => dispatch => {
+    debugger
+    return getSavedListings()
+            .then(savedListings => dispatch(receiveSavedListings(savedListings)))
+}

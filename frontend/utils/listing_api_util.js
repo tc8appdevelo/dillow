@@ -26,3 +26,8 @@ export const postSavedListing = id =>
         url: `/api/saved_houses`,
         data: { id },
     });
+
+export const getSavedListings = () => $.ajax({
+    url: 'api/saved_houses',
+    method: 'GET',
+})

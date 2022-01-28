@@ -1,6 +1,9 @@
 class Api::SavedHousesController < ApplicationController
 
-  
+  def index
+    @saved_houses = current_user.saved_houses
+
+  end
 
   def create
     puts params

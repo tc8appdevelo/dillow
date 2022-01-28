@@ -1,6 +1,6 @@
 import React from "react";
 
-class SavedHomes extends React.Component {
+class SavedListings extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -13,3 +13,5 @@ class SavedHomes extends React.Component {
     )
   }
 }
+
+export default SavedListings;
