@@ -54,7 +54,7 @@ class DillowMap extends React.Component {
 
   componentDidMount() {
     this.createMap();
-    console.log(this.props.listings);
+
   }
 
   render() {

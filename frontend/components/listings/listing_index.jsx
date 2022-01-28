@@ -20,7 +20,7 @@ class ListingIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchListings();
-        console.log(this.props)
+
     }
 
     showModal(idx) {

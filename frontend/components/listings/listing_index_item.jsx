@@ -18,7 +18,6 @@ class ListingIndexItem extends React.Component {
             saved: !state.saved,
         }))
 
-        console.log(this.state)
     }
 
     // componentDidMount() {
@@ -48,7 +47,7 @@ class ListingIndexItem extends React.Component {
     render() {
 
         const listing = this.props.listing;
-        console.log(window.savedHeartUrl);
+
         const saved = this.state.saved;
 
         let priceStr;

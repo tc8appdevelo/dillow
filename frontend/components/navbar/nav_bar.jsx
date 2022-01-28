@@ -86,7 +86,7 @@ class NavBar extends React.Component {
                                 onMouseEnter={this.toggleRentDropdown}
                                 onMouseLeave={this.toggleRentDropdown}>Rent</li> */}
 
-                                <li><Link className="buy-link" to={'/profile'}>Sell</Link></li>
+                                <li><Link className="buy-link" to={'/sell'}>Sell</Link></li>
 
                         </ul>
                     </li>

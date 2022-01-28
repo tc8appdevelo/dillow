@@ -2,17 +2,19 @@ import { connect } from 'react-redux';
 import { fetchSavedListings } from '../../actions/listing_actions';
 import SavedListings from './saved_listings';
 
-// function mSTP(state) {
-//   return ({
-//     listings: Object.values(state.entities.listings)
-//   });
-// }
-
-function mDTP(dispatch) {
+function mSTP(state) {
+  debugger
   return ({
-    savedListings: dispatch(fetchSavedListings()),
+    savedListings: state.savedListings,
+    currentUser: state.session.currentUser,
   })
 }
 
-export default connect(null, mDTP)(SavedListings);
+function mDTP(dispatch) {
+  return ({
+    fetchSavedListings: () => dispatch(fetchSavedListings()),
+  })
+}
+
+export default connect(mSTP, mDTP)(SavedListings);
 

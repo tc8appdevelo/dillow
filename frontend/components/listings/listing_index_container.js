@@ -14,7 +14,6 @@ function mDTP(dispatch) {
     return ({
         fetchListings: () => dispatch(fetchListings()),
         saveListing: id => dispatch(saveListing(id)),
-
     });
 }
 

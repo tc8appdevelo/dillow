@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
     session: sessionReducer,
     entities: entitiesReducer,
     modal: modalReducer,
-    saved_listings: savesReducer,
+    savedListings: savesReducer,
 })
 
 export default rootReducer;

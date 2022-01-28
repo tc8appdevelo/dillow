@@ -42,7 +42,6 @@ export const saveListing = id => dispatch => postSavedListing(id)
     .then(listing => dispatch(receiveListing(listing)));
 
 export const fetchSavedListings = () => dispatch => {
-    debugger
     return getSavedListings()
             .then(savedListings => dispatch(receiveSavedListings(savedListings)))
 }

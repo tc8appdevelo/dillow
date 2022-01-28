@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBarContainer from '../navbar/nav_bar_container';
 
-class Profile extends React.Component {
+class Sell extends React.Component {
     constructor(props) {
         super(props);
 
@@ -241,4 +241,4 @@ class Profile extends React.Component {
     }
 };
 
-export default Profile;
+export default Sell;
