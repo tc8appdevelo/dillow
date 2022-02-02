@@ -9,15 +9,42 @@ class ListingIndexItem extends React.Component {
         this.state = {
             saved: false,
         }
+        this.isListingSaved = this.isListingSaved.bind(this);
         this.toggleSaved = this.toggleSaved.bind(this);
     }
 
     toggleSaved() {
 
-        this.setState(state => ({
-            saved: !state.saved,
-        }))
+        //this.setState(state => ({
+            //saved: !state.saved,
+        //}))
 
+        let isSaved = this.isListingSaved();
+        console.log(`isSaved now is: ${isSaved}`);
+        if (!isSaved) {
+            this.props.saveListing(this.props.listing.id);
+            console.log("saving listing");
+            isSaved = true;
+        } else {
+            this.props.unSaveListing(this.props.listing.id);
+            console.log("removing listing from saves");
+            isSaved = false;
+        }
+
+        this.setState({
+            saved: isSaved,
+        })
+
+        //this.props.saveListing(this.props.listing.id);
+    }
+
+    isListingSaved() {
+        let saved = this.props.savedListings.find(l => l.id === this.props.listing.id);
+        if (saved !== undefined) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // componentDidMount() {

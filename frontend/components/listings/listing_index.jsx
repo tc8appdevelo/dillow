@@ -16,11 +16,12 @@ class ListingIndex extends React.Component {
         this.showModal = this.showModal.bind(this);
         //this.exitModal = this.exitModal.bind(this);
         this.saveHouse = this.saveHouse.bind(this);
+        this.unSaveHouse = this.unSaveHouse.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchListings();
-
+        this.props.fetchSavedListings();
     }
 
     showModal(idx) {
@@ -37,6 +38,9 @@ class ListingIndex extends React.Component {
     saveHouse(id) {
         this.props.saveListing(id)
     }
+    unSaveHouse(id) {
+        this.props.unSaveListing(id)
+    }
 
 
 
@@ -52,6 +56,7 @@ class ListingIndex extends React.Component {
     render() {
 
         if (this.props.listings[0]) {
+            console.log(this.props)
             const currentListing = this.state.currentListing;
             return (
                 <div>
@@ -80,7 +85,7 @@ class ListingIndex extends React.Component {
                             <div id="homes-list-wrapper">
                                 <div id="homes-wrap">
                                     {this.props.listings[0] ?
-                                        this.props.listings.map(listing => (<ListingIndexItem key={listing.id} listing={listing} saveListing={this.saveHouse} handleClick={this.showModal} />)) : ""}
+                                        this.props.listings.map(listing => (<ListingIndexItem key={listing.id} savedListings={this.props.savedListings} listing={listing} saveListing={this.saveHouse} unSaveListing={this.unSaveHouse} handleClick={this.showModal} />)) : ""}
                                 </div>
                             </div>
 

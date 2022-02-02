@@ -4,7 +4,7 @@ import SavedListings from './saved_listings';
 
 function mSTP(state) {
   return ({
-    savedListings: state.savedListings,
+    savedListings: Object.values(state.savedListings),
     currentUser: state.session.currentUser,
   })
 }
