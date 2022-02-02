@@ -31,3 +31,10 @@ export const getSavedListings = () => $.ajax({
     url: 'api/saved_houses',
     method: 'GET',
 })
+
+export const deleteSavedListing = id => 
+    $.ajax({
+        url: `/api/saved_houses`,
+        method: 'DELETE',
+        data: { id }
+    });

@@ -3,7 +3,6 @@ import { fetchSavedListings } from '../../actions/listing_actions';
 import SavedListings from './saved_listings';
 
 function mSTP(state) {
-  debugger
   return ({
     savedListings: state.savedListings,
     currentUser: state.session.currentUser,

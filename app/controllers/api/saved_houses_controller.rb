@@ -18,9 +18,12 @@ class Api::SavedHousesController < ApplicationController
   end
 
   def destroy
-    @saved_house = SavedHouse.find(params[:id])
-    @saved_house.destroy
-    render json: {message: "removed house from saves!"}
+    @saved_house = SavedHouse.find_by(user_id: current_user.id, listing_id: params[:id])
+    if @saved_house.destroy
+      render json: {message: "removed house from saves!"}
+    else
+      render json: @saved_house.errors.full_messages
+    end
   end
 
 
