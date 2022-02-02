@@ -16,6 +16,10 @@ class Sell extends React.Component {
             bedrooms: "",
             bathrooms: "",
             lot_size: "",
+            sqft: "",
+            heating: "",
+            cooling: "",
+            parking: "",
             saves: 0,
             views: 0,
             property_type: "",
@@ -56,7 +60,11 @@ class Sell extends React.Component {
         formData.append('listing[lot_size]', this.state.lot_size);
         formData.append('listing[property_type]', this.state.property_type);
         formData.append('listing[year_built]', this.state.year_built);
-        formData.append('listing[description]', this.state.description);
+        formData.append('listing[description]', this.state.description); 
+        formData.append('listing[parking]', this.state.parking);
+        formData.append('listing[heating]', this.state.heating);
+        formData.append('listing[cooling]', this.state.cooling);
+        formData.append('listing[sqft]', this.state.sqft);
         formData.append('listing[saves]', this.state.saves);
         formData.append('listing[views]', this.state.views);
 
@@ -207,6 +215,45 @@ class Sell extends React.Component {
                                     />
                                 </div>
 
+                                <div className="input-label-div">
+                                    <label>Heating</label>
+                                    <input
+                                        name="heating"
+                                        type="text"
+                                        value={this.state.heating}
+                                        onChange={this.handleInput}
+                                    />
+                                </div>
+
+                                <div className="input-label-div">
+                                    <label>Cooling</label>
+                                    <input
+                                        name="cooling"
+                                        type="text"
+                                        value={this.state.cooling}
+                                        onChange={this.handleInput}
+                                    />
+                                </div>
+
+                                <div className="input-label-div">
+                                    <label>Parking</label>
+                                    <input
+                                        name="parking"
+                                        type="text"
+                                        value={this.state.parking}
+                                        onChange={this.handleInput}
+                                    />
+                                </div>
+
+                                <div className="input-label-div">
+                                    <label>Sqft</label>
+                                    <input
+                                        name="sqft"
+                                        type="number"
+                                        value={this.state.sqft}
+                                        onChange={this.handleInput}
+                                    />
+                                </div>
 
                                 <div className="input-label-div">
                                     <label>Description</label>

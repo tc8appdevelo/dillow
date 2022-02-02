@@ -24,6 +24,7 @@ class Api::ListingsController < ApplicationController
                                         :zip_code, :address, :bedrooms,
                                         :bathrooms, :year_built, :description,
                                         :lot_size, :property_type, :photo, 
-                                        :saves, :views, :long, :lat)
+                                        :saves, :views, :long, :lat,
+                                        :parking, :heating, :cooling, :sqft)
     end
 end
