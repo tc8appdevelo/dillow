@@ -8,10 +8,6 @@ import SellContainer from "./profile/sell_container";
 import ListingIndexContainer from "./listings/listing_index_container";
 import SavedListingsContainer from "./saves/saved_listings_container"
 
-
-
-
-
 const App = () => (
     <div>
         

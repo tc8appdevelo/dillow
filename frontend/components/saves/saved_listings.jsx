@@ -19,9 +19,6 @@ class SavedListings extends React.Component {
     this.props.unSaveListing(id);
   }
 
-  saveHouse() {
-    console.log("save house shouldnt be here")
-  }
 
   exitModal() {
     this.setState({
@@ -46,7 +43,7 @@ class SavedListings extends React.Component {
               </div>
               <div id="saved--homes-list-wrapper">
                 <div id="saved--homes-wrap">
-                  {this.props.savedListings.map(listing => (<SavedListingsItem key={listing.id} listing={listing} saveListing={this.saveHouse} unSaveListing={this.unSaveHouse} handleClick={this.showModal} />))}
+                  {this.props.savedListings.map(listing => (<SavedListingsItem key={listing.id} listing={listing} unSaveListing={this.unSaveHouse} handleClick={this.showModal} />))}
                 </div>
               </div>
             </div>

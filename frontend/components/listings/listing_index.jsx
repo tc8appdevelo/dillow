@@ -70,11 +70,7 @@ class ListingIndex extends React.Component {
     render() {
 
         if (this.props.listings[0]) {
-            // let savedListings;
-            // if (this.props.currentUser.id) {
-            //     savedListings = this.props.savedListings
-            // }
-            console.log(this.props)
+
             const currentListing = this.state.currentListing;
             return (
                 <div>

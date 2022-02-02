@@ -6,9 +6,6 @@ class ListingIndexItem extends React.Component {
  
     constructor(props) {
         super(props);
-        // this.state = {
-        //     changeSaveButton: false,
-        // }
         this.isListingSaved = this.isListingSaved.bind(this);
         this.toggleSaved = this.toggleSaved.bind(this);
     }
@@ -18,24 +15,12 @@ class ListingIndexItem extends React.Component {
     }
 
     toggleSaved() {
-
         let isSaved = this.isListingSaved();
-        console.log(`isSaved now is: ${isSaved}`);
         if (!isSaved) {
             this.props.saveListing(this.props.listing.id);
-            console.log("saving listing");
-            //isSaved = true;
         } else {
             this.props.unSaveListing(this.props.listing.id);
-            console.log("removing listing from saves");
-            //isSaved = false;
         }
-        console.log(`isSaved is after that: ${this.isListingSaved()}`)
-        // this.setState(state => ({
-        //     changeSaveButton: !state.changeSaveButton,
-        // }))
-
-        //this.props.saveListing(this.props.listing.id);
     }
 
     isListingSaved() {
@@ -67,17 +52,12 @@ class ListingIndexItem extends React.Component {
 
 
     render() {
-
         const listing = this.props.listing;
-
         let saved = this.isListingSaved();
-        console.log(`rerendering saved is ${saved}`);
         let priceStr;
         if (listing.price) {
             priceStr = this.formatPrice(listing.price);
         }
-
-      
             return (
                 <div className="pos-heart-wrap">
                     {saved ?
