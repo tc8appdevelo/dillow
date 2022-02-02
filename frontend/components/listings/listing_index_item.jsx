@@ -13,6 +13,12 @@ class ListingIndexItem extends React.Component {
         this.toggleSaved = this.toggleSaved.bind(this);
     }
 
+    componentDidMount() {
+        this.setState({
+            saved: this.isListingSaved(),
+        });
+    }
+
     toggleSaved() {
 
         //this.setState(state => ({
