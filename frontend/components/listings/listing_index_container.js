@@ -8,6 +8,7 @@ function mSTP(state) {
     return ({
         listings: Object.values(state.entities.listings),
         savedListings: Object.values(state.savedListings),
+        currentUser: state.session.currentUser,
     });
 }
 

@@ -6,60 +6,49 @@ class ListingIndexItem extends React.Component {
  
     constructor(props) {
         super(props);
-        this.state = {
-            saved: false,
-        }
+        // this.state = {
+        //     changeSaveButton: false,
+        // }
         this.isListingSaved = this.isListingSaved.bind(this);
         this.toggleSaved = this.toggleSaved.bind(this);
     }
 
     componentDidMount() {
-        this.setState({
-            saved: this.isListingSaved(),
-        });
+        
     }
 
     toggleSaved() {
-
-        //this.setState(state => ({
-            //saved: !state.saved,
-        //}))
 
         let isSaved = this.isListingSaved();
         console.log(`isSaved now is: ${isSaved}`);
         if (!isSaved) {
             this.props.saveListing(this.props.listing.id);
             console.log("saving listing");
-            isSaved = true;
+            //isSaved = true;
         } else {
             this.props.unSaveListing(this.props.listing.id);
             console.log("removing listing from saves");
-            isSaved = false;
+            //isSaved = false;
         }
-
-        this.setState({
-            saved: isSaved,
-        })
+        console.log(`isSaved is after that: ${this.isListingSaved()}`)
+        // this.setState(state => ({
+        //     changeSaveButton: !state.changeSaveButton,
+        // }))
 
         //this.props.saveListing(this.props.listing.id);
     }
 
     isListingSaved() {
         let saved = this.props.savedListings.find(l => l.id === this.props.listing.id);
-        if (saved !== undefined) {
+        
+        if (typeof saved === 'object') {
             return true;
         } else {
             return false;
         }
+        
     }
 
-    // componentDidMount() {
-    //     const saved = document.getElementById("savedHeartUrl");
-    //     this.setState({
-    //         heart: saved,
-    //     })
-    // }
-    
     formatPrice(price) {
         let arr = price.toString().split("").reverse();
         let priceStr = [];
@@ -81,43 +70,45 @@ class ListingIndexItem extends React.Component {
 
         const listing = this.props.listing;
 
-        const saved = this.state.saved;
-
+        let saved = this.isListingSaved();
+        console.log(`rerendering saved is ${saved}`);
         let priceStr;
         if (listing.price) {
             priceStr = this.formatPrice(listing.price);
         }
 
-        return (
-            <div className="pos-heart-wrap">
-                {saved ?
-                    <div className="saved-heart">
-                        <img className="h-img" onClick={this.toggleSaved} src={window.savedHeartUrl} alt="" />
-                    </div> :
-                    <div className="not-saved-heart">
-                        <img className="h-img" onClick={this.toggleSaved} src={window.notSavedHeartUrl} alt="" />
-                    </div>}
-                <div className="l-wrap" onClick={() => this.props.handleClick(listing.id)}>
-                    <div className="listing-box" style={{ backgroundImage: `url(${listing.photoUrl})` }}>
+      
+            return (
+                <div className="pos-heart-wrap">
+                    {saved ?
+                        <div className="saved-heart">
+                            <img className="h-img" onClick={this.toggleSaved} src={window.savedHeartUrl} alt="" />
+                        </div> :
+                        <div className="not-saved-heart">
+                            <img className="h-img" onClick={this.toggleSaved} src={window.notSavedHeartUrl} alt="" />
+                        </div>}
+                    <div className="l-wrap" onClick={() => this.props.handleClick(listing.id)}>
+                        <div className="listing-box" style={{ backgroundImage: `url(${listing.photoUrl})` }}>
 
-                    </div>
-                    <div className="listing-box--bottom-bar">
-
-                        <div className="price-text">{listing.price ? priceStr : "$500,232"}</div>
-                        <div className="small-txt">
-                            {`${listing.bedrooms} bds ${listing.bathrooms} bath ${listing.lot_size} sqft - ${listing.property_type} for sale`}
                         </div>
-                        <div className="small-txt">
-                            {`${listing.address}, ${listing.city} ${listing.state} ${listing.zip_code}`}
-                        </div>
+                        <div className="listing-box--bottom-bar">
 
+                            <div className="price-text">{listing.price ? priceStr : "$500,232"}</div>
+                            <div className="small-txt">
+                                {`${listing.bedrooms} bds ${listing.bathrooms} bath ${listing.lot_size} sqft - ${listing.property_type} for sale`}
+                            </div>
+                            <div className="small-txt">
+                                {`${listing.address}, ${listing.city} ${listing.state} ${listing.zip_code}`}
+                            </div>
+
+                        </div>
                     </div>
+
                 </div>
 
-             </div>
-            
-        )
-    }
+            )
+        }
+  
 }
 
 export default ListingIndexItem;

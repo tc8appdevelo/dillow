@@ -21,7 +21,9 @@ class ListingIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchListings();
-        this.props.fetchSavedListings();
+        if (this.props.currentUser) {
+            this.props.fetchSavedListings();
+        }
     }
 
     showModal(idx) {
@@ -36,10 +38,22 @@ class ListingIndex extends React.Component {
     }
 
     saveHouse(id) {
-        this.props.saveListing(id)
+        if (this.props.currentUser) {
+            this.props.saveListing(id);
+        }
+        // let sl = this.props.fetchSavedListings();
+        // this.setState(state => ({
+        //     savedListings: sl
+        // }))
     }
     unSaveHouse(id) {
-        this.props.unSaveListing(id)
+        if (this.props.currentUser) {
+            this.props.unSaveListing(id);
+        }
+        // let sl = this.props.fetchSavedListings();
+        // this.setState(state => ({
+        //     savedListings: sl
+        // }))
     }
 
 
@@ -56,6 +70,10 @@ class ListingIndex extends React.Component {
     render() {
 
         if (this.props.listings[0]) {
+            // let savedListings;
+            // if (this.props.currentUser.id) {
+            //     savedListings = this.props.savedListings
+            // }
             console.log(this.props)
             const currentListing = this.state.currentListing;
             return (
