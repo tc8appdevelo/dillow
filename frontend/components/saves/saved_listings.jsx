@@ -38,11 +38,20 @@ class SavedListings extends React.Component {
           <div id="fix-nav">
             <NavBarContainer />
           </div>
-          <div id="saved--homes-list-wrapper">
-            <div id="saved--homes-wrap">
-              {this.props.savedListings.map(listing => (<SavedListingsItem key={listing.id} listing={listing} saveListing={this.saveHouse} unSaveListing={this.unSaveHouse} handleClick={this.showModal} />))}
+
+          <div className="saved--all-content-wrap">
+            <div className="saved--all-content">
+              <div className="saved--title">
+                Saved homes
+              </div>
+              <div id="saved--homes-list-wrapper">
+                <div id="saved--homes-wrap">
+                  {this.props.savedListings.map(listing => (<SavedListingsItem key={listing.id} listing={listing} saveListing={this.saveHouse} unSaveListing={this.unSaveHouse} handleClick={this.showModal} />))}
+                </div>
+              </div>
             </div>
           </div>
+
         </div>
       )
     } else {

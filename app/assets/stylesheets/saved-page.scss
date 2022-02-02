@@ -6,19 +6,15 @@
 #saved--homes-list-wrapper {
     background-color: white;
     max-width: 600px;
-    height: 100vh;
     display: flex;
-    border-left: 2en solid lightgray;
     flex-direction: row;
-    flex-grow: 4;
-    justify-content: center;
 }
 
 #saved--homes-wrap {
     display: flex;
     flex-wrap: wrap;
     background-color: white;
-    justify-content: center;
+    justify-content: flex-start;
     align-content: start;
     max-width: 600px;
     min-width: 224px;
@@ -27,6 +23,22 @@
     overflow: scroll;
 }
 
+.saved--title {
+  font-size: 39px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.saved--all-content-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.saved--all-content {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+}
 .save--l-wrap {
     display: flex;
     flex-direction: column;
