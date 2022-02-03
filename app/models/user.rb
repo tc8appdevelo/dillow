@@ -14,6 +14,11 @@ class User < ApplicationRecord
     has_many :listings,
         through: :saved_houses
 
+    has_many :selling_houses,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Listing
+
     attr_reader :password
 
     def password=(password)

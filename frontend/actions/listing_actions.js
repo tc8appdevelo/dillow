@@ -1,6 +1,7 @@
 import {
     getListings,
     getListing,
+    destroyListing,
     getSavedListings,
     postSavedListing,
     deleteSavedListing,
@@ -8,6 +9,8 @@ import {
 
 export const RECEIVE_LISTINGS = 'RECEIVE_LISTINGS';
 export const RECEIVE_LISTING = 'RECEIVE_LISTING';
+export const REMOVE_LISTING = 'REMOVE_LISTING';
+
 export const RECEIVE_SAVED_LISTINGS = 'RECEIVE_SAVED_LISTINGS';
 export const RECEIVE_SAVED_LISTING = 'RECEIVE_SAVED_LISTING';
 export const REMOVE_SAVED_LISTING = 'REMOVE_SAVED_LISTING';
@@ -21,6 +24,11 @@ export const receiveListing = listing => ({
     type: RECEIVE_LISTING,
     listing,
 });
+
+export const removeListing = listing => ({
+    type: REMOVE_LISTING,
+    listing,
+})
 
 export const receiveSavedListings = savedListings => ({
     type: RECEIVE_SAVED_LISTINGS,
@@ -41,14 +49,15 @@ export const removeSavedListing = savedListing => ({
 //     getListings().then(listings => dispatch(receiveListings(listings)))
 // )
 
-export const fetchListings = () => dispatch => {
-
-    return getListings()
+export const fetchListings = filters => dispatch => {
+    return getListings(filters)
             .then(listings => dispatch(receiveListings(listings)))
 }
-
 export const fetchListing = listing => dispatch => (
     getListing(listing).then(listing => dispatch(receiveListing(listing)))
+)
+export const deleteListing = listing => dispatch => (
+    destroyListing(listing).then(listing => dispatch(removeListing(listing)))
 )
 
 export const saveListing = id => dispatch => postSavedListing(id)

@@ -6,8 +6,8 @@ import LoginContainer from "./session/login_container";
 import Splash from "./splash/splash";
 import SellContainer from "./profile/sell_container";
 import ListingIndexContainer from "./listings/listing_index_container";
-import SavedListingsContainer from "./saves/saved_listings_container"
-
+import SavedListingsContainer from "./saves/saved_listings_container";
+import CurrentlySellingContainer from "./profile/currently_selling_container";
 const App = () => (
     <div>
         
@@ -17,6 +17,7 @@ const App = () => (
             <AuthRoute path="/login" component={LoginContainer} />
             <Route path="/sell" component={SellContainer} />
             <Route path="/profile" component={SavedListingsContainer} />
+            <Route path="/selling" component={CurrentlySellingContainer} />
             <Route path="/" component={Splash} />
         </Switch>
         

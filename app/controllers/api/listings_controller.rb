@@ -1,6 +1,6 @@
 class Api::ListingsController < ApplicationController
     def index
-        @listings = Listing.all
+        @listings = selling_houses ? current_user.selling_houses : Listing.all
     end
 
     def show
@@ -17,6 +17,14 @@ class Api::ListingsController < ApplicationController
         end
     end
 
+    def destroy
+        @listing = current_user.selling_houses.find(params[:id])
+        @listing.destroy
+        render json: @listing
+    end
+
+
+
     private
 
     def listing_params
@@ -26,5 +34,9 @@ class Api::ListingsController < ApplicationController
                                         :lot_size, :property_type, :photo, 
                                         :saves, :views, :long, :lat,
                                         :parking, :heating, :cooling, :sqft)
+    end
+
+    def selling_houses
+        params[:selling]
     end
 end

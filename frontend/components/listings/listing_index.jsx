@@ -28,13 +28,9 @@ class ListingIndex extends React.Component {
 
     showModal(idx) {
         const listing = this.props.listings.find(x => x.id === idx);
-        
-
         this.setState({
             currentListing: listing,
         })
-
-        
     }
 
     saveHouse(id) {
