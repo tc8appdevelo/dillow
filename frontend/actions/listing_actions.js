@@ -10,6 +10,7 @@ import {
 export const RECEIVE_LISTINGS = 'RECEIVE_LISTINGS';
 export const RECEIVE_LISTING = 'RECEIVE_LISTING';
 export const REMOVE_LISTING = 'REMOVE_LISTING';
+export const EDIT_LISTING = 'EDIT_LISTING';
 
 export const RECEIVE_SAVED_LISTINGS = 'RECEIVE_SAVED_LISTINGS';
 export const RECEIVE_SAVED_LISTING = 'RECEIVE_SAVED_LISTING';
@@ -29,6 +30,8 @@ export const removeListing = listing => ({
     type: REMOVE_LISTING,
     listing,
 })
+
+
 
 export const receiveSavedListings = savedListings => ({
     type: RECEIVE_SAVED_LISTINGS,
