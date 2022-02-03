@@ -28,7 +28,7 @@ class CurrentlySelling extends React.Component {
           <div id="fix-nav">
             <NavBarContainer />
           </div>
-
+          
           <div className="saved--all-content-wrap">
             <div className="saved--all-content">
               <div className="saved--title">
