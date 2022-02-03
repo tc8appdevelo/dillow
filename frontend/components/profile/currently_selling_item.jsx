@@ -41,7 +41,9 @@ class CurrentlySellingItem extends React.Component {
 
     return (
       <div className="pos-heart-wrap">
-
+        <div className="trash-button">
+          <img className="trash-img" onClick={() => this.props.deleteListing(listing)} src={window.trashUrl} alt="" />
+        </div>
         <div className="save--l-wrap" onClick={() => this.props.handleClick(listing.id)}>
           <div className="save--listing-box" style={{ backgroundImage: `url(${listing.photoUrl})` }}>
 

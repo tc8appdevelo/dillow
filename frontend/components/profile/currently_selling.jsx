@@ -25,23 +25,23 @@ class CurrentlySelling extends React.Component {
       // const currentListing = this.state.currentListing;
       return (
         <div id="saved--page-wrapper">
-          <div id="fix-nav">
-            <NavBarContainer />
-          </div>
-          
           <div className="saved--all-content-wrap">
             <div className="saved--all-content">
               <div className="saved--title">
-                Saved homes
+                Your homes
               </div>
               <div id="saved--homes-list-wrapper">
                 <div id="saved--homes-wrap">
-                  {this.props.currentlySelling.map(listing => (<CurrentlySellingItem key={listing.id} listing={listing} handleClick={this.showModal}/>))}
+                  {this.props.currentlySelling.map(listing => 
+                    (<CurrentlySellingItem 
+                      key={listing.id} 
+                      listing={listing} 
+                      deleteListing={this.props.deleteListing} 
+                      handleClick={this.showModal}/>))}
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       )
     } else {

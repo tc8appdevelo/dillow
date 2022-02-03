@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchListings } from '../../actions/listing_actions';
+import { fetchListings, deleteListing } from '../../actions/listing_actions';
 import CurrentlySelling from './currently_selling';
 
 function mSTP(state) {
@@ -12,6 +12,7 @@ function mSTP(state) {
 function mDTP(dispatch) {
   return ({
     fetchListings: (data) => dispatch(fetchListings(data)),
+    deleteListing: listing => dispatch(deleteListing(listing)),
   })
 }
 

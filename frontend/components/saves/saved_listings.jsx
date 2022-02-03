@@ -32,10 +32,7 @@ class SavedListings extends React.Component {
       // const currentListing = this.state.currentListing;
       return (
         <div id="saved--page-wrapper">
-          <div id="fix-nav">
-            <NavBarContainer />
-          </div>
-
+          
           <div className="saved--all-content-wrap">
             <div className="saved--all-content">
               <div className="saved--title">

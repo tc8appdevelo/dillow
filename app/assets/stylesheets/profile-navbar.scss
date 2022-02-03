@@ -1,0 +1,33 @@
+#profile-navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+}
+
+.profile-navbar-buttons {
+  display: flex;
+  justify-content: flex-start;
+  width: 70vw;
+}
+
+.profile-navbar-button {
+  color: blue;
+  font-size: 18px;
+  margin-right: 15px;
+  cursor: pointer;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-navbar-button:hover {
+  border-bottom: 2px solid blue;
+}
+
+.trash-button {
+  position: absolute;
+  z-index: 1000;
+}

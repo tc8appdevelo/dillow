@@ -3,7 +3,7 @@ import React from "react"
 
 class ListingIndexItem extends React.Component {
 
- 
+
     constructor(props) {
         super(props);
         this.isListingSaved = this.isListingSaved.bind(this);
@@ -11,7 +11,7 @@ class ListingIndexItem extends React.Component {
     }
 
     componentDidMount() {
-        
+
     }
 
     toggleSaved() {
@@ -25,13 +25,13 @@ class ListingIndexItem extends React.Component {
 
     isListingSaved() {
         let saved = this.props.savedListings.find(l => l.id === this.props.listing.id);
-        
+
         if (typeof saved === 'object') {
             return true;
         } else {
             return false;
         }
-        
+
     }
 
     formatPrice(price) {
@@ -48,7 +48,7 @@ class ListingIndexItem extends React.Component {
 
         return "$" + priceStr.join("");
     }
- 
+
 
 
     render() {
@@ -58,37 +58,37 @@ class ListingIndexItem extends React.Component {
         if (listing.price) {
             priceStr = this.formatPrice(listing.price);
         }
-            return (
-                <div className="pos-heart-wrap">
-                    {saved ?
-                        <div className="saved-heart">
-                            <img className="h-img" onClick={this.toggleSaved} src={window.savedHeartUrl} alt="" />
-                        </div> :
-                        <div className="not-saved-heart">
-                            <img className="h-img" onClick={this.toggleSaved} src={window.notSavedHeartUrl} alt="" />
-                        </div>}
-                    <div className="l-wrap" onClick={() => this.props.handleClick(listing.id)}>
-                        <div className="listing-box" style={{ backgroundImage: `url(${listing.photoUrl})` }}>
+        return (
+            <div className="pos-heart-wrap">
+                {saved ?
+                    <div className="saved-heart">
+                        <img className="h-img" onClick={this.toggleSaved} src={window.savedHeartUrl} alt="" />
+                    </div> :
+                    <div className="not-saved-heart">
+                        <img className="h-img" onClick={this.toggleSaved} src={window.notSavedHeartUrl} alt="" />
+                    </div>}
+                <div className="l-wrap" onClick={() => this.props.handleClick(listing.id)}>
+                    <div className="listing-box" style={{ backgroundImage: `url(${listing.photoUrl})` }}>
 
-                        </div>
-                        <div className="listing-box--bottom-bar">
-
-                            <div className="price-text">{listing.price ? priceStr : "$500,232"}</div>
-                            <div className="small-txt">
-                                {`${listing.bedrooms} bds ${listing.bathrooms} bath ${listing.lot_size} sqft - ${listing.property_type} for sale`}
-                            </div>
-                            <div className="small-txt">
-                                {`${listing.address}, ${listing.city} ${listing.state} ${listing.zip_code}`}
-                            </div>
-
-                        </div>
                     </div>
+                    <div className="listing-box--bottom-bar">
 
+                        <div className="price-text">{listing.price ? priceStr : "$500,232"}</div>
+                        <div className="small-txt">
+                            {`${listing.bedrooms} bds ${listing.bathrooms} bath ${listing.lot_size} sqft - ${listing.property_type} for sale`}
+                        </div>
+                        <div className="small-txt">
+                            {`${listing.address}, ${listing.city} ${listing.state} ${listing.zip_code}`}
+                        </div>
+
+                    </div>
                 </div>
 
-            )
-        }
-  
+            </div>
+
+        )
+    }
+
 }
 
 export default ListingIndexItem;

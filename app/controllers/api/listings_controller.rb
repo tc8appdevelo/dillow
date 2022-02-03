@@ -19,8 +19,11 @@ class Api::ListingsController < ApplicationController
 
     def destroy
         @listing = current_user.selling_houses.find(params[:id])
-        @listing.destroy
-        render json: @listing
+        if @listing.destroy
+            render json: @listing
+        else
+            render json: @listing.errors.full_messages
+        end
     end
 
 
