@@ -99,25 +99,19 @@ class EditListing extends React.Component {
     return (
 
       <div>
-
         <div className="edit-form">
           <div className="home--wrapper">
             <div className='big--title'>{addressText}</div>
           </div>
-
-        <div className='home--wrapper'>
-
-        <div className='big--title'>Home Facts</div>
-          
-            
-            
-              <form className="edit-listing-form" onSubmit={this.handleSubmit.bind(this)}>
-                <div className="facts-flex">
+          <div className='home--wrapper'>
+            <div className='big--title'>Home Facts</div>
+            <form className="edit-listing-form" onSubmit={this.handleSubmit.bind(this)}>
+              <div className="facts-flex">
 
                 <div className="facts-flex-inner">
-                <div className="facts-title">
-                  Enter these home facts
-                </div>
+                  <div className="facts-title">
+                    Enter these home facts
+                  </div>
                   <div className="input-label-div">
                     <label>Price</label>
                     <input
@@ -168,99 +162,95 @@ class EditListing extends React.Component {
                     />
                   </div>
 
-                
+                  <div className="input-label-div">
+                    <label>Bedrooms</label>
+                    <input
+                      name="bedrooms"
+                      type="number"
+                      value={this.state.listing.bedrooms}
+                      onChange={this.handleInput}
+                    />
+                  </div>
 
+                  <div className="input-label-div">
+                    <label>Bathrooms</label>
+                    <input
+                      name="bathrooms"
+                      type="number"
+                      value={this.state.listing.bathrooms}
+                      onChange={this.handleInput}
+                    />
+                  </div>
 
+                  <div className="input-label-div">
+                    <label>Property type</label>
+                    <input
+                      name="property_type"
+                      type="text"
+                      value={this.state.listing.property_type}
+                      onChange={this.handleInput}
+                    />
+                  </div>
 
-                <div className="input-label-div">
-                  <label>Bedrooms</label>
-                  <input
-                    name="bedrooms"
-                    type="number"
-                    value={this.state.listing.bedrooms}
-                    onChange={this.handleInput}
-                  />
-                </div>
+                  <div className="input-label-div">
+                    <label>Year built</label>
+                    <input
+                      name="year_built"
+                      type="number"
+                      value={this.state.listing.year_built}
+                      onChange={this.handleInput}
+                    />
+                  </div>
 
-                <div className="input-label-div">
-                  <label>Bathrooms</label>
-                  <input
-                    name="bathrooms"
-                    type="number"
-                    value={this.state.listing.bathrooms}
-                    onChange={this.handleInput}
-                  />
-                </div>
+                  <div className="input-label-div">
+                    <label>Lot size</label>
+                    <input
+                      name="lot_size"
+                      type="text"
+                      value={this.state.listing.lot_size}
+                      onChange={this.handleInput}
+                    />
+                  </div>
 
-                <div className="input-label-div">
-                  <label>Property type</label>
-                  <input
-                    name="property_type"
-                    type="text"
-                    value={this.state.listing.property_type}
-                    onChange={this.handleInput}
-                  />
-                </div>
+                  <div className="input-label-div">
+                    <label>Heating</label>
+                    <input
+                      name="heating"
+                      type="text"
+                      value={this.state.listing.heating}
+                      onChange={this.handleInput}
+                    />
+                  </div>
 
-                <div className="input-label-div">
-                  <label>Year built</label>
-                  <input
-                    name="year_built"
-                    type="number"
-                    value={this.state.listing.year_built}
-                    onChange={this.handleInput}
-                  />
-                </div>
+                  <div className="input-label-div">
+                    <label>Cooling</label>
+                    <input
+                      name="cooling"
+                      type="text"
+                      value={this.state.listing.cooling}
+                      onChange={this.handleInput}
+                    />
+                  </div>
 
-                <div className="input-label-div">
-                  <label>Lot size</label>
-                  <input
-                    name="lot_size"
-                    type="text"
-                    value={this.state.listing.lot_size}
-                    onChange={this.handleInput}
-                  />
-                </div>
+                  <div className="input-label-div">
+                    <label>Parking</label>
+                    <input
+                      name="parking"
+                      type="text"
+                      value={this.state.listing.parking}
+                      onChange={this.handleInput}
+                    />
+                  </div>
 
-                <div className="input-label-div">
-                  <label>Heating</label>
-                  <input
-                    name="heating"
-                    type="text"
-                    value={this.state.listing.heating}
-                    onChange={this.handleInput}
-                  />
-                </div>
-
-                <div className="input-label-div">
-                  <label>Cooling</label>
-                  <input
-                    name="cooling"
-                    type="text"
-                    value={this.state.listing.cooling}
-                    onChange={this.handleInput}
-                  />
-                </div>
-
-                <div className="input-label-div">
-                  <label>Parking</label>
-                  <input
-                    name="parking"
-                    type="text"
-                    value={this.state.listing.parking}
-                    onChange={this.handleInput}
-                  />
-                </div>
-
-                <div className="input-label-div">
-                  <label>Sqft</label>
-                  <input
-                    name="sqft"
-                    type="number"
-                    value={this.state.listing.sqft}
-                    onChange={this.handleInput}
-                  />
-                </div>
+                  <div className="input-label-div">
+                    <label>Sqft</label>
+                    <input
+                      name="sqft"
+                      type="number"
+                      value={this.state.listing.sqft}
+                      onChange={this.handleInput}
+                    />
+                  </div>
 
                 </div>
 
@@ -273,22 +263,22 @@ class EditListing extends React.Component {
                     onChange={this.handleInput}
                   />
                 </div>
-                </div>
+              </div>
 
-                <div className="img-upload">
-                  <input type="file" onChange={this.handleFile.bind(this)} />
+              <div className="img-upload">
+                <input type="file" onChange={this.handleFile.bind(this)} />
 
-                  {preview}
+                {preview}
 
-                </div>
+              </div>
 
-                <button>List your house!</button>
-              </form>
-            </div>
-            </div>
+              <button>List your house!</button>
+            </form>
           </div>
+        </div>
+      </div>
 
-        
+
 
 
 
