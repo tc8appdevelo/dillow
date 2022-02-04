@@ -13,7 +13,6 @@ export const postSession = user => {
         method: 'POST',
         data: { user },
     })
-
 }
 
 export const deleteSession = () => {

@@ -11,21 +11,13 @@ export const getListing = id => (
     })
 )
 
-export const postListing = () => (
-    $.ajax({
-        method: 'POST',
-        url: `/api/listings`,
-        data: { listing }
-    })
-)
-
-export const updateListing = (listing) => (
-    $.ajax({
-        method: 'PATCH',
-        url: `/api/listings/${listing.id}`,
-        data: { listing }
-    })
-)
+// export const postListing = () => (
+//     $.ajax({
+//         method: 'POST',
+//         url: `/api/listings`,
+//         data: { listing }
+//     })
+// )
 
 export const destroyListing = (listing) => (
     $.ajax({
@@ -52,3 +44,23 @@ export const deleteSavedListing = id =>
         method: 'DELETE',
         data: { id }
     });
+
+export const postListing = (formData) => {
+    debugger
+    return $.ajax({
+        url: '/api/listings',
+        method: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false
+    })
+}
+export const updateListing = (listing) => {
+    debugger
+    return $.ajax({
+        method: 'PATCH',
+        url: `/api/listings/${listing.id}`,
+        data: { listing }
+    })
+}
+    

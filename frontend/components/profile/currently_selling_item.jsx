@@ -21,7 +21,7 @@ class CurrentlySellingItem extends React.Component {
     let className = e.target.className;
     switch (className) {
       case "pencil-img":
-        this.testOutThis();
+        this.props.handleClick("edit", this.props.listing)
         break;
       case "trash-img":
         this.props.deleteListing(this.props.listing);

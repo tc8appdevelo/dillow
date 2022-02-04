@@ -5,6 +5,8 @@ import {
     getSavedListings,
     postSavedListing,
     deleteSavedListing,
+    updateListing,
+    postListing,
 } from '../utils/listing_api_util';
 
 export const RECEIVE_LISTINGS = 'RECEIVE_LISTINGS';
@@ -48,10 +50,6 @@ export const removeSavedListing = savedListing => ({
     savedListing,
 });
 
-// export const listings = () => dispatch => (
-//     getListings().then(listings => dispatch(receiveListings(listings)))
-// )
-
 export const fetchListings = filters => dispatch => {
     return getListings(filters)
             .then(listings => dispatch(receiveListings(listings)))
@@ -73,4 +71,11 @@ export const fetchSavedListings = () => dispatch => {
     return getSavedListings()
             .then(savedListings => dispatch(receiveSavedListings(savedListings)))
 }
+
+export const createListing = formData => dispatch => postListing(formData)
+    .then(listing => dispatch(receiveListing(listing)));
+
+export const editListing = listing => dispatch => updateListing(listing)
+    .then(listing => dispatch(receiveListing(listing)));
+
 

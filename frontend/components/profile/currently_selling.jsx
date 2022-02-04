@@ -1,6 +1,7 @@
 import React from "react";
 import CurrentlySellingItem from "./currently_selling_item";
 import NavBarContainer from "../navbar/nav_bar_container";
+import EditListingContainer from "./edit_listing_container";
 
 class CurrentlySelling extends React.Component {
   constructor(props) {
@@ -9,12 +10,19 @@ class CurrentlySelling extends React.Component {
       currentListing: null,
     }
     this.showModal = this.showModal.bind(this);
+    this.showEditListing = this.showEditListing.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchListings({selling: true});
   }
 
+  showEditListing(listing) {
+    this.setState({
+      currentListing: listing,
+    })
+
+  }
 
   showModal(idx) {
     console.log("holder for click show modal" + idx);
@@ -35,9 +43,10 @@ class CurrentlySelling extends React.Component {
                   {this.props.currentlySelling.map(listing => 
                     (<CurrentlySellingItem 
                       key={listing.id} 
-                      listing={listing} 
-                      deleteListing={this.props.deleteListing} 
-                      handleClick={this.showModal}/>))}
+                      listing={listing}
+                      showEditListing={this.showEditListing}
+                      deleteListing={this.props.deleteListing}
+                      handleClick={this.props.handleClick}/>))}
                 </div>
               </div>
             </div>

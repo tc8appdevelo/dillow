@@ -1,4 +1,5 @@
 import React from 'react';
+import { createListing } from '../../actions/listing_actions';
 import NavBarContainer from '../navbar/nav_bar_container';
 
 class Sell extends React.Component {
@@ -32,10 +33,10 @@ class Sell extends React.Component {
     }
 
     componentDidMount() {
-        
 
-            this.setState({ user_id: this.props.currentUser.id })
-        
+
+        this.setState({ user_id: this.props.currentUser.id })
+
     }
 
     handleInput(e) {
@@ -60,7 +61,7 @@ class Sell extends React.Component {
         formData.append('listing[lot_size]', this.state.lot_size);
         formData.append('listing[property_type]', this.state.property_type);
         formData.append('listing[year_built]', this.state.year_built);
-        formData.append('listing[description]', this.state.description); 
+        formData.append('listing[description]', this.state.description);
         formData.append('listing[parking]', this.state.parking);
         formData.append('listing[heating]', this.state.heating);
         formData.append('listing[cooling]', this.state.cooling);
@@ -72,13 +73,15 @@ class Sell extends React.Component {
             formData.append('listing[photo]', this.state.photoFile);
         }
 
-        $.ajax({
-            url: '/api/listings',
-            method: 'POST',
-            data: formData,
-            contentType: false,
-            processData: false
-        })
+        this.props.createListing(formData);
+
+        // $.ajax({
+        //     url: '/api/listings',
+        //     method: 'POST',
+        //     data: formData,
+        //     contentType: false,
+        //     processData: false
+        // })
     }
 
     handleFile(e) {
@@ -91,7 +94,7 @@ class Sell extends React.Component {
         // if (file) {
         //     fileReader.readAsDataURL(file);
         // }
-        this.setState({photoFile: e.currentTarget.files[0]});
+        this.setState({ photoFile: e.currentTarget.files[0] });
     }
 
 
@@ -102,12 +105,12 @@ class Sell extends React.Component {
         return (
 
             <div>
-                
-                <div className="all-form">
+
+                <div className="edit-form">
                     <NavBarContainer />
                     <div className="sell-form-banner">
                         <div className="sell-form-picture">
-                            <form className="new-listing-form" onSubmit={this.handleSubmit.bind(this)}>
+                            <form className="edit-listing-form" onSubmit={this.handleSubmit.bind(this)}>
 
                                 <div className="input-label-wrapper">
 
@@ -264,7 +267,7 @@ class Sell extends React.Component {
                                         onChange={this.handleInput}
                                     />
                                 </div>
-                       
+
 
                                 <div className="img-upload">
                                     <input type="file" onChange={this.handleFile.bind(this)} />
@@ -277,9 +280,9 @@ class Sell extends React.Component {
                             </form>
                         </div>
                     </div>
-                    
+
                 </div>
-                
+
             </div>
 
 
