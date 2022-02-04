@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBarContainer from '../navbar/nav_bar_container';
-
+import { formatAddress } from '../../utils/format_price'
 class EditListing extends React.Component {
   constructor(props) {
     super(props);
@@ -26,8 +26,7 @@ class EditListing extends React.Component {
         views: 0,
         property_type: "",
         photoFile: null,
-      }
-
+      },
     }
 
     this.handleInput = this.handleInput.bind(this)
@@ -95,18 +94,30 @@ class EditListing extends React.Component {
 
   render() {
     const preview = this.state.listing.photoUrl ? <img src={this.state.listing.photoUrl} /> : null
+    const addressText = formatAddress(this.props.listing);
 
     return (
 
       <div>
 
         <div className="edit-form">
-          <div className="sell-form-banner">
-            <div className="sell-form-picture">
+          <div className="home--wrapper">
+            <div className='big--title'>{addressText}</div>
+          </div>
+
+        <div className='home--wrapper'>
+
+        <div className='big--title'>Home Facts</div>
+          
+            
+            
               <form className="edit-listing-form" onSubmit={this.handleSubmit.bind(this)}>
+                <div className="facts-flex">
 
-                <div className="input-label-wrapper">
-
+                <div className="facts-flex-inner">
+                <div className="facts-title">
+                  Enter these home facts
+                </div>
                   <div className="input-label-div">
                     <label>Price</label>
                     <input
@@ -157,7 +168,7 @@ class EditListing extends React.Component {
                     />
                   </div>
 
-                </div>
+                
 
 
 
@@ -251,6 +262,8 @@ class EditListing extends React.Component {
                   />
                 </div>
 
+                </div>
+
                 <div className="input-label-div">
                   <label>Description</label>
                   <input
@@ -260,7 +273,7 @@ class EditListing extends React.Component {
                     onChange={this.handleInput}
                   />
                 </div>
-
+                </div>
 
                 <div className="img-upload">
                   <input type="file" onChange={this.handleFile.bind(this)} />
@@ -272,11 +285,10 @@ class EditListing extends React.Component {
                 <button>List your house!</button>
               </form>
             </div>
+            </div>
           </div>
 
-        </div>
-
-      </div>
+        
 
 
 

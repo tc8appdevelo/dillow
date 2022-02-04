@@ -1,4 +1,4 @@
-function formatPrice(price) {
+export const formatPrice = function(price) {
   let arr = price.toString().split("").reverse();
   let priceStr = [];
 
@@ -13,4 +13,7 @@ function formatPrice(price) {
   return "$" + priceStr.join("");
 }
 
-export default formatPrice;
+export const formatAddress = function(listing) {
+  const formated = listing.address + ", " + listing.city + ", " + listing.state + " " + listing.zip_code
+  return formated;
+}

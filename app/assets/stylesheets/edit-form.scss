@@ -1,9 +1,84 @@
+$font-color: blue;
+$transparent-bg: rgba(102, 153, 255, 0.3);
 .edit-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  
 }
-
+.home--wrapper {
+  border-top: 1px solid black;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  width: 44vw;
+}
 .edit-listing-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  
+}
+
+.facts-flex {
+  display: flex;
+  flex-direction: column;
+  width: 44vw;
+  background-color: $transparent-bg;
+}
+.facts-flex-inner {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.big--title {
+  font-size: 36px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.input-label-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.facts-title {
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-label-div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  label {
+    color: black;
+    
+  }
+}
+
+.img-upload {
+  display: flex;
+}
+
+.sell-form-banner {
+
+    width: 100%;
+    border-radius: 1px;
+    display: flex;
+    justify-content: center;
+    .sell-form-picture {
+        width: 1111px;
+        background-repeat: no-repeat;
+        height: 777px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .search-bar {
+            z-index: 1;
+        }
+    }
 }
