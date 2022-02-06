@@ -4,7 +4,6 @@ import { formatAddress } from '../../utils/format_price'
 class EditListing extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       listing: {
         id: props.listing.id,
@@ -70,9 +69,6 @@ class EditListing extends React.Component {
     if (this.state.listing.photoFiles) {
       formData.append('listing[photos]', this.state.listing.photos);
     }
-
-
-    console.log(this.state.listing);
 
     this.props.editListing(this.state.listing);
     this.props.handleClick("selling");

@@ -9,10 +9,6 @@ class CurrentlySellingItem extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  testOutThis() {
-    console.log("need to make edit listing");
-  }
-
   componentDidMount() {
     
   }
@@ -27,7 +23,6 @@ class CurrentlySellingItem extends React.Component {
         this.props.deleteListing(this.props.listing);
         break;
       default:
-        console.log("other thing whole");
         break;
     }
   }

@@ -115,7 +115,6 @@ class Sell extends React.Component {
     handleFile(e) {
       let listing = {...this.state.listing}
       listing["mainPhotoFile"] = e.currentTarget.files[0];
-      console.log(listing.mainPhotoFile);
       this.setState({
         listing
       })

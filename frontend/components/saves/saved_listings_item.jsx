@@ -20,7 +20,6 @@ class SavedListingsItem extends React.Component {
 
   handleClick(e) {
     let className = e.target.className;
-    console.log(className);
     switch (className) {
       case "heart-img":
         this.toggleSaved();

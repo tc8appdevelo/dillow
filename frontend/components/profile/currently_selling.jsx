@@ -9,7 +9,6 @@ class CurrentlySelling extends React.Component {
     this.state = {
       currentListing: null,
     }
-    this.showModal = this.showModal.bind(this);
     this.showEditListing = this.showEditListing.bind(this);
   }
 
@@ -24,13 +23,8 @@ class CurrentlySelling extends React.Component {
 
   }
 
-  showModal(idx) {
-    console.log("holder for click show modal" + idx);
-  }
-
   render() {
     if (this.props.currentlySelling[0]) {
-      // const currentListing = this.state.currentListing;
       return (
         <div id="saved--page-wrapper">
           <div className="saved--all-content-wrap">
