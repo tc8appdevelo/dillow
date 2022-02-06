@@ -11,8 +11,12 @@ class Listing < ApplicationRecord
     # validates :year_built, presence: true
     # validates :description, presence: true
 
-    validate :ensure_photo
-    has_one_attached :photo
+    # validate :ensure_photo
+
+    # validate :photo_type
+
+    has_one_attached :large_photo
+    has_many_attached :photos
 
     has_many :saved_houses,
         primary_key: :id,
@@ -22,10 +26,30 @@ class Listing < ApplicationRecord
     has_many :users,
     through: :saved_houses
     
-    def ensure_photo
-        unless self.photo.attached?
-            errors[:photo] << "must be attached"
-        end
+
+
+    def thumbnail input
+        return self.photos[input].variant(resize: '386.5x286.5!').processed
     end
+    #735 x 576
+    #365.5 x 286.5
     
+
+    # def ensure_photos
+    #     unless self.photos[0].attached?
+    #         errors[:photos] << "must be attached"
+    #     end
+    # end
+    
+    # private
+    # def photo_type
+    #     if photos.attached? == false
+    #         errors.add(:images, "are missing!")
+    #     end
+    #     images.each do |image|
+    #         if !image.content_type.in?(%('image/jpeg image/png'))
+    #             errors.add(:photo, "must be jpeg or png format")
+    #     end
+    # end
+
 end

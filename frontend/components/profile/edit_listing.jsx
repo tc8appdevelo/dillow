@@ -25,7 +25,8 @@ class EditListing extends React.Component {
         saves: 0,
         views: 0,
         property_type: "",
-        photoFile: null,
+        mainPhotoFile: null,
+        photos: [],
       },
     }
 
@@ -66,8 +67,8 @@ class EditListing extends React.Component {
     formData.append('listing[saves]', this.state.listing.saves);
     formData.append('listing[views]', this.state.listing.views);
 
-    if (this.state.listing.photoFile) {
-      formData.append('listing[photo]', this.state.listing.photoFile);
+    if (this.state.listing.photoFiles) {
+      formData.append('listing[photos]', this.state.listing.photos);
     }
 
 
@@ -77,23 +78,31 @@ class EditListing extends React.Component {
     this.props.handleClick("selling");
   }
 
-  handleFile(e) {
-    // debugger
+  handleFiles(e) {
+
     // const file = e.currentTarget.files[0]
     // const fileReader = new FileReader();
     // fileReader.onloadend = () => {
-    //     this.setState({photoFile: file, photoUrl: fileReader.result})
+    //     this.setState({photoFile: file, largePhotoUrl: fileReader.result})
     // }
     // if (file) {
     //     fileReader.readAsDataURL(file);
     // }
-    this.setState({ photoFile: e.currentTarget.files[0] });
+    this.setState({ photos: e.currentTarget.files });
+  }
+
+  handleFile(e) {
+    let listing = {...this.state.listing}
+    listing["mainPhotoFile"] = e.currentTarget.file;
+    this.setState({
+      listing
+    })
   }
 
 
 
   render() {
-    const preview = this.state.listing.photoUrl ? <img src={this.state.listing.photoUrl} /> : null
+    const preview = this.state.listing.largePhotoUrl ? <img src={this.state.listing.largePhotoUrl} /> : null
     const addressText = formatAddress(this.props.listing);
 
     return (
@@ -265,14 +274,22 @@ class EditListing extends React.Component {
                 </div>
               </div>
 
-              <div className="img-upload">
-                <input type="file" onChange={this.handleFile.bind(this)} />
+              <div className='main-photo-upload'>
+                <input
+                  type="file"
+                  onChange={this.handleFiles.bind(this)} />
+              </div>
 
+              <div className="photos-upload">
+                <input 
+                  type="file" 
+                  onChange={this.handleFiles.bind(this)}
+                  multiple />
                 {preview}
-
               </div>
 
               <button>List your house!</button>
+
             </form>
           </div>
         </div>

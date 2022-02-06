@@ -1,5 +1,5 @@
 import React from 'react';
-import formatPrice from '../../utils/format_price';
+import { formatPrice } from '../../utils/format_price';
 
 
 class DillowMap extends React.Component {

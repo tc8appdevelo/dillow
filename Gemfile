@@ -27,6 +27,7 @@ gem "aws-sdk-s3"
 gem 'figaro'
 
 # Use Active Storage variant
+gem 'mini_magick', '~>4.11.0'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb

@@ -46,7 +46,7 @@ export const deleteSavedListing = id =>
     });
 
 export const postListing = (formData) => {
-    debugger
+
     return $.ajax({
         url: '/api/listings',
         method: 'POST',
@@ -56,7 +56,7 @@ export const postListing = (formData) => {
     })
 }
 export const updateListing = (listing) => {
-    debugger
+
     return $.ajax({
         method: 'PATCH',
         url: `/api/listings/${listing.id}`,

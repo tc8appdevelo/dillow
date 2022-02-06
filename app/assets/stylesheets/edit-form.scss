@@ -60,7 +60,10 @@ $transparent-bg: rgba(102, 153, 255, 0.3);
   }
 }
 
-.img-upload {
+.main-photo-upload {
+  display: flex;
+}
+.photos-upload {
   display: flex;
 }
 

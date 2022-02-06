@@ -69,7 +69,7 @@ class ListingIndex extends React.Component {
 
             const currentListing = this.state.currentListing;
             return (
-                <div>
+                <div id="container-l">
                     <div id="fix-nav">
                         <NavBarContainer />
                     </div>

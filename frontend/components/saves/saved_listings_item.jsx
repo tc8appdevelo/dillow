@@ -57,7 +57,7 @@ class SavedListingsItem extends React.Component {
     return (
       <div className="pos-heart-wrap">
         <div className="save--l-wrap" onClick={this.handleClick}>
-          <div className="save--listing-box" style={{ backgroundImage: `url(${listing.photoUrl})` }}>
+          <div className="save--listing-box" style={{ backgroundImage: `url(${listing.largePhotoUrl})` }}>
             {saved ?
               <div className="saved-heart">
                 <img className="heart-img" src={window.savedHeartUrl} alt="" />

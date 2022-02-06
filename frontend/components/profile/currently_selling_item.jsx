@@ -59,7 +59,7 @@ class CurrentlySellingItem extends React.Component {
       <div className="pos-heart-wrap">
 
         <div className="save--l-wrap" onClick={this.handleClick}>
-          <div className="save--listing-box" style={{ backgroundImage: `url(${listing.photoUrl})` }}>
+          <div className="save--listing-box" style={{ backgroundImage: `url(${listing.largePhotoUrl})` }}>
             <div className='trash-pencil-flex'>
               <div className="pencil-button">
                 <img className="pencil-img" src={window.editPencilUrl} alt="" />

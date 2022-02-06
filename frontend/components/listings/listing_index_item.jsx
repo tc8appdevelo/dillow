@@ -71,7 +71,7 @@ class ListingIndexItem extends React.Component {
 
                 <div className="l-wrap" onClick={this.handleClick}>
                     
-                    <div className="listing-box" style={{ backgroundImage: `url(${listing.photoUrl})` }}>
+                    <div className="listing-box" style={{ backgroundImage: `url(${listing.largePhotoUrl})` }}>
                         {saved ?
                             <div className="saved-heart">
                                 <img className="heart-img" src={window.savedHeartUrl} alt="" />

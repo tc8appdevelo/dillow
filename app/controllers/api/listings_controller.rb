@@ -4,7 +4,7 @@ class Api::ListingsController < ApplicationController
     end
 
     def show
-        @listing = Listing.find(params[:id])
+        @listing = Listing.with_attached_photos.find(params[:id])
     end
 
     def create
@@ -44,9 +44,10 @@ class Api::ListingsController < ApplicationController
         params.require(:listing).permit(:user_id, :price, :state, :city, 
                                         :zip_code, :address, :bedrooms,
                                         :bathrooms, :year_built, :description,
-                                        :lot_size, :property_type, :photo, 
+                                        :lot_size, :property_type, 
                                         :saves, :views, :long, :lat,
-                                        :parking, :heating, :cooling, :sqft)
+                                        :parking, :heating, :cooling, :sqft,
+                                        :large_photo, photos: [])
     end
 
     def selling_houses

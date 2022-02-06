@@ -1,5 +1,5 @@
 import React from 'react';
-import { createListing } from '../../actions/listing_actions';
+
 import NavBarContainer from '../navbar/nav_bar_container';
 
 class Sell extends React.Component {
@@ -25,8 +25,8 @@ class Sell extends React.Component {
             saves: 0,
             views: 0,
             property_type: "",
-
-            photoFile: null,
+            mainPhotoFile: null,
+            photoFiles: [],
           }
         }
 
@@ -69,43 +69,61 @@ class Sell extends React.Component {
         formData.append('listing[saves]', this.state.listing.saves);
         formData.append('listing[views]', this.state.listing.views);
 
-        if (this.state.listing.photoFile) {
-            formData.append('listing[photo]', this.state.listing.photoFile);
+        if (this.state.listing.mainPhotoFile) {
+          const mainPhoto = this.state.listing.mainPhotoFile;
+
+          formData.append('listing[large_photo]', mainPhoto);
+        }
+
+        if (this.state.listing.photoFiles[0]) {
+            const photos = this.state.listing.photoFiles
+
+            for (let i = 0; i < photos.length; i++) {
+                formData.append('listing[photos][]', photos[i]);
+            }
+            // formData.append('listing[photo]', this.state.listing.photoFiles);
         }
 
         this.props.createListing(formData);
-
-        // $.ajax({
-        //     url: '/api/listings',
-        //     method: 'POST',
-        //     data: formData,
-        //     contentType: false,
-        //     processData: false
-        // })
     }
 
-    handleFile(e) {
-        // debugger
+    handleFiles(e) {
+
         // const file = e.currentTarget.files[0]
         // const fileReader = new FileReader();
         // fileReader.onloadend = () => {
-        //     this.setState({photoFile: file, photoUrl: fileReader.result})
+        //     this.setState({photoFile: file, largePhotoUrl: fileReader.result})
         // }
         // if (file) {
         //     fileReader.readAsDataURL(file);
         // }
+        // let listing = {...this.state.listing}
+        // listing["photoFiles"] = e.currentTarget.files;
+        // this.setState({
+        //   listing
+        // })
+
         let listing = {...this.state.listing}
-        listing["photoFile"] = e.currentTarget.files[0];
-        this.setState({
-          listing
+        for (let i = 0; i < e.currentTarget.files.length; i++) {
+            listing["photoFiles"].push(e.currentTarget.files[i]);
+        }
+        this.setState({ 
+            listing 
         })
-        // this.setState({ photoFile: e.currentTarget.files[0] });
+    }
+
+    handleFile(e) {
+      let listing = {...this.state.listing}
+      listing["mainPhotoFile"] = e.currentTarget.files[0];
+      console.log(listing.mainPhotoFile);
+      this.setState({
+        listing
+      })
     }
 
 
-
     render() {
-        const preview = this.state.listing.photoUrl ? <img src={this.state.listing.photoUrl} /> : null
+        const preview = this.state.listing.largePhotoUrl ? <img src={this.state.listing.largePhotoUrl} /> : null
 
         return (
 
@@ -276,16 +294,25 @@ class Sell extends React.Component {
                       />
                     </div>
                   </div>
+
+                  <div className='main-img-upload'>
+                    <input
+                    type="file"
+                    onChange={this.handleFile.bind(this)} />
+                  </div>
     
                   <div className="img-upload">
-                    <input type="file" onChange={this.handleFile.bind(this)} />
-    
+                    <input 
+                    type="file" 
+                    onChange={this.handleFiles.bind(this)}
+                    multiple />
                     {preview}
-    
                   </div>
     
                   <button>List your house!</button>
+
                 </form>
+
               </div>
             </div>
           </div>

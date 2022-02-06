@@ -1,6 +1,6 @@
 import React from "react";
 import DillowMapContainer from "../map/dillow_map_container"
-import formatPrice from "../../utils/format_price";
+import { formatPrice } from "../../utils/format_price";
 import { saveListing } from "../../actions/listing_actions";
 
 
@@ -21,10 +21,13 @@ function HomePage(props) {
 
         <div className="flexbox-container-container">
             <div className="pictures">
-            <div className="large-picture" style={{ backgroundImage: `url(${props.showListing.photoUrl})` }}>
+            {/* <div className="large-picture" style={{ backgroundImage: `url(${props.showListing.largePhotoUrl})` }}>
                 
+              </div> */}
+              <img className="large-picture" src={props.showListing.largePhotoUrl} alt="" />
+              <div className="small-pictures-wrap">
+                {props.showListing.smallPhotoUrls.map((photoUrl, idx) => <img className="small-picture" key={idx} src={photoUrl} alt=""/>)}
               </div>
-              
             </div>
             <div className="home-info">
               <div className="home-info-top-bar">
