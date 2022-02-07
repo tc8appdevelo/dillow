@@ -20,7 +20,7 @@
     min-width: 224px;
     gap: 0.6rem;
     flex-grow: revert;
-    overflow: scroll;
+    
 }
 
 .saved--title {
@@ -49,13 +49,13 @@
 }
 
 .save--listing-box {
-    height: 150px;
-    width: 270px;
-    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    background-repeat: no-repeat;
-    background-size: cover;
+  height: 150px;
+  width: 270px;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-size: 270px 150px;
 }
 
 .save--listing-box--bottom-bar{

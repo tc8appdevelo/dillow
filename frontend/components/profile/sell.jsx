@@ -8,7 +8,7 @@ class Sell extends React.Component {
 
     this.state = {
       listing: {
-        user_id: this.props.currentUser.id,
+        user_id: props.currentUser.id,
         price: "",
         description: "",
         city: "",
@@ -22,6 +22,7 @@ class Sell extends React.Component {
         heating: "",
         cooling: "",
         parking: "",
+        year_built: "",
         saves: 0,
         views: 0,
         property_type: "",
@@ -53,6 +54,7 @@ class Sell extends React.Component {
       heating: "Natural gas",
       cooling: "Central air",
       parking: "2 car garage",
+      year_built: 1999,
       saves: 0,
       views: 0,
       property_type: "House",
@@ -67,7 +69,7 @@ class Sell extends React.Component {
   resetFormValues() {
     this.setState({
       listing: {
-        user_id: null,
+        user_id: this.props.currentUser.id,
         price: "",
         description: "",
         city: "",
@@ -81,6 +83,7 @@ class Sell extends React.Component {
         heating: "",
         cooling: "",
         parking: "",
+        year_built: "",
         saves: 0,
         views: 0,
         property_type: "",

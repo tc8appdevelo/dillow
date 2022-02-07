@@ -10,7 +10,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => ({
     logout: () => dispatch(logout()),
-    editListing: listing => dispatch(editListing(listing)),
+    editListing: (listing, id) => dispatch(editListing(listing, id)),
 })
 
 export default connect(mSTP, mDTP)(EditListing);

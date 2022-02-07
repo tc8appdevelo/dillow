@@ -73,9 +73,9 @@ export const fetchSavedListings = () => dispatch => {
 }
 
 export const createListing = formData => dispatch => postListing(formData)
-    .then(listing => dispatch(receiveListing(listing)));
+    .then(listings => dispatch(receiveListings(listings)));
 
-export const editListing = listing => dispatch => updateListing(listing)
+export const editListing = (listing, id) => dispatch => updateListing(listing, id)
     .then(listing => dispatch(receiveListing(listing)));
 
 

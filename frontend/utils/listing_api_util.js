@@ -1,3 +1,4 @@
+
 export const getListings = (data) => $.ajax({
     url: '/api/listings',
     method: "GET",
@@ -55,12 +56,14 @@ export const postListing = (formData) => {
         processData: false
     })
 }
-export const updateListing = (listing) => {
+export const updateListing = (formData, id) => {
 
     return $.ajax({
         method: 'PATCH',
-        url: `/api/listings/${listing.id}`,
-        data: { listing }
+        url: `/api/listings/${id}`,
+        data: formData,
+        contentType: false,
+        processData: false
     })
 }
     

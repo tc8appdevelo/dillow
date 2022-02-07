@@ -11,6 +11,7 @@ const listingsReducer = (state = {}, action) => {
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_LISTING:
+            
             return newState;
         case RECEIVE_LISTINGS:
             newState = Object.assign({}, action.listings)

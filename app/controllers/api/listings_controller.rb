@@ -19,7 +19,17 @@ class Api::ListingsController < ApplicationController
     def update
 
         @listing = Listing.find(params[:id])
-        
+        # @listing.photos.each do |photo|
+        #     photo.purge
+        # end
+        # if listing_params[:photos]
+        #     @listing.photos.attach(listing_params[:photos])
+        # end
+        # if @listing.update(listing_params.reject { |k| k["photos"] })
+        #     render :show
+        # else
+        #     render json: @listing.errors.full_messages
+        # end
         if @listing.update(listing_params)
             render :show
         else

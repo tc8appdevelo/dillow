@@ -1,12 +1,14 @@
 import React from 'react';
 import NavBarContainer from '../navbar/nav_bar_container';
-import { formatAddress } from '../../utils/format_price'
+import { formatAddress } from '../../utils/format_price';
+
 class EditListing extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       listing: {
-        id: props.listing.id,
+        
         user_id: props.currentUser.id,
         price: "",
         description: "",
@@ -24,20 +26,83 @@ class EditListing extends React.Component {
         saves: 0,
         views: 0,
         property_type: "",
-        mainPhotoFile: null,
-        mainPhotoUrl: null,
+        large_photo: null,
         photos: [],
-        photosUrls: [],
       },
+      mainPhotoUrl: "",
+      photoUrls: [],
     }
 
-    this.handleInput = this.handleInput.bind(this)
+    this.handleInput = this.handleInput.bind(this);
+    this.setDemoListing = this.setDemoListing.bind(this);
+    this.resetFormValues = this.resetFormValues.bind(this);
+  }
+
+  setDemoListing() {
+    const demoListing = {
+      
+      user_id: this.props.currentUser.id,
+      price: 640000,
+      description: "This is the demo listing to save you time filling out forms during testing.",
+      city: "Dallas",
+      state: "TX",
+      zip_code: "75201",
+      address: "920 S Harwood St",
+      bedrooms: "6",
+      bathrooms: "4",
+      lot_size: "2200",
+      sqft: "5500",
+      heating: "Natural gas",
+      cooling: "Central air",
+      parking: "2 car garage",
+      year_built: 1999,
+      saves: 0,
+      views: 0,
+      property_type: "House",
+      large_photo: null,
+      photos: [],
+    }
+    this.setState({
+      listing: demoListing
+    })
+  }
+
+  resetFormValues() {
+    this.setState({
+      listing: {
+        
+        user_id: this.props.currentUser.id,
+        price: "",
+        description: "",
+        city: "",
+        state: "",
+        zip_code: "",
+        address: "",
+        bedrooms: "",
+        bathrooms: "",
+        lot_size: "",
+        sqft: "",
+        heating: "",
+        cooling: "",
+        parking: "",
+        year_built: "",
+        saves: 0,
+        views: 0,
+        property_type: "",
+        large_photo: null,
+        photos: [],
+      },
+    })
   }
 
 
+  componentDidMount() {
+    this.setState({ user_id: this.props.currentUser.id })
+    console.log(this.state)
+  }
 
   handleInput(e) {
-    let listing = {...this.state.listing}
+    let listing = { ...this.state.listing }
     listing[e.target.name] = e.target.value;
     this.setState({
       listing
@@ -46,10 +111,10 @@ class EditListing extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
+    let listing = {...this.state.listing}
     const formData = new FormData();
 
-    formData.append('listing[user_id]', this.props.listing.user_id);
+    formData.append('listing[user_id]', this.state.listing.user_id);
     formData.append('listing[price]', this.state.listing.price);
     formData.append('listing[address]', this.state.listing.address);
     formData.append('listing[city]', this.state.listing.city);
@@ -67,64 +132,97 @@ class EditListing extends React.Component {
     formData.append('listing[sqft]', this.state.listing.sqft);
     formData.append('listing[saves]', this.state.listing.saves);
     formData.append('listing[views]', this.state.listing.views);
+    debugger
 
-    if (this.state.listing.photoFiles) {
-      formData.append('listing[photos]', this.state.listing.photos);
+    if (this.state.listing.large_photo) {
+      const mainPhoto = this.state.listing.large_photo;
+      formData.append('listing[large_photo]', mainPhoto);
     }
 
-    this.props.editListing(this.state.listing);
-    this.props.handleClick("selling");
+
+    if (this.state.listing.photos[0]) {
+      const photos = this.state.listing.photos
+
+      for (let i = 0; i < photos.length; i++) {
+        formData.append('listing[photos][]', photos[i]);
+      }
+    }
+
+    this.props.editListing(formData, this.props.listing.id)
+
+
+    // delete(listing.large_photo);
+    // this.props.editListing(listing, this.props.listing.id)
+    // this.props.editListing(this.state.listing, this.props.listing.id);
   }
 
   handleFiles(e) {
+    const files = e.currentTarget.files;
 
-    // const file = e.currentTarget.files[0]
-    // const fileReader = new FileReader();
-    // fileReader.onloadend = () => {
-    //     this.setState({photoFile: file, largePhotoUrl: fileReader.result})
-    // }
-    // if (file) {
-    //     fileReader.readAsDataURL(file);
-    // }
-    this.setState({ photos: e.currentTarget.files });
+    for (let i = 0; i < files.length; i++) {
+      let fileReader = new FileReader();
+      fileReader.onloadend = () => {
+        const newPhotoUrls = this.state.photoUrls.slice();
+        newPhotoUrls.push(fileReader.result);
+        const newListing = { ...this.state.listing }
+        newListing.photos.push(files[i]);
+
+        this.setState({
+          photoUrls: newPhotoUrls,
+          listing: newListing,
+        })
+      }
+
+      if (files[i]) {
+        fileReader.readAsDataURL(files[i]);
+      } else {
+        this.setState({
+          photoUrls: ""
+        })
+      }
+    }
+
   }
 
   handleFile(e) {
-    // const file = e.currentTarget.file[0];
-    // const fileReader = new FileReader();
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
 
-    // let listing = {...this.state.listing}
- 
+    fileReader.onloadend = () => {
+      this.setState({
+        mainPhotoUrl: fileReader.result,
+        listing: {
+          ...this.state.listing,
+          large_photo: file,
+        }
+      })
+    }
 
-    // fileReader.onloadend = () => {
-    //   listing["mainPhotoFile"] = e.currentTarget.file;
-    //   listing["mainPhotoUrl"] = fileReader.result;
-    //   this.setState({
-    //     listing
-    //   })
+    if (file) {
+      fileReader.readAsDataURL(file)
+    } else {
+      this.setState({ mainPhotoUrl: "" })
+    }
 
-    //   if (file) {
-    //     debugger
-    //     fileReader.readAsDataURL(file);
-    //   }
-    // }
-    
-    let listing = {...this.state.listing}
-    listing["mainPhotoFile"] = e.currentTarget.files[0];
-    this.setState({
-      listing
-    })
   }
 
-
-
   render() {
-    const preview = this.state.listing.largePhotoUrl ? <img src={this.state.listing.largePhotoUrl} /> : null
-    const addressText = formatAddress(this.props.listing);
-
+    const addressText = formatAddress(this.props.listing)
+    const mainPhotoPreview = this.state.mainPhotoUrl ? <img className="photo-preview" src={this.state.mainPhotoUrl} alt="" /> : null
+    let previewUrls = this.state.photoUrls;
+    console.log(this.state)
     return (
 
       <div>
+
+        <div className="btn-bar">
+          <button onClick={this.setDemoListing} className="white-btn">
+            Demo Listing
+          </button>
+          <button onClick={this.resetFormValues} className="white-btn">
+            Reset form
+          </button>
+        </div>
         <div className="edit-form">
           <div className="home--wrapper">
             <div className='big--title'>{addressText}</div>
@@ -291,27 +389,37 @@ class EditListing extends React.Component {
                 </div>
               </div>
 
+
+              <input
+                type="file"
+                onChange={this.handleFile.bind(this)} />
+
               <div className='main-photo-upload'>
-                <input
-                  type="file"
-                  onChange={this.handleFiles.bind(this)} />
+                {mainPhotoPreview}
               </div>
 
-              <div className="photos-upload">
-                <input 
-                  type="file" 
-                  onChange={this.handleFiles.bind(this)}
-                  multiple />
-                {preview}
+              <input
+                type="file"
+                onChange={this.handleFiles.bind(this)}
+                multiple />
+
+              <div className="small-photos-wrapper">
+                {
+                  previewUrls.map((previewUrl, idx) => (
+                    <div className="small-photos-upload" key={idx}>
+                      <img className="photo-preview" src={previewUrl} key={previewUrl} alt="" />
+                    </div>
+                  ))
+                }
               </div>
 
-              <button>Submit changes</button>
+              <button>List your house!</button>
 
             </form>
+
           </div>
         </div>
       </div>
-
 
 
 
