@@ -25,7 +25,9 @@ class EditListing extends React.Component {
         views: 0,
         property_type: "",
         mainPhotoFile: null,
+        mainPhotoUrl: null,
         photos: [],
+        photosUrls: [],
       },
     }
 
@@ -88,8 +90,27 @@ class EditListing extends React.Component {
   }
 
   handleFile(e) {
+    // const file = e.currentTarget.file[0];
+    // const fileReader = new FileReader();
+
+    // let listing = {...this.state.listing}
+ 
+
+    // fileReader.onloadend = () => {
+    //   listing["mainPhotoFile"] = e.currentTarget.file;
+    //   listing["mainPhotoUrl"] = fileReader.result;
+    //   this.setState({
+    //     listing
+    //   })
+
+    //   if (file) {
+    //     debugger
+    //     fileReader.readAsDataURL(file);
+    //   }
+    // }
+    
     let listing = {...this.state.listing}
-    listing["mainPhotoFile"] = e.currentTarget.file;
+    listing["mainPhotoFile"] = e.currentTarget.files[0];
     this.setState({
       listing
     })
@@ -284,7 +305,7 @@ class EditListing extends React.Component {
                 {preview}
               </div>
 
-              <button>List your house!</button>
+              <button>Submit changes</button>
 
             </form>
           </div>
