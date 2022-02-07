@@ -23,6 +23,7 @@ class EditListing extends React.Component {
         heating: "",
         cooling: "",
         parking: "",
+        year_built: "",
         saves: 0,
         views: 0,
         property_type: "",
@@ -68,28 +69,29 @@ class EditListing extends React.Component {
   }
 
   resetFormValues() {
+    const listing = this.props.listing
     this.setState({
       listing: {
         
         user_id: this.props.currentUser.id,
-        price: "",
-        description: "",
-        city: "",
-        state: "",
-        zip_code: "",
-        address: "",
-        bedrooms: "",
-        bathrooms: "",
-        lot_size: "",
-        sqft: "",
-        heating: "",
-        cooling: "",
-        parking: "",
-        year_built: "",
+        price: listing.price,
+        description: listing.description,
+        city: listing.city,
+        state: listing.state,
+        zip_code: listing.zip_code,
+        address: listing.address,
+        bedrooms: listing.bedrooms,
+        bathrooms: listing.bathrooms,
+        lot_size: listing.lot_size,
+        sqft: listing.sqft,
+        heating: listing.heating,
+        cooling: listing.cooling,
+        parking: listing.parking,
+        year_built: listing.year_built,
         saves: 0,
         views: 0,
-        property_type: "",
-        large_photo: null,
+        property_type: listing.property_type,
+        large_photo: "",
         photos: [],
       },
     })
@@ -132,7 +134,7 @@ class EditListing extends React.Component {
     formData.append('listing[sqft]', this.state.listing.sqft);
     formData.append('listing[saves]', this.state.listing.saves);
     formData.append('listing[views]', this.state.listing.views);
-    debugger
+    
 
     if (this.state.listing.large_photo) {
       const mainPhoto = this.state.listing.large_photo;

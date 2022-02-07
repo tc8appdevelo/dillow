@@ -1,7 +1,6 @@
 import React from 'react';
 import NavBarContainer from '../navbar/nav_bar_container';
 import ProfileNavBar from './profile_navbar';
-import SellContainer from './sell_container';
 import SavedListingsContainer from '../saves/saved_listings_container';
 import CurrentlySellingContainer from './currently_selling_container';
 import EditListingContainer from './edit_listing_container';

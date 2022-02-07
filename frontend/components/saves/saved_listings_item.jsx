@@ -10,9 +10,6 @@ class SavedListingsItem extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentDidMount() {
-
-  }
 
   toggleSaved() {
     this.props.unSaveListing(this.props.listing.id);

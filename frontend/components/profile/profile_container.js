@@ -10,7 +10,7 @@ const mSTP = state => ({
 });
 
 // function mDTP(dispatch) {
-
+//     fetchListings: 
 // }
 
 export default connect(mSTP, null)(Profile);

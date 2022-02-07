@@ -1,10 +1,11 @@
 import React from "react";
 import SavedListingsItem from "./saved_listings_item";
-import NavBarContainer from "../navbar/nav_bar_container";
+
 
 class SavedListings extends React.Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       currentListing: null,
     }
