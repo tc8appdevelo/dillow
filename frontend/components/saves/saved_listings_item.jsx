@@ -8,11 +8,13 @@ class SavedListingsItem extends React.Component {
     super(props);
     this.toggleSaved = this.toggleSaved.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.formatPrice = this.formatPrice.bind(this);
   }
 
 
   toggleSaved() {
     this.props.unSaveListing(this.props.listing.id);
+    
   }
 
   handleClick(e) {
@@ -20,6 +22,7 @@ class SavedListingsItem extends React.Component {
     switch (className) {
       case "heart-img":
         this.toggleSaved();
+        console.log("case heart-img");
         break;
       default:
         //this.props.handleClick(this.props.listing.id);
@@ -47,8 +50,8 @@ class SavedListingsItem extends React.Component {
     let priceStr;
     if (listing.price) {
       priceStr = this.formatPrice(listing.price);
-    }
 
+    }
 
     return (
       <div className="pos-heart-wrap">

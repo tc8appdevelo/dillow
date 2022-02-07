@@ -61,13 +61,15 @@ export const deleteListing = listing => dispatch => (
     destroyListing(listing).then(listing => dispatch(removeListing(listing)))
 )
 
-export const saveListing = id => dispatch => postSavedListing(id)
-    .then(savedListing => dispatch(receiveSavedListing(savedListing)));
+export const saveListing = id => dispatch => {
+    return postSavedListing(id).then(savedListing => dispatch(receiveSavedListing(savedListing)))
+}
 
 export const unSaveListing = id => dispatch => deleteSavedListing(id)
     .then(savedListing => dispatch(removeSavedListing(savedListing)));
 
 export const fetchSavedListings = () => dispatch => {
+    debugger
     return getSavedListings()
             .then(savedListings => dispatch(receiveSavedListings(savedListings)))
 }

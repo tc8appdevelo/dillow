@@ -10,8 +10,10 @@ const savesReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_SAVED_LISTINGS:
       newState = Object.assign({}, action.savedListings)
+      
       return newState
     case REMOVE_SAVED_LISTING:
+      
       delete newState[action.savedListing.listing_id];
       return newState;
     case RECEIVE_SAVED_LISTING:

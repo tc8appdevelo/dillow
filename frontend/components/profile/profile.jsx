@@ -4,7 +4,7 @@ import ProfileNavBar from './profile_navbar';
 import SavedListingsContainer from '../saves/saved_listings_container';
 import CurrentlySellingContainer from './currently_selling_container';
 import EditListingContainer from './edit_listing_container';
-
+import SavedListings from '../saves/saved_listings'
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -21,12 +21,14 @@ class Profile extends React.Component {
     let showTab;
     switch (tab) {
       case "saved":
-        showTab = <SavedListingsContainer />
+
+        showTab = <SavedListingsContainer savedListings={this.props.savedListings}/>
         break
       case "selling":
         showTab = <CurrentlySellingContainer handleClick={this.handleTabClick} />
         break
       case "edit":
+
         showTab = <EditListingContainer listing={listing} handleClick={this.handleTabClick} />
         break
       default:

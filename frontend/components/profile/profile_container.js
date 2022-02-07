@@ -7,10 +7,15 @@ import Profile from './profile';
 
 const mSTP = state => ({
     currentUser: state.session.currentUser,
+    savedListings: Object.values(state.savedListings),
 });
 
-// function mDTP(dispatch) {
-//     fetchListings: 
-// }
-
-export default connect(mSTP, null)(Profile);
+function mDTP(dispatch) {
+    return ({
+      fetchSavedListings: () => dispatch(fetchSavedListings()),
+      
+      unSaveListing: id => dispatch(unSaveListing(id)),
+    })
+  }
+  
+export default connect(mSTP, mDTP)(Profile);

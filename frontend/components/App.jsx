@@ -9,6 +9,7 @@ import ListingIndexContainer from "./listings/listing_index_container";
 import SavedListingsContainer from "./saves/saved_listings_container";
 import CurrentlySellingContainer from "./profile/currently_selling_container";
 import Profile from "./profile/profile";
+import ProfileContainer from "./profile/profile_container"
 
 const App = () => (
     <div>
@@ -18,7 +19,7 @@ const App = () => (
             <AuthRoute path="/signup" component={SignupContainer} />
             <AuthRoute path="/login" component={LoginContainer} />
             <Route path="/sell" component={SellContainer} />
-            <Route path="/profile" component={Profile} />
+            <Route path="/profile" component={ProfileContainer} />
             <Route path="/selling" component={CurrentlySellingContainer} />
             <Route path="/" component={Splash} />
         </Switch>

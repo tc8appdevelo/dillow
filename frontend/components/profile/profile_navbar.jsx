@@ -6,9 +6,6 @@ class ProfileNavBar extends React.Component {
     
   }
 
-  handleClick(tab) {
-    this.props.handleTabClick(btn)
-  }
 
   render() {
     return (

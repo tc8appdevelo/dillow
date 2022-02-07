@@ -4,6 +4,10 @@ class Api::SavedHousesController < ApplicationController
     @saved_houses = current_user.listings
   end
 
+  def show
+    @saved_house = SavedHouse.find_by(user_id: current_user.id, listing_id: params[:id])
+  end
+  
   def create
     
     @saved_house = SavedHouse.new
@@ -15,7 +19,6 @@ class Api::SavedHousesController < ApplicationController
     else
         render json: @saved_house.errors.full_messages
     end
-
   end
 
   def destroy
