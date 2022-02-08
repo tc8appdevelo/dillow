@@ -6,26 +6,24 @@ class SavedListings extends React.Component {
   constructor(props) {
     super(props);
     
-    this.state = {
-      currentListing: null,
-    }
-    this.unSaveHouse = this.unSaveHouse.bind(this);
+
+    //this.unSaveHouse = this.unSaveHouse.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchSavedListings();
-  }
-
-  unSaveHouse(id) {
-    this.props.unSaveListing(id);
+    // debugger
+    // this.props.fetchSavedListings();
+    // debugger
   }
 
 
-  exitModal() {
-    this.setState({
-      currentListing: null,
-    })
-  }
+
+
+  // exitModal() {
+  //   this.setState({
+  //     currentListing: null,
+  //   })
+  // }
 
 
   render() {
@@ -41,7 +39,7 @@ class SavedListings extends React.Component {
               </div>
               <div id="saved--homes-list-wrapper">
                 <div id="saved--homes-wrap">
-                  {this.props.savedListings.map(listing => (<SavedListingsItem key={listing.id} listing={listing} unSaveListing={this.unSaveHouse} handleClick={this.showModal} />))}
+                  {this.props.savedListings.map(listing => (<SavedListingsItem key={listing.id} listing={listing} unSaveListing={this.props.unSaveListing} />))}
                 </div>
               </div>
             </div>

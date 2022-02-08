@@ -51,30 +51,45 @@ listing2.photos.attach(io: small2_3, filename: 'small2_3.png')
 listing2.photos.attach(io: small2_4, filename: 'small2_4.png')
 listing2.save!
 
-# listing3 = Listing.new(
-#         user_id: user1.id, price: 343255, state: "TX", city: "Dallas", 
-#         zip_code: "75226", address: "215 N Walton St", 
-#         property_type: "House", bedrooms: 4, bathrooms: 3, 
-#         year_built: 1999, description: "Test listing description.",
-#         lot_size: 4223, saves: 0, views: 0,
-#         heating: "Needs replacing", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
-# )
-# #listing3.photo.attach(io: File.open("app/assets/images/house3.png"), filename: "house3.png")
-# file3 = open('https://dillow-seeds.s3.amazonaws.com/house3.png')
-# listing3.photo.attach(io: file3, filename: 'house3.png')
-# listing3.save!
+listing3 = Listing.new(
+        user_id: user1.id, price: 343255, state: "TX", city: "Dallas", 
+        zip_code: "75226", address: "215 N Walton St", 
+        property_type: "House", bedrooms: 4, bathrooms: 3, 
+        year_built: 1999, description: "Test listing description.",
+        lot_size: 4223, saves: 0, views: 0,
+        heating: "Needs replacing", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
+)
+house3 = open('https://dillow-seeds.s3.amazonaws.com/house3.png')
+small21 = open('https://dillow-seeds.s3.amazonaws.com/small2_1.png')
+small22 = open('https://dillow-seeds.s3.amazonaws.com/small2_2.png')
+small23 = open('https://dillow-seeds.s3.amazonaws.com/small2_3.png')
+small24 = open('https://dillow-seeds.s3.amazonaws.com/small2_4.png')
+listing3.large_photo.attach(io: house3, filename: 'house3.png')
+listing3.photos.attach(io: small21, filename: 'small2_1.png')
+listing3.photos.attach(io: small22, filename: 'small2_2.png')
+listing3.photos.attach(io: small23, filename: 'small2_3.png')
+listing3.photos.attach(io: small24, filename: 'small2_4.png')
+listing3.save!
 
-# listing4 = Listing.new(
-#         user_id: user1.id, price: 443246, state: "TX", city: "Dallas", 
-#         zip_code: "75216", address: "915 E Woodin Blvd", 
-#         property_type: "House", bedrooms: 4, bathrooms: 3, 
-#         year_built: 1998, description: "Test listing description.",
-#         lot_size: 4323, saves: 0, views: 0,
-#         heating: "Central Heat-Gas", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
-# )
-# file4 = open('https://dillow-seeds.s3.amazonaws.com/house4.png')
-# listing4.photo.attach(io: file4, filename: 'house4.png')
-# listing4.save!
+listing4 = Listing.new(
+        user_id: user1.id, price: 443246, state: "TX", city: "Dallas", 
+        zip_code: "75216", address: "915 E Woodin Blvd", 
+        property_type: "House", bedrooms: 4, bathrooms: 3, 
+        year_built: 1998, description: "Test listing description.",
+        lot_size: 4323, saves: 0, views: 0,
+        heating: "Central Heat-Gas", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
+)
+house4 = open('https://dillow-seeds.s3.amazonaws.com/house2.png')
+small1 = open('https://dillow-seeds.s3.amazonaws.com/small2_1.png')
+small2 = open('https://dillow-seeds.s3.amazonaws.com/small2_2.png')
+small3 = open('https://dillow-seeds.s3.amazonaws.com/small2_3.png')
+small4 = open('https://dillow-seeds.s3.amazonaws.com/small2_4.png')
+listing4.large_photo.attach(io: house4, filename: 'house4.png')
+listing4.photos.attach(io: small1, filename: 'small2_1.png')
+listing4.photos.attach(io: small2, filename: 'small2_2.png')
+listing4.photos.attach(io: small3, filename: 'small2_3.png')
+listing4.photos.attach(io: small4, filename: 'small2_4.png')
+listing4.save!
 
 # listing5 = Listing.new(
 #         user_id: user1.id, price: 5443666, state: "TX", city: "Dallas", 

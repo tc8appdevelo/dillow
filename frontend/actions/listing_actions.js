@@ -2,6 +2,7 @@ import {
     getListings,
     getListing,
     destroyListing,
+    getSavedListing,
     getSavedListings,
     postSavedListing,
     deleteSavedListing,

@@ -1,34 +1,15 @@
 import React from "react"
 
-
 class SavedListingsItem extends React.Component {
-
 
   constructor(props) {
     super(props);
-    this.toggleSaved = this.toggleSaved.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+
+
     this.formatPrice = this.formatPrice.bind(this);
   }
 
 
-  toggleSaved() {
-    this.props.unSaveListing(this.props.listing.id);
-    
-  }
-
-  handleClick(e) {
-    let className = e.target.className;
-    switch (className) {
-      case "heart-img":
-        this.toggleSaved();
-        console.log("case heart-img");
-        break;
-      default:
-        //this.props.handleClick(this.props.listing.id);
-        break;
-    }
-  }
 
   formatPrice(price) {
     let arr = price.toString().split("").reverse();
@@ -45,7 +26,7 @@ class SavedListingsItem extends React.Component {
 
 
   render() {
-    let saved = true;
+    
     const listing = this.props.listing;
     let priceStr;
     if (listing.price) {
@@ -55,15 +36,11 @@ class SavedListingsItem extends React.Component {
 
     return (
       <div className="pos-heart-wrap">
-        <div className="save--l-wrap" onClick={this.handleClick}>
+        <div className="save--l-wrap">
           <div className="save--listing-box" style={{ backgroundImage: `url(${listing.largePhotoUrl})` }}>
-            {saved ?
-              <div className="saved-heart">
+              <div className="saved-heart" onClick={() => this.props.unSaveListing(listing.id)}>
                 <img className="heart-img" src={window.savedHeartUrl} alt="" />
-              </div> :
-              <div className="not-saved-heart">
-                <img className="heart-img" src={window.notSavedHeartUrl} alt="" />
-              </div>}
+              </div>
           </div>
           <div className="save--listing-box--bottom-bar">
 

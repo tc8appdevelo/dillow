@@ -17,25 +17,28 @@ class Profile extends React.Component {
     this.handleTabClick = this.handleTabClick.bind(this);
   }
 
+  componentDidMount() {
+
+  }
+
   handleTabClick(tab, listing = null) {
     let showTab;
     switch (tab) {
       case "saved":
-
+        //debugger
         showTab = <SavedListingsContainer savedListings={this.props.savedListings}/>
         break
       case "selling":
         showTab = <CurrentlySellingContainer handleClick={this.handleTabClick} />
         break
       case "edit":
-
         showTab = <EditListingContainer listing={listing} handleClick={this.handleTabClick} />
         break
       default:
         showTab = <div>Default</div>
         break
     }
-
+    //console.log(showTab);
     this.setState({
       currentTab: showTab,
     })

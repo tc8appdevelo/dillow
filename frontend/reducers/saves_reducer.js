@@ -17,8 +17,9 @@ const savesReducer = (state = {}, action) => {
       delete newState[action.savedListing.listing_id];
       return newState;
     case RECEIVE_SAVED_LISTING:
-      const newSavedListing = { [action.savedListing.id]: action.savedListing };
-      return Object.assign({}, state, newSavedListing);
+      
+      debugger
+      return Object.assign({}, state, action.savedListing);
     default:
       return state;
   }

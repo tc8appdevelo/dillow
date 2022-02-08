@@ -5,12 +5,13 @@ export const getListings = (data) => $.ajax({
     data
 })
 
-export const getListing = id => (
-    $.ajax({
+export const getListing = id => {
+    debugger
+    return $.ajax({
         method: 'GET',
         url: `/api/listings/${id}`
     })
-)
+}
 
 // export const postListing = () => (
 //     $.ajax({
@@ -20,34 +21,49 @@ export const getListing = id => (
 //     })
 // )
 
-export const destroyListing = (listing) => (
-    $.ajax({
+export const destroyListing = (listing) => {
+    debugger
+    return $.ajax({
         method: 'DELETE',
         url: `/api/listings/${listing.id}`
     })
-)
+}
 
-export const postSavedListing = id => 
-    $.ajax({
+export const postSavedListing = id => {
+    debugger
+    return $.ajax({
         method: 'POST',
         url: `/api/saved_houses`,
         data: { id },
     });
+}
+
 
 export const getSavedListings = () => $.ajax({
     url: '/api/saved_houses',
     method: 'GET',
 })
 
-export const deleteSavedListing = id => 
-    $.ajax({
+export const getSavedListing = id => {
+    debugger 
+    return $.ajax({
+        method: 'GET',
+        url: `/api/saved_houses/${id}`,
+        data: { id }
+    })
+}
+
+export const deleteSavedListing = id => {
+    debugger
+    return $.ajax({
         url: `/api/saved_houses/${id}`,
         method: 'DELETE',
         data: { id }
     });
+}
 
 export const postListing = (formData) => {
-
+    
     return $.ajax({
         url: '/api/listings',
         method: 'POST',
@@ -57,7 +73,7 @@ export const postListing = (formData) => {
     })
 }
 export const updateListing = (formData, id) => {
-
+    debugger
     return $.ajax({
         method: 'PATCH',
         url: `/api/listings/${id}`,

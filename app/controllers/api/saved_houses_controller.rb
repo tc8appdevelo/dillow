@@ -5,16 +5,19 @@ class Api::SavedHousesController < ApplicationController
   end
 
   def show
-    @saved_house = SavedHouse.find_by(user_id: current_user.id, listing_id: params[:id])
+    @listing = Listing.with_attached_photos.find(@saved_house.listing_id)
   end
   
   def create
     
     @saved_house = SavedHouse.new(user_id: current_user.id, listing_id: params[:id])
-    
+  
     if @saved_house.save
-        @listing = Listing.find_by(id: @saved_house.listing_id)
-        render json: @listing
+      
+        @listing = Listing.with_attached_photos.find(@saved_house.listing_id)
+        
+        render :show
+
     else
         render json: @saved_house.errors.full_messages
     end
