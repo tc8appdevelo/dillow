@@ -79,7 +79,7 @@ listing4 = Listing.new(
         lot_size: 4323, saves: 0, views: 0,
         heating: "Central Heat-Gas", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
 )
-house4 = open('https://dillow-seeds.s3.amazonaws.com/house2.png')
+house4 = open('https://dillow-seeds.s3.amazonaws.com/house4.png')
 small1 = open('https://dillow-seeds.s3.amazonaws.com/small2_1.png')
 small2 = open('https://dillow-seeds.s3.amazonaws.com/small2_2.png')
 small3 = open('https://dillow-seeds.s3.amazonaws.com/small2_3.png')
