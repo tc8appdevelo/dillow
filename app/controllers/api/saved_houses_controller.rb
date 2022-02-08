@@ -10,9 +10,8 @@ class Api::SavedHousesController < ApplicationController
   
   def create
     
-    @saved_house = SavedHouse.new
-    @saved_house.user_id = current_user.id
-    @saved_house.listing_id = params[:id]
+    @saved_house = SavedHouse.new(user_id: current_user.id, listing_id: params[:id])
+    
     if @saved_house.save
         @listing = Listing.find_by(id: @saved_house.listing_id)
         render json: @listing
