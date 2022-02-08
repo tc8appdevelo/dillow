@@ -96,7 +96,7 @@ class Sell extends React.Component {
 
   componentDidMount() {
     this.setState({ user_id: this.props.currentUser.id })
-    console.log(this.state)
+    
   }
 
   handleInput(e) {
@@ -201,7 +201,7 @@ class Sell extends React.Component {
   render() {
     const mainPhotoPreview = this.state.mainPhotoUrl ? <img className="photo-preview" src={this.state.mainPhotoUrl} alt="" /> : null
     let previewUrls = this.state.photoUrls;
-    console.log(this.state)
+    
     return (
 
       <div>

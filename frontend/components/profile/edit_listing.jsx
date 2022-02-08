@@ -100,7 +100,7 @@ class EditListing extends React.Component {
 
   componentDidMount() {
     this.setState({ user_id: this.props.currentUser.id })
-    console.log(this.state)
+    
   }
 
   handleInput(e) {
@@ -212,7 +212,7 @@ class EditListing extends React.Component {
     const addressText = formatAddress(this.props.listing)
     const mainPhotoPreview = this.state.mainPhotoUrl ? <img className="photo-preview" src={this.state.mainPhotoUrl} alt="" /> : null
     let previewUrls = this.state.photoUrls;
-    console.log(this.state)
+    
     return (
 
       <div>

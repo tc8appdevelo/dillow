@@ -6,7 +6,7 @@ export const getListings = (data) => $.ajax({
 })
 
 export const getListing = id => {
-    debugger
+    
     return $.ajax({
         method: 'GET',
         url: `/api/listings/${id}`
@@ -22,7 +22,7 @@ export const getListing = id => {
 // )
 
 export const destroyListing = (listing) => {
-    debugger
+    
     return $.ajax({
         method: 'DELETE',
         url: `/api/listings/${listing.id}`
@@ -30,7 +30,7 @@ export const destroyListing = (listing) => {
 }
 
 export const postSavedListing = id => {
-    debugger
+    
     return $.ajax({
         method: 'POST',
         url: `/api/saved_houses`,
@@ -45,7 +45,7 @@ export const getSavedListings = () => $.ajax({
 })
 
 export const getSavedListing = id => {
-    debugger 
+    
     return $.ajax({
         method: 'GET',
         url: `/api/saved_houses/${id}`,
@@ -54,7 +54,7 @@ export const getSavedListing = id => {
 }
 
 export const deleteSavedListing = id => {
-    debugger
+    
     return $.ajax({
         url: `/api/saved_houses/${id}`,
         method: 'DELETE',
@@ -73,7 +73,7 @@ export const postListing = (formData) => {
     })
 }
 export const updateListing = (formData, id) => {
-    debugger
+    
     return $.ajax({
         method: 'PATCH',
         url: `/api/listings/${id}`,

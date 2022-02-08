@@ -38,7 +38,7 @@ class Profile extends React.Component {
         showTab = <div>Default</div>
         break
     }
-    //console.log(showTab);
+    
     this.setState({
       currentTab: showTab,
     })
