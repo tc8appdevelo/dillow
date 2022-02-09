@@ -11,7 +11,7 @@ class SavedListings extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchSavedListings();
+    this.props.fetchSavedListings();
   }
 
 

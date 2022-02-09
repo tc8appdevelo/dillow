@@ -77,10 +77,11 @@ function HomePage(props) {
                 </div>
             </div>
           </div>
+          <div className="exit-mover">
+            <button className="other-exit-button" onClick={props.exitModal}>X</button>
+          </div>
         </div>
-        <div className="exit-mover">
-          <button className="other-exit-button" onClick={props.exitModal}>X</button>
-        </div>
+
 
       
       </div>

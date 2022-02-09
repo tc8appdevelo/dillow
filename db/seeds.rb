@@ -39,11 +39,11 @@ listing2 = Listing.new(
         heating: "Central Heat-Gas", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
 )
 
-house2 = open('https://dillow-seeds.s3.amazonaws.com/house2.png')
-small2_1 = open('https://dillow-seeds.s3.amazonaws.com/small2_1.png')
-small2_2 = open('https://dillow-seeds.s3.amazonaws.com/small2_2.png')
-small2_3 = open('https://dillow-seeds.s3.amazonaws.com/small2_3.png')
-small2_4 = open('https://dillow-seeds.s3.amazonaws.com/small2_4.png')
+house2 = open('https://dillow-seeds.s3.amazonaws.com/dock.png')
+small2_1 = open('https://dillow-seeds.s3.amazonaws.com/lakeback1.png')
+small2_2 = open('https://dillow-seeds.s3.amazonaws.com/lakehouseback2.png')
+small2_3 = open('https://dillow-seeds.s3.amazonaws.com/lakekitchen.png')
+small2_4 = open('https://dillow-seeds.s3.amazonaws.com/lakesmall3.png')
 listing2.large_photo.attach(io: house2, filename: 'house2.png')
 listing2.photos.attach(io: small2_1, filename: 'small2_1.png')
 listing2.photos.attach(io: small2_2, filename: 'small2_2.png')
@@ -79,11 +79,11 @@ listing4 = Listing.new(
         lot_size: 4323, saves: 0, views: 0,
         heating: "Central Heat-Gas", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
 )
-house4 = open('https://dillow-seeds.s3.amazonaws.com/house4.png')
-small1 = open('https://dillow-seeds.s3.amazonaws.com/small2_1.png')
-small2 = open('https://dillow-seeds.s3.amazonaws.com/small2_2.png')
-small3 = open('https://dillow-seeds.s3.amazonaws.com/small2_3.png')
-small4 = open('https://dillow-seeds.s3.amazonaws.com/small2_4.png')
+house4 = open('https://dillow-seeds.s3.amazonaws.com/mow1.png')
+small1 = open('https://dillow-seeds.s3.amazonaws.com/mow2.png')
+small2 = open('https://dillow-seeds.s3.amazonaws.com/mow3.png')
+small3 = open('https://dillow-seeds.s3.amazonaws.com/yardback.png')
+small4 = open('https://dillow-seeds.s3.amazonaws.com/yardhalf.png')
 listing4.large_photo.attach(io: house4, filename: 'house4.png')
 listing4.photos.attach(io: small1, filename: 'small2_1.png')
 listing4.photos.attach(io: small2, filename: 'small2_2.png')

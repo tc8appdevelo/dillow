@@ -76,3 +76,31 @@
     color: grey;
 }
 
+.save--back-box {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.fa-house {
+  font-size: 33px;
+  color: aquamarine;
+}
+.info-title {
+  font-weight: bold;
+}
+.info-icon {
+  display: flex;
+  flex-direction: row;
+  height: 85px;
+
+}
+.info-flex {
+  display: flex;
+  flex-direction: column;
+}
+.info-text {
+  font-size: 16px;
+  font-weight: lighter;
+  color: gray;
+}

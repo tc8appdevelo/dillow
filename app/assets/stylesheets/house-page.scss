@@ -61,10 +61,7 @@
 
 .flexbox-container-container {
     display: flex;
-    
-    background: lightgray;
     flex-direction: row;
-    height: 60vh;
     width: 80vw;
     max-width: 1000px;
  
@@ -79,21 +76,25 @@
 }
 
 .large-picture {
-width: 100%;
-flex-grow: 1;
+  width: 100%;
+  flex-grow: 1;
 }
 
 .small-picture {
-  
+  padding-top: 4px;
+  padding-right: 4px;
+  width: 49%;
 }
 
 .small-pictures-wrap {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  max-height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-right: -4px;
 }
+
+
 
 
 .home-info {

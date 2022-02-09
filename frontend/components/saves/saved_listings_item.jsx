@@ -35,7 +35,7 @@ class SavedListingsItem extends React.Component {
     }
 
     return (
-      <div className="pos-heart-wrap">
+      <div className="save--back-box">
         <div className="save--l-wrap">
           <div className="save--listing-box" style={{ backgroundImage: `url(${listing.largePhotoUrl})` }}>
               <div className="saved-heart" onClick={() => this.props.unSaveListing(listing.id)}>
@@ -54,9 +54,51 @@ class SavedListingsItem extends React.Component {
 
           </div>
         </div>
+        <div className="info-icons-wrap">
+          <div className="info-icon">
+            <i className="fa-solid fa-house"></i>
+            <div className="info-text-flex">
+              <div className="info-title">Type</div>
+              <div className="info-text">
+                {listing.property_type}
+              </div>
+            </div>
 
+          </div>
+          <div className="info-icon">
+            <i className="fa-solid fa-house"></i>
+            <div className="info-text-flex">
+              <div className="info-title">Type</div>
+              <div className="info-text">
+                {listing.year_built}
+              </div>
+            </div>
+
+          </div>
+          <div className="info-icon">
+            <i className="fa-solid fa-house"></i>
+            <div className="info-text-flex">
+              <div className="info-title">Type</div>
+              <div className="info-text">
+                {listing.heating}
+              </div>
+            </div>
+
+          </div>
+
+          <div className="info-icon">
+            <i className="fa-solid fa-house"></i>
+            <div className="info-text-flex">
+              <div className="info-title">Type</div>
+              <div className="info-text">
+                {listing.cooling}
+              </div>
+            </div>
+
+          </div>
+
+        </div>
       </div>
-
     )
   }
 
