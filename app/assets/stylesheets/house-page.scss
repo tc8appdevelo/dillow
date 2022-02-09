@@ -84,18 +84,17 @@ flex-grow: 1;
 }
 
 .small-picture {
-  width: 45%;
+  
 }
 
 .small-pictures-wrap {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  width: 100%;
-  justify-content: center;
-  background: white;
-  flex-grow: 1;
+  justify-content: flex-start;
+  max-height: 100%;
 }
+
 
 .home-info {
   display: flex;

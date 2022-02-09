@@ -11,9 +11,7 @@ class SavedListings extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
     // this.props.fetchSavedListings();
-    // debugger
   }
 
 

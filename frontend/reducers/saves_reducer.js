@@ -18,7 +18,7 @@ const savesReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_SAVED_LISTING:
       
-      debugger
+      
       return Object.assign({}, state, action.savedListing);
     default:
       return state;
