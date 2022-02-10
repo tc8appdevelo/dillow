@@ -1,8 +1,6 @@
 import React from "react";
 import DillowMapContainer from "../map/dillow_map_container"
 import { formatPrice } from "../../utils/format_price";
-import { saveListing } from "../../actions/listing_actions";
-
 
 function HomePage(props) {
 

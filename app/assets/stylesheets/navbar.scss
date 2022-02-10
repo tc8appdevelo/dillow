@@ -1,8 +1,9 @@
-$font-color: blue;
+$font-color: black;
 $search-img-height: 480px;
 $search-img-width: 1611px;
 $font-size: 18px;
 $margin: 10px;
+$hover-font-color: lightskyblue;
 
 @mixin flex-row-center {
     display: flex;
@@ -71,6 +72,9 @@ $margin: 10px;
     border: none;
     cursor: pointer;
 }
+#toggleProfileDropdown:hover {
+    color: $hover-font-color;
+}
 
 #profile-button {
     display: none;
@@ -97,9 +101,11 @@ a {
 
 .buy-link {
     text-decoration: none;
-    color: blue;
+    color: $font-color;
 }
-
+.buy-link:hover {
+    color: $hover-font-color;
+}
 .nav-bar {
     z-index: 2;
     width: 100vw;
@@ -164,7 +170,10 @@ a {
 .profile-link {
     margin-left: $margin;
     text-decoration: none;
-    color: blue;
+    color: $font-color
+}
+.profile-link:hover {
+    color: $hover-font-color;
 }
 
 .create-login-box {

@@ -1,3 +1,7 @@
+$icon-color: lightskyblue;
+$icon-font-size: 33px;
+$icon-padding: 5px;
+
 #saved--page-wrapper {
   display: flex;
   flex-direction: column;
@@ -13,14 +17,11 @@
 #saved--homes-wrap {
     display: flex;
     flex-wrap: wrap;
-    background-color: white;
-    justify-content: flex-start;
-    align-content: start;
-    max-width: 600px;
-    min-width: 224px;
-    gap: 0.6rem;
-    flex-grow: revert;
-    
+    min-width: 407px;
+    width: 80vw;
+    flex-wrap: wrap;
+    background-color: #f1f1f1;
+    justify-content: space-between;
 }
 
 .saved--title {
@@ -32,39 +33,44 @@
 .saved--all-content-wrap {
   display: flex;
   justify-content: center;
+  height: 100vh;
+  background: #f1f1f1;
 }
 
 .saved--all-content {
   display: flex;
   flex-direction: column;
-  width: 70vw;
 }
 .save--l-wrap {
     display: flex;
     flex-direction: column;
     border-left: 1px solid lightgray;
     border-right: 1px solid lightgray;
-    border-bottom: 2px solid lightskyblue;
+    border-bottom: 4px solid lightskyblue;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 .save--listing-box {
-  height: 150px;
-  width: 270px;
+  height: 250px;
+  width: 372px;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   background-repeat: no-repeat;
-  background-size: 270px 150px;
+  background-size: 372px 250px;
 }
 
 .save--listing-box--bottom-bar{
     height: 70px;
-    width: 270px;
+    width: 352px;
     display: flex;
     flex-direction: column;
     background: white;
+    padding: 10px;
 }
+
+
 
 .save--price-text {
     font-size: 20px;
@@ -74,18 +80,52 @@
 .save--small-txt {
     font-size: 15px;
     color: grey;
+    padding-top: 5px;
 }
 
 .save--back-box {
   display: flex;
   flex-direction: column;
-
+  width: 406px;
+  align-items: center;
+  background: white;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .fa-house {
-  font-size: 33px;
-  color: aquamarine;
+  font-size: $icon-font-size;
+  color: $icon-color;
+  padding-right: $icon-padding;
 }
+.fa-calendar-days {
+  font-size: $icon-font-size;
+  color: $icon-color;
+  padding-right: $icon-padding;
+}
+
+.fa-temperature-full {
+  font-size: $icon-font-size;
+  color: $icon-color;
+  padding-right: $icon-padding;
+}
+.fa-temperature-empty {
+  font-size: $icon-font-size;
+  color: $icon-color;
+  padding-right: $icon-padding
+}
+.fa-square-parking {
+  font-size: $icon-font-size;
+  color: $icon-color;
+  padding-right: $icon-padding;
+}
+
+.fa-ruler-combined {
+  font-size: $icon-font-size;
+  color: $icon-color;
+  padding-right: $icon-padding;
+}
+
 .info-title {
   font-weight: bold;
 }
@@ -93,6 +133,7 @@
   display: flex;
   flex-direction: row;
   height: 85px;
+  width: 123px;
 
 }
 .info-flex {
@@ -103,4 +144,12 @@
   font-size: 16px;
   font-weight: lighter;
   color: gray;
+}
+
+.info-icons-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 372px;
+  padding-top: 15px;
 }
