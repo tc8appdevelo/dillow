@@ -4,6 +4,7 @@ import HomePage from "./home_page"
 import DillowMap from "../map/dillow_map"
 import DillowMapContainer from "../map/dillow_map_container"
 import NavBarContainer from '../navbar/nav_bar_container';
+import PriceDropdown from './price_dropdown';
 
 class ListingIndex extends React.Component {
     constructor(props) {
@@ -11,12 +12,14 @@ class ListingIndex extends React.Component {
 
         this.state = {
             currentListing: null,
+            searchTab: null,
         }
 
         this.showModal = this.showModal.bind(this);
         //this.exitModal = this.exitModal.bind(this);
         this.saveHouse = this.saveHouse.bind(this);
         this.unSaveHouse = this.unSaveHouse.bind(this);
+        this.handleSearchClick = this.handleSearchClick.bind(this);
     }
 
     componentDidMount() {
@@ -61,11 +64,35 @@ class ListingIndex extends React.Component {
         })
     }
 
-    
+    handleSearchClick(tab) {
+        let showTab;
+        switch (tab) {
+            case "price":
+                if (this.state.searchTab === null) {
+                    showTab = <PriceDropdown fetchListings={this.props.fetchListings}/>
+                } else {
+                    showTab = null;
+                }
+                break;
+            default:
+                showTab = null;
+                break;
+        }
+
+        this.setState({
+            searchTab: showTab,
+        })
+
+    }
 
     render() {
-
-        if (this.props.listings[0]) {
+        let searchTab;
+        if (this.state.searchTab) {
+            searchTab = this.state.searchTab;
+        } else {
+            searchTab = <div></div>
+        }
+        // if (this.props.listings[0]) {
 
             const currentListing = this.state.currentListing;
             return (
@@ -82,11 +109,13 @@ class ListingIndex extends React.Component {
 
                         
                         <div id="listings-nav">
-                            <textarea  className="map-search"></textarea>
-                            <div className="map-button">For sale</div>
-                            <div className="map-button">Price</div>
-                            <div className="save-search-button">Save search</div>
+                            <textarea  className="search-textarea"></textarea>
+                            <div className="search-btn">For Sale</div>
+                            <div className="search-btn" onClick={() => this.handleSearchClick("price")}>Price</div>
+                            {searchTab}
+                            <div className="search-btn--save">Save search</div>
                         </div>
+
                         <div id="listings-map-homes">
 
                             <DillowMapContainer />
@@ -108,11 +137,11 @@ class ListingIndex extends React.Component {
                 </div>
 
             )
-        } else {
-            return (
-                <div></div>
-            )
-        }
+        // } else {
+        //     return (
+        //         <div></div>
+        //     )
+        // }
         
     }
 }

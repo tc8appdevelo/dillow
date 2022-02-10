@@ -1,9 +1,12 @@
 
-export const getListings = (data) => $.ajax({
-    url: '/api/listings',
-    method: "GET",
-    data
-})
+export const getListings = (data) => {
+
+    return $.ajax({
+        url: '/api/listings',
+        method: "GET",
+        data
+    })
+}
 
 export const getListing = id => {
     

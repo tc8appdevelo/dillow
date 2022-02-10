@@ -1,0 +1,36 @@
+$font-color: black;
+$action-color: #33ccff;
+$bg-color: white;
+$border-color: lightgray;
+
+.price-dropdown-container {
+  display: flex;
+  flex-direction: column;
+  background: $bg-color;
+}
+
+.pd-input-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.pd-input {
+  width: 100px;
+  height: 30px;
+}
+
+.price-btn {
+  height: 25px;
+  color: #33ccff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.sub-price-btn {
+  border: none;
+  background: $action-color;
+  color: $bg-color;
+  cursor: pointer;
+}

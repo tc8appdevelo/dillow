@@ -25,16 +25,18 @@ class Listing < ApplicationRecord
 
     has_many :users,
     through: :saved_houses
-    
-
 
     def thumbnail input
         return self.photos[input].variant(resize: '386.5x286.5!').processed
     end
-    #735 x 576
-    #365.5 x 286.5
-    
 
+
+    def self.is_price_range(price_range)
+        self.where("price < :max", { max: price_range[:max] })
+            .where("price > :min", { min: price_range[:min] })
+    end
+
+    
     # def ensure_photos
     #     unless self.photos[0].attached?
     #         errors[:photos] << "must be attached"

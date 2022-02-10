@@ -1,6 +1,31 @@
 class Api::ListingsController < ApplicationController
     def index
-        @listings = selling_houses ? current_user.selling_houses : Listing.all
+        #@listings = selling_houses ? current_user.selling_houses : Listing.all
+        
+        
+        
+        if filter
+            
+            if filter[:price_range]
+                @listings = Listing.is_price_range(filter[:price_range])
+            end
+            debugger
+            if filter[:zip_code]
+                @listings = Listing.where("zip_code LIKE :zip_code", {zip_code: filter[:zip_code]})
+                render :index
+            elsif filter[:city]
+                @listings = Listing.where("city LIKE :city", {city: filter[:city]})
+            elsif filter[:state]
+                @listings = Listing.where("state LIKE :state", {state: filter[:state]})
+                render :index
+            elsif selling_houses
+                @listings = current_user.selling_houses
+                render :index
+            end
+        else
+            @listings = Listing.all
+            render :index
+        end
     end
 
     def show
@@ -63,4 +88,10 @@ class Api::ListingsController < ApplicationController
     def selling_houses
         params[:selling]
     end
+
+    def filter
+        params[:filter]
+    end
+
+
 end
