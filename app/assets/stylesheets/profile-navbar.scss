@@ -1,5 +1,7 @@
-$btn-font-color: black;
-$hover-font-color: lightskyblue;
+$font-color: black;
+$action-color: #33ccff;
+$bg-color: white;
+$border-color: lightgray;
 
 #profile-navbar {
   display: flex;
@@ -16,7 +18,7 @@ $hover-font-color: lightskyblue;
 }
 
 .profile-navbar-button {
-  color: $btn-font-color;
+  color: $font-color;
   font-size: 18px;
   margin-right: 15px;
   cursor: pointer;
@@ -28,7 +30,7 @@ $hover-font-color: lightskyblue;
 
 
 .profile-navbar-button:hover {
-  color: $hover-font-color;
-  border-bottom: 2px solid $hover-font-color;
+  color: $action-color;
+  border-bottom: 2px solid $action-color;
 }
 

@@ -1,5 +1,7 @@
-$font-color: blue;
+$font-color: black;
+$action-color: #33ccff;
 $transparent-bg: rgba(102, 153, 255, 0.3);
+
 .edit-form {
   display: flex;
   flex-direction: column;
@@ -44,7 +46,7 @@ $transparent-bg: rgba(102, 153, 255, 0.3);
 }
 
 .facts-title {
-  color: black;
+  color: $font-color;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 5px;
@@ -55,7 +57,7 @@ $transparent-bg: rgba(102, 153, 255, 0.3);
   flex-direction: column;
   margin-top: 8px;
   label {
-    color: black;
+    color: $font-color;
     
   }
 }
@@ -81,8 +83,8 @@ $transparent-bg: rgba(102, 153, 255, 0.3);
 .white-btn {
 
   height: 25px;
-  color: blue;
-  border: 1px solid blue;
+  color: $action-color;
+  border: 1px solid $action-color;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,12 +97,12 @@ $transparent-bg: rgba(102, 153, 255, 0.3);
 
   height: 25px;
   color: white;
-  border: 1px solid blue;
+  border: 1px solid $action-color;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: blue;
+  background: $action-color;
   cursor: pointer;
 }
 

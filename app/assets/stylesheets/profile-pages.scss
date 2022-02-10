@@ -1,13 +1,18 @@
+$font-color: black;
+$action-color: #33ccff;
+$bg-color: white;
+$border-color: lightgray;
+
 #profile-toggle-button {
-  background-color: white;
-  color: slateblue;
+  background-color: $bg-color;
+  color: $action-color;
   position: absolute;
   height: 44px;
 }
 
 .profile-dropdown {
-    background-color: white;
-    color: black;
+    background-color: $bg-color;
+    color: $font-color;
     position: absolute;
     display: none;
     flex-direction: column;
@@ -24,7 +29,7 @@
 .profile-dropdown:hover {
   display: flex;
   li:hover {
-    background: lightgray;
+    background: $border-color;
     display: flex;
   }
 }

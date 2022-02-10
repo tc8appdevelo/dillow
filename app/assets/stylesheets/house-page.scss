@@ -1,35 +1,7 @@
-// .zero {
-//   display: flex;
-//   border: 3px solid black;
-//   flex-grow: 1;
-//   flex-direction: column;
-//   min-height: 333px;
-// }
-
-// .top-picture {
-//   display: flex;
-//   align-items: stretch;
-//   border: 3px solid gray;
-//   z-index: 1111;
-// }
-
-// .flexbox-container {
-//   display: flex;
-//   border: 3px solid palegreen;
-//   flex-wrap: wrap;;
-//   flex-grow: 1;
-//   z-index: 1111;
-// }
-
-
-
-// .flexbox-item {
-//   width: 200px;
-//   border: 3px solid lightblue;
-//   background-color: lightseagreen;
-//   z-index: 1111;
-// }
-
+$font-color: black;
+$action-color: #33ccff;
+$bg-color: white;
+$border-color: lightgray;
 #dd {
     justify-content: center;
     position: absolute;
@@ -69,7 +41,7 @@
 
 .pictures {
     display: flex;
-    background: white;
+    background: $bg-color;
     max-width: 600px;
     flex-direction: column;
 
@@ -100,7 +72,7 @@
 .home-info {
   display: flex;
   flex-direction: column;
-  background: white;
+  background: $bg-color;
   width: 475px;
 }
 
@@ -119,7 +91,7 @@
     cursor: pointer;
     background: none;
     border: none;
-    color: lightgray;
+    color: $border-color;
     font-size: 18px;
 }
 
@@ -127,17 +99,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid $border-color;
   height: 44px;
   div {
-    color: blue;
+    color: bl;
     padding-right: 10px;
   }
 }
 
 .title-text {
   font-size: 44px;
-  color: blue;
+  color: $action-color;
   padding-left: 10px;
 }
 
@@ -178,12 +150,12 @@
 
 
 .mid-border-div {
-  border-left: 2px solid lightgray;
-  border-right: 2px solid lightgray;
+  border-left: 2px solid $border-color;
+  border-right: 2px solid $border-color;
 }
 
 .map-buttons-div {
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid $border-color;
   height: 44px;
   display: flex;
   justify-content: center;
@@ -193,13 +165,13 @@
 .button-white {
     width: 100px;
     height: 25px;
-    color: blue;
-    border: 1px solid blue;
+    color: $action-color;
+    border: 1px $action-color;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 22px;
-    background: white;
+    background: $bg-color;
     cursor: pointer;
 }
 
@@ -207,7 +179,7 @@
     display: flex;
     flex-direction: row;
     height: 33vh;
-    border-bottom: 2px solid lightgray;
+    border-bottom: 2px solid $border-color;
 }
 .ovt {
     font-size: 33px;
@@ -219,8 +191,8 @@
 }
 
 .mid {
-  border-left: 1px solid lightgray;
-  border-right: 1px solid lightgray;
+  border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
   padding-left: 22px;
   padding-right: 22px;
 }

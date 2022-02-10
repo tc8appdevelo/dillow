@@ -1,3 +1,8 @@
+$font-color: black;
+$action-color: #33ccff;
+$bg-color: white;
+$border-color: lightgray;
+
 #session-form-container {
     width: 277px;
     height: 333px;
@@ -8,7 +13,7 @@
     justify-content: center;
     align-self: center;
     align-items: center;
-    background-color: white;
+    background-color: $bg-color;
     position: absolute;
 }
 
@@ -54,42 +59,32 @@
 #createbtn {
 
     height: 25px;
-    color: blue;
-    border: 1px solid blue;
+    color: $action-color;
+    border: 1px solid $action-color;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background: white;
+    background: $bg-color;
     cursor: pointer;
 }
 
 #loginbtn {
 
     height: 25px;
-    color: white;
-    border: 1px solid blue;
+    color: $bg-color;
+    border: 1px solid $action-color;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background: blue;
+    background: $action-color;
     cursor: pointer;
 }
 
-.fcc {
-    display: flex;
-    
-    background: lightgray;
-    flex-direction: row;
-    height: 60vh;
-    width: 80vw;
-    max-width: 1000px;
- 
-}
+
 
 .x-button {
-    color: white;
     border: none;
     display: flex;
     align-items: center;
@@ -102,24 +97,24 @@
 .demo-button {
     width: 100px;
     height: 25px;
-    color: white;
-    border: 1px solid blue;
+    color: $bg-color;
+    border: 1px solid $action-color;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: blue;
+    background: $action-color;
     cursor: pointer;
 }
 
 .sign-button {
     width: 100px;
     height: 25px;
-    color: blue;
-    border: 1px solid blue;
+    color: $action-color;
+    border: 1px solid $action-color;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 22px;
-    background: white;
+    background: $bg-color;
     cursor: pointer;
 }
