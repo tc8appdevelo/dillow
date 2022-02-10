@@ -15,10 +15,10 @@ class ListingIndex extends React.Component {
             currentListing: null,
             searchTab: null,
             filter: {
-                price_range: null,
+                price_range: "none",
                 zip_code: "",
                 city: "",
-                state: ""
+                state: "",
             },
         }
 

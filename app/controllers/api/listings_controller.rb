@@ -6,7 +6,7 @@ class Api::ListingsController < ApplicationController
         
         if filter
             
-            if filter[:price_range]
+            if filter[:price_range] != "none"
                 @listings = Listing.is_price_range(filter[:price_range])
             else
                 @listings = Listing.all
@@ -16,7 +16,7 @@ class Api::ListingsController < ApplicationController
                 @listings.where("zip_code LIKE :zip_code", {zip_code: filter[:zip_code]})
                 render :index
             elsif filter[:city]
-                @listings = Listing.where("city LIKE :city", {city: filter[:city]})
+                @listings.where("city LIKE :city", {city: filter[:city]})
             elsif filter[:state]
                 @listings = Listing.where("state LIKE :state", {state: filter[:state]})
                 render :index

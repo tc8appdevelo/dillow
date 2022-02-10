@@ -15,7 +15,7 @@ class FilterBar extends React.Component {
   componentDidMount() {
     this.setState({
       minPrice: 0,
-      maxPrice: 10000
+      maxPrice: 100000
     })
   }
 
