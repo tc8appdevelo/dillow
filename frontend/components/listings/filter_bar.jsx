@@ -1,6 +1,6 @@
 import React from "react";
 
-class PriceDropdown extends React.Component {
+class FilterBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,36 +37,39 @@ class PriceDropdown extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateFilter({
+    this.props.fetchListings({
+      filter: {
         price_range: {
           min: this.state.minPrice,
           max: this.state.maxPrice
-      }
+      } 
+    }
     })
   }
 
   render() {
     
     return(
-      <div className="price-dropdown-container">
-        <form className="price-form" onSubmit={this.handleSubmit}>
+      <div className="filter-bar-flex">
+        <div className="price-dropdown-container">
+          <form className="price-form" onSubmit={this.handleSubmit}>
 
-          <div className="pd-input-wrapper">
-            <input
-              name="minPrice"
-              type="number"
-              value={this.state.minPrice}
-              onChange={this.updateMinPrice}
-            />
-            <input
-              name="maxPrice"
-              type="number"
-              value={this.state.maxPrice}
-              onChange={this.updateMaxPrice}
-            />
-            <button className="sub-price-btn">Done</button>
-          </div>
-          {/* <div className="price-btns-flex">
+            <div className="pd-input-wrapper">
+              <input
+                name="minPrice"
+                type="number"
+                value={this.state.minPrice}
+                onChange={this.updateMinPrice}
+              />
+              <input
+                name="maxPrice"
+                type="number"
+                value={this.state.maxPrice}
+                onChange={this.updateMaxPrice}
+              />
+              <button className="sub-price-btn">Done</button>
+            </div>
+            {/* <div className="price-btns-flex">
             <div className="price-btn" onClick={this.}>
               $500,000+
             </div>
@@ -76,10 +79,12 @@ class PriceDropdown extends React.Component {
               $1,000,000-
             </div>
           </div> */}
-        </form>
+          </form>
+        </div>
       </div>
+  
     )
   }
 }
 
-export default PriceDropdown;
+export default FilterBar;

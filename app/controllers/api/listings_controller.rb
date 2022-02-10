@@ -8,10 +8,12 @@ class Api::ListingsController < ApplicationController
             
             if filter[:price_range]
                 @listings = Listing.is_price_range(filter[:price_range])
+            else
+                @listings = Listing.all
             end
-            debugger
+            
             if filter[:zip_code]
-                @listings = Listing.where("zip_code LIKE :zip_code", {zip_code: filter[:zip_code]})
+                @listings.where("zip_code LIKE :zip_code", {zip_code: filter[:zip_code]})
                 render :index
             elsif filter[:city]
                 @listings = Listing.where("city LIKE :city", {city: filter[:city]})
@@ -23,6 +25,7 @@ class Api::ListingsController < ApplicationController
                 render :index
             end
         else
+            
             @listings = Listing.all
             render :index
         end

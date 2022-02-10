@@ -6,6 +6,7 @@ import DillowMapContainer from "../map/dillow_map_container"
 import NavBarContainer from '../navbar/nav_bar_container';
 import PriceDropdown from './price_dropdown';
 
+
 class ListingIndex extends React.Component {
     constructor(props) {
         super(props);
@@ -13,13 +14,22 @@ class ListingIndex extends React.Component {
         this.state = {
             currentListing: null,
             searchTab: null,
+            filter: {
+                price_range: null,
+                zip_code: "",
+                city: "",
+                state: ""
+            },
         }
 
         this.showModal = this.showModal.bind(this);
         //this.exitModal = this.exitModal.bind(this);
         this.saveHouse = this.saveHouse.bind(this);
         this.unSaveHouse = this.unSaveHouse.bind(this);
-        this.handleSearchClick = this.handleSearchClick.bind(this);
+        this.handleTabClick = this.handleTabClick.bind(this);
+        this.updatePriceFilter = this.updatePriceFilter.bind(this);
+        this.handleZipcode = this.handleZipcode.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
     }
 
     componentDidMount() {
@@ -28,52 +38,63 @@ class ListingIndex extends React.Component {
             this.props.fetchSavedListings();
         }
     }
-
+    exitModal() {
+        this.setState({
+            currentListing: null,
+        })
+    }
     showModal(idx) {
         const listing = this.props.listings.find(x => x.id === idx);
         this.setState({
             currentListing: listing,
         })
     }
-
     saveHouse(id) {
         if (this.props.currentUser) {
             this.props.saveListing(id);
         }
-        // let sl = this.props.fetchSavedListings();
-        // this.setState(state => ({
-        //     savedListings: sl
-        // }))
     }
     unSaveHouse(id) {
         if (this.props.currentUser) {
             this.props.unSaveListing(id);
         }
-        // let sl = this.props.fetchSavedListings();
-        // this.setState(state => ({
-        //     savedListings: sl
-        // }))
     }
 
 
 
-
-    exitModal() {
+    updatePriceFilter(filter) {
+        let newFilter = {...this.state.filter}
+        newFilter["price_range"] = filter.price_range;
         this.setState({
-            currentListing: null,
+            filter: newFilter,
         })
     }
 
-    handleSearchClick(tab) {
+    handleZipcode(e) {
+        let newFilter = {...this.state.filter}
+        newFilter["zip_code"] = e.target.value;
+        this.setState({
+            filter: newFilter,
+        })
+    }
+
+    handleSearch() {
+        console.log(this.state.filter);
+        this.props.fetchListings({filter: this.state.filter});
+    }
+
+
+    handleTabClick(tab) {
         let showTab;
         switch (tab) {
             case "price":
                 if (this.state.searchTab === null) {
-                    showTab = <PriceDropdown fetchListings={this.props.fetchListings}/>
+                    showTab = <PriceDropdown updateFilter={this.updatePriceFilter}/>
                 } else {
                     showTab = null;
                 }
                 break;
+            
             default:
                 showTab = null;
                 break;
@@ -85,13 +106,17 @@ class ListingIndex extends React.Component {
 
     }
 
+
+
     render() {
         let searchTab;
+        let filter = this.state.filter;
         if (this.state.searchTab) {
             searchTab = this.state.searchTab;
         } else {
             searchTab = <div></div>
         }
+        
         // if (this.props.listings[0]) {
 
             const currentListing = this.state.currentListing;
@@ -109,11 +134,15 @@ class ListingIndex extends React.Component {
 
                         
                         <div id="listings-nav">
-                            <textarea  className="search-textarea"></textarea>
-                            <div className="search-btn">For Sale</div>
-                            <div className="search-btn" onClick={() => this.handleSearchClick("price")}>Price</div>
+                            <textarea
+                                className="search-textarea"
+                                value={this.state.filter.zip_code}
+                                onChange={this.handleZipcode}>
+                            </textarea>
+                            <div className="search-btn">zip code left of here</div>
+                            <div className="search-btn" onClick={() => this.handleTabClick("price")}>Price</div>
                             {searchTab}
-                            <div className="search-btn--save">Save search</div>
+                            <div className="search-btn--save" onClick={this.handleSearch} >Search</div>
                         </div>
 
                         <div id="listings-map-homes">
