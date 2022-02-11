@@ -16,6 +16,7 @@ class Profile extends React.Component {
     }
 
     this.handleTabClick = this.handleTabClick.bind(this);
+    this.logoutClicked = this.logoutClicked.bind(this);
   }
 
   componentDidMount() {
@@ -46,12 +47,16 @@ class Profile extends React.Component {
     })
   }
 
+  logoutClicked() {
+    this.props.history.push("/")
+  }
+
   render() {
     let tab = this.state.currentTab;
     return (
       <div>
         <div id="fix-nav">
-          <NavBarContainer />
+          <NavBarContainer profileLogout={this.logoutClicked}/>
         </div>
         <div>
           <ProfileNavBar handleTabClick={this.handleTabClick} />

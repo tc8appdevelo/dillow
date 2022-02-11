@@ -32,7 +32,12 @@ class NavBar extends React.Component {
 
     handleLogout() {
         this.setState({ currentUser: null });
-        this.props.logout();
+        this.props.logout().then(() => this.props.fetchSavedListings())
+        .then(() => {
+            if (this.props.profileLogout) {
+                this.props.profileLogout();
+            }
+        });
     }
     handleProfile(e) {
         e.preventDefault();

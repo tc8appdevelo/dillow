@@ -1,5 +1,6 @@
 
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { fetchSavedListings, fetchListings, deleteListing } from '../../actions/listing_actions'
 import Profile from './profile';
 
@@ -19,4 +20,4 @@ function mDTP(dispatch) {
     })
   }
   
-export default connect(mSTP, mDTP)(Profile);
+export default withRouter(connect(mSTP, mDTP)(Profile));

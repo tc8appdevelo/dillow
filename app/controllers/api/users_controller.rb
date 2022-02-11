@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
             login!(@user)
             render "/api/users/show"
         else
-            render json: @user.errors.full_messages
+            render json: ['Invalid email or password'], status: 401
         end
     end
 

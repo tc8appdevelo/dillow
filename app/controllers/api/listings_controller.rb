@@ -1,10 +1,12 @@
 class Api::ListingsController < ApplicationController
     def index
         #@listings = selling_houses ? current_user.selling_houses : Listing.all
+
         
-        
-        
-        if filter
+    if selling_houses && current_user
+            @listings = current_user.selling_houses
+            render :index
+    elsif filter
             
             if filter[:price_range] != "none"
                 @listings = Listing.is_price_range(filter[:price_range])

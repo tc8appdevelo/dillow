@@ -11,8 +11,9 @@ class Api::SessionsController < ApplicationController
             params[:user][:password]
         )
         if @user.nil?
-            flash.now[:errors] = ["invalid credentials"]
-            redirect_to new_session_url
+            # flash.now[:errors] = ["invalid credentials"]
+            # redirect_to new_session_url
+            render json: ['Invalid email or password'], status: 401
         else
             login!(@user)
             render "/api/users/show"

@@ -1,7 +1,9 @@
 class Api::SavedHousesController < ApplicationController
 
   def index
-    @saved_houses = current_user.listings
+    if current_user
+      @saved_houses = current_user.listings
+    end
   end
 
   def show
