@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Redirect } from 'react-router-dom';
 import NavBarContainer from '../navbar/nav_bar_container';
 
 class Sell extends React.Component {
@@ -145,7 +145,7 @@ class Sell extends React.Component {
       }
     }
 
-    this.props.createListing(formData);
+    this.props.createListing(formData).then(() => this.props.history.push("/profile/selling"));
   }
 
   handleFiles(e) {

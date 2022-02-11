@@ -8,9 +8,10 @@ import SavedListings from '../saves/saved_listings'
 class Profile extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props)
 
     this.state = {
-      currentTab: <div>constructor tab</div>,
+      currentTab: <div></div>,
       currentListing: null,
     }
 
@@ -18,14 +19,15 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-
+    if (this.props.tab) {
+      this.handleTabClick(this.props.tab)
+    }
   }
 
   handleTabClick(tab, listing = null) {
     let showTab;
     switch (tab) {
       case "saved":
-        //debugger
         showTab = <SavedListingsContainer savedListings={this.props.savedListings}/>
         break
       case "selling":

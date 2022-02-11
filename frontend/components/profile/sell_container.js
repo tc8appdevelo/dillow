@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { createListing } from '../../actions/listing_actions';
 import Sell from './sell';
 
@@ -11,4 +12,4 @@ const mDTP = dispatch => ({
     createListing: listing => dispatch(createListing(listing)),
 })
 
-export default connect(mSTP, mDTP)(Sell);
+export default withRouter(connect(mSTP, mDTP)(Sell));

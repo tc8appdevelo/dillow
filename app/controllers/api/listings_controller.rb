@@ -32,13 +32,16 @@ class Api::ListingsController < ApplicationController
     end
 
     def show
+        
         @listing = Listing.with_attached_photos.find(params[:id])
     end
 
     def create
+       
         @listing = Listing.new(listing_params)
         if @listing.save
-            render json: @listing
+            @listings = Listing.all
+            render :index
         else
             render json: @listing.errors.full_messages
         end

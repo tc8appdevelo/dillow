@@ -5,7 +5,8 @@ import Profile from './profile';
 
 
 
-const mSTP = state => ({
+const mSTP = (state, ownProps) => ({
+    ownProps,
     currentUser: state.session.currentUser,
     savedListings: Object.values(state.savedListings),
 });
