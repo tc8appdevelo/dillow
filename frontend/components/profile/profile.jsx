@@ -8,7 +8,7 @@ import SavedListings from '../saves/saved_listings'
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props)
+   
 
     this.state = {
       currentTab: <div></div>,

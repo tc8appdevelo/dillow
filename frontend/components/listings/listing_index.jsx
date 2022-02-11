@@ -79,7 +79,7 @@ class ListingIndex extends React.Component {
     }
 
     handleSearch() {
-        console.log(this.state.filter);
+        
         this.props.fetchListings({filter: this.state.filter});
     }
 

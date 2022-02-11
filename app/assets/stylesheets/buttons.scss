@@ -1,6 +1,37 @@
 $font-color: black;
 $action-color: #33ccff;
 $bg-color: white;
+$border-color: lightgray;
+
+.links-flex {
+    margin-top: 22px;
+    margin-bottom: 22px;
+    display: flex;
+    justify-content: center;
+    background: $action-color;
+}
+
+.my-link-box {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.my-link {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 .25;
+    background-color: $bg-color;
+    border: 1px solid $action-color;
+    color: $action-color;
+    text-decoration: none;
+    font-size: 17px;
+}
 
 
 

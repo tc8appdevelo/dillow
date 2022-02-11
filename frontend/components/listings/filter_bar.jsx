@@ -21,7 +21,7 @@ class FilterBar extends React.Component {
 
   updateMinPrice(e) {
     let newMin = e.target.value;
-    console.log(newMin);
+    
     this.setState({
       minPrice: newMin
     })
@@ -29,7 +29,7 @@ class FilterBar extends React.Component {
 
   updateMaxPrice(e) {
     let newMax = e.target.value;
-    console.log(newMax);
+    
     this.setState({
       maxPrice: newMax
     })
