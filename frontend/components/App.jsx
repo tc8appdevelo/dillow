@@ -23,6 +23,7 @@ const App = () => (
             <Route exact path="/profile/selling">
                 <ProfileContainer tab="selling" />
             </Route>
+            
             <Route path="/selling" component={CurrentlySellingContainer} />
             <Route path="/" component={Splash} />
         </Switch>

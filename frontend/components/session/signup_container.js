@@ -3,6 +3,11 @@ import { signup, login } from '../../actions/session_actions';
 import { fetchSavedListings } from '../../actions/listing_actions';
 import Signup from './signup';
 
+const mSTP = state => ({
+    errors: Object.values(state.errors),
+})
+
+
 const mapDispatchToProps = dispatch => ({
     formAction: user => dispatch(signup(user)),
     loginAction: user => dispatch(login(user)),
@@ -11,5 +16,5 @@ const mapDispatchToProps = dispatch => ({
     buttonRoute: "/"
 })
 
-export default connect(null, mapDispatchToProps)(Signup);
+export default connect(mSTP, mapDispatchToProps)(Signup);
 

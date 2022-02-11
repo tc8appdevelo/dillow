@@ -35,22 +35,20 @@ class Signup extends React.Component {
     }
 
     showErrors() {
-
         if (this.props.errors[0]) {
             return (
-                    <div>
-                        {this.props.errors.map((error, idx) => (
+                <div>
+                    {this.props.errors.map((error, idx) => (
                         <div
                             className='error'
                             key={idx}>
                             {error}
                         </div>))}
-                    </div>
+                </div>
             )
         } else {
             return <div></div>
         }
-
     }
 
     render() {
