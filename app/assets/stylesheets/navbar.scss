@@ -190,10 +190,10 @@ a {
     display: flex;
     justify-content: center;
     .search-picture {
-        width: $search-img-width;
-        background-image: url("alpine.png");
+        width: 100vw;
+        background-image: url("ocean-city-banner.png");
         background-repeat: no-repeat;
-        height: $search-img-height;
+        height: 600px;
         display: flex;
         justify-content: center;
         align-items: center;

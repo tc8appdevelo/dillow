@@ -1,0 +1,44 @@
+.banner-flex {
+  
+  width: 100vw;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  
+}
+.banner-flex-wrap {
+    width: 100%;
+    border-radius: 1px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.banner-img {
+  width: 100%;
+  flex-grow: 1;
+}
+
+.banner-img-bg {
+  width: 100%;
+  flex-grow: 1;
+  background-image: url("ocean-city-banner.png");
+}
+
+.search-text-bar {
+  height: 33px;
+  z-index: 1112;
+  top: 50%;
+  bottom: 50%;
+  position: absolute;
+}
+
+.search-flex-wrap {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  
+}
