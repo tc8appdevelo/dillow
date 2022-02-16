@@ -18,6 +18,7 @@ class Splash extends React.Component {
                 <NavBarContainer />
                 <SearchBar />
                 <BuyRentSellButton />
+                
                 <div className='links-flex'>
                 <div className='my-link-box'>
                         <a className='my-link' href="https://www.linkedin.com/in/anthony-carroll-996697101/">
