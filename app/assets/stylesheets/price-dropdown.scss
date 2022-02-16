@@ -2,11 +2,12 @@ $font-color: black;
 $action-color: #33ccff;
 $bg-color: white;
 $border-color: lightgray;
+$form-bg-color: #f6f6fa;
 
 .price-dropdown-container {
   display: flex;
   flex-direction: column;
-  background: $bg-color;
+  
   z-index: 1112;
   
 }
@@ -32,7 +33,38 @@ $border-color: lightgray;
 
 .sub-price-btn {
   border: none;
-  background: $action-color;
-  color: $bg-color;
   cursor: pointer;
+  background: none;
+}
+
+.home-price-input {
+  background: $form-bg-color;
+  padding: 10px;
+  font-size: 20px;
+  width: 125px;
+}
+
+::placeholder {
+  color: slategray;
+}
+.price-txt-mid {
+  color: white;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.fa-magnifying-glass-dollar {
+  font-size: 24px;
+  color: white
+}
+
+.container-rectangle--col {
+  padding: 20px;
+}
+.new-flex-row {
+  display: flex;
 }

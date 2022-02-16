@@ -28,7 +28,7 @@ class SearchBar extends React.Component {
                 <img className='banner-img' src={window.oceanCityBanner} alt='' />
                 <div className='search-abs-pos'>
                     <div className='search-flex-wrap'>
-                        <div className='search-title'>Enter a price range</div>
+                        {/* <div className='search-title'>Enter a price range</div> */}
                         <div className='search-txt-btn-flex'>
                             {/* <textarea className='search-text-bar'></textarea>
                             <div className='btn-search'>Search</div> */}

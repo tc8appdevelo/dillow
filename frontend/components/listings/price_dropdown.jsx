@@ -1,11 +1,15 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faMagnifyingGlassDollar,
+  faMagnifyingGlass
+} from '@fortawesome/free-solid-svg-icons'
 
 class PriceDropdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      minPrice: 0,
-      maxPrice: 1000000,
+      minPrice: "",
+      maxPrice: "",
     }
     this.updateMinPrice = this.updateMinPrice.bind(this);
     this.updateMaxPrice = this.updateMaxPrice.bind(this);
@@ -14,14 +18,14 @@ class PriceDropdown extends React.Component {
 
   componentDidMount() {
     this.setState({
-      minPrice: 0,
-      maxPrice: 1000000
+      minPrice: "",
+      maxPrice: ""
     })
   }
 
   updateMinPrice(e) {
     let newMin = e.target.value;
-    
+
     this.setState({
       minPrice: newMin
     })
@@ -29,7 +33,7 @@ class PriceDropdown extends React.Component {
 
   updateMaxPrice(e) {
     let newMax = e.target.value;
-   
+
     this.setState({
       maxPrice: newMax
     })
@@ -56,26 +60,40 @@ class PriceDropdown extends React.Component {
   }
 
   render() {
-    
-    return(
+
+    return (
       <div className="price-dropdown-container">
         <form className="price-form" onSubmit={this.handleSubmit}>
+          <div className="n">
 
+          </div>
           <div className="pd-input-wrapper">
             <input
+              className="home-price-input"
+              placeholder="Min"
               name="minPrice"
               type="number"
               value={this.state.minPrice}
               onChange={this.updateMinPrice}
             />
+            <div className="price-txt-mid">
+              to
+            </div>
             <input
+              className="home-price-input"
+              placeholder="Max"
               name="maxPrice"
               type="number"
               value={this.state.maxPrice}
               onChange={this.updateMaxPrice}
             />
-            <button className="sub-price-btn">Done</button>
           </div>
+
+          <button className="sub-price-btn">
+              <FontAwesomeIcon icon={faMagnifyingGlassDollar} />
+          </button>
+
+
           {/* <div className="price-btns-flex">
             <div className="price-btn" onClick={this.}>
               $500,000+
