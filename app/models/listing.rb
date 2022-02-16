@@ -32,8 +32,24 @@ class Listing < ApplicationRecord
 
 
     def self.is_price_range(price_range)
-        self.where("price <= :max", { max: price_range[:max] })
-            .where("price >= :min", { min: price_range[:min] })
+        if price_range[:max] == ""
+            price_range[:max] = "none"
+        end
+        if price_range[:min] == ""
+            price_range[:min] = "none"
+        end
+        if price_range[:min] == "none" && price_range[:max] == "none"
+            return self.all
+        end
+
+        if price_range[:max] == "none" && price_range[:min] != "none"
+            return self.where("price >= :min", { min: price_range[:min] })
+        elsif price_range[:max] != "none" && price_range[:min] == "none"
+            return self.where("price <= :max", { max: price_range[:max] })
+        else
+            return self.where("price <= :max", { max: price_range[:max] })
+                       .where("price >= :min", { min: price_range[:min] })
+        end
     end
 
     

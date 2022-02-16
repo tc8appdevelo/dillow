@@ -35,14 +35,24 @@ class PriceDropdown extends React.Component {
     })
   }
 
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   this.props.updateFilter({
+  //       price_range: {
+  //         min: this.state.minPrice,
+  //         max: this.state.maxPrice
+  //     }
+  //   })
+  // }
+
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateFilter({
-        price_range: {
-          min: this.state.minPrice,
-          max: this.state.maxPrice
-      }
-    })
+    const filter = 'price_range';
+    const val = {
+      min: this.state.minPrice,
+      max: this.state.maxPrice
+    }
+    this.props.updateFilter(filter, val);
   }
 
   render() {

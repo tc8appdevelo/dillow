@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBarContainer from '../navbar/nav_bar_container';
 import SearchBar from '../search_bar/search_bar';
+import SearchBarContainer from '../search_bar/search_bar_container';
 import BuyRentSellButton from '../buttons/buy_rent_sell'
 import { Link } from "react-router-dom";
 
@@ -16,7 +17,7 @@ class Splash extends React.Component {
         return (
             <div>
                 <NavBarContainer />
-                <SearchBar />
+                <SearchBarContainer />
                 <BuyRentSellButton />
                 <div className='links-flex'>
                 <div className='my-link-box'>

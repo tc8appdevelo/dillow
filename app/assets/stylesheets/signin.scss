@@ -20,6 +20,7 @@ $border-color: lightgray;
     align-items: center;
     background-color: $bg-color;
     position: absolute;
+    
 }
 
 #session-form {
@@ -39,6 +40,7 @@ $border-color: lightgray;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1113;
 }
 
 #login-col-outer {

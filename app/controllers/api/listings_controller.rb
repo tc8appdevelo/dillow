@@ -6,28 +6,28 @@ class Api::ListingsController < ApplicationController
     if selling_houses && current_user
             @listings = current_user.selling_houses
             render :index
-    elsif filter
+    elsif params[:price_range]
             
-            if filter[:price_range] != "none"
-                @listings = Listing.is_price_range(filter[:price_range])
+            if params[:price_range] != "none"
+                @listings = Listing.is_price_range(params[:price_range])
             else
                 @listings = Listing.all
             end
+
             
-            if filter[:zip_code]
-                @listings.where("zip_code LIKE :zip_code", {zip_code: filter[:zip_code]})
-                render :index
-            elsif filter[:city]
-                @listings.where("city LIKE :city", {city: filter[:city]})
-            elsif filter[:state]
-                @listings = Listing.where("state LIKE :state", {state: filter[:state]})
-                render :index
-            elsif selling_houses
-                @listings = current_user.selling_houses
-                render :index
-            end
-        else
-            
+            # if filter[:zip_code]
+            #     @listings.where("zip_code LIKE :zip_code", {zip_code: filter[:zip_code]})
+            #     render :index
+            # elsif filter[:city]
+            #     @listings.where("city LIKE :city", {city: filter[:city]})
+            # elsif filter[:state]
+            #     @listings = Listing.where("state LIKE :state", {state: filter[:state]})
+            #     render :index
+            # elsif selling_houses
+            #     @listings = current_user.selling_houses
+            #     render :index
+            # end
+        else  
             @listings = Listing.all
             render :index
         end

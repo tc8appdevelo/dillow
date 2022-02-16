@@ -1,8 +1,8 @@
 import React from 'react';
 import ListingIndexItem from "./listing_index_item";
-import HomePage from "./home_page"
-import DillowMap from "../map/dillow_map"
-import DillowMapContainer from "../map/dillow_map_container"
+import HomePage from "./home_page";
+import DillowMap from "../map/dillow_map";
+import DillowMapContainer from "../map/dillow_map_container";
 import NavBarContainer from '../navbar/nav_bar_container';
 import PriceDropdown from './price_dropdown';
 
@@ -33,7 +33,8 @@ class ListingIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchListings();
+        
+        this.props.fetchListings(this.props.filters);
         if (this.props.currentUser) {
             this.props.fetchSavedListings();
         }
@@ -89,7 +90,7 @@ class ListingIndex extends React.Component {
         switch (tab) {
             case "price":
                 if (this.state.searchTab === null) {
-                    showTab = <PriceDropdown updateFilter={this.updatePriceFilter}/>
+                    showTab = <PriceDropdown updateFilter={this.props.updateFilter}/>
                 } else {
                     showTab = null;
                 }
@@ -148,7 +149,7 @@ class ListingIndex extends React.Component {
                         <div id="listings-map-homes">
 
                             <DillowMapContainer />
-
+                            
 
                             <div id="homes-list-wrapper">
                                 <div id="homes-wrap">
