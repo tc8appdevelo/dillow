@@ -5,7 +5,7 @@ class PriceDropdown extends React.Component {
     super(props);
     this.state = {
       minPrice: 0,
-      maxPrice: 100000,
+      maxPrice: 1000000,
     }
     this.updateMinPrice = this.updateMinPrice.bind(this);
     this.updateMaxPrice = this.updateMaxPrice.bind(this);
@@ -15,7 +15,7 @@ class PriceDropdown extends React.Component {
   componentDidMount() {
     this.setState({
       minPrice: 0,
-      maxPrice: 100000
+      maxPrice: 1000000
     })
   }
 
