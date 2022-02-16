@@ -140,7 +140,7 @@ class ListingIndex extends React.Component {
                                 value={this.state.filter.zip_code}
                                 onChange={this.handleZipcode}>
                             </textarea>
-                            <div className="search-btn">zip code left of here</div>
+                            <div className="search-btn">zip code</div>
                             <div className="search-btn" onClick={() => this.handleTabClick("price")}>Price</div>
                             {searchTab}
                             <div className="search-btn--save" onClick={this.handleSearch} >Search</div>

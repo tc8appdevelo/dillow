@@ -47,8 +47,7 @@ $border-color: lightgray;
     display: flex;
     width: 100vw;
     flex-direction: column;
-    
-
+    align-items: center;
 }
 
 .title--medium {
@@ -64,21 +63,79 @@ $border-color: lightgray;
     margin-bottom: 22px;
     display: flex;
     flex-direction: row;
-    justify-content:space-around;
-    
-    .big-box {
-        height: 150px;
-        width: 150px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
-        box-shadow: 0 0 .25;
-        background-color: $bg-color;
-        border: 1px solid $action-color;
-        color: $action-color;
-        text-decoration: none;
-        font-size: 33px;
-    }
+    width: 80vw;
+    justify-content: center;
+
 }
 
+.big-box {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 .25;
+    background-color: $bg-color;
+    border: 1px solid $action-color;
+    color: $action-color;
+    text-decoration: none;
+    font-size: 33px;
+    flex-grow: 1;
+    margin: 20px;
+    max-width: 26vw;
+}
+.big-box-inner {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 .25;
+    background-color: $bg-color;
+    border: 1px solid $action-color;
+    color: $action-color;
+    text-decoration: none;
+    font-size: 33px;
+    flex-grow: 1;
+    
+}
+
+.big-box-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bold-blk-txt {
+    color: black;
+    font-size: 33px;
+    font-weight: bolder;
+    margin: 10px;
+}
+.para-txt {
+    font-size: 16px;
+    color: black;
+    line-height: 24px;
+    text-transform: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.p-wrap {
+    margin: 10px;
+}
+
+.box--bottom-btn {
+    padding: 20px;
+    
+    color: $action-color;
+    border: 2px solid $action-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 50px;
+
+}

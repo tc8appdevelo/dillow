@@ -2,14 +2,17 @@ import React from 'react';
 import NavBarContainer from '../navbar/nav_bar_container';
 import SearchBar from '../search_bar/search_bar';
 import SearchBarContainer from '../search_bar/search_bar_container';
-import BuyRentSellButton from '../buttons/buy_rent_sell'
+import BuyRentSellContainer from '../buttons/buy_rent_sell_container';
 import { Link } from "react-router-dom";
 
 class Splash extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.currentUser
+        this.state = this.props.currentUser;
+
     }
+
+
 
 
 
@@ -18,7 +21,7 @@ class Splash extends React.Component {
             <div>
                 <NavBarContainer />
                 <SearchBarContainer />
-                <BuyRentSellButton />
+                <BuyRentSellContainer />
                 <div className='links-flex'>
                 <div className='my-link-box'>
                         <a className='my-link' href="https://www.linkedin.com/in/anthony-carroll-996697101/">

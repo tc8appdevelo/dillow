@@ -150,7 +150,7 @@ class EditListing extends React.Component {
       }
     }
 
-    this.props.editListing(formData, this.props.listing.id)
+    this.props.editListing(formData, this.props.listing.id).then(() => this.props.handleClick("selling"));
 
 
     // delete(listing.large_photo);
