@@ -92,6 +92,9 @@ class Signup extends React.Component {
                 <div className='or-sign-with-btns'>
                     <div className='words-div'>Or connect with:</div>
                     <button className="demo-button" onClick={this.loginDemoUser}>demo user</button>
+                    <button className="apple-button" onClick={this.loginDemoUser}>Continue with Apple</button>
+                    <button className="facebook-button" onClick={this.loginDemoUser}>Continue with Facebook</button>
+                    <button className="google-button" onClick={this.loginDemoUser}>Continue with Google</button>
                 </div>
                    
                 

@@ -20,14 +20,22 @@ class LoginPage extends React.Component {
         let handleExitPage = this.state.exitPage;
         return (
             <div id="login-col-outer">
-                <button className="x-button" onClick={handleExitPage} >X</button>
+                <div className='x-con'>
+                <button className="x-button" onClick={handleExitPage}>X</button>
+                </div>
+                
+                <div className="top-flex-col">
+                    <div className='login-title'>Welcome to Dillow</div>
                 <div className="btn-tabs-bar">
+                
                         <button onClick={this.toggleLoginCreate} 
                                 disabled={!create} className="btn-tab">Sign in</button>
                         <button onClick={this.toggleLoginCreate} 
                                 disabled={create} className="btn-tab">New account</button>
                     
                 </div>
+                </div>
+
                 {create ? <SignupContainer handleExitPage={handleExitPage} /> : 
                           <LoginContainer handleExitPage={handleExitPage} />}
             </div>
