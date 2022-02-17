@@ -15,6 +15,7 @@ $border-color: lightgray;
     display: flex;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.7);
+    z-index: 3333;
 }
 #cc {
     justify-content: center;
