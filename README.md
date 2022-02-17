@@ -27,6 +27,8 @@ The listings are displayed in a scrolling view with their pictures and their pri
 
 A logged in user can click to save/unsave listings. When you go to your user page, you can view all of your saved listings.
 
+![image](https://user-images.githubusercontent.com/91623374/154586525-a80090d2-1bc7-410a-9766-8fa13f837b8c.png)
+
 
 ## Search:
 
