@@ -4,6 +4,7 @@ $action-color: #33ccff;
 $bg-color: white;
 $border-color: lightgray;
 $form-bg-color: #f6f6fa;
+$login-form-margin: 20px;
 
 .outermost {
   display: flex;
@@ -15,6 +16,8 @@ $form-bg-color: #f6f6fa;
   flex-direction: row;
   background: $bg-color;
   border-bottom: 1px solid $border-color;
+  margin-left: $login-form-margin;
+  margin-right: $login-form-margin;
 }
 .btn-tab {
   color: $font-color;
@@ -31,7 +34,7 @@ $form-bg-color: #f6f6fa;
 .or-sign-with-btns {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  margin: $login-form-margin;
   border-top: 1px solid $border-color;
 }
 

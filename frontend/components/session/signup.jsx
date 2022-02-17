@@ -78,7 +78,7 @@ class Signup extends React.Component {
         }
         return (
             <div id="session-form-container">
-                {errors}
+                
 
                 <form className="session-form">
                     <div className='input-title'>Email</div>
@@ -119,8 +119,7 @@ class Signup extends React.Component {
                     </button>
                 </div>
 
-
-
+                {errors}
 
             </div>
         );

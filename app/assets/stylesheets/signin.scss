@@ -7,6 +7,10 @@ $form-bg-color: #f6f6fa;
 
 .error {
     color: red;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #session-form-container {
@@ -104,7 +108,7 @@ $form-bg-color: #f6f6fa;
     justify-content: center;
     background: $action-color;
     cursor: pointer;
-    padding: 4px;
+    padding: 8px;
     margin-bottom: 7px;
 }
 
@@ -116,7 +120,7 @@ $form-bg-color: #f6f6fa;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    padding: 4px;
+    padding: 10px;
     margin-top: 10px;
 }
 
@@ -128,7 +132,7 @@ $form-bg-color: #f6f6fa;
     justify-content: center;
     background: black;
     cursor: pointer;
-    padding: 4px;
+    padding: 8px;
     margin-bottom: 7px;
 }
 .facebook-button {
@@ -139,7 +143,7 @@ $form-bg-color: #f6f6fa;
     justify-content: center;
     background: blue;
     cursor: pointer;
-    padding: 4px;
+    padding: 8px;
     margin-bottom: 7px;
 }
 .google-button {
@@ -150,7 +154,7 @@ $form-bg-color: #f6f6fa;
     justify-content: center;
     background: white;
     cursor: pointer;
-    padding: 4px;
+    padding: 8px;
     margin-bottom: 7px;
 }
 
@@ -164,6 +168,8 @@ $form-bg-color: #f6f6fa;
 .top-flex-col {
     display: flex;
     flex-direction: column;
+    width: 100%;
+
 }
 
 .login-title {
