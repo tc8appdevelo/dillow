@@ -12,6 +12,7 @@ Dillow is a web application influenced by Zillow, the United States' most visite
 * Webpack
 * Amazon Web Services S3
 * Maps Javascript API
+
 Dillow utilizes React to create a single page application with reusable components. Redux is used to maintain a global state that keeps track of the current user, listings, filters, errors, the listings a user has saved, and listings a user has posted themselves. Rails takes care of the backend with PostgreSQL. Active Record simplifies querying with associations and data entry with validations. When users post homes for sale, Dillow uses AWS for storage so that each listing can have multiple photos attached. Google Maps Javascript API is used to show the location of each listing. Markers are placed on the correct long/lat with geocoding.
 
 # Features
