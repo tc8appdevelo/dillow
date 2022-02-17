@@ -19,6 +19,7 @@ class ListingIndex extends React.Component {
                 zip_code: "",
                 city: "",
                 state: "",
+                search: "",
             },
         }
 
@@ -79,8 +80,8 @@ class ListingIndex extends React.Component {
         })
     }
 
-    handleSearch() {
-        
+    handleSearch(filter) {
+
         this.props.fetchListings({filter: this.state.filter});
     }
 
@@ -141,11 +142,13 @@ class ListingIndex extends React.Component {
 
                         
                         <div id="listings-nav">
-                            <textarea
+                            <input
+                                type="text"
+                                placeholder='Enter a state, city, or ZIP code'
                                 className="search-textarea"
                                 value={this.state.filter.zip_code}
                                 onChange={this.handleZipcode}>
-                            </textarea>
+                            </input>
                             <div className="search-btn">zip code</div>
                             <div className="search-btn" onClick={() => this.handleTabClick("price")}>Price</div>
                             {searchTab}

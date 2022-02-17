@@ -1,5 +1,5 @@
 $font-color: black;
-$action-color: #33ccff;
+$action-color: #005cff;
 $bg-color: white;
 $border-color: lightgray;
 
@@ -16,15 +16,15 @@ $border-color: lightgray;
 }
 
 .search-textarea {
-  width: 222px;
-  height: 25px;
-  resize: none;
-  color: gray;
+    background: #f6f6fa;
+    padding: 7px;
+    font-size: 15px;
+    width: 300px;
 }
 
 .search-btn {
   width: 100px;
-  height: 25px;
+  height: 32px;
   color: $action-color;
   border: 1px solid $border-color;
   display: flex;
@@ -36,7 +36,7 @@ $border-color: lightgray;
 
 .search-btn--save {
   width: 100px;
-  height: 25px;
+  height: 32px;
   color: $bg-color;
   border: 1px solid $action-color;
   display: flex;

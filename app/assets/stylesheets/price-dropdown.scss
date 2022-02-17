@@ -1,5 +1,5 @@
 $font-color: black;
-$action-color: #33ccff;
+$action-color: #005cff;
 $bg-color: white;
 $border-color: lightgray;
 $form-bg-color: #f6f6fa;
@@ -23,7 +23,7 @@ $form-bg-color: #f6f6fa;
 
 .price-btn {
   height: 25px;
-  color: #33ccff;
+  color: #005cff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,8 +38,8 @@ $form-bg-color: #f6f6fa;
 
 .home-price-input {
   background: $form-bg-color;
-  padding: 10px;
-  font-size: 20px;
+  padding: 7px;
+  font-size: 15px;
   width: 125px;
 }
 
