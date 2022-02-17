@@ -53,7 +53,7 @@ class SavedListings extends React.Component {
               
             </div>
           </div>
-          <HomePage showListing={currentListing} exitModal={() => this.exitModal()} />
+          <HomePage listing={currentListing} exitModal={() => this.exitModal()} />
         </div>
       )
     } else {

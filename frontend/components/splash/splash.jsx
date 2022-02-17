@@ -24,18 +24,18 @@ class Splash extends React.Component {
                 <BuyRentSellContainer />
                 <div className='links-flex'>
                 <div className='my-link-box'>
-                        <a className='my-link' href="https://www.linkedin.com/in/anthony-carroll-996697101/">
-                            linkedin
+                        <a className='my-link' href="https://www.linkedin.com/in/anthony-carroll-996697101/" target="_blank" rel="noopener">
+                            Linkedin
                         </a>
                         
                     </div>
                     <div className='my-link-box'>
-                        <a className='my-link' href="https://angel.co/u/anthony-carroll-5">
+                        <a className='my-link' href="https://angel.co/u/anthony-carroll-5" target="_blank" rel="noopener">
                             Angel list
                         </a>
                     </div>
                     <div className='my-link-box'>
-                        <a className='my-link' href="https://github.com/tc8appdevelo">
+                        <a className='my-link' href="https://github.com/tc8appdevelo" target="_blank" rel="noopener">
                             Github
                         </a>
                     </div>

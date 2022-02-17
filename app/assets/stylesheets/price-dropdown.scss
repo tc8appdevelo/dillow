@@ -7,9 +7,8 @@ $form-bg-color: #f6f6fa;
 .price-dropdown-container {
   display: flex;
   flex-direction: column;
-  
   z-index: 1112;
-  
+  padding-left: 45px;
 }
 
 .pd-input-wrapper {
@@ -58,7 +57,7 @@ $form-bg-color: #f6f6fa;
 }
 
 .fa-magnifying-glass-dollar {
-  font-size: 24px;
+  font-size: 33px;
   color: white
 }
 

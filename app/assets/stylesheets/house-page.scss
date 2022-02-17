@@ -210,3 +210,26 @@ $border-color: lightgray;
   align-items: center;
 
 }
+
+.save-home-page {
+  color: $action-color;
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.save-home-page:hover {
+  color: $action-color;
+  
+}
+
+.text-heart-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-heart {
+  color: $action-color
+}

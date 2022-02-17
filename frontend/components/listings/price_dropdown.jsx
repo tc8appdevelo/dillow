@@ -64,9 +64,7 @@ class PriceDropdown extends React.Component {
     return (
       <div className="price-dropdown-container">
         <form className="price-form" onSubmit={this.handleSubmit}>
-          <div className="n">
 
-          </div>
           <div className="pd-input-wrapper">
             <input
               className="home-price-input"
@@ -87,11 +85,12 @@ class PriceDropdown extends React.Component {
               value={this.state.maxPrice}
               onChange={this.updateMaxPrice}
             />
+            <button className="sub-price-btn">
+              <FontAwesomeIcon icon={faMagnifyingGlassDollar} />
+            </button>
           </div>
 
-          <button className="sub-price-btn">
-              <FontAwesomeIcon icon={faMagnifyingGlassDollar} />
-          </button>
+
 
 
           {/* <div className="price-btns-flex">

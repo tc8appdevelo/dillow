@@ -1,53 +1,104 @@
 import React from "react";
 import DillowMapContainer from "../map/dillow_map_container"
 import { formatPrice } from "../../utils/format_price";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faHeart as faSolidHeart
+} from '@fortawesome/free-solid-svg-icons'
+import {
+  faHeart as faEmptyHeart
+} from '@fortawesome/free-regular-svg-icons'
 
-function HomePage(props) {
+// function HomePage() {
 
+class HomePage extends React.Component {
+  constructor(props) {
+    super(props);
 
-  if (props.showListing === null) {
-    return (
-      <div></div>
-    )
-  } else {
+    this.toggleSaved = this.toggleSaved.bind(this);
+    this.isListingSaved = this.isListingSaved.bind(this);
+  }
+
+  toggleSaved() {
+    let isSaved = this.isListingSaved();
+    if (!isSaved) {
+      this.props.saveListing(this.props.listing.id);
+    } else {
+      this.props.unSaveListing(this.props.listing.id);
+    }
+  }
+
+  isListingSaved() {
+    let saved = this.props.savedListings.find(l => l.id === this.props.listing.id);
+    if (typeof saved === 'object') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  componentDidMount() {
     
-    const priceStr = formatPrice(props.showListing.price);
-    const lotSizeStr = formatPrice(props.showListing.lot_size);
-    return (
+  }
 
-      <div id="dd">
+  render() {
+    if (this.props.listing === null) {
+      return (
+        <div></div>
+      )
+    } else {
+      const saved = this.isListingSaved();
+      const priceStr = formatPrice(this.props.listing.price);
+      const lotSizeStr = formatPrice(this.props.listing.lot_size);
+      console.log(this.props.listing.saved)
+      return (
 
-        <div className="flexbox-container-container">
+        <div id="dd">
+
+          <div className="flexbox-container-container">
             <div className="pictures">
-            {/* <div className="large-picture" style={{ backgroundImage: `url(${props.showListing.largePhotoUrl})` }}>
-                
-              </div> */}
-              <img className="large-picture" src={props.showListing.largePhotoUrl} alt="" />
+
+              <img className="large-picture" src={this.props.listing.largePhotoUrl} alt="" />
               <div className="small-pictures-wrap">
-                {props.showListing.smallPhotoUrls.map((photoUrl, idx) => <img className="small-picture" key={idx} src={photoUrl} alt=""/>)}
+                {this.props.listing.smallPhotoUrls.map((photoUrl, idx) => <img className="small-picture" key={idx} src={photoUrl} alt="" />)}
               </div>
             </div>
             <div className="home-info">
               <div className="home-info-top-bar">
-                  <div className="title-text">Dillow</div>
-                  <div className="right-info-top-bar">
-                    <div className="save">Save</div>
-                    <div>Share</div>
-                    <div>More</div>
+                <div className="title-text">Dillow</div>
+                <div className="right-info-top-bar">
+                  <div>
+                    {
+                      saved ?
+                        <div className="text-heart-row" onClick={() => this.props.unSaveListing(this.props.listing.id)}>
+                          <FontAwesomeIcon icon={faSolidHeart} />
+                          <div className="save-home-page">Saved</div>
+                        </div> :
+
+                        <div className="text-heart-row" onClick={() => this.props.saveListing(this.props.listing.id)}>
+                          <FontAwesomeIcon icon={faEmptyHeart} />
+                          <div className="save-home-page">Save</div>
+                        </div>
+                    }
+
+
                   </div>
+
+                  <div>Share</div>
+                  <div>More</div>
+                </div>
               </div>
               <div className="info-price-box">
                 <div className="price-row">
                   <div className="price">{priceStr}</div>
-                  <div>{props.showListing.bedrooms} bd</div>
-                  <div className="mid-border-div">{props.showListing.bathrooms} ba</div>
+                  <div>{this.props.listing.bedrooms} bd</div>
+                  <div className="mid-border-div">{this.props.listing.bathrooms} ba</div>
                   <div>{lotSizeStr} sqft</div>
                 </div>
                 <div className="text-row">
-                  <div>{props.showListing.address},</div>
-                  <div>{props.showListing.city},</div>
-                  <div>{props.showListing.state}</div>
-                  <div>{props.showListing.zip_code}</div>
+                  <div>{this.props.listing.address},</div>
+                  <div>{this.props.listing.city},</div>
+                  <div>{this.props.listing.state}</div>
+                  <div>{this.props.listing.zip_code}</div>
                 </div>
 
                 <div className="map-buttons-div">
@@ -56,35 +107,37 @@ function HomePage(props) {
                 </div>
               </div>
 
-            <div className="map-flex">
-              <DillowMapContainer />
-            </div>
+              <div className="map-flex">
+                <DillowMapContainer />
+              </div>
 
-            <div className="overview">
-              <div className="ovt">Overview</div>
+              <div className="overview">
+                <div className="ovt">Overview</div>
                 <div className="overview-top-row">
-              
-                    <div className="bld">Time on Dillow 1 day</div>
-                    <div className="mid">Views {props.showListing.views}</div>
-                    <div className="bld">Saves {props.showListing.saves}</div>
-               </div>
-              
+
+                  <div className="bld">Time on Dillow 1 day</div>
+                  <div className="mid">Views {this.props.listing.views}</div>
+                  <div className="bld">Saves {this.props.listing.saves}</div>
+                </div>
+
 
                 <div className="description">
-                  {props.showListing.description}
+                  {this.props.listing.description}
                 </div>
+              </div>
+            </div>
+            <div className="exit-mover">
+              <button className="other-exit-button" onClick={this.props.exitModal}>X</button>
             </div>
           </div>
-          <div className="exit-mover">
-            <button className="other-exit-button" onClick={props.exitModal}>X</button>
-          </div>
+
+
+
         </div>
-
-
-      
-      </div>
-    )
+      )
+    }
   }
+
 }
 
 export default HomePage;

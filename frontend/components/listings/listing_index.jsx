@@ -45,7 +45,7 @@ class ListingIndex extends React.Component {
         })
     }
     showModal(idx) {
-        const listing = this.props.listings.find(x => x.id === idx);
+        let listing = this.props.listings.find(x => x.id === idx);
         this.setState({
             currentListing: listing,
         })
@@ -117,6 +117,12 @@ class ListingIndex extends React.Component {
         } else {
             searchTab = <div></div>
         }
+        let homePage;
+        if (this.state.currentListing) {
+            homePage = true;
+        } else {
+            homePage = false;
+        }
         
         // if (this.props.listings[0]) {
 
@@ -161,8 +167,9 @@ class ListingIndex extends React.Component {
                         </div>
                         <div>
                         </div>
-                        <HomePage showListing={currentListing} exitModal={() => this.exitModal()} />
-
+                        {homePage ? <HomePage listing={currentListing} saveListing={this.saveHouse} unSaveListing={this.unSaveHouse} savedListings={this.props.savedListings} exitModal={() => this.exitModal()} /> : <div></div> }
+                        {/* <HomePage listing={currentListing} saveListing={this.saveHouse} unSaveListing={this.unSaveHouse} exitModal={() => this.exitModal()} /> */}
+                        
                     </div>
                 </div>
 
