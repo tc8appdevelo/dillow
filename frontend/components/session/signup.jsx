@@ -63,30 +63,39 @@ class Signup extends React.Component {
         return (
             <div id="session-form-container">
                 {errors}
-                <h2>{this.props.formType}</h2>
-                <form id="session-form">
-                    <div>Email</div>
+                
+                <form className="session-form">
+                    <div className='input-title'>Email</div>
                      <input
                         className="form-input"
+                        placeholder='Enter email'
                         type="text"
                         value={this.state.email}
                         onChange={this.handleInput('email')}
                     />
-                    <div>Password</div>
+                    <div className='input-title'>Password</div>
                     <input
                         className="form-input"
                         type="password"
+                        placeholder='Enter password'
                         value={this.state.password}
                         onChange={this.handleInput('password')}
                     />
                    
 
                     <button className="sign-button"
-                            onClick={this.handleSubmit}>Sign In</button>
+                            onClick={this.handleSubmit}>{this.props.formType}</button>
                 </form>
-                <div>Or connect with:</div>
+
+                <div className='w-div'>Forgot your password?</div>
                 
-                <button className='demo-button' onClick={this.loginDemoUser}>demo user</button>
+                <div className='or-sign-with-btns'>
+                    <div className='words-div'>Or connect with:</div>
+                    <button className="demo-button" onClick={this.loginDemoUser}>demo user</button>
+                </div>
+                   
+                
+                
                
             </div>
         );

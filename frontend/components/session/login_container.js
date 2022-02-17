@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => ({
     formAction: user => dispatch(login(user)),
     loginAction: user => dispatch(login(user)),
     fetchSavedListings: () => dispatch(fetchSavedListings()),
-    formType: "Login",
+    formType: "Sign in",
     buttonRoute: "/"
 })
 

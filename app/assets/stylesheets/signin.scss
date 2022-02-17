@@ -2,6 +2,7 @@ $font-color: black;
 $action-color: #33ccff;
 $bg-color: white;
 $border-color: lightgray;
+$form-bg-color: #f6f6fa;
 
 
 .error {
@@ -11,24 +12,17 @@ $border-color: lightgray;
 #session-form-container {
     width: 277px;
     height: 333px;
-    border-radius: 4px;
-
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-self: center;
-    align-items: center;
     background-color: $bg-color;
-    
-    
 }
 
-#session-form {
+.session-form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: flex-start;
-    padding:10px;
+
+    padding:20px;
 }
 
 // position: sticky?, box sizing
@@ -102,8 +96,7 @@ $border-color: lightgray;
 }
 
 .demo-button {
-    width: 100px;
-    height: 25px;
+
     color: $bg-color;
     border: 1px solid $action-color;
     display: flex;
@@ -111,17 +104,24 @@ $border-color: lightgray;
     justify-content: center;
     background: $action-color;
     cursor: pointer;
+    padding: 4px;
 }
 
 .sign-button {
-    width: 100px;
-    height: 25px;
-    color: $action-color;
+    color: $bg-color;
     border: 1px solid $action-color;
+    background: $action-color;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 22px;
-    background: $bg-color;
     cursor: pointer;
+    padding: 4px;
+    margin-top: 10px;
+}
+
+.words-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
 }

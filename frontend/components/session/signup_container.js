@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => ({
     formAction: user => dispatch(signup(user)),
     loginAction: user => dispatch(login(user)),
     fetchSavedListings: () => dispatch(fetchSavedListings()),
-    formType: "Create Account",
+    formType: "Create account",
     buttonRoute: "/"
 })
 

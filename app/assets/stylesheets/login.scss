@@ -1,0 +1,54 @@
+
+$font-color: black;
+$action-color: #33ccff;
+$bg-color: white;
+$border-color: lightgray;
+$form-bg-color: #f6f6fa;
+
+.outermost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btn-tabs-bar {
+  display: flex;
+  flex-direction: row;
+  background: $bg-color;
+  border-bottom: 1px solid $border-color;
+}
+.btn-tab {
+  color: $font-color;
+  font-size: 16px;
+  padding: 6px;
+  cursor: pointer;
+  background: $bg-color;
+  border: none;
+}
+.btn-tab:disabled {
+  border-bottom: 4px solid $action-color;
+}
+
+.or-sign-with-btns {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-top: 1px solid $border-color;
+}
+
+.form-input {
+  padding: 10px;
+  background: $form-bg-color;
+  border: 1px solid $border-color;
+  margin-bottom: 9px;
+}
+
+.input-title {
+  padding-bottom: 5px;
+}
+
+.w-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
