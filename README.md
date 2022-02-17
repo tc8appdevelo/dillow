@@ -21,6 +21,8 @@ Dillow utilizes React to create a single page application with reusable componen
 
 The listings are displayed in a scrolling view with their pictures and their price, city, state, zip code, and so on. When a logged in user creates a new listing, it is added to the listings shown.  Clicking on a listing brings up a modal that shows more details about that listing along with its expanded pictures. If a user posts a listing, the full CRUD lifecycle is available for that listing.
 
+![image](https://user-images.githubusercontent.com/91623374/154585312-66ab2ccb-cd60-4bff-bd6c-a82cd170306d.png)
+
 ## Saves
 
 A logged in user can click to save/unsave listings. When you go to your user page, you can view all of your saved listings.
