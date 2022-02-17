@@ -49,7 +49,6 @@ class HomePage extends React.Component {
       const saved = this.isListingSaved();
       const priceStr = formatPrice(this.props.listing.price);
       const lotSizeStr = formatPrice(this.props.listing.lot_size);
-      console.log(this.props.listing.saved)
       return (
 
         <div id="dd">

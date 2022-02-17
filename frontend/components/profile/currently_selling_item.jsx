@@ -19,9 +19,7 @@ class CurrentlySellingItem extends React.Component {
   }
 
   handleClick(e) {
-    console.log(e);
     let className = e.target.className;
-    debugger
     switch (className) {
       case "pencil-img":
         this.props.handleClick("edit", this.props.listing)

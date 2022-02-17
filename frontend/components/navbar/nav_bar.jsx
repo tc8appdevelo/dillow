@@ -87,9 +87,6 @@ class NavBar extends React.Component {
                                 onMouseLeave={this.fixToggleDropdown}>
                                     <Link className="buy-link" to={'/homes'}>Buy</Link>
                                 </li>
-                            {/* <li id="rent-hover" className="rent-hover-class"
-                                onMouseEnter={this.toggleRentDropdown}
-                                onMouseLeave={this.toggleRentDropdown}>Rent</li> */}
 
                                 <li><Link className="buy-link" to={'/sell'}>Sell</Link></li>
 
@@ -115,13 +112,13 @@ class NavBar extends React.Component {
                     <LoginPage exitPage={this.toggleLoginPage} />
                 </div>
                     
-                 <div id="popup" className={isVisible}>
+                 {/* <div id="popup" className={isVisible}>
                     <div id="buy-hover" className="buy-hover-class"
                         onMouseEnter={this.toggleDropdown}
                         onMouseLeave={this.toggleDropdown}>
                         <BuyDropdown />
                    </div>
-                </div>
+                </div> */}
 
                 
         
