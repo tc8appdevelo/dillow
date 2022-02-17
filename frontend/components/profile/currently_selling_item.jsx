@@ -73,8 +73,8 @@ class CurrentlySellingItem extends React.Component {
     return (
       <div className="pos-heart-wrap">
 
-        <div className="save--l-wrap" onClick={this.handleClick}>
-          <div className="save--listing-box" style={{ backgroundImage: `url(${listing.largePhotoUrl})` }}>
+        <div className="selling--l-wrap" onClick={this.handleClick}>
+          <div className="selling--listing-box" style={{ backgroundImage: `url(${listing.largePhotoUrl})` }}>
             <div className='trash-pencil-flex'>
               <div className="pencil-button">
                 <FontAwesomeIcon icon={faPenToSquare} />
@@ -86,13 +86,13 @@ class CurrentlySellingItem extends React.Component {
               </div>
             </div>
           </div>
-          <div className="save--listing-box--bottom-bar">
+          <div className="selling--listing-box--bottom-bar">
 
-            <div className="save--price-text">{listing.price ? priceStr : "$500,232"}</div>
-            <div className="save--small-txt">
+            <div className="selling--price-text">{listing.price ? priceStr : "$500,232"}</div>
+            <div className="selling--small-txt">
               {`${listing.bedrooms} bds ${listing.bathrooms} bath ${listing.lot_size} sqft - ${listing.property_type} for sale`}
             </div>
-            <div className="save--small-txt">
+            <div className="selling--small-txt">
               {`${listing.address}, ${listing.city} ${listing.state} ${listing.zip_code}`}
             </div>
 

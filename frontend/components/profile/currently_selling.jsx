@@ -33,7 +33,7 @@ class CurrentlySelling extends React.Component {
                 Your homes
               </div>
               <div id="saved--homes-list-wrapper">
-                <div id="saved--homes-wrap">
+                <div className="selling-homes-wrap">
                   {this.props.currentlySelling.map(listing => 
                     (<CurrentlySellingItem 
                       key={listing.id} 
