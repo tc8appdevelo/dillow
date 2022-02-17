@@ -26,12 +26,28 @@ class Signup extends React.Component {
         this.props.formAction(this.state).then(() => this.props.fetchSavedListings()).then(this.props.handleExitPage)
     }
 
-    loginDemoUser() {
+    loginDemoUser(type) {
+        let email;
+
+        switch (type) {
+            case "gmail":
+                email = "demo_user@gmail.com"
+                break;
+            case "apple":
+                email = "demo_user@apple.com"
+                break;
+            case "facebook":
+                email = "demo_user@facebook.com"
+                break;
+            default:
+                email = "demo_user"
+                break;
+        }
+
         this.props.loginAction({
-            email: "demo_user",
+            email: email,
             password: "password",
         }).then(() => this.props.fetchSavedListings()).then(this.props.handleExitPage)
-
     }
 
     showErrors() {
@@ -63,10 +79,10 @@ class Signup extends React.Component {
         return (
             <div id="session-form-container">
                 {errors}
-                
+
                 <form className="session-form">
                     <div className='input-title'>Email</div>
-                     <input
+                    <input
                         className="form-input"
                         placeholder='Enter email'
                         type="text"
@@ -81,25 +97,31 @@ class Signup extends React.Component {
                         value={this.state.password}
                         onChange={this.handleInput('password')}
                     />
-                   
+
 
                     <button className="sign-button"
-                            onClick={this.handleSubmit}>{this.props.formType}</button>
+                        onClick={this.handleSubmit}>{this.props.formType}</button>
                 </form>
 
                 <div className='w-div'>Forgot your password?</div>
-                
+
                 <div className='or-sign-with-btns'>
                     <div className='words-div'>Or connect with:</div>
                     <button className="demo-button" onClick={this.loginDemoUser}>demo user</button>
-                    <button className="apple-button" onClick={this.loginDemoUser}>Continue with Apple</button>
-                    <button className="facebook-button" onClick={this.loginDemoUser}>Continue with Facebook</button>
-                    <button className="google-button" onClick={this.loginDemoUser}>Continue with Google</button>
+                    <button className="apple-button" onClick={() => this.loginDemoUser("apple")}>
+                        Continue with Apple
+                    </button>
+                    <button className="facebook-button" onClick={() => this.loginDemoUser("facebook")}>
+                        Continue with Facebook
+                    </button>
+                    <button className="google-button" onClick={() => this.loginDemoUser("gmail")}>
+                        Continue with Google
+                    </button>
                 </div>
-                   
-                
-                
-               
+
+
+
+
             </div>
         );
     }

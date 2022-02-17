@@ -14,6 +14,18 @@ user1 = User.create(
         email: "demo_user",
         password: "password"
 )
+user2 = User.create(
+        email: "demo_user@gmail.com"
+        password: "password"
+)
+user3 = User.create(
+        email: "demo_user@facebook.com",
+        password: "password"
+)
+user4 = User.create(
+        email: "demo_user@apple.com",
+        password: "password"
+)
 
 
 

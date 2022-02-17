@@ -28,8 +28,8 @@ class BuyRentSell extends React.Component {
         return (
             <div className="container-all--col">
                 <div className="container-rectangle--col">
-                    <div className="title--medium">Title and slogan,</div>
-                    <div className="title--medium">for these buttons:</div>
+                    <div className="title--medium">Whether you're buying or selling,</div>
+                    <div className="title--medium">we can help you move forward.</div>
                 </div>
                 <div id="buy-rent-sell">
 
