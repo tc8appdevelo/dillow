@@ -23,6 +23,7 @@ The listings are displayed in a scrolling view with their pictures and their pri
 
 ![image](https://user-images.githubusercontent.com/91623374/154586211-0334b129-e0bf-4a79-a38d-d86e3cbdfd20.png)
 
+
 ## Saves
 
 A logged in user can click to save/unsave listings. When you go to your user page, you can view all of your saved listings.
@@ -33,6 +34,9 @@ A logged in user can click to save/unsave listings. When you go to your user pag
 ## Search:
 
 Users can search for homes based on price range, city, state, and zip code entered into the map search bar.
+
+![image](https://user-images.githubusercontent.com/91623374/154586868-7d4b99ca-ccc8-466b-9fb6-9358c514c031.png)
+
 
 ## Map:
 
