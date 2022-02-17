@@ -5,6 +5,7 @@ $font-color: black;
 $action-color: #33ccff;
 $bg-color: white;
 $border-color: lightgray;
+$bg-light: #f1f1f1;
 
 #saved--page-wrapper {
   display: flex;
@@ -24,8 +25,9 @@ $border-color: lightgray;
     min-width: 407px;
     width: 80vw;
     flex-wrap: wrap;
-    background-color: #f1f1f1;
+    background-color: $bg-light;
     justify-content: space-between;
+    padding: 40px;
 }
 
 .saved--title {
@@ -38,7 +40,7 @@ $border-color: lightgray;
   display: flex;
   justify-content: center;
   height: 100vh;
-  background: #f1f1f1;
+
 }
 
 .saved--all-content {
@@ -129,6 +131,7 @@ $border-color: lightgray;
   color: $icon-color;
   padding-right: $icon-padding;
 }
+
 
 .info-title {
   font-weight: bold;

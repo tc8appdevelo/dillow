@@ -1,14 +1,43 @@
+$icon-color: #33ccff;
+$icon-font-size: 33px;
+$icon-padding: 5px;
+$font-color: black;
+$action-color: #33ccff;
+$bg-color: white;
+$border-color: lightgray;
+$bg-light: #f1f1f1;
+
+
 .trash-pencil-flex {
   display: flex;
   justify-content: space-between;
 }
 
 .pencil-button {
-
   z-index: 1000;
 }
 
 .trash-button {
-
   z-index: 1000;
+}
+
+.pencil-img, 
+.trash-img {
+  height: 33px;
+  width: 33px;
+}
+
+.fa-trash-can {
+  font-size: 33px;
+  color: $bg-color;
+  z-index: 2222;
+  position: absolute;
+  pointer-events: none;
+}
+
+.fa-pen-to-square {
+  font-size: 33px;
+  color: $bg-color;
+  position: absolute;
+  pointer-events: none;
 }

@@ -1,5 +1,9 @@
 import React from "react"
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faPenToSquare,
+  faTrashCan,
+} from '@fortawesome/free-solid-svg-icons'
 
 class CurrentlySellingItem extends React.Component {
 
@@ -7,6 +11,7 @@ class CurrentlySellingItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.handleClickNoClass = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -14,12 +19,27 @@ class CurrentlySellingItem extends React.Component {
   }
 
   handleClick(e) {
+    console.log(e);
     let className = e.target.className;
+    debugger
     switch (className) {
       case "pencil-img":
         this.props.handleClick("edit", this.props.listing)
         break;
       case "trash-img":
+        this.props.deleteListing(this.props.listing);
+        break;
+      default:
+        break;
+    }
+  }
+
+  handleClickNoClass(clickedOn) {
+    switch (clickedOn) {
+      case "edit":
+        this.props.handleClick("edit", this.props.listing)
+        break;
+      case "delete":
         this.props.deleteListing(this.props.listing);
         break;
       default:
@@ -57,10 +77,12 @@ class CurrentlySellingItem extends React.Component {
           <div className="save--listing-box" style={{ backgroundImage: `url(${listing.largePhotoUrl})` }}>
             <div className='trash-pencil-flex'>
               <div className="pencil-button">
-                <img className="pencil-img" src={window.editPencilUrl} alt="" />
+                <FontAwesomeIcon icon={faPenToSquare} />
+                <div className="pencil-img"></div>
               </div>
               <div className="trash-button">
-                <img className="trash-img" src={window.trashUrl} alt="" />
+                <FontAwesomeIcon icon={faTrashCan} />
+                <div className="trash-img"></div>
               </div>
             </div>
           </div>

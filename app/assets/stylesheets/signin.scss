@@ -3,6 +3,7 @@ $action-color: #33ccff;
 $bg-color: white;
 $border-color: lightgray;
 $form-bg-color: #f6f6fa;
+$transparent-bg: rgba(0, 0, 0, 0.4);
 
 
 .error {
@@ -38,6 +39,11 @@ $form-bg-color: #f6f6fa;
     align-items: center;
     justify-content: center;
     z-index: 1113;
+    background: $transparent-bg;
+    width: 100vw;
+    height: 150vh;
+
+    position: absolute;
 }
 
 #login-col-outer {
@@ -48,6 +54,8 @@ $form-bg-color: #f6f6fa;
     z-index: 3;
     transform: scale(1.07);
     box-shadow: 0 10px rgba(0,25,10, 0.35);
+    position: absolute;
+    top: 10%;
 }
 
 #login-row-topbar {
@@ -162,7 +170,7 @@ $form-bg-color: #f6f6fa;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 20px;
 }
 
 .top-flex-col {
