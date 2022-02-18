@@ -98,7 +98,7 @@ class ListingIndex extends React.Component {
         switch (tab) {
             case "price":
                 if (this.state.searchTab === null) {
-                    showTab = <PriceDropdown updateFilter={this.props.updateFilter}/>
+                    showTab = <PriceDropdown updateFilter={this.props.updateFilter} buttonColor="blue" />
                 } else {
                     showTab = null;
                 }

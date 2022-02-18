@@ -60,6 +60,7 @@ class PriceDropdown extends React.Component {
   }
 
   render() {
+    let btnColor = (this.props.buttonColor === "blue");
 
     return (
       <div className="price-dropdown-container">
@@ -86,7 +87,9 @@ class PriceDropdown extends React.Component {
               onChange={this.updateMaxPrice}
             />
             <button className="sub-price-btn">
-              <FontAwesomeIcon icon={faMagnifyingGlassDollar} />
+              {btnColor ? 
+                <FontAwesomeIcon icon={faMagnifyingGlass} /> : 
+                <FontAwesomeIcon icon={faMagnifyingGlassDollar} />}
             </button>
           </div>
 

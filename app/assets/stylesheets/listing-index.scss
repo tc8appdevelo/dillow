@@ -3,7 +3,7 @@ $action-color: #005cff;
 $icon-color: #005cff;
 $bg-color: white;
 $border-color: lightgray;
-
+$calc-height: calc(100vh - 160.5px);
 #container-l {
     height: 100vh;
 }
@@ -126,7 +126,7 @@ body {
 #homes-list-wrapper {
     background-color: $bg-color;
     max-width: 700px;
-    height: 100vh;
+    height: $calc-height;
     display: flex;
     border-left: 2en solid $border-color;
     flex-direction: row;
@@ -139,7 +139,7 @@ body {
     flex-direction: column;
     background-color: $bg-color;
     width: 100vw;
-    height: 100vh;
+    height: $calc-height;
     color: $font-color;
 }
 
