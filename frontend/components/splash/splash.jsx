@@ -4,6 +4,7 @@ import SearchBar from '../search_bar/search_bar';
 import SearchBarContainer from '../search_bar/search_bar_container';
 import BuyRentSellContainer from '../buttons/buy_rent_sell_container';
 import { Link } from "react-router-dom";
+import GeocodeListingContainer from '../map/geocode_listing_container';
 
 class Splash extends React.Component {
     constructor(props) {
@@ -40,7 +41,7 @@ class Splash extends React.Component {
                         </a>
                     </div>
                 </div>
-                
+                <GeocodeListingContainer />
             </div>
         )
     }

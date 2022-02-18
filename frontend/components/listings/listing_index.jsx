@@ -36,11 +36,11 @@ class ListingIndex extends React.Component {
     }
 
     componentDidMount() {
-        debugger
-        this.props.fetchListings(this.props.filters);
-        if (this.props.currentUser) {
-            this.props.fetchSavedListings();
-        }
+
+        // this.props.fetchListings(this.props.filters);
+        // if (this.props.currentUser) {
+        //     this.props.fetchSavedListings();
+        // }
 
         this.setState({
             didMount: true,
