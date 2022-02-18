@@ -166,7 +166,7 @@ class ListingIndex extends React.Component {
                         <div id="listings-map-homes">
 
                             {/* <DillowMapContainer /> */}
-                            <DillMapContainer />
+                            <DillMapContainer handleMarkerClick={this.showModal} />
 
                             <div id="homes-list-wrapper">
                                 <div id="homes-wrap">

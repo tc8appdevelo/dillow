@@ -28,7 +28,6 @@ class GeocodeListing extends React.Component {
     const geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': address }, function (results, status) {
       if (status == 'OK') {
-        debugger
         parseLocation(results[0].geometry.location, listing);
       } else {
         console.log("Geocode was unsuccessful")

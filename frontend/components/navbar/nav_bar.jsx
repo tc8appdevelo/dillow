@@ -8,7 +8,7 @@ class NavBar extends React.Component {
         super(props);
 
         this.state = { 
-            currentUser: this.props.currentUser,
+            currentUser: props.currentUser,
             showDropdown: false,
             showLogin: false,
             showRentDropdown: false,
@@ -73,6 +73,13 @@ class NavBar extends React.Component {
         let isVisible = this.state.showDropdown ? "visible" : ""
         let isLogin = this.state.showLogin ? "visible" : ""
 
+        let currentUser;
+
+        if (this.props.currentUser) {
+            currentUser = this.props.currentUser;
+        } else {
+            currentUser = null;
+        }
         return (
             <div>
             <nav className="nav-bar">
@@ -87,9 +94,8 @@ class NavBar extends React.Component {
                                 onMouseLeave={this.fixToggleDropdown}>
                                     <Link className="buy-link" to={'/homes'}>Buy</Link>
                                 </li>
-
-                                <li><Link className="buy-link" to={'/sell'}>Sell</Link></li>
-
+                                {currentUser ? <li><Link className="buy-link" to={'/sell'}>Sell</Link></li> : <li><button id="toggleLoginPage" onClick={this.toggleLoginPage}>Sell</button> </li>}
+                                
                         </ul>
                     </li>
                     <Link to='/' id="dillow-title">Dillow</Link>

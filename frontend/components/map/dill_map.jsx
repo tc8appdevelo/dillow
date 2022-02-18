@@ -13,7 +13,7 @@ const mapOptions = {
     lat: 40.712776,
     lng: -74.005974
   },
-  zoom: 13,
+  zoom: 10,
   styles: [
     {
       featureType: "poi",
@@ -32,6 +32,7 @@ const mapOptions = {
 class DillMap extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   componentDidMount() {
@@ -39,14 +40,15 @@ class DillMap extends React.Component {
     this.map = new google.maps.Map(map, mapOptions);
 
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-
-    if (this.props.listings[0]) {
+    if (this.props.single === "single") {
+      this.MarkerManager.createMarkerFromListing(this.props.singleListing);
+    } else if (this.props.listings[0]) {
       this.MarkerManager.updateMarkers(this.props.listings)
     }
   }
 
   handleMarkerClick(listing) {
-    console.log(`${listing} marker clicked`);
+    this.props.handleMarkerClick(listing.id);
   }
 
   render() {
