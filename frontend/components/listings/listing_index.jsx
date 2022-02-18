@@ -37,14 +37,15 @@ class ListingIndex extends React.Component {
 
     componentDidMount() {
 
-        // this.props.fetchListings(this.props.filters);
-        // if (this.props.currentUser) {
-        //     this.props.fetchSavedListings();
-        // }
+        this.props.fetchListings(this.props.filters);
+        if (this.props.currentUser) {
+            this.props.fetchSavedListings();
+        }
 
         this.setState({
             didMount: true,
         })
+
     }
     exitModal() {
         this.setState({
@@ -166,7 +167,13 @@ class ListingIndex extends React.Component {
                         <div id="listings-map-homes">
 
                             {/* <DillowMapContainer /> */}
-                            <DillMapContainer handleMarkerClick={this.showModal} />
+
+                            {homePage ? 
+                                <DillMapContainer single="single" singleListing={currentListing} />
+                                : <DillMapContainer handleMarkerClick={this.showModal} />
+                            }
+
+                            {/* <DillMapContainer handleMarkerClick={this.showModal} /> */}
 
                             <div id="homes-list-wrapper">
                                 <div id="homes-wrap">

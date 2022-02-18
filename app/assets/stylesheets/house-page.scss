@@ -35,7 +35,7 @@ $border-color: lightgray;
     width: 80vw;
     max-width: 1000px;
     position: absolute;
- 
+    top: 28px;
 }
 
 .pictures {
@@ -55,6 +55,7 @@ $border-color: lightgray;
   padding-top: 4px;
   padding-right: 4px;
   width: 49%;
+  flex-grow: 1;
 }
 
 .small-pictures-wrap {

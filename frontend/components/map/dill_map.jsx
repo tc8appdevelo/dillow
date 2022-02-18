@@ -47,8 +47,20 @@ class DillMap extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+    if (this.props.single === "single") {
+      this.MarkerManager.createMarkerFromListing(this.props.singleListing)
+    } else {
+      this.MarkerManager.updateMarkers(this.props.listings)
+    }
+  }
+
   handleMarkerClick(listing) {
-    this.props.handleMarkerClick(listing.id);
+    if (this.props.single === "single") {
+      return "";
+    } else {
+      this.props.handleMarkerClick(listing.id);
+    }
   }
 
   render() {
