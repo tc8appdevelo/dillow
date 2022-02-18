@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 require 'open-uri'
 
@@ -131,85 +124,112 @@ listing5.photos.attach(io: small35, filename: 'small2_3.png')
 listing5.photos.attach(io: small45, filename: 'small2_4.png')
 listing5.save!
 
-listing6 = Listing.new(
-        user_id: user3.id, price: 6666666, state: "TX", city: "Dallas", 
-        zip_code: "75203", address: "1014 N Beckley Ave", 
-        property_type: "House", bedrooms: 4, bathrooms: 3, 
-        year_built: 1954, description: "Test listing description.",
-        lot_size: 6753, saves: 0, views: 0,
-        heating: "Central Heat-Gas", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
+# listing6 = Listing.new(
+#         user_id: user3.id, price: 6666666, state: "TX", city: "Dallas", 
+#         zip_code: "75203", address: "1014 N Beckley Ave", 
+#         property_type: "House", bedrooms: 4, bathrooms: 3, 
+#         year_built: 1954, description: "Test listing description.",
+#         lot_size: 6753, saves: 0, views: 0,
+#         heating: "Central Heat-Gas", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
+# )
+
+ny_listing6 = Listing.new(
+        user_id: user1.id, price: 399000, state: "NY", city: "Astoria",
+        zip_code: "11106", address: "21-80 33rd Rd",
+        property_type: "Condo", bedrooms: 2, bathrooms: 1,
+        year_built: 1903, description: "Condo in Astoria.",
+        lot_size: 100, saves: 0, views: 0,
+        heating: "Central Heat-Gas", cooling: "Central Air-Elec",
+        parking: "No parking", sqft: 100
 )
-small16 = URI.open('https://dillow-seeds.s3.amazonaws.com/mow2.png')
-small26 = URI.open('https://dillow-seeds.s3.amazonaws.com/mow3.png')
-small36 = URI.open('https://dillow-seeds.s3.amazonaws.com/yardback.png')
-small46 = URI.open('https://dillow-seeds.s3.amazonaws.com/yardhalf.png')
-file6 = URI.open('https://dillow-seeds.s3.amazonaws.com/house6.png')
-listing6.large_photo.attach(io: file6, filename: 'house6.png')
-listing6.photos.attach(io: small16, filename: 'small2_1.png')
-listing6.photos.attach(io: small26, filename: 'small2_2.png')
-listing6.photos.attach(io: small36, filename: 'small2_3.png')
-listing6.photos.attach(io: small46, filename: 'small2_4.png')
-listing6.save!
 
-listing7 = Listing.new(
-        user_id: user2.id, price: 7777777, state: "TX", city: "Dallas", 
-        zip_code: "75235", address: "2832 Hedgerow Dr", 
-        property_type: "House", bedrooms: 4, bathrooms: 3, 
-        year_built: 1917, description: "Test listing description.",
-        lot_size: 221, saves: 0, views: 0,
-        heating: "Geothermal", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
+small16 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_1.png')
+small26 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_2.png')
+small36 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_3.png')
+small46 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_4.png')
+building1 = URI.open('https://dillow-seeds.s3.amazonaws.com/building1.png')
+ny_listing6.large_photo.attach(io: building1, filename: 'building1.png')
+ny_listing6.photos.attach(io: small16, filename: 'small2_1.png')
+ny_listing6.photos.attach(io: small26, filename: 'small2_2.png')
+ny_listing6.photos.attach(io: small36, filename: 'small2_3.png')
+ny_listing6.photos.attach(io: small46, filename: 'small2_4.png')
+ny_listing6.save!
+
+# listing7 = Listing.new(
+#         user_id: user2.id, price: 7777777, state: "TX", city: "Dallas", 
+#         zip_code: "75235", address: "2832 Hedgerow Dr", 
+#         property_type: "House", bedrooms: 4, bathrooms: 3, 
+#         year_built: 1917, description: "Test listing description.",
+#         lot_size: 221, saves: 0, views: 0,
+#         heating: "Geothermal", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
+# )
+
+ny_listing7 = Listing.new(
+        user_id: user1.id, price: 800000, state: "NY", city: "Rego Park",
+        zip_code: "11374", address: "99-32 66th Rd",
+        property_type: "Condo", bedrooms: 1, bathrooms: 1,
+        year_built: 1903, description: "Condo in Rego Park.",
+        lot_size: 100, saves: 0, views: 0,
+        heating: "Central Heat-Gas", cooling: "Central Air-Elec",
+        parking: "No parking", sqft: 100
 )
-small17 = URI.open('https://dillow-seeds.s3.amazonaws.com/mow2.png')
-small27 = URI.open('https://dillow-seeds.s3.amazonaws.com/mow3.png')
-small37 = URI.open('https://dillow-seeds.s3.amazonaws.com/yardback.png')
-small47 = URI.open('https://dillow-seeds.s3.amazonaws.com/yardhalf.png')
-file7 = URI.open('https://dillow-seeds.s3.amazonaws.com/house7.png')
-listing7.large_photo.attach(io: file7, filename: 'house7.png')
-listing7.photos.attach(io: small17, filename: 'small2_1.png')
-listing7.photos.attach(io: small27, filename: 'small2_2.png')
-listing7.photos.attach(io: small37, filename: 'small2_3.png')
-listing7.photos.attach(io: small47, filename: 'small2_4.png')
-listing7.save!
 
-# ny_listing1 = Listing.new(
-#         user_id: user1.id, price: 399000, state: "NY", city: "Astoria",
-#         zip_code: "11106", address: "21-80 33rd Rd",
-#         property_type: "Condo", bedrooms: 2, bathrooms: 1,
-#         year_built: 1903, description: "Condo in Astoria.",
-#         lot_size: 100, saves: 0, views: 0,
-#         heating: "Central Heat-Gas", cooling: "Central Air-Elec",
-#         parking: "No parking", sqft: 100
-# )
+small17 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_1.png')
+small27 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_2.png')
+small37 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_3.png')
+small47 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_4.png')
+building2 = URI.open('https://dillow-seeds.s3.amazonaws.com/building2.png')
+ny_listing7.large_photo.attach(io: building2, filename: 'building2.png')
+ny_listing7.photos.attach(io: small17, filename: 'small2_1.png')
+ny_listing7.photos.attach(io: small27, filename: 'small2_2.png')
+ny_listing7.photos.attach(io: small37, filename: 'small2_3.png')
+ny_listing7.photos.attach(io: small47, filename: 'small2_4.png')
+ny_listing7.save!
 
-# ny_listing2 = Listing.new(
-#         user_id: user1.id, price: 800000, state: "NY", city: "Rego Park",
-#         zip_code: "11374", address: "99-32 66th Rd",
-#         property_type: "Condo", bedrooms: 1, bathrooms: 1,
-#         year_built: 1903, description: "Condo in Rego Park.",
-#         lot_size: 100, saves: 0, views: 0,
-#         heating: "Central Heat-Gas", cooling: "Central Air-Elec",
-#         parking: "No parking", sqft: 100
-# )
+ny_listing8 = Listing.new(
+        user_id: user1.id, price: 300000, state: "NY", city: "Bronx",
+        zip_code: "10468", address: "2685 Creston Avenue",
+        property_type: "Condo", bedrooms: 1, bathrooms: 1,
+        year_built: 1903, description: "Condo in the Bronx.",
+        lot_size: 100, saves: 0, views: 0,
+        heating: "Central Heat-Gas", cooling: "Central Air-Elec",
+        parking: "No parking", sqft: 100
+)
 
-# ny_listing3 = Listing.new(
-#         user_id: user1.id, price: 300000, state: "NY", city: "Bronx",
-#         zip_code: "10468", address: "2685 Creston Avenue",
-#         property_type: "Condo", bedrooms: 1, bathrooms: 1,
-#         year_built: 1903, description: "Condo in the Bronx.",
-#         lot_size: 100, saves: 0, views: 0,
-#         heating: "Central Heat-Gas", cooling: "Central Air-Elec",
-#         parking: "No parking", sqft: 100
-# )
+small18 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_1.png')
+small28 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_2.png')
+small38 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_3.png')
+small48 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_4.png')
+building3 = URI.open('https://dillow-seeds.s3.amazonaws.com/building3.png')
+ny_listing8.large_photo.attach(io: building3, filename: 'building3.png')
+ny_listing8.photos.attach(io: small18, filename: 'small2_1.png')
+ny_listing8.photos.attach(io: small28, filename: 'small2_2.png')
+ny_listing8.photos.attach(io: small38, filename: 'small2_3.png')
+ny_listing8.photos.attach(io: small48, filename: 'small2_4.png')
+ny_listing8.save!
 
-# ny_listing4 = Listing.new(
-#         user_id: user1.id, price: 99000, state: "NY", city: "Corona",
-#         zip_code: "11368", address: "11250 Northern Blvd",
-#         property_type: "Condo", bedrooms: 1, bathrooms: 1,
-#         year_built: 1903, description: "Condo in Corona, NY.",
-#         lot_size: 100, saves: 0, views: 0,
-#         heating: "Central Heat-Gas", cooling: "Central Air-Elec",
-#         parking: "No parking", sqft: 100
-# )
+ny_listing9 = Listing.new(
+        user_id: user1.id, price: 99000, state: "NY", city: "Corona",
+        zip_code: "11368", address: "11250 Northern Blvd",
+        property_type: "Condo", bedrooms: 1, bathrooms: 1,
+        year_built: 1903, description: "Condo in Corona, NY.",
+        lot_size: 100, saves: 0, views: 0,
+        heating: "Central Heat-Gas", cooling: "Central Air-Elec",
+        parking: "No parking", sqft: 100
+)
+
+small19 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_1.png')
+small29 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_2.png')
+small39 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_3.png')
+small49 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_4.png')
+building4 = URI.open('https://dillow-seeds.s3.amazonaws.com/building4.png')
+ny_listing8.large_photo.attach(io: building4, filename: 'building4.png')
+ny_listing8.photos.attach(io: small19, filename: 'small2_1.png')
+ny_listing8.photos.attach(io: small29, filename: 'small2_2.png')
+ny_listing8.photos.attach(io: small39, filename: 'small2_3.png')
+ny_listing8.photos.attach(io: small49, filename: 'small2_4.png')
+ny_listing8.save!
+
 
 # ny_listing5 = Listing.new(
 #         user_id: user1.id, price: 599000, state: "NY", city: "Staten Island",
