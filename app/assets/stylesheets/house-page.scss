@@ -4,17 +4,13 @@ $bg-color: white;
 $border-color: lightgray;
 
 #dd {
+    top: 0;
     justify-content: center;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1111;
     width: 100vw;
-    height: 100vh;
+    height: 130vh;
     display: flex;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.7);
     z-index: 3333;
 }
 #cc {
@@ -38,6 +34,7 @@ $border-color: lightgray;
     flex-direction: row;
     width: 80vw;
     max-width: 1000px;
+    position: absolute;
  
 }
 

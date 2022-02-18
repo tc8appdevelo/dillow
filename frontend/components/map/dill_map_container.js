@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchListings } from '../../actions/listing_actions';
-import DillowMap from './dillow_map';
-
+import DillMap from './dill_map';
 
 function mSTP(state) {
   return ({
@@ -16,4 +15,4 @@ function mDTP(dispatch) {
   });
 }
 
-export default connect(mSTP, mDTP)(DillowMap);
+export default connect(mSTP, mDTP)(DillMap);
