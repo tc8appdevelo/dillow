@@ -171,3 +171,52 @@ listing7.photos.attach(io: small37, filename: 'small2_3.png')
 listing7.photos.attach(io: small47, filename: 'small2_4.png')
 listing7.save!
 
+# ny_listing1 = Listing.new(
+#         user_id: user1.id, price: 399000, state: "NY", city: "Astoria",
+#         zip_code: "11106", address: "21-80 33rd Rd",
+#         property_type: "Condo", bedrooms: 2, bathrooms: 1,
+#         year_built: 1903, description: "Condo in Astoria.",
+#         lot_size: 100, saves: 0, views: 0,
+#         heating: "Central Heat-Gas", cooling: "Central Air-Elec",
+#         parking: "No parking", sqft: 100
+# )
+
+# ny_listing2 = Listing.new(
+#         user_id: user1.id, price: 800000, state: "NY", city: "Rego Park",
+#         zip_code: "11374", address: "99-32 66th Rd",
+#         property_type: "Condo", bedrooms: 1, bathrooms: 1,
+#         year_built: 1903, description: "Condo in Rego Park.",
+#         lot_size: 100, saves: 0, views: 0,
+#         heating: "Central Heat-Gas", cooling: "Central Air-Elec",
+#         parking: "No parking", sqft: 100
+# )
+
+# ny_listing3 = Listing.new(
+#         user_id: user1.id, price: 300000, state: "NY", city: "Bronx",
+#         zip_code: "10468", address: "2685 Creston Avenue",
+#         property_type: "Condo", bedrooms: 1, bathrooms: 1,
+#         year_built: 1903, description: "Condo in the Bronx.",
+#         lot_size: 100, saves: 0, views: 0,
+#         heating: "Central Heat-Gas", cooling: "Central Air-Elec",
+#         parking: "No parking", sqft: 100
+# )
+
+# ny_listing4 = Listing.new(
+#         user_id: user1.id, price: 99000, state: "NY", city: "Corona",
+#         zip_code: "11368", address: "11250 Northern Blvd",
+#         property_type: "Condo", bedrooms: 1, bathrooms: 1,
+#         year_built: 1903, description: "Condo in Corona, NY.",
+#         lot_size: 100, saves: 0, views: 0,
+#         heating: "Central Heat-Gas", cooling: "Central Air-Elec",
+#         parking: "No parking", sqft: 100
+# )
+
+# ny_listing5 = Listing.new(
+#         user_id: user1.id, price: 599000, state: "NY", city: "Staten Island",
+#         zip_code: "10305", address: "223 Quintard St",
+#         property_type: "House", bedrooms: 3, bathrooms: 3,
+#         year_built: 1965, description: "House for sale on Staten Island.",
+#         lot_size: 1813, saves: 0, views: 0,
+#         heating: "Forced air, natural gas", cooling: "Central air",
+#         parking: "Carport", sqft: 1344
+# )

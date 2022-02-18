@@ -165,6 +165,13 @@ body {
     flex-grow: 6;
 }
 
+.map--wrap {
+    width: 555px;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 6;
+}
+
 #homes-wrap {
     display: flex;
     flex-wrap: wrap;

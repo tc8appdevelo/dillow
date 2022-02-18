@@ -2,6 +2,7 @@ import React from 'react';
 import ListingIndexItem from "./listing_index_item";
 import HomePage from "./home_page";
 import DillowMap from "../map/dillow_map";
+import DillMap from "../map/dill_map";
 import DillowMapContainer from "../map/dillow_map_container";
 import NavBarContainer from '../navbar/nav_bar_container';
 import PriceDropdown from './price_dropdown';
@@ -21,6 +22,7 @@ class ListingIndex extends React.Component {
                 state: "",
                 search: "",
             },
+            didMount: false,
         }
 
         this.showModal = this.showModal.bind(this);
@@ -39,6 +41,10 @@ class ListingIndex extends React.Component {
         if (this.props.currentUser) {
             this.props.fetchSavedListings();
         }
+
+        this.setState({
+            didMount: true,
+        })
     }
     exitModal() {
         this.setState({
@@ -124,9 +130,11 @@ class ListingIndex extends React.Component {
         } else {
             homePage = false;
         }
+
+        let didMount = this.state.didMount;
         
         // if (this.props.listings[0]) {
-
+        if (didMount) {
             const currentListing = this.state.currentListing;
             return (
                 <div id="container-l">
@@ -157,8 +165,8 @@ class ListingIndex extends React.Component {
 
                         <div id="listings-map-homes">
 
-                            <DillowMapContainer />
-                            
+                            {/* <DillowMapContainer /> */}
+                            <DillMap listings={this.props.listings} />
 
                             <div id="homes-list-wrapper">
                                 <div id="homes-wrap">
@@ -177,11 +185,11 @@ class ListingIndex extends React.Component {
                 </div>
 
             )
-        // } else {
-        //     return (
-        //         <div></div>
-        //     )
-        // }
+        } else {
+            return (
+                <div></div>
+            )
+        }
         
     }
 }
