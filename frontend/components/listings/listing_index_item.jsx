@@ -1,5 +1,11 @@
 import React from "react"
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faHeart as faSolidHeart
+} from '@fortawesome/free-solid-svg-icons'
+import {
+  faHeart as faEmptyHeart
+} from '@fortawesome/free-regular-svg-icons'
 
 class ListingIndexItem extends React.Component {
 
@@ -36,7 +42,7 @@ class ListingIndexItem extends React.Component {
     handleClick(e) {
         let className = e.target.className;
         switch (className) {
-            case "heart-img":
+            case "heart-btn":
                 this.toggleSaved();
                 break;
             default:
@@ -74,10 +80,17 @@ class ListingIndexItem extends React.Component {
                     <div className="listing-box" style={{ backgroundImage: `url(${listing.largePhotoUrl})` }}>
                         {saved ?
                             <div className="saved-heart">
-                                <img className="heart-img" src={window.savedHeartUrl} alt="" />
+                                {/* <img className="heart-img" src={window.savedHeartUrl} alt="" /> */}
+                                <button className="heart-btn">
+                                    <FontAwesomeIcon icon={faSolidHeart} />
+                                </button>
+
+
                             </div> :
                             <div className="not-saved-heart">
-                                <img className="heart-img"  src={window.notSavedHeartUrl} alt="" />
+                                <button className="heart-btn">
+                                    <FontAwesomeIcon icon={faEmptyHeart} />
+                                </button>
                             </div>}
                     </div>
                     <div className="listing-box--bottom-bar">

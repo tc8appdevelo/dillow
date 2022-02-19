@@ -101,16 +101,15 @@ $border-color: lightgray;
   align-items: center;
   border-bottom: 1px solid $border-color;
   height: 44px;
-  div {
-    color: bl;
-    padding-right: 10px;
-  }
-}
 
+}
+.description {
+  padding-left: 20px;
+}
 .title-text {
-  font-size: 44px;
+  font-size: 33px;
   color: $action-color;
-  padding-left: 10px;
+  padding: 20px;
 }
 
 .right-info-top-bar {
@@ -128,66 +127,68 @@ $border-color: lightgray;
   justify-content: flex-start;
   align-items: center;
   height: 66px;
-  div {
-    padding-left: 5px;
-    padding-right: 5px;
-  }
 }
 .text-row {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   height: 33px;
+  margin-left: 20px;
+  margin-right: 20px;
   div {
-    padding-left: 5px;
     padding-right: 5px;
   }
+
 }
+.price-row-div {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
 .price {
-  font-size: 44px;
+  padding: 20px;
+  font-size: 37px;
 }
+
 
 
 
 .mid-border-div {
   border-left: 2px solid $border-color;
   border-right: 2px solid $border-color;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .map-buttons-div {
   border-bottom: 1px solid $border-color;
   height: 44px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-bottom: 20px;
 }
 
-.button-white {
-    width: 100px;
-    height: 25px;
-    color: $action-color;
-    border: 1px $action-color;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 22px;
-    background: $bg-color;
-    cursor: pointer;
-}
+
 
 .map-flex {
     display: flex;
     flex-direction: row;
     height: 33vh;
-    border-bottom: 2px solid $border-color;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 .ovt {
     font-size: 33px;
     padding-top: 20px;
-    padding-left: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-top: 1px solid $border-color;
 }
 .bld {
-  padding: 22px;
+  padding: 20px;
 }
 
 .mid {
@@ -227,8 +228,18 @@ $border-color: lightgray;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-right: 15px;
+  cursor: pointer;
 }
 
 .fa-heart {
-  color: $action-color
+  color: $bg-color;
+  font-size: 32px;
+  pointer-events: none;
+  padding: 5px;
+}
+
+.home-heart {
+  color: $action-color;
+  font-size: 20px;
 }

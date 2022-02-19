@@ -10,8 +10,6 @@ import {
   faHeart as faEmptyHeart
 } from '@fortawesome/free-regular-svg-icons'
 
-// function HomePage() {
-
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -40,12 +38,6 @@ class HomePage extends React.Component {
     } else if (this.props.fromSaved) {
       return true;
     }
-    // let saved = this.props.savedListings.find(l => l.id === this.props.listing.id);
-    // if (typeof saved === 'object') {
-    //   return true;
-    // } else {
-    //   return false;
-    // }
   }
   componentDidMount() {
     
@@ -80,29 +72,26 @@ class HomePage extends React.Component {
                     {
                       saved ?
                         <div className="text-heart-row" onClick={() => this.props.unSaveListing(this.props.listing.id)}>
-                          <FontAwesomeIcon icon={faSolidHeart} />
+                          <FontAwesomeIcon className="home-heart" icon={faSolidHeart} />
                           <div className="save-home-page">Saved</div>
                         </div> :
 
                         <div className="text-heart-row" onClick={() => this.props.saveListing(this.props.listing.id)}>
-                          <FontAwesomeIcon icon={faEmptyHeart} />
+                          <FontAwesomeIcon className="home-heart" icon={faEmptyHeart} />
                           <div className="save-home-page">Save</div>
                         </div>
                     }
 
-
                   </div>
 
-                  <div>Share</div>
-                  <div>More</div>
                 </div>
               </div>
               <div className="info-price-box">
                 <div className="price-row">
                   <div className="price">{priceStr}</div>
-                  <div>{this.props.listing.bedrooms} bd</div>
+                  <div className="price-row-div">{this.props.listing.bedrooms} bd</div>
                   <div className="mid-border-div">{this.props.listing.bathrooms} ba</div>
-                  <div>{lotSizeStr} sqft</div>
+                  <div className="price-row-div">{lotSizeStr} sqft</div>
                 </div>
                 <div className="text-row">
                   <div>{this.props.listing.address},</div>
