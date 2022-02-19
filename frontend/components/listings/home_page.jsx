@@ -30,12 +30,22 @@ class HomePage extends React.Component {
   }
 
   isListingSaved() {
-    let saved = this.props.savedListings.find(l => l.id === this.props.listing.id);
-    if (typeof saved === 'object') {
+    if (this.props.savedListings && this.props.savedListings[0]) {
+      let saved = this.props.savedListings.find(l => l.id === this.props.listing.id);
+      if (typeof saved === 'object') {
+        return true;
+      } else {
+        return false;
+      }
+    } else if (this.props.fromSaved) {
       return true;
-    } else {
-      return false;
     }
+    // let saved = this.props.savedListings.find(l => l.id === this.props.listing.id);
+    // if (typeof saved === 'object') {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
   }
   componentDidMount() {
     
@@ -49,7 +59,7 @@ class HomePage extends React.Component {
     } else {
       const saved = this.isListingSaved();
       const priceStr = formatPrice(this.props.listing.price);
-      const lotSizeStr = formatPrice(this.props.listing.lot_size);
+      const lotSizeStr = formatPrice(this.props.listing.lot_size).slice(1);
       return (
 
         <div id="dd">

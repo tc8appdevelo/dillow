@@ -53,7 +53,7 @@ class SavedListings extends React.Component {
               
             </div>
           </div>
-          <HomePage listing={currentListing} exitModal={() => this.exitModal()} />
+          <HomePage listing={currentListing} fromSaved={true} exitModal={() => this.exitModal()} unSaveListing={this.props.unSaveListing} />
         </div>
       )
     } else {
