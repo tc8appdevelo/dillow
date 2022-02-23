@@ -36,6 +36,12 @@ class SavedListings extends React.Component {
     
 
     if (this.props.savedListings[0]) {
+      let homePage;
+      if (this.state.currentListing) {
+        homePage = true;
+      } else {
+        homePage = false;
+      }
       const currentListing = this.state.currentListing;
       
       return (
@@ -53,7 +59,8 @@ class SavedListings extends React.Component {
               
             </div>
           </div>
-          <HomePage listing={currentListing} exitModal={() => this.exitModal()} />
+          {homePage ? <HomePage listing={currentListing} saveListing={this.props.saveListing} unSaveListing={this.props.unSaveListing} savedListings={this.props.savedListings} exitModal={() => this.exitModal()} /> : <div></div>}
+          {/* <HomePage listing={currentListing} exitModal={() => this.exitModal()} /> */}
         </div>
       )
     } else {

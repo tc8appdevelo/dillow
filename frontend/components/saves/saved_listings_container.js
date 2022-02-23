@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchSavedListings, unSaveListing } from '../../actions/listing_actions';
+import { fetchSavedListings, unSaveListing, saveListing } from '../../actions/listing_actions';
 import SavedListings from './saved_listings';
 
 function mSTP(state) {
@@ -14,6 +14,7 @@ function mDTP(dispatch) {
   return ({
     fetchSavedListings: () => dispatch(fetchSavedListings()),
     unSaveListing: id => dispatch(unSaveListing(id)),
+    saveListing: id => dispatch(saveListing(id)),
   })
 }
 
