@@ -4,7 +4,7 @@ import ProfileNavBar from './profile_navbar';
 import SavedListingsContainer from '../saves/saved_listings_container';
 import CurrentlySellingContainer from './currently_selling_container';
 import EditListingContainer from './edit_listing_container';
-import SavedListings from '../saves/saved_listings'
+
 class Profile extends React.Component {
   constructor(props) {
     super(props);

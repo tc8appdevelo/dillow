@@ -43,15 +43,26 @@ body {
 }
 
 .save-search-button {
-    width: 100px;
-    height: 25px;
+    width: 47%;
+    height: 32px;
     color: $bg-color;
     border: 1px solid $action-color;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 22px;
     background: $action-color;
+    cursor: pointer;
+}
+
+.button-white {
+    width: 47%;
+    height: 32px;
+    color: $action-color;
+    border: 1px solid $action-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $bg-color;
     cursor: pointer;
 }
 
@@ -215,5 +226,9 @@ body {
     display: flex;
 }
 
-
+.heart-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 

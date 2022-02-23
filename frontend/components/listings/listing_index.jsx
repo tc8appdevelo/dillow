@@ -1,9 +1,7 @@
 import React from 'react';
 import ListingIndexItem from "./listing_index_item";
 import HomePage from "./home_page";
-
 import DillMapContainer from "../map/dill_map_container";
-
 import NavBarContainer from '../navbar/nav_bar_container';
 import PriceDropdown from './price_dropdown';
 
@@ -26,7 +24,6 @@ class ListingIndex extends React.Component {
         }
 
         this.showModal = this.showModal.bind(this);
-        //this.exitModal = this.exitModal.bind(this);
         this.saveHouse = this.saveHouse.bind(this);
         this.unSaveHouse = this.unSaveHouse.bind(this);
         this.handleTabClick = this.handleTabClick.bind(this);
@@ -166,14 +163,10 @@ class ListingIndex extends React.Component {
 
                         <div id="listings-map-homes">
 
-                            {/* <DillowMapContainer /> */}
-
                             {homePage ? 
                                 <DillMapContainer single="single" singleListing={currentListing} />
                                 : <DillMapContainer handleMarkerClick={this.showModal} />
                             }
-
-                            {/* <DillMapContainer handleMarkerClick={this.showModal} /> */}
 
                             <div id="homes-list-wrapper">
                                 <div id="homes-wrap">
