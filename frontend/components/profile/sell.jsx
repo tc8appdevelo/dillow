@@ -259,9 +259,10 @@ class Sell extends React.Component {
 
                   <div className="input-label-div">
                     <label>State</label>
-                    <input
+                    <input className='state-input'
                       name="state"
                       type="text"
+                      maxLength={2}
                       value={this.state.listing.state}
                       onChange={this.handleInput}
                     />

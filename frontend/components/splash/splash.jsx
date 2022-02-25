@@ -5,6 +5,7 @@ import SearchBarContainer from '../search_bar/search_bar_container';
 import BuyRentSellContainer from '../buttons/buy_rent_sell_container';
 import { Link } from "react-router-dom";
 import GeocodeListingContainer from '../map/geocode_listing_container';
+import HomeMapContainer from '../map/home_map_container'
 
 class Splash extends React.Component {
     constructor(props) {
@@ -19,9 +20,10 @@ class Splash extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="splash--wrap">
                 <NavBarContainer />
                 <SearchBarContainer />
+                {/* <HomeMapContainer /> */}
                 <BuyRentSellContainer />
                 <div className='links-flex'>
                 <div className='my-link-box'>
