@@ -95,7 +95,7 @@ class ListingIndex extends React.Component {
         switch (tab) {
             case "price":
                 if (this.state.searchTab === null) {
-                    showTab = <PriceDropdown updateFilter={this.props.updateFilter} buttonColor="blue" />
+                    showTab = <PriceDropdown updateFilter={this.props.updateFilter} exitModal={this.handleTabClick} buttonColor="blue" />
                 } else {
                     showTab = null;
                 }
@@ -156,8 +156,11 @@ class ListingIndex extends React.Component {
                                 onChange={this.handleZipcode}>
                             </input>
                             <div className="search-btn">zip code</div>
-                            <div className="search-btn" onClick={() => this.handleTabClick("price")}>Price</div>
-                            {searchTab}
+                            <div className='price-search'>
+                                <div className="search-btn" onClick={() => this.handleTabClick("price")}>Price</div>
+                                {searchTab}
+                            </div>
+
                             <div className="search-btn--save" onClick={this.handleSearch} >Search</div>
                         </div>
 

@@ -7,13 +7,20 @@ $form-bg-color: #f6f6fa;
 .price-dropdown-container {
   display: flex;
   flex-direction: column;
-  z-index: 1112;
-  padding-left: 45px;
+  z-index: 5555;
+  margin-left: 22px;
+  position: absolute;
 }
 
 .pd-input-wrapper {
   display: flex;
   flex-direction: row;
+}
+
+.price-desc {
+  font-size: 16px;
+  margin-top: 20px;
+  padding-left: 20px;
 }
 
 .pd-input {
@@ -30,10 +37,23 @@ $form-bg-color: #f6f6fa;
   cursor: pointer;
 }
 
+.sub-price-flex {
+  display: flex;
+  justify-content: flex-end;
+  background: $action-color;
+  height: 60px;
+  align-items: center;
+}
+
 .sub-price-btn {
-  border: none;
+  border: 1px solid lightgray;
+  width: 68px;
+  height: 44px;
   cursor: pointer;
-  background: none;
+  color: $action-color;
+  background: $bg-color;
+  margin-right: 18px;
+  font-weight: bold;
 }
 
 .home-price-input {
@@ -47,11 +67,9 @@ $form-bg-color: #f6f6fa;
   color: slategray;
 }
 .price-txt-mid {
-  color: white;
+  color: $font-color;
   font-size: 24px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 5px;
   font-weight: bold;
 }
@@ -72,4 +90,43 @@ $form-bg-color: #f6f6fa;
 }
 .new-flex-row {
   display: flex;
+}
+
+.min-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.preset-price--btn {
+  color: gray;
+  display: flex;
+  width: 143px;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+.preset-price--btn:hover {
+  color: $action-color;
+}
+
+.min-prices-wrap,
+.max-prices-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.max-prices-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-form-outer {
+  background: $bg-color;
+  display: flex;
+  flex-direction: column;
+}
+.price-form-inner {
+  background: $bg-color;
+  display: flex;
+  padding: 20px;
 }

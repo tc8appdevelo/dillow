@@ -1,4 +1,6 @@
-export const formatPrice = function(price) {
+const nums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+export const formatPrice = function(price, isDollarSign = true) {
   let arr = price.toString().split("").reverse();
   let priceStr = [];
 
@@ -10,7 +12,24 @@ export const formatPrice = function(price) {
     priceStr.unshift(arr[i]);
   }
 
-  return "$" + priceStr.join("");
+  if (isDollarSign) {
+    return "$" + priceStr.join("");
+  } else {
+    return priceStr.join("")
+  }
+
+}
+
+export const reverseFormatPrice = function(priceStr) {
+  let arr = priceStr.split("");
+  let parsedArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (nums.includes(arr[i])) {
+      parsedArr.push(arr[i]);
+    }
+  }
+  return parsedArr.join("")
 }
 
 export const formatAddress = function(listing) {
