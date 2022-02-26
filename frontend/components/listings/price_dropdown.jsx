@@ -152,8 +152,10 @@ class PriceDropdown extends React.Component {
     let minPrice;
     if (this.state.minPrice === "") {
       minPrice = 500000;
+    } else if (this.state.minPrice >= 1000000) {
+      minPrice = this.state.minPrice + 2500000;
     } else {
-      minPrice = this.state.minPrice;
+      minPrice = this.state.minPrice + 100000;
     }
     for (let i = 0; i < 10; i++) {
       let price = minPrice + (100000 * i);

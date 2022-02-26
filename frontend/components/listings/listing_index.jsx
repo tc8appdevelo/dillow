@@ -119,7 +119,8 @@ class ListingIndex extends React.Component {
     formatRangeTxt() {
         let min = this.props.filters['price_range']['min'];
         let max = this.props.filters['price_range']['max'];
-
+        console.log(min);
+        console.log(max);
         let minShort;
         let maxShort;
 
@@ -135,6 +136,13 @@ class ListingIndex extends React.Component {
             maxShort = (max/1000000).toString() + "m"
         }
 
+        if ((min === '' || min === 0) && (max > 0)) {
+            return "up to " + maxShort;
+        } else if ((max === 0 || max === '') && (min > 0)) {
+            return minShort + "+"
+        } else {
+            return "Price"
+        }
         return minShort + "-" + maxShort;
     }
 
