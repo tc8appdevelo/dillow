@@ -27,9 +27,10 @@ class ListingIndex extends React.Component {
         this.saveHouse = this.saveHouse.bind(this);
         this.unSaveHouse = this.unSaveHouse.bind(this);
         this.handleTabClick = this.handleTabClick.bind(this);
-        this.updatePriceFilter = this.updatePriceFilter.bind(this);
+        //this.updatePriceFilter = this.updatePriceFilter.bind(this);
         this.handleZipcode = this.handleZipcode.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
+        this.formatRangeTxt = this.formatRangeTxt.bind(this);
     }
 
     componentDidMount() {
@@ -40,6 +41,7 @@ class ListingIndex extends React.Component {
         }
 
         this.setState({
+            filter: this.props.filters,
             didMount: true,
         })
 
@@ -68,13 +70,13 @@ class ListingIndex extends React.Component {
 
 
 
-    updatePriceFilter(filter) {
-        let newFilter = {...this.state.filter}
-        newFilter["price_range"] = filter.price_range;
-        this.setState({
-            filter: newFilter,
-        })
-    }
+    // updatePriceFilter(filter) {
+    //     let newFilter = {...this.state.filter}
+    //     newFilter["price_range"] = filter.price_range;
+    //     this.setState({
+    //         filter: newFilter,
+    //     })
+    // }
 
     handleZipcode(e) {
         let newFilter = {...this.state.filter}
@@ -91,11 +93,13 @@ class ListingIndex extends React.Component {
 
 
     handleTabClick(tab) {
+        let filter = this.state.filter;
         let showTab;
+
         switch (tab) {
             case "price":
                 if (this.state.searchTab === null) {
-                    showTab = <PriceDropdown updateFilter={this.props.updateFilter} exitModal={this.handleTabClick} buttonColor="blue" />
+                    showTab = <PriceDropdown updateFilter={this.props.updateFilter} priceFilter={this.props.filters} exitModal={this.handleTabClick} buttonColor="blue" />
                 } else {
                     showTab = null;
                 }
@@ -112,11 +116,34 @@ class ListingIndex extends React.Component {
 
     }
 
+    formatRangeTxt() {
+        let min = this.props.filters['price_range']['min'];
+        let max = this.props.filters['price_range']['max'];
+
+        let minShort;
+        let maxShort;
+
+        if (min < 1000000) {
+            minShort = Math.floor(min/1000).toString() + "k";
+        } else {
+            minShort = (min/1000000).toString() + "m";
+        }
+
+        if (max < 1000000) {
+            maxShort = Math.floor(max/1000).toString() + "k";
+        } else {
+            maxShort = (max/1000000).toString() + "m"
+        }
+
+        return minShort + "-" + maxShort;
+    }
+
 
 
     render() {
         let searchTab;
-        let filter = this.state.filter;
+        // let filter = this.state.filter;
+
         if (this.state.searchTab) {
             searchTab = this.state.searchTab;
         } else {
@@ -133,6 +160,14 @@ class ListingIndex extends React.Component {
         
         // if (this.props.listings[0]) {
         if (didMount) {
+            let rangeTxt;
+            if (this.props.filters.price_range['min'] === 'none') {
+                rangeTxt = "Price";
+            } else {
+                // rangeTxt = this.props.filters.price_range['min'];
+                rangeTxt = this.formatRangeTxt();
+            }
+
             const currentListing = this.state.currentListing;
             return (
                 <div id="container-l">
@@ -157,7 +192,7 @@ class ListingIndex extends React.Component {
                             </input>
                             <div className="search-btn">zip code</div>
                             <div className='price-search'>
-                                <div className="search-btn" onClick={() => this.handleTabClick("price")}>Price</div>
+                                <div className="search-btn" onClick={() => this.handleTabClick("price")}>{rangeTxt}</div>
                                 {searchTab}
                             </div>
 

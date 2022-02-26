@@ -13,6 +13,7 @@ class PriceDropdown extends React.Component {
       minPrice: "",
       maxPrice: "",
       currentButtons: "min",
+      priceFilter: props.priceFilter,
     }
     this.updateMinPrice = this.updateMinPrice.bind(this);
     this.updateMaxPrice = this.updateMaxPrice.bind(this);
@@ -42,6 +43,7 @@ class PriceDropdown extends React.Component {
     // let min = parseInt(e.target.innerHTML);
     this.setState({
       minPrice: min,
+      currentButtons: 'max'
     })
   }
 
@@ -49,14 +51,25 @@ class PriceDropdown extends React.Component {
     let max = parseInt(reverseFormatPrice(e.target.innerHTML));
     this.setState({
       maxPrice: max,
+      currentButtons: "min",
     })
   }
 
   componentDidMount() {
+    let filter = this.props.priceFilter;
+
+    // this.setState({
+    //   minPrice: filter['min'],
+    //   maxPrice: filter['max'],
+    //   currentButtons: "min",
+    //   priceFilter: filter,
+    // })
+
     this.setState({
       minPrice: "",
       maxPrice: "",
-      currentButtons: "min",
+      currentButtons: 'min',
+      priceFilter: filter
     })
   }
 
@@ -96,19 +109,40 @@ class PriceDropdown extends React.Component {
     this.props.updateFilter(filter, val).then(this.props.exitModal(""));
   }
 
-  minPrices(lowPrice = 0, maxPrice = "any") {
+  minPrices(lowPrice = 0) {
     let prices = [];
-
+    let maxPrice;
+    if (this.state.maxPrice === "") {
+      maxPrice = "any"
+    } else {
+      maxPrice = this.state.maxPrice;
+    }
     if (maxPrice === "any") {
       for (let i = 0; i < 10; i++) {
         prices.push(lowPrice + (100000 * i));
       }
     } else {
-      let nextPrice = minPrice;
-      while (nextPrice < maxPrice) {
-        prices.push(nextPrice);
-        nextPrice += 100000;
+      for (let i = 0; i < 10; i++) {
+        if (i === 0) {
+          if (maxPrice >= 1250000) {
+            prices.unshift(maxPrice - 250000);
+          } else if (maxPrice >= 100000) {
+            prices.unshift(maxPrice - 100000);
+          } else {
+            prices.unshift(0);
+          }
+        } else {
+          if (prices[0] >= 1250000) {
+            prices.unshift(prices[0] - 250000);
+          } else if (prices[0] >= 100000) {
+            prices.unshift(prices[0] - 100000);
+          } else if (prices[0] > 0) {
+            prices.unshift(0);
+          }
+        }
+
       }
+
     }
     return prices;
   }
@@ -155,8 +189,7 @@ class PriceDropdown extends React.Component {
 
     let minPrices = this.minPrices(0);
     let maxPrices = this.maxPrices();
-    console.log(minPrices);
-    console.log(maxPrices);
+
 
     return (
       <div className="price-dropdown-container">
