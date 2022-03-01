@@ -4,7 +4,13 @@ const defaultFilters = Object.freeze({
   price_range: {
     min: "none",
     max: "none"
-  }
+  },
+  city: "none",
+  state: "none",
+  zip_code: "none",
+  bedrooms: "none",
+  bathrooms: "none",
+  home_type: "none",
 });
 
 const filtersReducer = (state = defaultFilters, action) => {

@@ -14,9 +14,9 @@ class ProfileNavBar extends React.Component {
           <div className="profile-navbar-button" onClick={() => this.props.handleTabClick("saved")}>
             Saved homes
           </div>
-          <div className="profile-navbar-button">
+          {/* <div className="profile-navbar-button">
             Saved searches
-          </div>
+          </div> */}
           <div className="profile-navbar-button" onClick={() => this.props.handleTabClick("selling")}>
             Your home
           </div>

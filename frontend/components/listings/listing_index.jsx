@@ -4,6 +4,12 @@ import HomePage from "./home_page";
 import DillMapContainer from "../map/dill_map_container";
 import NavBarContainer from '../navbar/nav_bar_container';
 import PriceDropdown from './price_dropdown';
+import LocationDropdown from './location_dropdown';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faMagnifyingGlassDollar,
+  faMagnifyingGlass
+} from '@fortawesome/free-solid-svg-icons'
 
 
 class ListingIndex extends React.Component {
@@ -13,6 +19,9 @@ class ListingIndex extends React.Component {
         this.state = {
             currentListing: null,
             searchTab: null,
+            currentlyShowing: null,
+            zipTab: null,
+            
             filter: {
                 price_range: "none",
                 zip_code: "",
@@ -20,6 +29,7 @@ class ListingIndex extends React.Component {
                 state: "",
                 search: "",
             },
+            
             didMount: false,
         }
 
@@ -27,10 +37,11 @@ class ListingIndex extends React.Component {
         this.saveHouse = this.saveHouse.bind(this);
         this.unSaveHouse = this.unSaveHouse.bind(this);
         this.handleTabClick = this.handleTabClick.bind(this);
-        //this.updatePriceFilter = this.updatePriceFilter.bind(this);
+        // this.updatePriceFilter = this.updatePriceFilter.bind(this);
         this.handleZipcode = this.handleZipcode.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.formatRangeTxt = this.formatRangeTxt.bind(this);
+        // this.handleCityStateZip = this.handleCityStateZip.bind(this);
     }
 
     componentDidMount() {
@@ -86,35 +97,74 @@ class ListingIndex extends React.Component {
         })
     }
 
-    handleSearch(filter) {
+    // handleZipCode(e) {
+    //     this.setState({
+    //         city_state_zip: e.target.value
+    //     })
+    //     console.log(this.state)
+    // }
 
-        this.props.fetchListings({filter: this.state.filter});
+    handleSearch() {
+        this.props.updateFilter("zip_code", this.state.filter.zip_code);
     }
 
 
     handleTabClick(tab) {
         let filter = this.state.filter;
         let showTab;
-
+        let tabName;
+        
         switch (tab) {
             case "price":
                 if (this.state.searchTab === null) {
                     showTab = <PriceDropdown updateFilter={this.props.updateFilter} priceFilter={this.props.filters} exitModal={this.handleTabClick} buttonColor="blue" />
+                    tabName = "price"
                 } else {
                     showTab = null;
+                    tabName = null;
                 }
                 break;
-            
+            case "zip":
+                if (this.state.searchTab === null) {
+                    showTab = <LocationDropdown currentDropdown="zip_code" updateFilter={this.props.updateFilter} locationFilter={this.props.filters} exitModal={this.handleTabClick} buttonColor="blue" />
+                    tabName = "zip"
+                } else {
+                    showTab = null;
+                    tabName = null;
+                }
+                break;
+            case "state":
+                if (this.state.searchTab === null) {
+                    showTab = <LocationDropdown currentDropdown="state" updateFilter={this.props.updateFilter} locationFilter={this.props.filters} exitModal={this.handleTabClick} buttonColor="blue" />
+                    tabName = "state"
+                } else {
+                    showTab = null;
+                    tabName = null;
+                }
+                break;
+            case "city":
+                if (this.state.searchTab === null) {
+                    showTab = <LocationDropdown currentDropdown="city" updateFilter={this.props.updateFilter} locationFilter={this.props.filters} exitModal={this.handleTabClick} buttonColor="blue" />
+                    tabName = "city"
+                } else {
+                    showTab = null;
+                    tabName = null;
+                }
+                break;
             default:
                 showTab = null;
+                tabName = null;
                 break;
         }
 
         this.setState({
             searchTab: showTab,
+            currentlyShowing: tabName,
         })
 
     }
+
+
 
     formatRangeTxt() {
         let min = this.props.filters['price_range']['min'];
@@ -135,14 +185,15 @@ class ListingIndex extends React.Component {
         } else {
             maxShort = (max/1000000).toString() + "m"
         }
-
-        if ((min === '' || min === 0) && (max > 0)) {
+        
+        if ((min === '' || min === 0 || min === "none") && (max > 0)) {
             return "up to " + maxShort;
-        } else if ((max === 0 || max === '') && (min > 0)) {
+        } else if ((max === "none" || max === '' || max === 0) && (min > 0)) {
             return minShort + "+"
-        } else {
+        } else if ((min === '' || min === 0 || "none" || min === "any") && (max === '' || max === 0 || max === "none" || max === "any")){
             return "Price"
         }
+
         return minShort + "-" + maxShort;
     }
 
@@ -150,12 +201,18 @@ class ListingIndex extends React.Component {
 
     render() {
         let searchTab;
-        // let filter = this.state.filter;
+        let tabName;
 
         if (this.state.searchTab) {
             searchTab = this.state.searchTab;
         } else {
             searchTab = <div></div>
+        }
+
+        if (this.state.currentlyShowing) {
+            tabName = this.state.currentlyShowing;
+        } else {
+            tabName = null;
         }
         let homePage;
         if (this.state.currentListing) {
@@ -174,6 +231,27 @@ class ListingIndex extends React.Component {
             } else {
                 // rangeTxt = this.props.filters.price_range['min'];
                 rangeTxt = this.formatRangeTxt();
+            }
+
+            let zipText;
+            if (this.props.filters.zip_code === 'none') {
+                zipText = "zip code"
+            } else {
+                zipText = this.props.filters.zip_code;
+            }
+
+            let cityText;
+            if (this.props.filters.city === "none") {
+                cityText = "City"
+            } else {
+                cityText = this.props.filters.city;
+            }
+
+            let stateText;
+            if (this.props.filters.state === "none") {
+                stateText = "State";
+            } else {
+                stateText = this.props.filters.state;
             }
 
             const currentListing = this.state.currentListing;
@@ -195,16 +273,31 @@ class ListingIndex extends React.Component {
                                 type="text"
                                 placeholder='Enter a state, city, or ZIP code'
                                 className="search-textarea"
-                                value={this.state.filter.zip_code}
+                                value={this.state.city_state_zip}
                                 onChange={this.handleZipcode}>
                             </input>
-                            <div className="search-btn">zip code</div>
+
                             <div className='price-search'>
-                                <div className="search-btn" onClick={() => this.handleTabClick("price")}>{rangeTxt}</div>
-                                {searchTab}
+                                <div className="search-btn" onClick={() => this.handleTabClick("city")}>{cityText}</div>
+                                {tabName === "city" ? searchTab : <div></div> }
                             </div>
 
-                            <div className="search-btn--save" onClick={this.handleSearch} >Search</div>
+                            <div className='price-search'>
+                                <div className="search-btn" onClick={() => this.handleTabClick("state")}>{stateText}</div>
+                                {tabName === "state" ? searchTab : <div></div> }
+                            </div>
+
+                            <div className='price-search'>
+                                <div className="search-btn" onClick={() => this.handleTabClick("zip")}>{zipText}</div>
+                                {tabName === "zip" ? searchTab : <div></div> }
+                            </div>
+                            
+                            <div className='price-search'>
+                                <div className="search-btn" onClick={() => this.handleTabClick("price")}>{rangeTxt}</div>
+                                {tabName === "price" ? searchTab : <div></div> }
+                            </div>
+
+                            <div className="search-btn--save" onClick={this.handleSearch}>Search</div>
                         </div>
 
                         <div id="listings-map-homes">

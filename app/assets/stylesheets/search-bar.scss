@@ -32,6 +32,7 @@ $border-color: lightgray;
   justify-content: center;
   margin-left: 22px;
   cursor: pointer;
+  user-select: none;
 }
 
 .search-btn--save {
@@ -45,4 +46,5 @@ $border-color: lightgray;
   margin-left: 22px;
   background: $action-color;
   cursor: pointer;
+  user-select: none;
 }

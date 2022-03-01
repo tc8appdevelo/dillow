@@ -31,6 +31,25 @@ class Listing < ApplicationRecord
     end
 
 
+    def self.comma_parse(string)
+        nums = ('0'..'9').to_a
+        alphabet = ('a'..'z').to_a
+        new_str = ""
+        string.each_char.with_index do |char, idx|
+          if (!nums.include?(char)) && (!alphabet.include?(char.downcase))
+            if idx < (string.length - 1)
+              if nums.include?(string[idx+1]) || alphabet.include?(string[idx+1].downcase)
+                new_str.concat(",")
+              end
+            end
+          else
+            new_str.concat(char)
+          end
+        end
+        return new_str.split(",")
+    end
+
+
     def self.is_price_range(price_range)
         if price_range[:max] == ""
             price_range[:max] = "none"
@@ -51,6 +70,70 @@ class Listing < ApplicationRecord
                        .where("price >= :min", { min: price_range[:min] })
         end
     end
+
+    def self.is_zip_code(zip_code)
+        self.where("zip_code LIKE :zip_code", { zip_code: zip_code })
+    end
+
+    def self.is_in_state(state_str)
+        self.where("lower(state) LIKE :st", { st: state_str.downcase })
+    end
+
+    def self.is_in_city(city_str)
+        self.where("lower(city) LIKE :city", { city: city_str.downcase })
+    end
+
+    # def self.parse_city_state_zip(city_state_zip)
+    #     nums = ('0'..'9').to_a
+    #     alphabet = ('a'..'z').to_a
+
+    #     arr = city_state_zip.split(" ")
+    #     csz_arr = []
+    #     city = ""
+    #     state = ""
+    #     zip = ""
+
+    #     city_state_zip.split(" ").each do |str|
+    #         new_str = ""
+    #         str.each_char do |char|
+    #             if nums.include?(char) || alphabet.include?(char.downcase)
+    #                 new_str.concat(char.downcase)
+    #             end
+    #         end
+    #         csz_arr.push(new_str)
+    #     end
+
+    #     csz_arr.each do |string|
+    #         if self.is_zip_code(string)
+    #             zip_code = string
+    #         end
+    #     end
+
+    # end
+
+    # def self.is_zip_code(city_state_zip)
+    #     nums = ('0'..'9').to_a
+    #     arr = []
+    #     # if city_state_zip.length == 5
+    #     #     city_state_zip.each do |char|
+    #     #         if nums.include?(char)
+    #     #             arr.push(char)
+    #     #         end
+    #     #     end
+    #     # end
+    #     # if arr.length != 5
+    #     #     return false
+    #     # end
+
+    #     city_state_zip.each_char do |char|
+    #         if !nums.include?(char)
+    #             return false
+    #         end
+    #     end
+
+    #     return true
+
+    # end
 
     
     # def ensure_photos

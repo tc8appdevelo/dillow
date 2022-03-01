@@ -46,7 +46,7 @@ listing1.save!
 listing2 = Listing.new(
         user_id: user1.id, price: 2222222, state: "TX", city: "Dallas", 
         zip_code: "75216", address: "1415 Glen Ave", 
-        property_type: "House", bedrooms: 4, bathrooms: 3, 
+        property_type: "Land", bedrooms: 4, bathrooms: 3, 
         year_built: 2002, description: "Test listing description.",
         lot_size: 1253, saves: 0, views: 0,
         heating: "Central Heat-Gas", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
@@ -67,7 +67,7 @@ listing2.save!
 listing3 = Listing.new(
         user_id: user1.id, price: 343255, state: "TX", city: "Dallas", 
         zip_code: "75226", address: "215 N Walton St", 
-        property_type: "House", bedrooms: 4, bathrooms: 3, 
+        property_type: "House", bedrooms: 3, bathrooms: 2, 
         year_built: 1999, description: "Test listing description.",
         lot_size: 4223, saves: 0, views: 0,
         heating: "Needs replacing", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
@@ -87,7 +87,7 @@ listing3.save!
 listing4 = Listing.new(
         user_id: user1.id, price: 443246, state: "TX", city: "Dallas", 
         zip_code: "75216", address: "915 E Woodin Blvd", 
-        property_type: "House", bedrooms: 4, bathrooms: 3, 
+        property_type: "House", bedrooms: 6, bathrooms: 4, 
         year_built: 1998, description: "Test listing description.",
         lot_size: 4323, saves: 0, views: 0,
         heating: "Central Heat-Gas", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
@@ -189,7 +189,7 @@ ny_listing7.save!
 ny_listing8 = Listing.new(
         user_id: user1.id, price: 300000, state: "NY", city: "Bronx",
         zip_code: "10468", address: "2685 Creston Avenue",
-        property_type: "Condo", bedrooms: 1, bathrooms: 1,
+        property_type: "Apartments", bedrooms: 1, bathrooms: 1,
         year_built: 1903, description: "Condo in the Bronx.",
         lot_size: 100, saves: 0, views: 0,
         heating: "Central Heat-Gas", cooling: "Central Air-Elec",
@@ -211,7 +211,7 @@ ny_listing8.save!
 ny_listing9 = Listing.new(
         user_id: user1.id, price: 99000, state: "NY", city: "Corona",
         zip_code: "11368", address: "11250 Northern Blvd",
-        property_type: "Condo", bedrooms: 1, bathrooms: 1,
+        property_type: "Apartments", bedrooms: 1, bathrooms: 1,
         year_built: 1903, description: "Condo in Corona, NY.",
         lot_size: 100, saves: 0, views: 0,
         heating: "Central Heat-Gas", cooling: "Central Air-Elec",

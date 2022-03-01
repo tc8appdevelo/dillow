@@ -9,12 +9,66 @@ class Api::ListingsController < ApplicationController
     elsif params[:price_range]
             
             if params[:price_range] != "none"
-                @listings = Listing.is_price_range(params[:price_range])
+                @price_listings = Listing.is_price_range(params[:price_range])
+                # if params[:state] != "none"
+                #     @state_listings = @price_listings.is_in_state(params[:state])
+                #     if params[:city] != "none"
+                #         @city_listings = @state_listings.is_in_city(params[:city])
+                #     else
+                #         @city_listings = @state_listings
+                #     end
+                # else
+                #     @state_listings = @price_listings
+                # end
+                # if params[:zip_code] != "none"
+                #     @listings = @price_listings.is_zip_code(params[:zip_code])
+                # else
+                #     @listings = @price_listings
+                # end
             else
-                @listings = Listing.all
+                @price_listings = Listing.all
+            end
+
+            if params[:state] != "none"
+                @state_listings = @price_listings.is_in_state(params[:state])
+            else
+                @state_listings = @price_listings
+            end
+
+            if params[:city] != "none"
+                @city_listings = @state_listings.is_in_city(params[:city])
+            else
+                @city_listings = @state_listings
+            end
+
+            if params[:zip_code] != "none"
+                @listings = @city_listings.is_zip_code(params[:zip_code])
+            else
+                @listings = @city_listings
             end
 
             
+
+            # if params[:state] != "none"
+            #     @state_listings = @price_listings.is_in_state(params[:state])
+            # else
+            #     @state_listings = @price_listings
+            # end
+
+            # if params[:zip_code] != "none"
+                
+            #     @Listings = @listings.is_zip_code(params[:zip_code])
+                
+            # end
+            
+            # if params[:city_state_zip] != "none"
+                
+            #     csz = params[:city_state_zip]
+            #     arr = csz.split(" ")
+            #     if arr.length == 1
+
+            #     end
+            # end
             # if filter[:zip_code]
             #     @listings.where("zip_code LIKE :zip_code", {zip_code: filter[:zip_code]})
             #     render :index
