@@ -39,7 +39,7 @@ class ListingIndex extends React.Component {
         this.handleTabClick = this.handleTabClick.bind(this);
         // this.updatePriceFilter = this.updatePriceFilter.bind(this);
         this.handleZipcode = this.handleZipcode.bind(this);
-        this.handleSearch = this.handleSearch.bind(this);
+        this.handleClearSearch = this.handleClearSearch.bind(this);
         this.formatRangeTxt = this.formatRangeTxt.bind(this);
         // this.handleCityStateZip = this.handleCityStateZip.bind(this);
     }
@@ -104,8 +104,8 @@ class ListingIndex extends React.Component {
     //     console.log(this.state)
     // }
 
-    handleSearch() {
-        this.props.updateFilter("zip_code", this.state.filter.zip_code);
+    handleClearSearch() {
+        this.props.clearFilter();
     }
 
 
@@ -235,7 +235,7 @@ class ListingIndex extends React.Component {
 
             let zipText;
             if (this.props.filters.zip_code === 'none') {
-                zipText = "zip code"
+                zipText = "ZIP code"
             } else {
                 zipText = this.props.filters.zip_code;
             }
@@ -297,7 +297,7 @@ class ListingIndex extends React.Component {
                                 {tabName === "price" ? searchTab : <div></div> }
                             </div>
 
-                            <div className="search-btn--save" onClick={this.handleSearch}>Search</div>
+                            <div className="search-btn--save" onClick={this.handleClearSearch}>Clear Search</div>
                         </div>
 
                         <div id="listings-map-homes">

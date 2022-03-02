@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchListings, fetchSavedListings, saveListing, unSaveListing } from '../../actions/listing_actions';
-import { updateFilter } from '../../actions/filter_actions';
+import { updateFilter, clearFilter } from '../../actions/filter_actions';
 import ListingIndex from './listing_index'
 
 
@@ -17,6 +17,7 @@ function mSTP(state) {
 function mDTP(dispatch) {
     return ({
         updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
+        clearFilter: () => dispatch(clearFilter()),
         fetchListings: (filter) => dispatch(fetchListings(filter)),
         fetchSavedListings: () => dispatch(fetchSavedListings()),
         saveListing: id => dispatch(saveListing(id)),
