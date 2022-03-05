@@ -12,12 +12,9 @@ class MarkerManager {
     const listingsObj = {};
     
     listings.forEach(listing => {
-      if (listing.lat === null || listing.long === null) {
-        console.log("wrong one null")
-
-      } else {
+      if (!(listing.lat === null || listing.long === null)) {
         listingsObj[listing.id] = listing
-      }
+      } 
       
     });
 
