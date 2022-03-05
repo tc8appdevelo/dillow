@@ -1,4 +1,5 @@
 import geocode_listing_container from "./geocode_listing_container";
+import GeocodeLatLng from "../../utils/geocode_lat_lng";
 
 class MarkerManager {
   constructor(map, handleClick) {
@@ -9,7 +10,16 @@ class MarkerManager {
 
   updateMarkers(listings) {
     const listingsObj = {};
-    listings.forEach(listing => listingsObj[listing.id] = listing);
+    
+    listings.forEach(listing => {
+      if (listing.lat === null || listing.long === null) {
+        console.log("wrong one null")
+
+      } else {
+        listingsObj[listing.id] = listing
+      }
+      
+    });
 
     listings
       .filter(listing => !this.markers[listing.id])

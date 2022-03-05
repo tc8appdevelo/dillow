@@ -1,5 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchListings } from '../../actions/listing_actions';
+import { updateFilter } from '../../actions/filter_actions';
+
 import DillMap from './dill_map';
 
 function mSTP(state, ownProps) {

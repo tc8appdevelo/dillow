@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { fetchListings, editListing } from '../../actions/listing_actions';
 import GeocodeListing from './geocode_listing';
 
-function mSTP(state) {
+function mSTP(state, ownProps) {
   return ({
     listings: Object.values(state.entities.listings),
     filters: state.filters, 

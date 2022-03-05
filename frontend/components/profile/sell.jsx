@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import NavBarContainer from '../navbar/nav_bar_container';
+import GeocodeLatLng from '../../utils/geocode_lat_lng';
 
 class Sell extends React.Component {
   constructor(props) {
@@ -43,10 +44,10 @@ class Sell extends React.Component {
       user_id: this.props.currentUser.id,
       price: 640000,
       description: "This is the demo listing to save you time filling out forms during testing.",
-      city: "Dallas",
-      state: "TX",
-      zip_code: "75201",
-      address: "920 S Harwood St",
+      city: "Staten Island",
+      state: "NY",
+      zip_code: "10309",
+      address: "74 Redwood Loop",
       bedrooms: "6",
       bathrooms: "4",
       lot_size: "2200",
@@ -145,7 +146,11 @@ class Sell extends React.Component {
       }
     }
 
-    this.props.createListing(formData).then(() => this.props.history.push("/profile/selling"));
+    let listing = this.state.listing;
+
+    let geocodeLatLng = new GeocodeLatLng(listing, this.props.editListing);
+
+    this.props.createListing(formData).then((res) => geocodeLatLng.getLongLat(Object.values(res.listings)[Object.values(res.listings).length - 1])).then(() => this.props.history.push("/profile/selling"));
   }
 
   handleFiles(e) {

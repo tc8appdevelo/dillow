@@ -1,6 +1,7 @@
 import { CLEAR_FILTER, UPDATE_FILTER } from "../actions/filter_actions";
 
 const defaultFilters = Object.freeze({
+  bounds: {},
   price_range: {
     min: "none",
     max: "none"

@@ -7,25 +7,26 @@ class Api::ListingsController < ApplicationController
             @listings = current_user.selling_houses
             render :index
     else
-            if params[:price_range] != "none"
+        
+            if params[:price_range] && (params[:price_range][:max] && params[:price_range][:min])
                 @price_listings = Listing.is_price_range(params[:price_range])
             else
                 @price_listings = Listing.all
             end
 
-            if params[:state] != "none"
+            if params[:state] && (params[:state] != "none")
                 @state_listings = @price_listings.is_in_state(params[:state])
             else
                 @state_listings = @price_listings
             end
 
-            if params[:city] != "none"
+            if params[:city] && (params[:city] != "none")
                 @city_listings = @state_listings.is_in_city(params[:city])
             else
                 @city_listings = @state_listings
             end
 
-            if params[:zip_code] != "none"
+            if params[:zip_code] && (params[:zip_code] != "none")
                 @listings = @city_listings.is_zip_code(params[:zip_code])
             else
                 @listings = @city_listings

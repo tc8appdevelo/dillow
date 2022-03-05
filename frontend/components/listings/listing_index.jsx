@@ -5,6 +5,7 @@ import DillMapContainer from "../map/dill_map_container";
 import NavBarContainer from '../navbar/nav_bar_container';
 import PriceDropdown from './price_dropdown';
 import LocationDropdown from './location_dropdown';
+import DillMap from '../map/dill_map';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faMagnifyingGlassDollar,
@@ -302,10 +303,14 @@ class ListingIndex extends React.Component {
 
                         <div id="listings-map-homes">
 
-                            {homePage ? 
+                        {homePage ? 
+                                <DillMap single="single" listings={this.props.listings} singleListing={currentListing} />
+                                : <DillMap listings={this.props.listings} handleMarkerClick={this.showModal} />}
+
+                            {/* {homePage ? 
                                 <DillMapContainer single="single" singleListing={currentListing} />
-                                : <DillMapContainer handleMarkerClick={this.showModal} />
-                            }
+                                : <DillMapContainer handleMarkerClick={this.showModal} /> */}
+                            
 
                             <div id="homes-list-wrapper">
                                 <div id="homes-wrap">

@@ -43,6 +43,7 @@ class DillMap extends React.Component {
     if (this.props.single === "single") {
       this.MarkerManager.createMarkerFromListing(this.props.singleListing);
     } else if (this.props.listings[0]) {
+      
       this.MarkerManager.updateMarkers(this.props.listings)
     }
   }
