@@ -7,11 +7,17 @@ class Api::ListingsController < ApplicationController
             @listings = current_user.selling_houses
             render :index
     else
+
+        if params[:bounds] && params[:bounds][:northEast]
+            @bounds_listings = Listing.in_bounds(params[:bounds])
+        else
+            @bounds_listings = Listing.all
+        end
         
             if params[:price_range] && (params[:price_range][:max] && params[:price_range][:min])
-                @price_listings = Listing.is_price_range(params[:price_range])
+                @price_listings = @bounds_listings.is_price_range(params[:price_range])
             else
-                @price_listings = Listing.all
+                @price_listings = @bounds_listings.all
             end
 
             if params[:state] && (params[:state] != "none")

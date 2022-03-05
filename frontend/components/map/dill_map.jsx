@@ -42,10 +42,15 @@ class DillMap extends React.Component {
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     if (this.props.single === "single") {
       this.MarkerManager.createMarkerFromListing(this.props.singleListing);
-    } else if (this.props.listings[0]) {
-      
+    } else {
+      this.registerListeners();
       this.MarkerManager.updateMarkers(this.props.listings)
     }
+    
+    // else if (this.props.listings[0]) {
+      
+    //   this.MarkerManager.updateMarkers(this.props.listings)
+    // }
   }
 
   componentDidUpdate() {
@@ -54,6 +59,18 @@ class DillMap extends React.Component {
     } else {
       this.MarkerManager.updateMarkers(this.props.listings)
     }
+  }
+
+  registerListeners() {
+    google.maps.event.addListener(this.map, 'idle', () => {
+      const { north, south, east, west } = this.map.getBounds().toJSON();
+      const bounds = {
+        northEast: { lat: north, lng: east },
+        southWest: { lat: south, lng: west }
+      }
+      this.props.updateFilter('bounds', bounds);
+    })
+    
   }
 
   handleMarkerClick(listing) {

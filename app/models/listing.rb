@@ -30,6 +30,12 @@ class Listing < ApplicationRecord
         return self.photos[input].variant(resize: '386.5x286.5!').processed
     end
 
+    def self.in_bounds(bounds)
+        self.where("lat < ?", bounds[:northEast][:lat])
+            .where("lat > ?", bounds[:southWest][:lat])
+            .where("long > ?", bounds[:southWest][:lng])
+            .where("long < ?", bounds[:northEast][:lng])
+    end
 
     def self.comma_parse(string)
         nums = ('0'..'9').to_a

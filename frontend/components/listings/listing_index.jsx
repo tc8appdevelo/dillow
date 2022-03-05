@@ -304,8 +304,8 @@ class ListingIndex extends React.Component {
                         <div id="listings-map-homes">
 
                         {homePage ? 
-                                <DillMap single="single" listings={this.props.listings} singleListing={currentListing} />
-                                : <DillMap listings={this.props.listings} handleMarkerClick={this.showModal} />}
+                                <DillMap single="single" updateFilter={this.props.updateFilter} listings={this.props.listings} singleListing={currentListing} />
+                                : <DillMap updateFilter={this.props.updateFilter} listings={this.props.listings} handleMarkerClick={this.showModal} />}
 
                             {/* {homePage ? 
                                 <DillMapContainer single="single" singleListing={currentListing} />
