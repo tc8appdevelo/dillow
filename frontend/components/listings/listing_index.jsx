@@ -16,7 +16,15 @@ import {
 class ListingIndex extends React.Component {
     constructor(props) {
         super(props);
-
+        let location;
+        let newQuery;
+        if (props.filters.location != "none") {
+            location = props.filters.location;
+            newQuery = true;
+        } else {
+            location = "";
+            newQuery = false;
+        }
         this.state = {
             currentListing: null,
             searchTab: null,
@@ -30,7 +38,7 @@ class ListingIndex extends React.Component {
                 state: "",
                 search: "",
             },
-            newQuery: false,
+            newQuery: newQuery,
             didMount: false,
         }
 
@@ -48,12 +56,12 @@ class ListingIndex extends React.Component {
     }
 
     componentDidMount() {
-
         //this.props.fetchListings(this.props.filters);
+        
         if (this.props.currentUser) {
             this.props.fetchSavedListings();
         }
-
+        
         this.setState({
             filter: this.props.filters,
             didMount: true,
@@ -209,7 +217,8 @@ class ListingIndex extends React.Component {
 
     queryCompleted() {
         this.setState({
-            newQuery: false
+            newQuery: false,
+            initialQuery: false,
         })
     }
 
@@ -300,20 +309,20 @@ class ListingIndex extends React.Component {
                         
                         <div id="listings-nav">
                             <form onSubmit={this.placesSearch}>
-                            <div className="places-search-flex">
-                                <input
-                                    type="text"
-                                    placeholder='Enter a state, city, or ZIP code'
-                                    className="search-textarea"
-                                    value={this.state.city_state_zip}
-                                    onChange={this.handleZipcode}>
-                                </input>
-                                <button
-                                    className="places-search-btn">
+                                <div className="places-search-flex">
+                                    <input
+                                        type="text"
+                                        placeholder='Enter a state, city, or ZIP code'
+                                        className="search-textarea"
+                                        value={this.state.city_state_zip}
+                                        onChange={this.handleZipcode}>
+                                    </input>
+                                    <button
+                                        className="places-search-btn">
                                         <FontAwesomeIcon icon={faMagnifyingGlass} />
-                                </button>
-                                
-                            </div>
+                                    </button>
+
+                                </div>
                             </form>
 
 
@@ -345,7 +354,7 @@ class ListingIndex extends React.Component {
 
                         {homePage ? 
                                 <DillMap single="single" updateFilter={this.props.updateFilter} listings={this.props.listings} singleListing={currentListing} />
-                                : <DillMap newQuery={newQuery} queryCompleted={this.queryCompleted} updateFilter={this.props.updateFilter} listings={this.props.listings} handleMarkerClick={this.showModal} />}
+                                : <DillMap newQuery={newQuery} queryCompleted={this.queryCompleted} filters={this.props.filters} updateFilter={this.props.updateFilter} listings={this.props.listings} handleMarkerClick={this.showModal} />}
 
                             {/* {homePage ? 
                                 <DillMapContainer single="single" singleListing={currentListing} />

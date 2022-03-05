@@ -38,11 +38,20 @@ class DillMap extends React.Component {
   componentDidMount() {
     const map = this.refs.map
     this.map = new google.maps.Map(map, mapOptions);
-
+    
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     if (this.props.single === "single") {
       this.MarkerManager.createMarkerFromListing(this.props.singleListing);
-    } else {
+    } 
+    
+    else if (this.props.filters.location != "none") {
+      this.locationSearch(this.props.filters.location)
+      this.props.queryCompleted();
+      this.registerListeners();
+      this.MarkerManager.updateMarkers(this.props.listings)
+    } 
+    
+    else {
       this.registerListeners();
       this.MarkerManager.updateMarkers(this.props.listings)
     }
@@ -60,9 +69,10 @@ class DillMap extends React.Component {
     } else if (this.props.newQuery) {
       this.locationSearch(this.props.newQuery);
       this.props.queryCompleted();
+    } else {
+      this.MarkerManager.updateMarkers(this.props.listings);
     }
 
-    this.MarkerManager.updateMarkers(this.props.listings)
  
   }
 

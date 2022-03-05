@@ -12,6 +12,7 @@ const defaultFilters = Object.freeze({
   bedrooms: "none",
   bathrooms: "none",
   home_type: "none",
+  location: "none",
 });
 
 const filtersReducer = (state = defaultFilters, action) => {
