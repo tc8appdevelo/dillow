@@ -32,7 +32,7 @@ const mapOptions = {
 class DillMap extends React.Component {
   constructor(props) {
     super(props);
-
+    this.locationSearch = this.locationSearch.bind(this);
   }
 
   componentDidMount() {
@@ -46,7 +46,7 @@ class DillMap extends React.Component {
       this.registerListeners();
       this.MarkerManager.updateMarkers(this.props.listings)
     }
-    
+    //this.locationSearch();
     // else if (this.props.listings[0]) {
       
     //   this.MarkerManager.updateMarkers(this.props.listings)
@@ -54,11 +54,31 @@ class DillMap extends React.Component {
   }
 
   componentDidUpdate() {
+    
     if (this.props.single === "single") {
       this.MarkerManager.createMarkerFromListing(this.props.singleListing)
-    } else {
-      this.MarkerManager.updateMarkers(this.props.listings)
+    } else if (this.props.newQuery) {
+      this.locationSearch(this.props.newQuery);
+      this.props.queryCompleted();
     }
+
+    this.MarkerManager.updateMarkers(this.props.listings)
+ 
+  }
+
+  locationSearch(query) {
+    let request = {
+      query: query,
+      fields: ['name', 'geometry'],
+    }
+    let map = this.map;
+    let service = new google.maps.places.PlacesService(map);
+    service.findPlaceFromQuery(request, function(results, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+
+        map.setCenter(results[0].geometry.location);
+      }
+    })
   }
 
   registerListeners() {

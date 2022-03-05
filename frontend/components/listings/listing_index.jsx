@@ -30,7 +30,7 @@ class ListingIndex extends React.Component {
                 state: "",
                 search: "",
             },
-            
+            newQuery: false,
             didMount: false,
         }
 
@@ -43,11 +43,13 @@ class ListingIndex extends React.Component {
         this.handleClearSearch = this.handleClearSearch.bind(this);
         this.formatRangeTxt = this.formatRangeTxt.bind(this);
         // this.handleCityStateZip = this.handleCityStateZip.bind(this);
+        this.placesSearch = this.placesSearch.bind(this);
+        this.queryCompleted = this.queryCompleted.bind(this);
     }
 
     componentDidMount() {
 
-        this.props.fetchListings(this.props.filters);
+        //this.props.fetchListings(this.props.filters);
         if (this.props.currentUser) {
             this.props.fetchSavedListings();
         }
@@ -92,7 +94,7 @@ class ListingIndex extends React.Component {
 
     handleZipcode(e) {
         let newFilter = {...this.state.filter}
-        newFilter["zip_code"] = e.target.value;
+        newFilter["city_state_zip"] = e.target.value;
         this.setState({
             filter: newFilter,
         })
@@ -198,11 +200,38 @@ class ListingIndex extends React.Component {
         return minShort + "-" + maxShort;
     }
 
+    placesSearch(e) {
+        e.preventDefault();
+        this.setState({
+            newQuery: true
+        })
+    }
+
+    queryCompleted() {
+        this.setState({
+            newQuery: false
+        })
+    }
+
 
 
     render() {
         let searchTab;
         let tabName;
+        let cityStateZip;
+        let newQuery;
+
+        if (this.state.newQuery) {
+            newQuery = this.state.filter.city_state_zip;
+        } else {
+            newQuery = false;
+        }
+
+        if (this.state.filter.city_state_zip) {
+            cityStateZip = this.state.filter.city_state_zip;
+        } else {
+            cityStateZip = "none"
+        }
 
         if (this.state.searchTab) {
             searchTab = this.state.searchTab;
@@ -270,13 +299,24 @@ class ListingIndex extends React.Component {
 
                         
                         <div id="listings-nav">
-                            <input
-                                type="text"
-                                placeholder='Enter a state, city, or ZIP code'
-                                className="search-textarea"
-                                value={this.state.city_state_zip}
-                                onChange={this.handleZipcode}>
-                            </input>
+                            <form onSubmit={this.placesSearch}>
+                            <div className="places-search-flex">
+                                <input
+                                    type="text"
+                                    placeholder='Enter a state, city, or ZIP code'
+                                    className="search-textarea"
+                                    value={this.state.city_state_zip}
+                                    onChange={this.handleZipcode}>
+                                </input>
+                                <button
+                                    className="places-search-btn">
+                                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                                </button>
+                                
+                            </div>
+                            </form>
+
+
 
                             <div className='price-search'>
                                 <div className="search-btn" onClick={() => this.handleTabClick("city")}>{cityText}</div>
@@ -305,7 +345,7 @@ class ListingIndex extends React.Component {
 
                         {homePage ? 
                                 <DillMap single="single" updateFilter={this.props.updateFilter} listings={this.props.listings} singleListing={currentListing} />
-                                : <DillMap updateFilter={this.props.updateFilter} listings={this.props.listings} handleMarkerClick={this.showModal} />}
+                                : <DillMap newQuery={newQuery} queryCompleted={this.queryCompleted} updateFilter={this.props.updateFilter} listings={this.props.listings} handleMarkerClick={this.showModal} />}
 
                             {/* {homePage ? 
                                 <DillMapContainer single="single" singleListing={currentListing} />

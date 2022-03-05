@@ -79,9 +79,22 @@ $form-bg-color: #f6f6fa;
   color: white
 }
 
+.places-search-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.places-search-btn {
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 .fa-magnifying-glass {
-  color: $action-color;
-  font-size: 32px;
+  color: gray;
+  font-size: 23px;
 }
 
 .container-rectangle--col {
