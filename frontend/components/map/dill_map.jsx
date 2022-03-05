@@ -42,24 +42,14 @@ class DillMap extends React.Component {
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     if (this.props.single === "single") {
       this.MarkerManager.createMarkerFromListing(this.props.singleListing);
-    } 
-    
-    else if (this.props.filters.location != "none") {
+    } else if (this.props.filters.location != "none") {
       this.locationSearch(this.props.filters.location)
       this.props.queryCompleted();
       this.registerListeners();
-      this.MarkerManager.updateMarkers(this.props.listings)
-    } 
-    
-    else {
+    } else {
       this.registerListeners();
       this.MarkerManager.updateMarkers(this.props.listings)
     }
-    //this.locationSearch();
-    // else if (this.props.listings[0]) {
-      
-    //   this.MarkerManager.updateMarkers(this.props.listings)
-    // }
   }
 
   componentDidUpdate() {
@@ -72,8 +62,6 @@ class DillMap extends React.Component {
     } else {
       this.MarkerManager.updateMarkers(this.props.listings);
     }
-
- 
   }
 
   locationSearch(query) {
@@ -85,7 +73,6 @@ class DillMap extends React.Component {
     let service = new google.maps.places.PlacesService(map);
     service.findPlaceFromQuery(request, function(results, status) {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
-
         map.setCenter(results[0].geometry.location);
       }
     })
