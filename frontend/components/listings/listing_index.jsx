@@ -4,6 +4,8 @@ import HomePage from "./home_page";
 import DillMapContainer from "../map/dill_map_container";
 import NavBarContainer from '../navbar/nav_bar_container';
 import PriceDropdown from './price_dropdown';
+import BedsBathDropdown from './beds_bath_dropdown';
+import HometypeDropdown from './hometype_dropdown';
 import LocationDropdown from './location_dropdown';
 import DillMap from '../map/dill_map';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -50,6 +52,7 @@ class ListingIndex extends React.Component {
         this.handleZipcode = this.handleZipcode.bind(this);
         this.handleClearSearch = this.handleClearSearch.bind(this);
         this.formatRangeTxt = this.formatRangeTxt.bind(this);
+        this.formatBedroomsTxt = this.formatBedroomsTxt.bind(this);
         // this.handleCityStateZip = this.handleCityStateZip.bind(this);
         this.placesSearch = this.placesSearch.bind(this);
         this.queryCompleted = this.queryCompleted.bind(this);
@@ -57,7 +60,7 @@ class ListingIndex extends React.Component {
 
     componentDidMount() {
         //this.props.fetchListings(this.props.filters);
-        
+
         if (this.props.currentUser) {
             this.props.fetchSavedListings();
         }
@@ -135,6 +138,24 @@ class ListingIndex extends React.Component {
                     tabName = null;
                 }
                 break;
+            case "bedrooms":
+                if (this.state.searchTab === null) {
+                    showTab = <BedsBathDropdown updateFilter={this.props.updateFilter} bedsBathFilter={this.props.filters} exitModal={this.handleTabClick} />
+                    tabName = "bedrooms" 
+                } else {
+                    showTab = null;
+                    tabName = null;
+                }
+                break;
+            case "hometype":
+                if (this.state.searchTab === null) {
+                    showTab = <HometypeDropdown updateFilter={this.props.updateFilter} homeTypeFilter={this.props.filters} exitModal={this.handleTabClick} />
+                    tabName = "hometype"
+                } else {
+                    showTab = null;
+                    tabName = null;
+                }
+                break;
             case "zip":
                 if (this.state.searchTab === null) {
                     showTab = <LocationDropdown currentDropdown="zip_code" updateFilter={this.props.updateFilter} locationFilter={this.props.filters} exitModal={this.handleTabClick} buttonColor="blue" />
@@ -180,8 +201,6 @@ class ListingIndex extends React.Component {
     formatRangeTxt() {
         let min = this.props.filters['price_range']['min'];
         let max = this.props.filters['price_range']['max'];
-        console.log(min);
-        console.log(max);
         let minShort;
         let maxShort;
 
@@ -206,6 +225,27 @@ class ListingIndex extends React.Component {
         }
 
         return minShort + "-" + maxShort;
+    }
+
+    formatBedroomsTxt() {
+        let bedrooms = this.props.filters["bedrooms"];
+        let bathrooms = this.props.filters["bathrooms"];
+        let bedTxt;
+        let bathTxt;
+
+        if (bedrooms != "none") {
+            bedTxt = bedrooms + "+ bd, ";
+        } else {
+            bedTxt = "Beds & ";
+        }
+
+        if (bathrooms != "none") {
+            bathTxt = bathrooms + "+ ba";
+        } else {
+            bathTxt = "Baths"
+        }
+
+        return bedTxt + bathTxt;
     }
 
     placesSearch(e) {
@@ -272,6 +312,20 @@ class ListingIndex extends React.Component {
                 rangeTxt = this.formatRangeTxt();
             }
 
+            let bedroomsTxt;
+            if (this.props.filters.bedrooms === 'none') {
+                bedroomsTxt = "Beds & Baths"
+            } else {
+                bedroomsTxt = this.formatBedroomsTxt();
+            }
+
+            let hometypeTxt;
+            if (this.props.filters.home_types === 'none') {
+                hometypeTxt = "Home type";
+            } else {
+                hometypeTxt = "Home type"
+            }
+
             let zipText;
             if (this.props.filters.zip_code === 'none') {
                 zipText = "ZIP code"
@@ -327,24 +381,21 @@ class ListingIndex extends React.Component {
 
 
 
-                            <div className='price-search'>
-                                <div className="search-btn" onClick={() => this.handleTabClick("city")}>{cityText}</div>
-                                {tabName === "city" ? searchTab : <div></div> }
-                            </div>
 
-                            <div className='price-search'>
-                                <div className="search-btn" onClick={() => this.handleTabClick("state")}>{stateText}</div>
-                                {tabName === "state" ? searchTab : <div></div> }
-                            </div>
-
-                            <div className='price-search'>
-                                <div className="search-btn" onClick={() => this.handleTabClick("zip")}>{zipText}</div>
-                                {tabName === "zip" ? searchTab : <div></div> }
-                            </div>
                             
                             <div className='price-search'>
                                 <div className="search-btn" onClick={() => this.handleTabClick("price")}>{rangeTxt}</div>
                                 {tabName === "price" ? searchTab : <div></div> }
+                            </div>
+
+                            <div className='price-search'>
+                                <div className='search-btn' onClick={() => this.handleTabClick("bedrooms")}>{bedroomsTxt}</div>
+                                { tabName === "bedrooms" ? searchTab : <div></div> }
+                            </div>
+
+                            <div className='price-search'>
+                                <div className='search-btn' onClick={() => this.handleTabClick("hometype")}>{hometypeTxt}</div>
+                                { tabName === "hometype" ? searchTab : <div></div> }
                             </div>
 
                             <div className="search-btn--save" onClick={this.handleClearSearch}>Clear Search</div>

@@ -11,7 +11,7 @@ const defaultFilters = Object.freeze({
   zip_code: "none",
   bedrooms: "none",
   bathrooms: "none",
-  home_type: "none",
+  home_types: "none",
   location: "none",
 });
 

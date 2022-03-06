@@ -4,7 +4,9 @@ $bg-color: white;
 $border-color: lightgray;
 $form-bg-color: #f6f6fa;
 
-.price-dropdown-container {
+.price-dropdown-container,
+.beds-dropdown-container,
+.hometype-dropdown-container {
   display: flex;
   flex-direction: column;
   z-index: 5555;
@@ -133,7 +135,14 @@ $form-bg-color: #f6f6fa;
   flex-direction: column;
 }
 
-.price-form-outer {
+.checkbox-row {
+  display: flex;
+  height: 34px;
+}
+
+.price-form-outer,
+.beds-form-outer,
+.hometype-form-outer {
   background: $bg-color;
   display: flex;
   flex-direction: column;
@@ -142,4 +151,72 @@ $form-bg-color: #f6f6fa;
   background: $bg-color;
   display: flex;
   padding: 20px;
+}
+.beds-form-inner {
+  background: $bg-color;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px;
+}
+
+.hometype-form-inner {
+  background: $bg-color;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px;
+  width: 256px;
+}
+
+.beds-btn-row {
+  display: flex;
+  padding: 0px 20px;
+}
+
+.baths-btn-row {
+  display: flex;
+  padding: 0px 20px;
+  margin-bottom: 20px;
+}
+
+.beds-btn {
+  width: 60px;
+  height: 44px;
+  background: $bg-color;
+  border: 1px solid $border-color;
+}
+
+.home-check {
+  width: 20px;
+  height: 20px;
+  margin: 4px 0px 0px;
+  cursor: pointer;
+}
+
+.select-all-row {
+  display: flex;
+  border-bottom: 1px solid $border-color;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+.ht-title {
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.ht-toggle-all {
+  color: $action-color;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.ht-toggle-all:hover {
+  border-bottom: 1px solid $action-color;
+}
+
+.ht-text {
+  font-size: 16px;
+  padding-left: 7px;
+  line-height: 24px;
+  cursor: pointer;
 }
