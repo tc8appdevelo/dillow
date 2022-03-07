@@ -9,11 +9,24 @@ import {
 class PriceDropdown extends React.Component {
   constructor(props) {
     super(props);
+    let min;
+    let max;
+
+    if (props.priceFilter.min === "none") {
+      min = ""
+    } else {
+      min = props.priceFilter.min;
+    }
+    if (props.priceFilter.maxPrice === "none") {
+      max = ""
+    } else {
+      max = props.priceFilter.max;
+    }
+
     this.state = {
-      minPrice: "",
-      maxPrice: "",
+      minPrice: min,
+      maxPrice: max,
       currentButtons: "min",
-      priceFilter: props.priceFilter,
     }
     this.updateMinPrice = this.updateMinPrice.bind(this);
     this.updateMaxPrice = this.updateMaxPrice.bind(this);
@@ -45,7 +58,7 @@ class PriceDropdown extends React.Component {
   }
 
   handleOutsideClick(e) {
-    if (this.wrapRef && !this.wrapRef.contains(e.target)) {
+    if (this.wrapRef && !this.wrapRef.contains(e.target) && !(e.target.className === "price-search-btn")) {
       const filter = 'price_range';
       const val = {
         min: this.state.minPrice,
@@ -73,16 +86,26 @@ class PriceDropdown extends React.Component {
   }
 
   componentDidMount() {
-    let filter = this.props.priceFilter;
-
-    document.addEventListener("mousedown", this.handleOutsideClick);
-
+    let min;
+    let max;
+    if (this.props.priceFilter.min === "none") {
+      min = ""
+    } else {
+      min = this.props.priceFilter.min
+    }
+    if (this.props.priceFilter.max === "none") {
+      max = ""
+    } else {
+      max = this.props.priceFilter.max
+    }
     this.setState({
-      minPrice: "",
-      maxPrice: "",
+      minPrice: min,
+      maxPrice: max,
       currentButtons: 'min',
-      priceFilter: filter
     })
+
+    
+    document.addEventListener("mousedown", this.handleOutsideClick);
   }
 
   updateMinPrice(e) {
@@ -123,6 +146,7 @@ class PriceDropdown extends React.Component {
     } else {
       maxPrice = this.state.maxPrice;
     }
+
     if (maxPrice === "any") {
       for (let i = 0; i < 10; i++) {
         prices.push(lowPrice + (100000 * i));
@@ -156,7 +180,7 @@ class PriceDropdown extends React.Component {
   maxPrices() {
     let prices = [];
     let minPrice;
-    if (this.state.minPrice === "") {
+    if (this.state.minPrice === "" || this.state.minPrice === "none") {
       minPrice = 500000;
     } else if (this.state.minPrice >= 1000000) {
       minPrice = this.state.minPrice + 2500000;

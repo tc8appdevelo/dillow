@@ -33,7 +33,7 @@ class HometypeDropdown extends React.Component {
   }
 
   handleOutsideClick(e) {
-    if (this.modalRef && !this.modalRef.contains(e.target)) {
+    if (this.modalRef && !this.modalRef.contains(e.target) && !(e.target.className === "hometype-search-btn")) {
       const filter = 'home_types';
       const homeTypes = {...this.state.home_types}
       this.props.updateFilter(filter, homeTypes).then(this.props.exitModal(""));

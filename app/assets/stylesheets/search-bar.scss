@@ -22,7 +22,10 @@ $border-color: lightgray;
     width: 300px;
 }
 
-.search-btn {
+.search-btn,
+.price-search-btn,
+.hometype-search-btn,
+.bedsbaths-search-btn {
   width: 100px;
   height: 32px;
   color: $action-color;

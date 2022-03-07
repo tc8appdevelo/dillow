@@ -42,7 +42,7 @@ class BedsBathDropdown extends React.Component {
   }
 
   handleOutsideClick(e) {
-    if (this.wrapperRef && !this.wrapperRef.contains(e.target)) {
+    if (this.wrapperRef && !this.wrapperRef.contains(e.target) && !(e.target.className === "bedsbaths-search-btn")) {
       let state = {...this.state}
       let beds_baths = state.beds_baths;
       this.props.updateFilter("beds_baths", beds_baths).then(this.props.exitModal(""));

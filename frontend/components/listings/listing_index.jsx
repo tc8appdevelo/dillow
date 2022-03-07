@@ -124,7 +124,6 @@ class ListingIndex extends React.Component {
             location: "none",
         }
 
-        console.log(defaultFilters)
         this.props.clearFilter(defaultFilters);
     }
 
@@ -136,7 +135,7 @@ class ListingIndex extends React.Component {
         switch (tab) {
             case "price":
                 if (this.state.searchTab === null) {
-                    showTab = <PriceDropdown updateFilter={this.props.updateFilter} priceFilter={this.props.filters} exitModal={this.handleTabClick} buttonColor="blue" />
+                    showTab = <PriceDropdown updateFilter={this.props.updateFilter} priceFilter={this.props.filters.price_range} exitModal={this.handleTabClick} buttonColor="blue" />
                     tabName = "price"
                 } else {
                     showTab = null;
@@ -357,17 +356,17 @@ class ListingIndex extends React.Component {
                             </form>
 
                             <div className='price-search'>
-                                <div className="search-btn" onClick={() => this.handleTabClick("price")}>{rangeTxt}</div>
+                                <div className="price-search-btn" onClick={() => this.handleTabClick("price")}>{rangeTxt}</div>
                                 {tabName === "price" ? searchTab : <div></div> }
                             </div>
 
                             <div className='price-search'>
-                                <div className='search-btn' onClick={() => this.handleTabClick("bedrooms")}>{bedroomsTxt}</div>
+                                <div className='bedsbaths-search-btn' onClick={() => this.handleTabClick("bedrooms")}>{bedroomsTxt}</div>
                                 { tabName === "bedrooms" ? searchTab : <div></div> }
                             </div>
 
                             <div className='price-search'>
-                                <div className='search-btn' onClick={() => this.handleTabClick("hometype")}>{hometypeTxt}</div>
+                                <div className='hometype-search-btn' onClick={() => this.handleTabClick("hometype")}>{hometypeTxt}</div>
                                 { tabName === "hometype" ? searchTab : <div></div> }
                             </div>
 
