@@ -187,8 +187,12 @@ $btn-font-size: 12px;
   padding: 0px 20px;
   margin-bottom: 20px;
 }
+.prop-txt {
+  font-size: 16px;
+  padding-bottom: 10px;
+}
 .prop-btn {
-  width: 60px;
+  min-width: 60px;
   height: 44px;
   background: $bg-color;
   border: 1px solid $border-color;
@@ -204,7 +208,7 @@ $btn-font-size: 12px;
 .prop-btn-chosen {
   background: $selected-bg-color;
   border: 1px solid $action-color;
-  width: 60px;
+  min-width: 60px;
   height: 44px;
   cursor: pointer;
   display: flex;

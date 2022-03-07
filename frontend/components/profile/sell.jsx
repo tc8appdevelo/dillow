@@ -294,10 +294,10 @@ class Sell extends React.Component {
               <div className="facts-flex">
 
                 <div className="facts-flex-inner">
-                  <div className="facts-title">
-                    Enter these home facts
-                  </div>
+
+                  <div className='prop-txt'>Property Type</div>
                   <div className='prop-btn-row'>
+                    
                     {propertyBtns.map(btn => btn)}
                   </div>
                   <div className="input-label-div">
