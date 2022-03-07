@@ -3,18 +3,50 @@ import React from "react";
 class BedsBathDropdown extends React.Component {
   constructor(props) {
     super(props);
+    // this.state = {
+    //   beds_baths: {
+    //     bedrooms: "any",
+    //     bathrooms: "any",
+    //   },
+    //   beds_btn_clicked: "",
+    //   baths_btn_clicked: ""
+    // }
+
     this.state = {
-      beds_baths: {
-        bedrooms: "any",
-        bathrooms: "any",
-      },
-      beds_btn_clicked: "",
-      baths_btn_clicked: ""
+      beds_baths: props.bedsBathsFilter,
+      beds_btn_clicked: props.bedsBathsFilter.bedrooms,
+      baths_btn_clicked: props.bedsBathsFilter.bathrooms,
     }
 
     this.spawnButtons = this.spawnButtons.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+  }
+
+  componentDidMount() {
+    // this.setState({
+    //   beds_baths: this.props.bedsBathsFilter,
+    //   beds_btn_clicked: this.props.bedrooms,
+    //   baths_btn_clicked: this.props.bathrooms,
+    // })
+    document.addEventListener("mousedown", this.handleOutsideClick)
+  }
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleOutsideClick)
+  }
+  setWrapperRef(node) {
+    this.wrapperRef = node;
+  }
+
+  handleOutsideClick(e) {
+    if (this.wrapperRef && !this.wrapperRef.contains(e.target)) {
+      let state = {...this.state}
+      let beds_baths = state.beds_baths;
+      this.props.updateFilter("beds_baths", beds_baths).then(this.props.exitModal(""));
+    }
   }
 
   handleClick(e) {
@@ -69,7 +101,7 @@ class BedsBathDropdown extends React.Component {
           }
           btnArray.push(<button key={i} onClick={this.handleClick} className={className}>{i}</button>)
         } else {
-          if (clickedBed === "Any") {
+          if (clickedBed === "Any" || clickedBed === "none") {
             className = "beds-btn-chosen"
           } else {
             className = "beds-btn"
@@ -98,7 +130,7 @@ class BedsBathDropdown extends React.Component {
 
           btnArray.push(<button key={i} onClick={this.handleClick} className={className}>{num}</button>)
         } else {
-          if (clickedBath === "Any") {
+          if (clickedBath === "Any" || clickedBath === "none") {
             className = "baths-btn-chosen"
           } else {
             className = "baths-btn"
@@ -117,7 +149,7 @@ class BedsBathDropdown extends React.Component {
     let baths_btns = this.spawnButtons(false);
 
     return (
-      <div className="beds-dropdown-container">
+      <div ref={this.setWrapperRef} className="beds-dropdown-container">
         <form className="beds-form-outer" onSubmit={this.handleSubmit}>
           
           <div className="beds-form-inner">

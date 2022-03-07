@@ -56,6 +56,8 @@ class ListingIndex extends React.Component {
         //     this.props.fetchListings(this.props.filters)
         // }
 
+        
+
         if (this.props.currentUser) {
             this.props.fetchSavedListings();
         }
@@ -143,7 +145,7 @@ class ListingIndex extends React.Component {
                 break;
             case "bedrooms":
                 if (this.state.searchTab === null) {
-                    showTab = <BedsBathDropdown updateFilter={this.props.updateFilter} bedsBathFilter={this.props.filters} exitModal={this.handleTabClick} />
+                    showTab = <BedsBathDropdown updateFilter={this.props.updateFilter} bedsBathsFilter={this.props.filters.beds_baths} bedsBathFilter={this.props.filters} exitModal={this.handleTabClick} />
                     tabName = "bedrooms" 
                 } else {
                     showTab = null;

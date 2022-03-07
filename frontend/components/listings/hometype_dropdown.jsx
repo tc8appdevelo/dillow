@@ -12,12 +12,32 @@ class HometypeDropdown extends React.Component {
     this.selectAll = this.selectAll.bind(this);
     this.deselectAll = this.deSelectAll.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.setModalRef = this.setModalRef.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
   }
 
   componentDidMount() {
+    document.addEventListener("mousedown", this.handleOutsideClick);
     this.setState({
       home_types: this.props.homeTypesFilter,
     })
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleOutsideClick);
+  }
+
+  setModalRef(modal) {
+    this.modalRef = modal;
+  }
+
+  handleOutsideClick(e) {
+    if (this.modalRef && !this.modalRef.contains(e.target)) {
+      const filter = 'home_types';
+      const homeTypes = {...this.state.home_types}
+      this.props.updateFilter(filter, homeTypes).then(this.props.exitModal(""));
+    }
   }
 
   toggleCheckbox(e) {
@@ -68,7 +88,7 @@ class HometypeDropdown extends React.Component {
     let selectOrDeselectAll;
     let deselectAll = Object.values(this.state.home_types).every(houseType => houseType)
     return (
-      <div className="hometype-dropdown-container">
+      <div ref={this.setModalRef} className="hometype-dropdown-container">
         <form className="hometype-form-outer" onSubmit={this.handleSubmit}>
 
 

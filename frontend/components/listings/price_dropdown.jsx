@@ -24,6 +24,8 @@ class PriceDropdown extends React.Component {
     this.maxPrices = this.maxPrices.bind(this);
     this.toggleMinButtons = this.toggleMinButtons.bind(this);
     this.toggleMaxButtons = this.toggleMaxButtons.bind(this);
+    this.setWrapRef = this.setWrapRef.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
   }
 
   toggleMaxButtons() {
@@ -36,6 +38,21 @@ class PriceDropdown extends React.Component {
     this.setState({
       currentButtons: "min",
     })
+  }
+
+  setWrapRef(ele) {
+    this.wrapRef = ele;
+  }
+
+  handleOutsideClick(e) {
+    if (this.wrapRef && !this.wrapRef.contains(e.target)) {
+      const filter = 'price_range';
+      const val = {
+        min: this.state.minPrice,
+        max: this.state.maxPrice
+      }
+      this.props.updateFilter(filter, val).then(this.props.exitModal(""));
+    }
   }
 
   handleMinPriceClick(e) {
@@ -58,12 +75,7 @@ class PriceDropdown extends React.Component {
   componentDidMount() {
     let filter = this.props.priceFilter;
 
-    // this.setState({
-    //   minPrice: filter['min'],
-    //   maxPrice: filter['max'],
-    //   currentButtons: "min",
-    //   priceFilter: filter,
-    // })
+    document.addEventListener("mousedown", this.handleOutsideClick);
 
     this.setState({
       minPrice: "",
@@ -89,16 +101,6 @@ class PriceDropdown extends React.Component {
     })
   }
 
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   this.props.updateFilter({
-  //       price_range: {
-  //         min: this.state.minPrice,
-  //         max: this.state.maxPrice
-  //     }
-  //   })
-  // }
-
   handleSubmit(e) {
     e.preventDefault();
     const filter = 'price_range';
@@ -107,6 +109,10 @@ class PriceDropdown extends React.Component {
       max: this.state.maxPrice
     }
     this.props.updateFilter(filter, val).then(this.props.exitModal(""));
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleOutsideClick);
   }
 
   minPrices(lowPrice = 0) {
@@ -194,7 +200,7 @@ class PriceDropdown extends React.Component {
 
 
     return (
-      <div className="price-dropdown-container">
+      <div  ref={this.setWrapRef} className="price-dropdown-container">
         
         <form className="price-form-outer" onSubmit={this.handleSubmit} autoComplete="off">
         <div className="price-desc">Price Range</div>
