@@ -2,6 +2,7 @@ $font-color: black;
 $action-color: #005cff;
 $bg-color: white;
 $border-color: lightgray;
+$border-drop: #d3d3d6;
 
 
 .search-container {
@@ -17,9 +18,10 @@ $border-color: lightgray;
 
 .search-textarea {
     background: #f6f6fa;
-    padding: 7px;
+    padding: 10px;
     font-size: 15px;
     width: 300px;
+    border: 1px solid $border-drop;
 }
 
 .search-btn,
@@ -36,6 +38,7 @@ $border-color: lightgray;
   margin-left: 22px;
   cursor: pointer;
   user-select: none;
+  border-radius: 3px;
 }
 
 .search-btn--save {
@@ -50,4 +53,5 @@ $border-color: lightgray;
   background: $action-color;
   cursor: pointer;
   user-select: none;
+  border-radius: 5px;
 }

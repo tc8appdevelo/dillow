@@ -32,11 +32,14 @@ class Sell extends React.Component {
       },
       mainPhotoUrl: "",
       photoUrls: [],
+
     }
 
     this.handleInput = this.handleInput.bind(this);
     this.setDemoListing = this.setDemoListing.bind(this);
     this.resetFormValues = this.resetFormValues.bind(this);
+    this.handlePropertyClick = this.handlePropertyClick.bind(this);
+    this.spawnPropertyTypeButtons = this.spawnPropertyTypeButtons.bind(this);
   }
 
   setDemoListing() {
@@ -58,7 +61,7 @@ class Sell extends React.Component {
       year_built: 1999,
       saves: 0,
       views: 0,
-      property_type: "House",
+      property_type: "",
       mainPhotoFile: null,
       photoFiles: [],
     }
@@ -90,7 +93,7 @@ class Sell extends React.Component {
         property_type: "",
         mainPhotoFile: null,
         photoFiles: [],
-      },
+      }
     })
   }
 
@@ -203,10 +206,72 @@ class Sell extends React.Component {
 
   }
 
+  spawnPropertyTypeButtons() {
+    const propertyTypes = {
+      house: "House",
+      town_home: "Townhome",
+      multi_family: "Multi-family",
+      condo: "Condo",
+      co_op: "Co-op",
+      land: "Land",
+      lot: "Lot",
+      apartment: "Apartment",
+      manufactured: "Manufactured"
+    }
+    let clickedPropertyBtn = this.state.listing.property_type;
+    console.log(propertyTypes)
+    let txtArray = Object.values(propertyTypes);
+    let keysArray = Object.keys(propertyTypes);
+    let btnArray = [];
+
+    for (let i = 0; i < Object.values(propertyTypes).length; i++) {
+      let className;
+      if (clickedPropertyBtn.toLowerCase() === txtArray[i].toLowerCase()) {
+        className = "prop-btn-chosen"
+      } else {
+        className = "prop-btn"
+      }
+      btnArray.push(<button key={i} onClick={this.handlePropertyClick} className={className}>{txtArray[i]}</button>)
+    }
+    
+    return btnArray;
+  }
+
+  handlePropertyClick(e) {
+    e.preventDefault();
+    const propertyTypes = {
+      house: "House",
+      town_home: "Townhome",
+      multi_family: "Multi-family",
+      condo: "Condo",
+      co_op: "Co-op",
+      land: "Land",
+      lot: "Lot",
+      apartment: "Apartment",
+      manufactured: "Manufactured"
+    }
+    let listing = {...this.state.listing}
+    let val = e.target.innerHTML;
+    
+    
+    let propType = Object.keys(propertyTypes).find(key => propertyTypes[key] === val);
+    // if (Object.keys(propertyType).includes(propertyType)) {
+    //   listing["property_type"] = propertyType;
+    // } else {
+    //   listing["property_type"] = "house"
+    // }
+  
+    listing["property_type"] = propertyTypes[propType];
+
+    this.setState({
+      listing: listing,
+    })
+  }
+
   render() {
     const mainPhotoPreview = this.state.mainPhotoUrl ? <img className="photo-preview" src={this.state.mainPhotoUrl} alt="" /> : null
     let previewUrls = this.state.photoUrls;
-    
+    let propertyBtns = this.spawnPropertyTypeButtons();
     return (
 
       <div>
@@ -231,6 +296,9 @@ class Sell extends React.Component {
                 <div className="facts-flex-inner">
                   <div className="facts-title">
                     Enter these home facts
+                  </div>
+                  <div className='prop-btn-row'>
+                    {propertyBtns.map(btn => btn)}
                   </div>
                   <div className="input-label-div">
                     <label>Price</label>
@@ -299,16 +367,6 @@ class Sell extends React.Component {
                       name="bathrooms"
                       type="number"
                       value={this.state.listing.bathrooms}
-                      onChange={this.handleInput}
-                    />
-                  </div>
-
-                  <div className="input-label-div">
-                    <label>Property type</label>
-                    <input
-                      name="property_type"
-                      type="text"
-                      value={this.state.listing.property_type}
                       onChange={this.handleInput}
                     />
                   </div>

@@ -1,4 +1,16 @@
 
+export const propertyTypes = {
+    house: "House",
+    town_home: "Townhome",
+    multi_family: "Multi-family",
+    condo: "Condo",
+    co_op: "Co-op",
+    land: "Land",
+    lot: "Lot",
+    apartment: "Apartment",
+    manufactured: "Manufactured"
+}
+
 export const getListings = (data) => {
 
     return $.ajax({
