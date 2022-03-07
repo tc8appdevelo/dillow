@@ -17,7 +17,7 @@ function mSTP(state) {
 function mDTP(dispatch) {
     return ({
         updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
-        clearFilter: () => dispatch(clearFilter()),
+        clearFilter: (filters) => dispatch(clearFilter(filters)),
         fetchListings: (filter) => dispatch(fetchListings(filter)),
         fetchSavedListings: () => dispatch(fetchSavedListings()),
         saveListing: id => dispatch(saveListing(id)),

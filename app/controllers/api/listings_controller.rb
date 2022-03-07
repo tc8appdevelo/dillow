@@ -20,23 +20,41 @@ class Api::ListingsController < ApplicationController
                 @price_listings = @bounds_listings.all
             end
 
-            if params[:state] && (params[:state] != "none")
-                @state_listings = @price_listings.is_in_state(params[:state])
+            if params[:home_types] && params[:home_types] != "none"
+                @home_types_listings = @price_listings.is_property_type(params[:home_types])
             else
-                @state_listings = @price_listings
+                @home_types_listings = @price_listings.all
             end
 
-            if params[:city] && (params[:city] != "none")
-                @city_listings = @state_listings.is_in_city(params[:city])
+            if params[:beds_baths] && params[:beds_baths][:bedrooms]
+ 
+                @beds_baths_listings = @home_types_listings.has_bedrooms(params[:beds_baths][:bedrooms].to_i)
+                @beds_baths_listings = @beds_baths_listings.has_bathrooms(params[:beds_baths][:bathrooms].to_f)
             else
-                @city_listings = @state_listings
+                @beds_baths_listings = @home_types_listings
             end
 
-            if params[:zip_code] && (params[:zip_code] != "none")
-                @listings = @city_listings.is_zip_code(params[:zip_code])
-            else
-                @listings = @city_listings
-            end
+            
+
+            @listings = @beds_baths_listings
+
+            # if params[:state] && (params[:state] != "none")
+            #     @state_listings = @price_listings.is_in_state(params[:state])
+            # else
+            #     @state_listings = @price_listings
+            # end
+
+            # if params[:city] && (params[:city] != "none")
+            #     @city_listings = @state_listings.is_in_city(params[:city])
+            # else
+            #     @city_listings = @state_listings
+            # end
+
+            # if params[:zip_code] && (params[:zip_code] != "none")
+            #     @listings = @city_listings.is_zip_code(params[:zip_code])
+            # else
+            #     @listings = @city_listings
+            # end
         end
     end
 

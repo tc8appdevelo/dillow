@@ -9,9 +9,19 @@ const defaultFilters = Object.freeze({
   city: "none",
   state: "none",
   zip_code: "none",
-  bedrooms: "none",
-  bathrooms: "none",
-  home_types: "none",
+  beds_baths: {
+    bedrooms: "none",
+    bathrooms: "none",
+  },
+  home_types: {
+    house: true,
+    town_home: true,
+    multi_family: true,
+    condo: true,
+    land: true,
+    apartment: true,
+    manufactured: true
+  },
   location: "none",
 });
 
@@ -23,7 +33,7 @@ const filtersReducer = (state = defaultFilters, action) => {
     }
     return Object.assign({}, state, newFilter);
   } else if (action.type === CLEAR_FILTER) {
-    return Object.assign({}, defaultFilters);
+    return action.filters
   } else {
     return state;
   }

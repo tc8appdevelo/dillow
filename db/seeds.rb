@@ -189,7 +189,7 @@ ny_listing7.save!
 ny_listing8 = Listing.new(
         user_id: user1.id, price: 300000, state: "NY", city: "Bronx",
         zip_code: "10468", address: "2685 Creston Avenue",
-        property_type: "Apartments", bedrooms: 1, bathrooms: 1,
+        property_type: "Apartment", bedrooms: 1, bathrooms: 1,
         year_built: 1903, description: "Condo in the Bronx.",
         lot_size: 100, saves: 0, views: 0,
         heating: "Central Heat-Gas", cooling: "Central Air-Elec",
@@ -211,7 +211,7 @@ ny_listing8.save!
 ny_listing9 = Listing.new(
         user_id: user1.id, price: 99000, state: "NY", city: "Corona",
         zip_code: "11368", address: "11250 Northern Blvd",
-        property_type: "Apartments", bedrooms: 1, bathrooms: 1,
+        property_type: "Apartment", bedrooms: 1, bathrooms: 1,
         year_built: 1903, description: "Condo in Corona, NY.",
         lot_size: 100, saves: 0, views: 0,
         heating: "Central Heat-Gas", cooling: "Central Air-Elec",

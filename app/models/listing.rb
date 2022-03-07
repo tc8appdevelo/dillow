@@ -55,6 +55,26 @@ class Listing < ApplicationRecord
         return new_str.split(",")
     end
 
+    def self.is_property_type(property_types)
+        types_arr = property_types.select{ |k, v| v == "true" }.keys.map{ |ele| ele.to_s.downcase }
+        return self.where("lower(property_type) IN (:arr)", arr: types_arr)
+    end
+
+    def self.has_bedrooms(beds)
+        if beds.class == String
+            return self
+        else
+            return self.where('bedrooms >= :beds', beds: beds)
+        end
+    end
+
+    def self.has_bathrooms(baths)
+        if baths.class == Float
+            return self.where('bathrooms >= :baths', baths: baths)
+        else
+            return self
+        end
+    end
 
     def self.is_price_range(price_range)
         if price_range[:max] == ""

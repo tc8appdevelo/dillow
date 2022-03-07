@@ -1,19 +1,14 @@
 import React from 'react';
 import ListingIndexItem from "./listing_index_item";
 import HomePage from "./home_page";
-import DillMapContainer from "../map/dill_map_container";
 import NavBarContainer from '../navbar/nav_bar_container';
 import PriceDropdown from './price_dropdown';
 import BedsBathDropdown from './beds_bath_dropdown';
 import HometypeDropdown from './hometype_dropdown';
 import LocationDropdown from './location_dropdown';
 import DillMap from '../map/dill_map';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-  faMagnifyingGlassDollar,
-  faMagnifyingGlass
-} from '@fortawesome/free-solid-svg-icons'
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 class ListingIndex extends React.Component {
     constructor(props) {
@@ -48,18 +43,18 @@ class ListingIndex extends React.Component {
         this.saveHouse = this.saveHouse.bind(this);
         this.unSaveHouse = this.unSaveHouse.bind(this);
         this.handleTabClick = this.handleTabClick.bind(this);
-        // this.updatePriceFilter = this.updatePriceFilter.bind(this);
         this.handleZipcode = this.handleZipcode.bind(this);
         this.handleClearSearch = this.handleClearSearch.bind(this);
         this.formatRangeTxt = this.formatRangeTxt.bind(this);
         this.formatBedroomsTxt = this.formatBedroomsTxt.bind(this);
-        // this.handleCityStateZip = this.handleCityStateZip.bind(this);
         this.placesSearch = this.placesSearch.bind(this);
         this.queryCompleted = this.queryCompleted.bind(this);
     }
 
     componentDidMount() {
-        //this.props.fetchListings(this.props.filters);
+        // if (this.props.listings.length < 1) {
+        //     this.props.fetchListings(this.props.filters)
+        // }
 
         if (this.props.currentUser) {
             this.props.fetchSavedListings();
@@ -93,16 +88,6 @@ class ListingIndex extends React.Component {
         }
     }
 
-
-
-    // updatePriceFilter(filter) {
-    //     let newFilter = {...this.state.filter}
-    //     newFilter["price_range"] = filter.price_range;
-    //     this.setState({
-    //         filter: newFilter,
-    //     })
-    // }
-
     handleZipcode(e) {
         let newFilter = {...this.state.filter}
         newFilter["city_state_zip"] = e.target.value;
@@ -111,20 +96,38 @@ class ListingIndex extends React.Component {
         })
     }
 
-    // handleZipCode(e) {
-    //     this.setState({
-    //         city_state_zip: e.target.value
-    //     })
-    //     console.log(this.state)
-    // }
-
     handleClearSearch() {
-        this.props.clearFilter();
+        const defaultFilters = {
+            bounds: this.props.filters.bounds,
+            price_range: {
+                min: "none",
+                max: "none"
+            },
+            city: "none",
+            state: "none",
+            zip_code: "none",
+            beds_baths: {
+                bedrooms: "none",
+                bathrooms: "none",
+            },
+            home_types: {
+                house: true,
+                town_home: true,
+                multi_family: true,
+                condo: true,
+                land: true,
+                apartment: true,
+                manufactured: true
+            },
+            location: "none",
+        }
+
+        console.log(defaultFilters)
+        this.props.clearFilter(defaultFilters);
     }
 
 
     handleTabClick(tab) {
-        let filter = this.state.filter;
         let showTab;
         let tabName;
         
@@ -149,7 +152,7 @@ class ListingIndex extends React.Component {
                 break;
             case "hometype":
                 if (this.state.searchTab === null) {
-                    showTab = <HometypeDropdown updateFilter={this.props.updateFilter} homeTypeFilter={this.props.filters} exitModal={this.handleTabClick} />
+                    showTab = <HometypeDropdown updateFilter={this.props.updateFilter} homeTypesFilter={this.props.filters.home_types} exitModal={this.handleTabClick} />
                     tabName = "hometype"
                 } else {
                     showTab = null;
@@ -196,8 +199,6 @@ class ListingIndex extends React.Component {
 
     }
 
-
-
     formatRangeTxt() {
         let min = this.props.filters['price_range']['min'];
         let max = this.props.filters['price_range']['max'];
@@ -228,21 +229,28 @@ class ListingIndex extends React.Component {
     }
 
     formatBedroomsTxt() {
-        let bedrooms = this.props.filters["bedrooms"];
-        let bathrooms = this.props.filters["bathrooms"];
+        let bedrooms = this.props.filters["beds_baths"]["bedrooms"];
+        let bathrooms = this.props.filters["beds_baths"]["bathrooms"];
         let bedTxt;
         let bathTxt;
 
-        if (bedrooms != "none") {
+        if (bedrooms.toLowerCase() != "none" && bedrooms.toLowerCase() != "any") {
             bedTxt = bedrooms + "+ bd, ";
         } else {
-            bedTxt = "Beds & ";
+            bedTxt = "Beds & "
         }
 
-        if (bathrooms != "none") {
+        if (bathrooms.toLowerCase() != "none" && bathrooms.toLowerCase() != "any") {
             bathTxt = bathrooms + "+ ba";
         } else {
             bathTxt = "Baths"
+        }
+
+        if (bedTxt === "Beds & " && bathTxt != "Baths") {
+            bedTxt = "0+ bd, ";
+        }
+        if (bathTxt === "Baths" && bedTxt != "Beds & ") {
+            bathTxt = "0+ ba"
         }
 
         return bedTxt + bathTxt;
@@ -267,19 +275,12 @@ class ListingIndex extends React.Component {
     render() {
         let searchTab;
         let tabName;
-        let cityStateZip;
         let newQuery;
 
         if (this.state.newQuery) {
             newQuery = this.state.filter.city_state_zip;
         } else {
             newQuery = false;
-        }
-
-        if (this.state.filter.city_state_zip) {
-            cityStateZip = this.state.filter.city_state_zip;
-        } else {
-            cityStateZip = "none"
         }
 
         if (this.state.searchTab) {
@@ -302,13 +303,11 @@ class ListingIndex extends React.Component {
 
         let didMount = this.state.didMount;
         
-        // if (this.props.listings[0]) {
         if (didMount) {
             let rangeTxt;
             if (this.props.filters.price_range['min'] === 'none') {
                 rangeTxt = "Price";
             } else {
-                // rangeTxt = this.props.filters.price_range['min'];
                 rangeTxt = this.formatRangeTxt();
             }
 
@@ -325,28 +324,6 @@ class ListingIndex extends React.Component {
             } else {
                 hometypeTxt = "Home type"
             }
-
-            let zipText;
-            if (this.props.filters.zip_code === 'none') {
-                zipText = "ZIP code"
-            } else {
-                zipText = this.props.filters.zip_code;
-            }
-
-            let cityText;
-            if (this.props.filters.city === "none") {
-                cityText = "City"
-            } else {
-                cityText = this.props.filters.city;
-            }
-
-            let stateText;
-            if (this.props.filters.state === "none") {
-                stateText = "State";
-            } else {
-                stateText = this.props.filters.state;
-            }
-
             const currentListing = this.state.currentListing;
             return (
                 <div id="container-l">
@@ -359,8 +336,6 @@ class ListingIndex extends React.Component {
                     </div>
 
                     <div id="listings">
-
-                        
                         <div id="listings-nav">
                             <form onSubmit={this.placesSearch}>
                                 <div className="places-search-flex">
@@ -379,10 +354,6 @@ class ListingIndex extends React.Component {
                                 </div>
                             </form>
 
-
-
-
-                            
                             <div className='price-search'>
                                 <div className="search-btn" onClick={() => this.handleTabClick("price")}>{rangeTxt}</div>
                                 {tabName === "price" ? searchTab : <div></div> }
@@ -400,18 +371,10 @@ class ListingIndex extends React.Component {
 
                             <div className="search-btn--save" onClick={this.handleClearSearch}>Clear Search</div>
                         </div>
-
                         <div id="listings-map-homes">
-
                         {homePage ? 
                                 <DillMap single="single" updateFilter={this.props.updateFilter} listings={this.props.listings} singleListing={currentListing} />
                                 : <DillMap newQuery={newQuery} queryCompleted={this.queryCompleted} filters={this.props.filters} updateFilter={this.props.updateFilter} listings={this.props.listings} handleMarkerClick={this.showModal} />}
-
-                            {/* {homePage ? 
-                                <DillMapContainer single="single" singleListing={currentListing} />
-                                : <DillMapContainer handleMarkerClick={this.showModal} /> */}
-                            
-
                             <div id="homes-list-wrapper">
                                 <div id="homes-wrap">
                                     {this.props.listings[0] ?
@@ -423,8 +386,6 @@ class ListingIndex extends React.Component {
                         <div>
                         </div>
                         {homePage ? <HomePage listing={currentListing} saveListing={this.saveHouse} unSaveListing={this.unSaveHouse} savedListings={this.props.savedListings} exitModal={() => this.exitModal()} /> : <div></div> }
-                        {/* <HomePage listing={currentListing} saveListing={this.saveHouse} unSaveListing={this.unSaveHouse} exitModal={() => this.exitModal()} /> */}
-                        
                     </div>
                 </div>
 

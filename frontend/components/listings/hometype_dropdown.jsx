@@ -4,22 +4,20 @@ class HometypeDropdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      home_types: {
-        houses: true,
-        townHomes: true,
-        multiFam: true,
-        condos: true,
-        land: true,
-        apartments: true,
-        manufactured: true
-      },
-      showDeselectAll: true
+      home_types: props.homeTypesFilter,
+      showDeselectAll: true,
     }
 
     this.toggleCheckbox = this.toggleCheckbox.bind(this);
     this.selectAll = this.selectAll.bind(this);
     this.deselectAll = this.deSelectAll.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
+      home_types: this.props.homeTypesFilter,
+    })
   }
 
   toggleCheckbox(e) {
@@ -33,12 +31,12 @@ class HometypeDropdown extends React.Component {
   selectAll() {
     this.setState({
       home_types: {
-        houses: true,
-        townHomes: true,
-        multiFam: true,
-        condos: true,
+        house: true,
+        town_home: true,
+        multi_family: true,
+        condo: true,
         land: true,
-        apartments: true,
+        apartment: true,
         manufactured: true
       }
     })
@@ -47,12 +45,12 @@ class HometypeDropdown extends React.Component {
   deSelectAll() {
     this.setState({
       home_types: {
-        houses: false,
-        townHomes: false,
-        multiFam: false,
-        condos: false,
+        house: false,
+        town_home: false,
+        multi_family: false,
+        condo: false,
         land: false,
-        apartments: false,
+        apartment: false,
         manufactured: false
       }
     })
@@ -81,22 +79,22 @@ class HometypeDropdown extends React.Component {
               
             </div>
             <div className="checkbox-row">
-              <input className="home-check" value="houses" checked={this.state.home_types.houses} type="checkbox" onChange={this.toggleCheckbox} /><label className="ht-text">Houses</label> <br />
+              <input className="home-check" value="house" checked={this.state.home_types.house} type="checkbox" onChange={this.toggleCheckbox} /><label className="ht-text">Houses</label> <br />
             </div>
             <div className="checkbox-row">
-              <input className="home-check" type="checkbox" onChange={this.toggleCheckbox} value="townHomes" onChange={this.toggleCheckbox} checked={this.state.home_types.townHomes}/><span className="ht-text">Townhomes</span> <br />
+              <input className="home-check" type="checkbox" onChange={this.toggleCheckbox} value="town_home" onChange={this.toggleCheckbox} checked={this.state.home_types.town_home}/><span className="ht-text">Townhomes</span> <br />
             </div>
             <div className="checkbox-row">
-              <input className="home-check" type="checkbox" onChange={this.toggleCheckbox} value="multiFam" onChange={this.toggleCheckbox} checked={this.state.home_types.multiFam}/><span className="ht-text">Multi-family</span> <br />
+              <input className="home-check" type="checkbox" onChange={this.toggleCheckbox} value="multi_family" onChange={this.toggleCheckbox} checked={this.state.home_types.multi_family}/><span className="ht-text">Multi-family</span> <br />
             </div>
             <div className="checkbox-row">
-              <input className="home-check" type="checkbox" onChange={this.toggleCheckbox} value="condos" onChange={this.toggleCheckbox} checked={this.state.home_types.condos}/><span className="ht-text">Condos/Co-ops</span> <br />
+              <input className="home-check" type="checkbox" onChange={this.toggleCheckbox} value="condo" onChange={this.toggleCheckbox} checked={this.state.home_types.condo}/><span className="ht-text">Condos/Co-ops</span> <br />
             </div>
             <div className="checkbox-row">
               <input className="home-check" type="checkbox" onChange={this.toggleCheckbox} value="land" onChange={this.toggleCheckbox} checked={this.state.home_types.land}/><span className="ht-text">Lots/Land</span> <br />
             </div>
             <div className="checkbox-row">
-              <input className="home-check" type="checkbox" onChange={this.toggleCheckbox} value="apartments" onChange={this.toggleCheckbox} checked={this.state.home_types.apartments}/><span className="ht-text">Apartments</span> <br />
+              <input className="home-check" type="checkbox" onChange={this.toggleCheckbox} value="apartment" onChange={this.toggleCheckbox} checked={this.state.home_types.apartment}/><span className="ht-text">Apartments</span> <br />
             </div>
             <div className="checkbox-row">
               <input className="home-check" type="checkbox" onChange={this.toggleCheckbox} value="manufactured" onChange={this.toggleCheckbox} checked={this.state.home_types.manufactured}/><span className="ht-text">Manufactured</span> <br />
