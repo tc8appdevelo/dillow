@@ -19,14 +19,14 @@ class BedsBathDropdown extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    debugger
+
     let val = e.target.innerHTML;
     let beds_baths = {...this.state.beds_baths}
 
     let beds = beds_baths.bedrooms;
     let baths = beds_baths.bathrooms;
 
-    if (e.target.className === "beds-btn") {
+    if (e.target.className === "beds-btn" || e.target.className === "beds-btn-chosen") {
       
       this.setState({
         beds_baths: {
@@ -74,7 +74,7 @@ class BedsBathDropdown extends React.Component {
           } else {
             className = "beds-btn"
           }
-          btnArray.push(<div key={i} onClick={this.handleClick} className={className}>Any</div>)
+          btnArray.push(<button key={i} onClick={this.handleClick} className={className}>Any</button>)
         }
       }
     } else {
