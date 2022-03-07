@@ -56,7 +56,7 @@ class SearchBar extends React.Component {
                             <input
                                 type="text"
                                 placeholder='Enter a state, city, or ZIP code'
-                                className="search-textarea"
+                                className="splash-search-textarea"
                                 value={this.state.location}
                                 onChange={this.handleLocationChange}>
                             </input>

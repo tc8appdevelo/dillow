@@ -18,10 +18,18 @@ $border-drop: #d3d3d6;
 
 .search-textarea {
     background: #f6f6fa;
-    padding: 10px;
     font-size: 15px;
     width: 300px;
+    padding: 10px;
     border: 1px solid $border-drop;
+}
+
+.splash-search-textarea {
+  background: #f6f6fa;
+  font-size: 16px;
+  width: 380px;
+  padding: 15px;
+  border: 1px solid $border-drop;
 }
 
 .search-btn,
