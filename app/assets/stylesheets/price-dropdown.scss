@@ -4,6 +4,7 @@ $bg-color: white;
 $border-color: lightgray;
 $form-bg-color: #f6f6fa;
 $selected-bg-color: #f2faff;
+$btn-font-size: 12px;
 
 .price-dropdown-container,
 .beds-dropdown-container,
@@ -194,6 +195,11 @@ $selected-bg-color: #f2faff;
   cursor: pointer;
   display: flex;
   align-content: center;
+  font-size: $btn-font-size;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 3px;
 }
 .prop-btn-chosen {
   background: $selected-bg-color;
@@ -203,6 +209,11 @@ $selected-bg-color: #f2faff;
   cursor: pointer;
   display: flex;
   align-content: center;
+  font-size: $btn-font-size;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 3px;
 }
 
 
@@ -214,8 +225,11 @@ $selected-bg-color: #f2faff;
   border: 1px solid $border-color;
   cursor: pointer;
   display: flex;
-  align-content: center;
+  align-items: center;
+  justify-content: center;
   border-radius: 3px;
+  font-size: $btn-font-size;
+  font-weight: bold;
 
 }
 
@@ -228,17 +242,25 @@ $selected-bg-color: #f2faff;
   display: flex;
   align-content: center;
   border-radius: 3px;
+  font-size: $btn-font-size;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
 }
 
 .baths-btn-chosen {
   background: $selected-bg-color;
   border: 1px solid $action-color;
+  font-size: $btn-font-size;
   width: 60px;
   height: 44px;
   cursor: pointer;
   display: flex;
   align-content: center;
   border-radius: 3px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
 }
 
 
