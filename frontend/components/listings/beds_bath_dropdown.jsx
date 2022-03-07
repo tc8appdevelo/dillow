@@ -7,7 +7,9 @@ class BedsBathDropdown extends React.Component {
       beds_baths: {
         bedrooms: "any",
         bathrooms: "any",
-      }
+      },
+      beds_btn_clicked: "",
+      baths_btn_clicked: ""
     }
 
     this.spawnButtons = this.spawnButtons.bind(this);
@@ -17,6 +19,7 @@ class BedsBathDropdown extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
+    debugger
     let val = e.target.innerHTML;
     let beds_baths = {...this.state.beds_baths}
 
@@ -29,14 +32,16 @@ class BedsBathDropdown extends React.Component {
         beds_baths: {
           bedrooms: val,
           bathrooms: baths
-        }
+        },
+        beds_btn_clicked: val
       })
     } else {
       this.setState({
         beds_baths: { 
           bedrooms: beds,
           bathrooms: val
-        }
+        },
+        baths_btn_clicked: val
       })
     }
   }
@@ -50,17 +55,32 @@ class BedsBathDropdown extends React.Component {
 
 
   spawnButtons(isBeds) {
-    let btn_array = [];
+    let btnArray = [];
     if (isBeds) {
+      let clickedBed = this.state.beds_btn_clicked;
       for (let i = 0; i < 6; i++) {
+        let className;
+
         if (i > 0) {
-          btn_array.push(<button key={i} onClick={this.handleClick} className="beds-btn">{i}</button>)
+          if (clickedBed === i.toString()) {
+            className = "beds-btn-chosen"
+          } else {
+            className = "beds-btn"
+          }
+          btnArray.push(<button key={i} onClick={this.handleClick} className={className}>{i}</button>)
         } else {
-          btn_array.push(<div key={i} onClick={this.handleClick} className="beds-btn">Any</div>)
+          if (clickedBed === "Any") {
+            className = "beds-btn-chosen"
+          } else {
+            className = "beds-btn"
+          }
+          btnArray.push(<div key={i} onClick={this.handleClick} className={className}>Any</div>)
         }
       }
     } else {
+      let clickedBath = this.state.baths_btn_clicked;
       for (let i = 0; i < 6; i++) {
+        let className;
         if (i > 0) {
           let num;
           if (i === 2) {
@@ -70,14 +90,25 @@ class BedsBathDropdown extends React.Component {
           } else {
             num = i - 1;
           }
-          btn_array.push(<button key={i} onClick={this.handleClick} className="baths-btn">{num}</button>)
+          if (clickedBath === num.toString()) {
+            className = "baths-btn-chosen"
+          } else {
+            className = "baths-btn"
+          }
+
+          btnArray.push(<button key={i} onClick={this.handleClick} className={className}>{num}</button>)
         } else {
-          btn_array.push(<button key={i} onClick={this.handleClick} className="baths-btn">Any</button>)
+          if (clickedBath === "Any") {
+            className = "baths-btn-chosen"
+          } else {
+            className = "baths-btn"
+          }
+          btnArray.push(<button key={i} onClick={this.handleClick} className={className}>Any</button>)
         }
       }
     }
 
-    return btn_array;
+    return btnArray;
   }
 
   render() {
