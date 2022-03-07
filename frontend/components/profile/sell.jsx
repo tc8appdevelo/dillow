@@ -219,9 +219,7 @@ class Sell extends React.Component {
       manufactured: "Manufactured"
     }
     let clickedPropertyBtn = this.state.listing.property_type;
-    console.log(propertyTypes)
     let txtArray = Object.values(propertyTypes);
-    let keysArray = Object.keys(propertyTypes);
     let btnArray = [];
 
     for (let i = 0; i < Object.values(propertyTypes).length; i++) {
