@@ -61,7 +61,7 @@ class Sell extends React.Component {
       year_built: 1999,
       saves: 0,
       views: 0,
-      property_type: "",
+      property_type: "House",
       mainPhotoFile: null,
       photoFiles: [],
     }
@@ -218,6 +218,7 @@ class Sell extends React.Component {
       apartment: "Apartment",
       manufactured: "Manufactured"
     }
+
     let clickedPropertyBtn = this.state.listing.property_type;
     let txtArray = Object.values(propertyTypes);
     let btnArray = [];
@@ -260,7 +261,7 @@ class Sell extends React.Component {
     // }
   
     listing["property_type"] = propertyTypes[propType];
-
+    console.log(listing["property_type"])
     this.setState({
       listing: listing,
     })

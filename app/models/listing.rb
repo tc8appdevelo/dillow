@@ -56,8 +56,32 @@ class Listing < ApplicationRecord
     end
 
     def self.is_property_type(property_types)
-        types_arr = property_types.select{ |k, v| v == "true" }.keys.map{ |ele| ele.to_s.downcase }
-        return self.where("lower(property_type) IN (:arr)", arr: types_arr)
+        all_types_hash = {
+            house: "House",
+            town_home: "Townhome",
+            multi_family: "Multi-family",
+            condo: "Condo",
+            co_op: "Co-op",
+            land: "Land",
+            lot: "Lot",
+            apartment: "Apartment",
+            manufactured: "Manufactured"
+        }
+        types_arr = property_types.select{ |k, v| v == "true" }.keys.map{ |ele| ele }
+
+        arr = all_types_hash.select{ |k,v| types_arr.include?(k.to_s) }.values
+        new_types_arr = []
+        arr.each do |ele|
+            if ele == "Condo"
+                new_types_arr.push("Co-op")
+            end
+            if ele == "Land"
+                new_types_arr.push("Lot")
+            end
+            new_types_arr.push(ele)
+        end
+        
+        return self.where("property_type IN (:arr)", arr: new_types_arr)
     end
 
     def self.has_bedrooms(beds)
