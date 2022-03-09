@@ -87,7 +87,7 @@ listing3.save!
 listing4 = Listing.new(
         user_id: user1.id, price: 443246, state: "TX", city: "Dallas", 
         zip_code: "75216", address: "915 E Woodin Blvd", 
-        property_type: "House", bedrooms: 6, bathrooms: 4, 
+        property_type: "House", bedrooms: 5, bathrooms: 3, 
         year_built: 1998, description: "Test listing description.",
         lot_size: 4323, saves: 0, views: 0,
         heating: "Central Heat-Gas", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
