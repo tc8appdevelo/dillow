@@ -24,12 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         store = configureStore();
     }
-    window.store = store;
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
-    window.actions = actions;
-    window.utils = utils;
-    window.geocodeLatLng = new GeocodeLatLng({}, (listing, id) => store.dispatch(actions.editListing(listing, id)));
+    // window.store = store;
+    // window.getState = store.getState;
+    // window.dispatch = store.dispatch;
+    // window.actions = actions;
+    // window.utils = utils;
+    // window.geocodeLatLng = new GeocodeLatLng({}, (listing, id) => store.dispatch(actions.editListing(listing, id)));
 
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store} />, root);
