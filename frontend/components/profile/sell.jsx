@@ -40,6 +40,7 @@ class Sell extends React.Component {
     this.resetFormValues = this.resetFormValues.bind(this);
     this.handlePropertyClick = this.handlePropertyClick.bind(this);
     this.spawnPropertyTypeButtons = this.spawnPropertyTypeButtons.bind(this);
+
   }
 
   setDemoListing() {
@@ -137,7 +138,6 @@ class Sell extends React.Component {
 
     if (this.state.listing.mainPhotoFile) {
       const mainPhoto = this.state.listing.mainPhotoFile;
-
       formData.append('listing[large_photo]', mainPhoto);
     }
 
@@ -187,7 +187,6 @@ class Sell extends React.Component {
   handleFile(e) {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
-
     fileReader.onloadend = () => {
       this.setState({
         mainPhotoUrl: fileReader.result,
@@ -252,16 +251,9 @@ class Sell extends React.Component {
     let listing = {...this.state.listing}
     let val = e.target.innerHTML;
     
-    
     let propType = Object.keys(propertyTypes).find(key => propertyTypes[key] === val);
-    // if (Object.keys(propertyType).includes(propertyType)) {
-    //   listing["property_type"] = propertyType;
-    // } else {
-    //   listing["property_type"] = "house"
-    // }
   
     listing["property_type"] = propertyTypes[propType];
-    console.log(listing["property_type"])
     this.setState({
       listing: listing,
     })

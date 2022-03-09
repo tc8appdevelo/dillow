@@ -1,4 +1,6 @@
+require 'open-uri'
 class Api::ListingsController < ApplicationController
+
     def index
         #@listings = selling_houses ? current_user.selling_houses : Listing.all
 
@@ -66,6 +68,26 @@ class Api::ListingsController < ApplicationController
     def create
        
         @listing = Listing.new(listing_params)
+        
+        if !listing_params[:large_photo]
+            house = URI.open('https://dillow-seeds.s3.amazonaws.com/default1.png')
+     
+            
+            @listing.large_photo.attach(io: house, filename: 'default1.png')
+            
+            # small1 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_1.png')
+            # small2 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_2.png')
+            # small3 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_3.png')
+            # small4 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_4.png')
+            
+            # if !listing_params[:photos][0]
+            #     @listing.photos.attach(io: small1, filename: 'small2_1.png')
+            #     @listing.photos.attach(io: small2, filename: 'small2_2.png')
+            #     @listing.photos.attach(io: small3, filename: 'small2_3.png')
+            #     @listing.photos.attach(io: small4, filename: 'small2_4.png')
+            # end
+        end
+
         if @listing.save
             @listings = Listing.all
             render :index
