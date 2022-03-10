@@ -1,5 +1,5 @@
 import React from "react";
-
+import HomeMap from "../map/home_map.jsx";
 import DillMapContainer from "../map/dill_map_container"
 import { formatPrice } from "../../utils/format_price";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -107,7 +107,7 @@ class HomePage extends React.Component {
               </div>
 
               <div className="map-flex">
-                <DillMapContainer single="single" singleListing={this.props.listing} />
+                <HomeMap single="single" listing={this.props.listing} />
               </div>
 
               <div className="overview">

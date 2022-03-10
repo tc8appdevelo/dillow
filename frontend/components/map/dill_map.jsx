@@ -55,6 +55,7 @@ class DillMap extends React.Component {
   componentDidUpdate() {
     
     if (this.props.single === "single") {
+      debugger
       this.MarkerManager.createMarkerFromListing(this.props.singleListing)
     } else if (this.props.newQuery) {
       this.locationSearch(this.props.newQuery);

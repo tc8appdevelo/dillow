@@ -116,17 +116,42 @@ class Sell extends React.Component {
     e.preventDefault();
 
     const formData = new FormData();
-
+    let prop_type;
+    if (this.state.listing.property_type === "") {
+      prop_type = "House"
+    } else {
+      prop_type = this.state.listing.property_type;
+    }
+    let bathrooms;
+    if (this.state.listing.bathrooms === "") {
+      bathrooms = 1
+    } else {
+      bathrooms = this.state.listing.bathrooms
+    }
+    let bedrooms;
+    if (this.state.listing.bedrooms === "") {
+      bedrooms = 1
+    } else {
+      bedrooms = this.state.listing.bedrooms
+    }
+    let price;
+    if (this.state.listing.price === "") {
+      price = 1;
+    } else {
+      price = this.state.listing.price;
+    }
     formData.append('listing[user_id]', this.state.listing.user_id);
-    formData.append('listing[price]', this.state.listing.price);
+    formData.append('listing[price]', price);
     formData.append('listing[address]', this.state.listing.address);
     formData.append('listing[city]', this.state.listing.city);
     formData.append('listing[state]', this.state.listing.state);
     formData.append('listing[zip_code]', this.state.listing.zip_code);
-    formData.append('listing[bedrooms]', this.state.listing.bedrooms);
-    formData.append('listing[bathrooms]', this.state.listing.bathrooms);
     formData.append('listing[lot_size]', this.state.listing.lot_size);
-    formData.append('listing[property_type]', this.state.listing.property_type);
+
+    formData.append('listing[bedrooms]', bedrooms);
+    formData.append('listing[bathrooms]', bathrooms);
+    formData.append('listing[property_type]', prop_type);
+
     formData.append('listing[year_built]', this.state.listing.year_built);
     formData.append('listing[description]', this.state.listing.description);
     formData.append('listing[parking]', this.state.listing.parking);

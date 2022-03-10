@@ -5,9 +5,10 @@
 }
 
 .home-map--wrap {
-  height: 555px;
-  flex-direction: row;
-
+    width: 555px;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 6;
 }
 
 .state-input {

@@ -8,25 +8,25 @@ const getCoordsObj = latLng => ({
   lng: latLng.lng()
 });
 
-const mapOptions = {
-  center: {
-    lat: 40.712776,
-    lng: -74.005974
-  },
-  zoom: 4,
-  styles: [
-    {
-      featureType: "poi",
-      elementType: "labels",
-      stylers: [{ visibility: "off" }],
-    },
-    {
-      featureType: "transit",
-      elementType: "labels.icon",
-      stylers: [{ visibility: "off" }],
-    },
-  ],
-};
+// const mapOptions = {
+//   center: {
+//     lat: 40.712776,
+//     lng: -74.005974
+//   },
+//   zoom: 4,
+//   styles: [
+//     {
+//       featureType: "poi",
+//       elementType: "labels",
+//       stylers: [{ visibility: "off" }],
+//     },
+//     {
+//       featureType: "transit",
+//       elementType: "labels.icon",
+//       stylers: [{ visibility: "off" }],
+//     },
+//   ],
+// };
 
 
 class HomeMap extends React.Component {
@@ -37,23 +37,32 @@ class HomeMap extends React.Component {
 
   componentDidMount() {
     const map = this.refs.map
+
+    const mapOptions = {
+      center: {
+        lat: this.props.listing.lat,
+        lng: this.props.listing.long
+      },
+      zoom: 10,
+      styles: [
+        {
+          featureType: "poi",
+          elementType: "labels",
+          stylers: [{ visibility: "off" }],
+        },
+        {
+          featureType: "transit",
+          elementType: "labels.icon",
+          stylers: [{ visibility: "off" }],
+        },
+      ],
+    };
+    
     this.map = new google.maps.Map(map, mapOptions);
-
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-    if (this.props.single === "single") {
-      this.MarkerManager.createMarkerFromListing(this.props.singleListing);
-    } else if (this.props.listings[0]) {
-      this.MarkerManager.updateMarkers(this.props.listings)
-    }
+    this.MarkerManager.createMarkerFromListing(this.props.listing);
   }
 
-  componentDidUpdate() {
-    if (this.props.single === "single") {
-      this.MarkerManager.createMarkerFromListing(this.props.singleListing)
-    } else {
-      this.MarkerManager.updateMarkers(this.props.listings)
-    }
-  }
 
   handleMarkerClick(listing) {
     if (this.props.single === "single") {

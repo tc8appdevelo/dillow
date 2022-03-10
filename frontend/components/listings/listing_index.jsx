@@ -373,9 +373,8 @@ class ListingIndex extends React.Component {
                             <div className="search-btn--save" onClick={this.handleClearSearch}>Clear Search</div>
                         </div>
                         <div id="listings-map-homes">
-                        {homePage ? 
-                                <DillMap single="single" updateFilter={this.props.updateFilter} listings={this.props.listings} singleListing={currentListing} />
-                                : <DillMap newQuery={newQuery} queryCompleted={this.queryCompleted} filters={this.props.filters} updateFilter={this.props.updateFilter} listings={this.props.listings} handleMarkerClick={this.showModal} />}
+                        
+                                <DillMap newQuery={newQuery} queryCompleted={this.queryCompleted} filters={this.props.filters} updateFilter={this.props.updateFilter} listings={this.props.listings} handleMarkerClick={this.showModal} />
                             <div id="homes-list-wrapper">
                                 <div id="homes-wrap">
                                     {this.props.listings[0] ?
