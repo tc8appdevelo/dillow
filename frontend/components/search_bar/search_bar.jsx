@@ -55,7 +55,7 @@ class SearchBar extends React.Component {
                         <div className="places-search-flex">
                             <input
                                 type="text"
-                                placeholder='Enter a state, city, or ZIP code'
+                                placeholder='Enter location (suggested: NYC or Dallas)'
                                 className="splash-search-textarea"
                                 value={this.state.location}
                                 onChange={this.handleLocationChange}>
