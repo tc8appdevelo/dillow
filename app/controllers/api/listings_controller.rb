@@ -37,7 +37,7 @@ class Api::ListingsController < ApplicationController
             end
 
             
-
+            
             @listings = @beds_baths_listings
 
             # if params[:state] && (params[:state] != "none")

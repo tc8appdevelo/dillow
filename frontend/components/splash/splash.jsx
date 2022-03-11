@@ -43,7 +43,7 @@ class Splash extends React.Component {
                         </a>
                     </div>
                 </div>
-                {/* <GeocodeListingContainer /> */}
+                <GeocodeListingContainer />
             </div>
         )
     }

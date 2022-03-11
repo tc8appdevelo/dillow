@@ -230,6 +230,146 @@ ny_listing8.photos.attach(io: small39, filename: 'small2_3.png')
 ny_listing8.photos.attach(io: small49, filename: 'small2_4.png')
 ny_listing8.save!
 
+l1 = Listing.new(
+        user_id: user2.id, price: 343255, state: "TX", city: "Dallas", 
+        zip_code: "75216", address: "4019 Biglow St", 
+        property_type: "House", bedrooms: 3, bathrooms: 2, 
+        year_built: 1999, description: "Test listing description.",
+        lot_size: 4223, saves: 0, views: 0,
+        heating: "Central, electric", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
+)
+h1 = URI.open('https://dillow-seeds.s3.amazonaws.com/houseNew1.png')
+s1 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_1.png')
+s2 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_2.png')
+s3 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_3.png')
+s4 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_4.png')
+l1.large_photo.attach(io: h1, filename: 'houseNew1.png')
+l1.photos.attach(io: s1, filename: 'small2_1.png')
+l1.photos.attach(io: s2, filename: 'small2_2.png')
+l1.photos.attach(io: s3, filename: 'small2_3.png')
+l1.photos.attach(io: s4, filename: 'small2_4.png')
+l1.save!
+
+l2 = Listing.new(
+        user_id: user2.id, price: 343255, state: "TX", city: "Dallas", 
+        zip_code: "75211", address: "2818 Remond Dr", 
+        property_type: "House", bedrooms: 5, bathrooms: 4, 
+        year_built: 1999, description: "Test listing description.",
+        lot_size: 4223, saves: 0, views: 0,
+        heating: "Central, electric", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
+)
+h2 = URI.open('https://dillow-seeds.s3.amazonaws.com/houseNew2.png')
+s11 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_1.png')
+s22 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_2.png')
+s33 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_3.png')
+s44 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_4.png')
+l2.large_photo.attach(io: h2, filename: 'houseNew2.png')
+l2.photos.attach(io: s11, filename: 'small2_1.png')
+l2.photos.attach(io: s22, filename: 'small2_2.png')
+l2.photos.attach(io: s33, filename: 'small2_3.png')
+l2.photos.attach(io: s44, filename: 'small2_4.png')
+l2.save!
+
+l3 = Listing.new(
+        user_id: user2.id, price: 790000, state: "TX", city: "Dallas", 
+        zip_code: "75238", address: "9518 Estate Ln", 
+        property_type: "House", bedrooms: 4, bathrooms: 3, 
+        year_built: 1999, description: "Test listing description.",
+        lot_size: 4223, saves: 0, views: 0,
+        heating: "Central, electric", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
+)
+h3 = URI.open('https://dillow-seeds.s3.amazonaws.com/houseNew3.png')
+s111 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_1.png')
+s222 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_2.png')
+s333 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_3.png')
+s444 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_4.png')
+l3.large_photo.attach(io: h3, filename: 'houseNew3.png')
+l3.photos.attach(io: s111, filename: 'small2_1.png')
+l3.photos.attach(io: s222, filename: 'small2_2.png')
+l3.photos.attach(io: s333, filename: 'small2_3.png')
+l3.photos.attach(io: s444, filename: 'small2_4.png')
+l3.save!
+
+l4 = Listing.new(
+        user_id: user2.id, price: 589000, state: "TX", city: "Dallas", 
+        zip_code: "75229", address: "3259 Norcross Ln", 
+        property_type: "House", bedrooms: 5, bathrooms: 4, 
+        year_built: 1999, description: "Test listing description.",
+        lot_size: 4223, saves: 0, views: 0,
+        heating: "Central, electric", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
+)
+h4 = URI.open('https://dillow-seeds.s3.amazonaws.com/houseNew4.png')
+s1111 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_1.png')
+s2222= URI.open('https://dillow-seeds.s3.amazonaws.com/small2_2.png')
+s3333 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_3.png')
+s4444 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_4.png')
+l4.large_photo.attach(io: h4, filename: 'houseNew4.png')
+l4.photos.attach(io: s1111, filename: 'small2_1.png')
+l4.photos.attach(io: s2222, filename: 'small2_2.png')
+l4.photos.attach(io: s3333, filename: 'small2_3.png')
+l4.photos.attach(io: s4444, filename: 'small2_4.png')
+l4.save!
+
+l5 = Listing.new(
+        user_id: user2.id, price: 444000, state: "TX", city: "Dallas", 
+        zip_code: "75231", address: "6949 Winchester St", 
+        property_type: "House", bedrooms: 3, bathrooms: 2, 
+        year_built: 1999, description: "Test listing description.",
+        lot_size: 4223, saves: 0, views: 0,
+        heating: "Central, electric", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
+)
+h5 = URI.open('https://dillow-seeds.s3.amazonaws.com/houseNew5.png')
+s11111 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_1.png')
+s22222 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_2.png')
+s33333 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_3.png')
+s44444 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_4.png')
+l5.large_photo.attach(io: h5, filename: 'houseNew5.png')
+l5.photos.attach(io: s11111, filename: 'small2_1.png')
+l5.photos.attach(io: s22222, filename: 'small2_2.png')
+l5.photos.attach(io: s33333, filename: 'small2_3.png')
+l5.photos.attach(io: s44444, filename: 'small2_4.png')
+l5.save!
+
+l6 = Listing.new(
+        user_id: user2.id, price: 898000, state: "NY", city: "South Richmond Hill", 
+        zip_code: "11419", address: "104-49 115th St", 
+        property_type: "House", bedrooms: 3, bathrooms: 2, 
+        year_built: 1999, description: "Test listing description.",
+        lot_size: 4223, saves: 0, views: 0,
+        heating: "Central, electric", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
+)
+h6 = URI.open('https://dillow-seeds.s3.amazonaws.com/houseNew6.png')
+s111111 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_1.png')
+s222222 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_2.png')
+s333333 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_3.png')
+s444444 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_4.png')
+l6.large_photo.attach(io: h6, filename: 'houseNew6.png')
+l6.photos.attach(io: s111111, filename: 'small2_1.png')
+l6.photos.attach(io: s222222, filename: 'small2_2.png')
+l6.photos.attach(io: s333333, filename: 'small2_3.png')
+l6.photos.attach(io: s444444, filename: 'small2_4.png')
+l6.save!
+
+l7 = Listing.new(
+        user_id: user2.id, price: 699999, state: "NY", city: "Bronx", 
+        zip_code: "10473", address: "227 Newman Ave", 
+        property_type: "House", bedrooms: 3, bathrooms: 2, 
+        year_built: 1999, description: "Test listing description.",
+        lot_size: 4223, saves: 0, views: 0,
+        heating: "Central, electric", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
+)
+h7 = URI.open('https://dillow-seeds.s3.amazonaws.com/houseNew7.png')
+s1111111 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_1.png')
+s2222222 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_2.png')
+s3333333 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_3.png')
+s4444444 = URI.open('https://dillow-seeds.s3.amazonaws.com/small2_4.png')
+l7.large_photo.attach(io: h7, filename: 'houseNew7.png')
+l7.photos.attach(io: s1111111, filename: 'small2_1.png')
+l7.photos.attach(io: s2222222, filename: 'small2_2.png')
+l7.photos.attach(io: s3333333, filename: 'small2_3.png')
+l7.photos.attach(io: s4444444, filename: 'small2_4.png')
+l7.save!
+
 
 # ny_listing5 = Listing.new(
 #         user_id: user1.id, price: 599000, state: "NY", city: "Staten Island",
