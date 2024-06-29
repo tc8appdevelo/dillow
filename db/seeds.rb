@@ -112,6 +112,7 @@ listing5 = Listing.new(
         lot_size: 1324, saves: 0, views: 0,
         heating: "Fireplace fire-wood", cooling: "Central Air-Elec", parking: "2 Garage spaces", sqft: 2500
 )
+
 file5 = URI.open('https://dillow-seeds.s3.amazonaws.com/house5.png')s3://dillow-app-dev/1agv6yi4x1xua48qa4qvk0xk3zu2
 small15 = URI.open('https://dillow-seeds.s3.amazonaws.com/mow2.png')
 small25 = URI.open('https://dillow-seeds.s3.amazonaws.com/mow3.png')
