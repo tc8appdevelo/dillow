@@ -24,8 +24,9 @@ default: &default
 development:
   adapter: postgresql
   host: localhost
-  username: user
-  database: app-dev
+  database: <%= Rails.application.credentials.production[:database] %>
+  username: <%= Rails.application.credentials.production[:username] %>
+  password: <%= Rails.application.credentials.production[:password] %>
 
 # development:
 #   <<: *default
